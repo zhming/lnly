@@ -6,15 +6,14 @@ import java.util.Date;
 /**
  * Created by monsoon on 2017-07-02.
  */
-public class CountryCompensationStandard implements Serializable {
+public class LocalCompensationStandard implements Serializable {
     private static final long serialVersionUID = 1L;
     private Long id;
     private Integer year;
     private String city;
     private String county;
     private Double area;
-    private String countryZbje;
-    private String otherZbje;
+    private String je;
     private String comment;
     private String createUser;
     private String updateUser;
@@ -62,20 +61,12 @@ public class CountryCompensationStandard implements Serializable {
         this.area = area;
     }
 
-    public String getCountryZbje() {
-        return countryZbje;
+    public String getJe() {
+        return je;
     }
 
-    public void setCountryZbje(String countryZbje) {
-        this.countryZbje = countryZbje;
-    }
-
-    public String getOtherZbje() {
-        return otherZbje;
-    }
-
-    public void setOtherZbje(String otherZbje) {
-        this.otherZbje = otherZbje;
+    public void setJe(String je) {
+        this.je = je;
     }
 
     public String getComment() {

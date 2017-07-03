@@ -1,4 +1,4 @@
-package com.sojson.core.mybatis.page;
+package com.lnly.core.mybatis.page;
 
 /**
  * 

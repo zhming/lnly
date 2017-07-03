@@ -1,10 +1,10 @@
-package com.sojson.common.dao;
+package com.lnly.common.dao;
 
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
-import com.sojson.common.model.URole;
+import com.lnly.common.model.URole;
 
 public interface URoleMapper {
     int deleteByPrimaryKey(Long id);

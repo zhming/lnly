@@ -1,4 +1,4 @@
-package com.sojson.core.shiro.session;
+package com.lnly.core.shiro.session;
 
 import org.apache.shiro.session.Session;
 

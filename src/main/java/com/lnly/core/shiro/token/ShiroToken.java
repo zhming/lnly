@@ -1,4 +1,4 @@
-package com.sojson.core.shiro.token;
+package com.lnly.core.shiro.token;
 
 import org.apache.shiro.authc.UsernamePasswordToken;
 /**

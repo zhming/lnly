@@ -14,7 +14,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		<meta charset="utf-8" />
 		<%--不知道这里的basePath 设置没用 --%>
 		<base href="<%=basePath%>"/>
-		<title>用户角色分配 - 权限管理</title>
+		<title>辽宁省林业厅生态公益林管理系统-用户角色分配-权限管理</title>
     	<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport" />
 		<link   rel="shortcut icon" href="<%=basePath%>/favicon.ico" />
 		<link href="<%=basePath%>/js/common/bootstrap/3.3.5/css/bootstrap.min.css" rel="stylesheet"/>

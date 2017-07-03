@@ -1,4 +1,4 @@
-package com.sojson.common.utils;
+package com.lnly.common.utils;
 
 import java.awt.Color;
 import java.awt.Font;
@@ -16,7 +16,7 @@ import java.util.Random;
 
 import javax.imageio.ImageIO;
 
-import com.sojson.core.shiro.token.manager.TokenManager;
+import com.lnly.core.shiro.token.manager.TokenManager;
   
 public class VerifyCodeUtils{  
   

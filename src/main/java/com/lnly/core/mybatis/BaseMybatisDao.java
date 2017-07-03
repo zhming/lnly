@@ -1,4 +1,4 @@
-package com.sojson.core.mybatis;
+package com.lnly.core.mybatis;
 
 import java.lang.reflect.ParameterizedType;
 import java.sql.Connection;
@@ -16,10 +16,10 @@ import org.apache.ibatis.mapping.ParameterMapping;
 import org.apache.ibatis.session.Configuration;
 import org.mybatis.spring.support.SqlSessionDaoSupport;
 
-import com.sojson.common.utils.LoggerUtils;
-import com.sojson.common.utils.StringUtils;
-import com.sojson.core.mybatis.page.MysqlDialect;
-import com.sojson.core.mybatis.page.Pagination;
+import com.lnly.common.utils.LoggerUtils;
+import com.lnly.common.utils.StringUtils;
+import com.lnly.core.mybatis.page.MysqlDialect;
+import com.lnly.core.mybatis.page.Pagination;
 
 @SuppressWarnings( { "unchecked" })
 public class BaseMybatisDao<T> extends SqlSessionDaoSupport {

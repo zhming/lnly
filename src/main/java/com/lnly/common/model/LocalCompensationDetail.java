@@ -6,10 +6,11 @@ import java.util.Date;
 /**
  * Created by monsoon on 2017-07-02.
  */
-public class CountryCompensationDetail implements Serializable {
+public class LocalCompensationDetail implements Serializable {
+
     private static final long serialVersionUID = 1L;
     private Long id;
-    private String   city;
+    private String  city;
     private String county;
     private String town;
     private String village;
@@ -27,7 +28,7 @@ public class CountryCompensationDetail implements Serializable {
     private Integer year;
     private Double area;
     private Double compensationStandard;
-    private Double compensation_amount;
+    private Double compensationAmount;
     private String remitNum;
     private String remitUserName;
     private char sendFlag;
@@ -190,12 +191,12 @@ public class CountryCompensationDetail implements Serializable {
         this.compensationStandard = compensationStandard;
     }
 
-    public Double getCompensation_amount() {
-        return compensation_amount;
+    public Double getCompensationAmount() {
+        return compensationAmount;
     }
 
-    public void setCompensation_amount(Double compensation_amount) {
-        this.compensation_amount = compensation_amount;
+    public void setCompensationAmount(Double compensationAmount) {
+        this.compensationAmount = compensationAmount;
     }
 
     public String getRemitNum() {

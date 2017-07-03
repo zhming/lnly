@@ -1,12 +1,12 @@
-package com.sojson.permission.service;
+package com.lnly.permission.service;
 
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
-import com.sojson.common.model.UPermission;
-import com.sojson.core.mybatis.page.Pagination;
-import com.sojson.permission.bo.UPermissionBo;
+import com.lnly.common.model.UPermission;
+import com.lnly.core.mybatis.page.Pagination;
+import com.lnly.permission.bo.UPermissionBo;
 
 public interface PermissionService {
 

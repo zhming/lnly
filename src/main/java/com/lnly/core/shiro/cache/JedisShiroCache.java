@@ -1,4 +1,4 @@
-package com.sojson.core.shiro.cache;
+package com.lnly.core.shiro.cache;
 
 import java.util.Collection;
 import java.util.Set;
@@ -6,8 +6,8 @@ import java.util.Set;
 import org.apache.shiro.cache.Cache;
 import org.apache.shiro.cache.CacheException;
 
-import com.sojson.common.utils.LoggerUtils;
-import com.sojson.common.utils.SerializeUtil;
+import com.lnly.common.utils.LoggerUtils;
+import com.lnly.common.utils.SerializeUtil;
 
 /**
  * 

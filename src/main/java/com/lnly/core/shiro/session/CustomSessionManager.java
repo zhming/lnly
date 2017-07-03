@@ -1,4 +1,4 @@
-package com.sojson.core.shiro.session;
+package com.lnly.core.shiro.session;
 
 
 import java.util.ArrayList;
@@ -13,11 +13,11 @@ import org.apache.shiro.subject.SimplePrincipalCollection;
 import org.apache.shiro.subject.support.DefaultSubjectContext;
 import org.springframework.beans.factory.annotation.Autowired;
 
-import com.sojson.common.model.UUser;
-import com.sojson.common.utils.LoggerUtils;
-import com.sojson.common.utils.StringUtils;
-import com.sojson.core.shiro.CustomShiroSessionDAO;
-import com.sojson.user.bo.UserOnlineBo;
+import com.lnly.common.model.UUser;
+import com.lnly.common.utils.LoggerUtils;
+import com.lnly.common.utils.StringUtils;
+import com.lnly.core.shiro.CustomShiroSessionDAO;
+import com.lnly.user.bo.UserOnlineBo;
 /**
  * 
  * 开发公司：SOJSON在线工具 <p>

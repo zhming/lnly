@@ -1,15 +1,15 @@
-package com.sojson.core.shiro.cache;
+package com.lnly.core.shiro.cache;
 
 import java.io.Serializable;
 import java.util.Collection;
 
 import org.apache.shiro.session.Session;
 
-import com.sojson.common.utils.LoggerUtils;
-import com.sojson.common.utils.SerializeUtil;
-import com.sojson.core.shiro.session.CustomSessionManager;
-import com.sojson.core.shiro.session.SessionStatus;
-import com.sojson.core.shiro.session.ShiroSessionRepository;
+import com.lnly.common.utils.LoggerUtils;
+import com.lnly.common.utils.SerializeUtil;
+import com.lnly.core.shiro.session.CustomSessionManager;
+import com.lnly.core.shiro.session.SessionStatus;
+import com.lnly.core.shiro.session.ShiroSessionRepository;
 /**
  * Session 管理
  * @author sojson.com

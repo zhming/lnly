@@ -1,10 +1,10 @@
-package com.sojson.core.shiro.cache.impl;
+package com.lnly.core.shiro.cache.impl;
 
 import org.apache.shiro.cache.Cache;
 
-import com.sojson.core.shiro.cache.JedisManager;
-import com.sojson.core.shiro.cache.JedisShiroCache;
-import com.sojson.core.shiro.cache.ShiroCacheManager;
+import com.lnly.core.shiro.cache.JedisManager;
+import com.lnly.core.shiro.cache.JedisShiroCache;
+import com.lnly.core.shiro.cache.ShiroCacheManager;
 
 /**
  * 

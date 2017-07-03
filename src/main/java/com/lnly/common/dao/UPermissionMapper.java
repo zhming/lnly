@@ -1,10 +1,10 @@
-package com.sojson.common.dao;
+package com.lnly.common.dao;
 
 import java.util.List;
 import java.util.Set;
 
-import com.sojson.common.model.UPermission;
-import com.sojson.permission.bo.UPermissionBo;
+import com.lnly.common.model.UPermission;
+import com.lnly.permission.bo.UPermissionBo;
 
 public interface UPermissionMapper {
     int deleteByPrimaryKey(Long id);

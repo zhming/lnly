@@ -1,10 +1,10 @@
-package com.sojson.core.tags;
+package com.lnly.core.tags;
 
 
 import java.io.IOException;
 import java.util.Map;
 
-import com.sojson.core.freemarker.utils.FreemarkerTagUtil;
+import com.lnly.core.freemarker.utils.FreemarkerTagUtil;
 
 import freemarker.core.Environment;
 import freemarker.template.TemplateDirectiveBody;

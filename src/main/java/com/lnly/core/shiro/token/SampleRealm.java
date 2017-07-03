@@ -1,4 +1,4 @@
-package com.sojson.core.shiro.token;
+package com.lnly.core.shiro.token;
 
 import java.util.Date;
 import java.util.Set;
@@ -17,11 +17,11 @@ import org.apache.shiro.subject.PrincipalCollection;
 import org.apache.shiro.subject.SimplePrincipalCollection;
 import org.springframework.beans.factory.annotation.Autowired;
 
-import com.sojson.common.model.UUser;
-import com.sojson.core.shiro.token.manager.TokenManager;
-import com.sojson.permission.service.PermissionService;
-import com.sojson.permission.service.RoleService;
-import com.sojson.user.service.UUserService;
+import com.lnly.common.model.UUser;
+import com.lnly.core.shiro.token.manager.TokenManager;
+import com.lnly.permission.service.PermissionService;
+import com.lnly.permission.service.RoleService;
+import com.lnly.user.service.UUserService;
 
 
 /**

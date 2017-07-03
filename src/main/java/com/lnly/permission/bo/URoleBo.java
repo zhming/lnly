@@ -1,9 +1,9 @@
-package com.sojson.permission.bo;
+package com.lnly.permission.bo;
 
 import java.io.Serializable;
 
-import com.sojson.common.model.URole;
-import com.sojson.common.utils.StringUtils;
+import com.lnly.common.model.URole;
+import com.lnly.common.utils.StringUtils;
 
 public class URoleBo extends URole implements Serializable{
 	private static final long serialVersionUID = 1L;

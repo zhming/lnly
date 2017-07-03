@@ -1,4 +1,4 @@
-package com.sojson.core.shiro.cache;
+package com.lnly.core.shiro.cache;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -7,8 +7,8 @@ import java.util.TreeSet;
 
 import redis.clients.jedis.Jedis;
 
-import com.sojson.common.utils.SerializeUtil;
-import com.sojson.common.utils.SpringContextUtil;
+import com.lnly.common.utils.SerializeUtil;
+import com.lnly.common.utils.SpringContextUtil;
 /**
  * 
  * 开发公司：SOJSON在线工具 <p>

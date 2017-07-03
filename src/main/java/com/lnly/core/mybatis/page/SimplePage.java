@@ -1,4 +1,4 @@
-package com.sojson.core.mybatis.page;
+package com.lnly.core.mybatis.page;
 
 public class SimplePage implements Paginable {
 	private static final long serialVersionUID = 1L;

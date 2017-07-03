@@ -1,9 +1,9 @@
-package com.sojson.permission.bo;
+package com.lnly.permission.bo;
 
 import java.io.Serializable;
 
-import com.sojson.common.model.UPermission;
-import com.sojson.common.utils.StringUtils;
+import com.lnly.common.model.UPermission;
+import com.lnly.common.utils.StringUtils;
 
 /**
  * 

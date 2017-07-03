@@ -1,4 +1,4 @@
-package com.sojson.common.controller;
+package com.lnly.common.controller;
 
 import java.util.HashMap;
 import java.util.Iterator;
@@ -15,7 +15,7 @@ import org.apache.log4j.Logger;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.view.RedirectView;
 
-import com.sojson.common.utils.StringUtils;
+import com.lnly.common.utils.StringUtils;
 
 /**
  * 

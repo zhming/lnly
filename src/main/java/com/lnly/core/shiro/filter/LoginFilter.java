@@ -1,4 +1,4 @@
-package com.sojson.core.shiro.filter;
+package com.lnly.core.shiro.filter;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -8,9 +8,9 @@ import javax.servlet.ServletResponse;
 
 import org.apache.shiro.web.filter.AccessControlFilter;
 
-import com.sojson.common.model.UUser;
-import com.sojson.common.utils.LoggerUtils;
-import com.sojson.core.shiro.token.manager.TokenManager;
+import com.lnly.common.model.UUser;
+import com.lnly.common.utils.LoggerUtils;
+import com.lnly.core.shiro.token.manager.TokenManager;
 /**
  * 
  * 开发公司：SOJSON在线工具 <p>

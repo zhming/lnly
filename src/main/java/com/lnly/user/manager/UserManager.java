@@ -1,14 +1,14 @@
-package com.sojson.user.manager;
+package com.lnly.user.manager;
 
 import java.util.LinkedHashMap;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
 
-import com.sojson.common.model.UPermission;
-import com.sojson.common.model.URole;
-import com.sojson.common.model.UUser;
-import com.sojson.common.utils.MathUtil;
+import com.lnly.common.model.UPermission;
+import com.lnly.common.model.URole;
+import com.lnly.common.model.UUser;
+import com.lnly.common.utils.MathUtil;
 
 public class UserManager {
 	

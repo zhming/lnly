@@ -1,4 +1,4 @@
-package com.sojson.common.utils;
+package com.lnly.common.utils;
 
 import org.springframework.beans.BeansException;
 import org.springframework.beans.factory.NoSuchBeanDefinitionException;

@@ -1,4 +1,4 @@
-package com.sojson.permission.service.impl;
+package com.lnly.permission.service.impl;
 
 import java.util.HashMap;
 import java.util.List;
@@ -8,19 +8,19 @@ import java.util.Set;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.sojson.common.dao.UPermissionMapper;
-import com.sojson.common.dao.URolePermissionMapper;
-import com.sojson.common.dao.UUserMapper;
-import com.sojson.common.dao.UUserRoleMapper;
-import com.sojson.common.model.UPermission;
-import com.sojson.common.model.URolePermission;
-import com.sojson.common.utils.LoggerUtils;
-import com.sojson.common.utils.StringUtils;
-import com.sojson.core.mybatis.BaseMybatisDao;
-import com.sojson.core.mybatis.page.Pagination;
-import com.sojson.core.shiro.token.manager.TokenManager;
-import com.sojson.permission.bo.UPermissionBo;
-import com.sojson.permission.service.PermissionService;
+import com.lnly.common.dao.UPermissionMapper;
+import com.lnly.common.dao.URolePermissionMapper;
+import com.lnly.common.dao.UUserMapper;
+import com.lnly.common.dao.UUserRoleMapper;
+import com.lnly.common.model.UPermission;
+import com.lnly.common.model.URolePermission;
+import com.lnly.common.utils.LoggerUtils;
+import com.lnly.common.utils.StringUtils;
+import com.lnly.core.mybatis.BaseMybatisDao;
+import com.lnly.core.mybatis.page.Pagination;
+import com.lnly.core.shiro.token.manager.TokenManager;
+import com.lnly.permission.bo.UPermissionBo;
+import com.lnly.permission.service.PermissionService;
 @Service
 public class PermissionServiceImpl extends BaseMybatisDao<UPermissionMapper> implements PermissionService {
 

@@ -1,12 +1,12 @@
-package com.sojson.permission.service;
+package com.lnly.permission.service;
 
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
-import com.sojson.common.model.URole;
-import com.sojson.core.mybatis.page.Pagination;
-import com.sojson.permission.bo.RolePermissionAllocationBo;
+import com.lnly.common.model.URole;
+import com.lnly.core.mybatis.page.Pagination;
+import com.lnly.permission.bo.RolePermissionAllocationBo;
 
 public interface RoleService {
 

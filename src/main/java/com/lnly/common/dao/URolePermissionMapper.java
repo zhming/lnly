@@ -1,9 +1,9 @@
-package com.sojson.common.dao;
+package com.lnly.common.dao;
 
 import java.util.List;
 import java.util.Map;
 
-import com.sojson.common.model.URolePermission;
+import com.lnly.common.model.URolePermission;
 
 public interface URolePermissionMapper {
     int insert(URolePermission record);

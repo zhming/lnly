@@ -1,4 +1,4 @@
-package com.sojson.user.controller;
+package com.lnly.user.controller;
 
 import java.util.Date;
 import java.util.Map;
@@ -18,14 +18,14 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
-import com.sojson.common.controller.BaseController;
-import com.sojson.common.model.UUser;
-import com.sojson.common.utils.LoggerUtils;
-import com.sojson.common.utils.StringUtils;
-import com.sojson.common.utils.VerifyCodeUtils;
-import com.sojson.core.shiro.token.manager.TokenManager;
-import com.sojson.user.manager.UserManager;
-import com.sojson.user.service.UUserService;
+import com.lnly.common.controller.BaseController;
+import com.lnly.common.model.UUser;
+import com.lnly.common.utils.LoggerUtils;
+import com.lnly.common.utils.StringUtils;
+import com.lnly.common.utils.VerifyCodeUtils;
+import com.lnly.core.shiro.token.manager.TokenManager;
+import com.lnly.user.manager.UserManager;
+import com.lnly.user.service.UUserService;
 
 /**
  * 

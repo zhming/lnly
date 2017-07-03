@@ -1,4 +1,4 @@
-package com.sojson.core.shiro.filter;
+package com.lnly.core.shiro.filter;
 
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -16,9 +16,9 @@ import org.apache.shiro.subject.Subject;
 import org.apache.shiro.web.filter.AccessControlFilter;
 import org.apache.shiro.web.util.WebUtils;
 
-import com.sojson.common.utils.LoggerUtils;
-import com.sojson.core.shiro.session.CustomSessionManager;
-import com.sojson.core.shiro.session.SessionStatus;
+import com.lnly.common.utils.LoggerUtils;
+import com.lnly.core.shiro.session.CustomSessionManager;
+import com.lnly.core.shiro.session.SessionStatus;
 
 /**
  * 

@@ -1,4 +1,4 @@
-package com.sojson.core.freemarker.extend;
+package com.lnly.core.freemarker.extend;
 
 import java.util.Date;
 import java.util.Map;
@@ -7,10 +7,10 @@ import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.web.servlet.view.freemarker.FreeMarkerView;
 
-import com.sojson.common.model.UUser;
-import com.sojson.common.utils.LoggerUtils;
-import com.sojson.core.shiro.token.manager.TokenManager;
-import com.sojson.core.statics.Constant;
+import com.lnly.common.model.UUser;
+import com.lnly.common.utils.LoggerUtils;
+import com.lnly.core.shiro.token.manager.TokenManager;
+import com.lnly.core.statics.Constant;
 public class FreeMarkerViewExtend extends FreeMarkerView {
 	
 	protected void exposeHelpers(Map<String, Object> model, HttpServletRequest request){

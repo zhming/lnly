@@ -1,8 +1,8 @@
-package com.sojson.permission.bo;
+package com.lnly.permission.bo;
 
 import java.io.Serializable;
 
-import com.sojson.common.model.UUser;
+import com.lnly.common.model.UUser;
 /**
  * 用户角色分配 查询列表BO
  * @author zhou-baicheng

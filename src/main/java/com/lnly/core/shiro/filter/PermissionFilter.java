@@ -1,4 +1,4 @@
-package com.sojson.core.shiro.filter;
+package com.lnly.core.shiro.filter;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -13,7 +13,7 @@ import org.apache.shiro.util.StringUtils;
 import org.apache.shiro.web.filter.AccessControlFilter;
 import org.apache.shiro.web.util.WebUtils;
 
-import com.sojson.common.utils.LoggerUtils;
+import com.lnly.common.utils.LoggerUtils;
 /**
  * 
  * 开发公司：SOJSON在线工具 <p>

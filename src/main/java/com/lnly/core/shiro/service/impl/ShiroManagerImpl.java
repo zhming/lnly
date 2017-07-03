@@ -1,4 +1,4 @@
-package com.sojson.core.shiro.service.impl;
+package com.lnly.core.shiro.service.impl;
 
 import java.io.IOException;
 import java.util.Map;
@@ -13,9 +13,9 @@ import org.apache.shiro.web.servlet.AbstractShiroFilter;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.io.ClassPathResource;
 
-import com.sojson.common.utils.LoggerUtils;
-import com.sojson.core.config.INI4j;
-import com.sojson.core.shiro.service.ShiroManager;
+import com.lnly.common.utils.LoggerUtils;
+import com.lnly.core.config.INI4j;
+import com.lnly.core.shiro.service.ShiroManager;
 /**
  * 
  * 开发公司：SOJSON在线工具 <p>

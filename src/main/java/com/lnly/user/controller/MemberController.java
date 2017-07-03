@@ -1,4 +1,4 @@
-package com.sojson.user.controller;
+package com.lnly.user.controller;
 
 import java.util.List;
 import java.util.Map;
@@ -13,12 +13,12 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
-import com.sojson.common.controller.BaseController;
-import com.sojson.common.model.UUser;
-import com.sojson.core.mybatis.page.Pagination;
-import com.sojson.core.shiro.session.CustomSessionManager;
-import com.sojson.user.bo.UserOnlineBo;
-import com.sojson.user.service.UUserService;
+import com.lnly.common.controller.BaseController;
+import com.lnly.common.model.UUser;
+import com.lnly.core.mybatis.page.Pagination;
+import com.lnly.core.shiro.session.CustomSessionManager;
+import com.lnly.user.bo.UserOnlineBo;
+import com.lnly.user.service.UUserService;
 /**
  * 
  * 开发公司：itboy.net<br/>

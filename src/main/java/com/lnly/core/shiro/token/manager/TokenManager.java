@@ -1,4 +1,4 @@
-package com.sojson.core.shiro.token.manager;
+package com.lnly.core.shiro.token.manager;
 
 import java.util.List;
 
@@ -6,11 +6,11 @@ import org.apache.shiro.SecurityUtils;
 import org.apache.shiro.session.Session;
 import org.apache.shiro.subject.SimplePrincipalCollection;
 
-import com.sojson.common.model.UUser;
-import com.sojson.common.utils.SpringContextUtil;
-import com.sojson.core.shiro.session.CustomSessionManager;
-import com.sojson.core.shiro.token.SampleRealm;
-import com.sojson.core.shiro.token.ShiroToken;
+import com.lnly.common.model.UUser;
+import com.lnly.common.utils.SpringContextUtil;
+import com.lnly.core.shiro.session.CustomSessionManager;
+import com.lnly.core.shiro.token.SampleRealm;
+import com.lnly.core.shiro.token.ShiroToken;
 
 
 

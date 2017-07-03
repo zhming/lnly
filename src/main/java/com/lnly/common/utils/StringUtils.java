@@ -1,4 +1,4 @@
-package com.sojson.common.utils;
+package com.lnly.common.utils;
 
 import java.io.Serializable;
 import java.io.UnsupportedEncodingException;

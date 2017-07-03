@@ -1,8 +1,8 @@
-package com.sojson.core.statics;
+package com.lnly.core.statics;
 
 import java.util.Calendar;
 
-import com.sojson.core.config.IConfig;
+import com.lnly.core.config.IConfig;
 
 /**
  * 

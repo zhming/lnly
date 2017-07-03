@@ -1,4 +1,4 @@
-package com.sojson.common.utils;
+package com.lnly.common.utils;
 
 import org.apache.log4j.Logger;
 /**

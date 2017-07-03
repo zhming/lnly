@@ -1,4 +1,4 @@
-package com.sojson.common.utils.vcode;
+package com.lnly.common.utils.vcode;
 
 import java.awt.*;
 import java.awt.image.BufferedImage;

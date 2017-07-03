@@ -1,9 +1,9 @@
-package com.sojson.user.bo;
+package com.lnly.user.bo;
 
 import java.io.Serializable;
 import java.util.Date;
 
-import com.sojson.common.model.UUser;
+import com.lnly.common.model.UUser;
 /**
  * Session  + User Bo
  * @author sojson.com

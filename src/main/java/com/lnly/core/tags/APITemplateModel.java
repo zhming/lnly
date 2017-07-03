@@ -1,13 +1,13 @@
-package com.sojson.core.tags;
+package com.lnly.core.tags;
 
 import static freemarker.template.ObjectWrapper.DEFAULT_WRAPPER;
 
 import java.util.HashMap;
 import java.util.Map;
 
-import com.sojson.common.utils.LoggerUtils;
-import com.sojson.common.utils.SpringContextUtil;
-import com.sojson.core.statics.Constant;
+import com.lnly.common.utils.LoggerUtils;
+import com.lnly.common.utils.SpringContextUtil;
+import com.lnly.core.statics.Constant;
 
 import freemarker.template.TemplateModel;
 import freemarker.template.TemplateModelException;

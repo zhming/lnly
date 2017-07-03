@@ -1,4 +1,4 @@
-package com.sojson.common.utils;
+package com.lnly.common.utils;
 
 import java.io.IOException;
 import java.util.Iterator;

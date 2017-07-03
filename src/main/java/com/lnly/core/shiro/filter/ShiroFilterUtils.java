@@ -1,4 +1,4 @@
-package com.sojson.core.shiro.filter;
+package com.lnly.core.shiro.filter;
 
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -8,7 +8,7 @@ import javax.servlet.ServletRequest;
 import javax.servlet.ServletResponse;
 import javax.servlet.http.HttpServletRequest;
 
-import com.sojson.common.utils.LoggerUtils;
+import com.lnly.common.utils.LoggerUtils;
 
 import net.sf.json.JSONObject;
 

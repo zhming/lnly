@@ -1,4 +1,4 @@
-package com.sojson.core.freemarker.utils;
+package com.lnly.core.freemarker.utils;
 
 import java.util.HashMap;
 import java.util.Map;

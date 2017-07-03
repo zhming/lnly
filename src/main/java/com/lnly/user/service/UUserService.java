@@ -1,14 +1,14 @@
-package com.sojson.user.service;
+package com.lnly.user.service;
 
 import java.util.List;
 import java.util.Map;
 
 import org.springframework.ui.ModelMap;
 
-import com.sojson.common.model.UUser;
-import com.sojson.core.mybatis.page.Pagination;
-import com.sojson.permission.bo.URoleBo;
-import com.sojson.permission.bo.UserRoleAllocationBo;
+import com.lnly.common.model.UUser;
+import com.lnly.core.mybatis.page.Pagination;
+import com.lnly.permission.bo.URoleBo;
+import com.lnly.permission.bo.UserRoleAllocationBo;
 
 public interface UUserService {
 

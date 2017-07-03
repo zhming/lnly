@@ -1,4 +1,4 @@
-package com.sojson.core.shiro;
+package com.lnly.core.shiro;
 
 import java.io.Serializable;
 import java.util.Collection;
@@ -7,8 +7,8 @@ import org.apache.shiro.session.Session;
 import org.apache.shiro.session.UnknownSessionException;
 import org.apache.shiro.session.mgt.eis.AbstractSessionDAO;
 
-import com.sojson.common.utils.LoggerUtils;
-import com.sojson.core.shiro.session.ShiroSessionRepository;
+import com.lnly.common.utils.LoggerUtils;
+import com.lnly.core.shiro.session.ShiroSessionRepository;
 /**
  * 
  * 开发公司：SOJSON在线工具 <p>

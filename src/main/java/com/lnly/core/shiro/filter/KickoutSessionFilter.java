@@ -1,4 +1,4 @@
-package com.sojson.core.shiro.filter;
+package com.lnly.core.shiro.filter;
 
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -18,10 +18,10 @@ import org.apache.shiro.subject.Subject;
 import org.apache.shiro.web.filter.AccessControlFilter;
 import org.apache.shiro.web.util.WebUtils;
 
-import com.sojson.common.utils.LoggerUtils;
-import com.sojson.core.shiro.cache.VCache;
-import com.sojson.core.shiro.session.ShiroSessionRepository;
-import com.sojson.core.shiro.token.manager.TokenManager;
+import com.lnly.common.utils.LoggerUtils;
+import com.lnly.core.shiro.cache.VCache;
+import com.lnly.core.shiro.session.ShiroSessionRepository;
+import com.lnly.core.shiro.token.manager.TokenManager;
 /**
  * 
  * 开发公司：SOJSON在线工具 <p>

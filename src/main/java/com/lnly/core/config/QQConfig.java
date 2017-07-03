@@ -1,9 +1,9 @@
-package com.sojson.core.config;
+package com.lnly.core.config;
 
 import java.io.IOException;
 import java.util.Properties;
 
-import com.sojson.common.utils.LoggerUtils;
+import com.lnly.common.utils.LoggerUtils;
 
 public class QQConfig {
 

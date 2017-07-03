@@ -2,7 +2,7 @@
 <html lang="zh-cn">
     <head>
         <meta charset="utf-8">
-        <title>登录</title>
+        <title>辽宁省林业厅生态公益林管理系统-登录</title>
         <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport" />
         <link   rel="icon" href="${basePath}/favicon.ico" type="image/x-icon" />
 		<link   rel="shortcut icon" href="${basePath}/favicon.ico" />
@@ -26,6 +26,7 @@
                 <input type="text" name="account" class="username" placeholder="Account">
                 <input type="password" name="password" class="password" placeholder="Password">
                 <button type="button" id="login">登录</button>
+			
                 <button type="button" id="register" class="register">注册</button>
 
                 

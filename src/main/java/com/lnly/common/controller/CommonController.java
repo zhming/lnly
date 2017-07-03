@@ -1,4 +1,4 @@
-package com.sojson.common.controller;
+package com.lnly.common.controller;
 
 
 import java.util.Map;
@@ -17,14 +17,14 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.util.UrlPathHelper;
 
-import com.sojson.common.utils.LoggerUtils;
-import com.sojson.common.utils.StringUtils;
-import com.sojson.common.utils.VerifyCodeUtils;
-import com.sojson.common.utils.vcode.Captcha;
-import com.sojson.common.utils.vcode.GifCaptcha;
-import com.sojson.common.utils.vcode.SpecCaptcha;
-import com.sojson.core.shiro.token.manager.TokenManager;
-import com.sojson.permission.service.RoleService;
+import com.lnly.common.utils.LoggerUtils;
+import com.lnly.common.utils.StringUtils;
+import com.lnly.common.utils.VerifyCodeUtils;
+import com.lnly.common.utils.vcode.Captcha;
+import com.lnly.common.utils.vcode.GifCaptcha;
+import com.lnly.common.utils.vcode.SpecCaptcha;
+import com.lnly.core.shiro.token.manager.TokenManager;
+import com.lnly.permission.service.RoleService;
 
 @Controller
 @Scope(value="prototype")

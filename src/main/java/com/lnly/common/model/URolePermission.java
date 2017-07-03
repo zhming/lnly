@@ -1,4 +1,4 @@
-package com.sojson.common.model;
+package com.lnly.common.model;
 
 import java.io.Serializable;
 

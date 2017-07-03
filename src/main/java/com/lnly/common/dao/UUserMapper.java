@@ -1,10 +1,10 @@
-package com.sojson.common.dao;
+package com.lnly.common.dao;
 
 import java.util.List;
 import java.util.Map;
 
-import com.sojson.common.model.UUser;
-import com.sojson.permission.bo.URoleBo;
+import com.lnly.common.model.UUser;
+import com.lnly.permission.bo.URoleBo;
 
 public interface UUserMapper {
     int deleteByPrimaryKey(Long id);
