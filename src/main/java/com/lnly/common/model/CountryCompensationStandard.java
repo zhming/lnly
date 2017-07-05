@@ -1,5 +1,7 @@
 package com.lnly.common.model;
 
+import net.sf.json.JSONObject;
+
 import java.io.Serializable;
 import java.util.Date;
 
@@ -13,14 +15,33 @@ public class CountryCompensationStandard implements Serializable {
     private String city;
     private String county;
     private Double area;
-    private String countryZbje;
-    private String otherZbje;
+    private Double countryZbje;
+    private Double otherZbje;
     private String comment;
     private String createUser;
     private String updateUser;
     private Date createTime;
     private Date updateTime;
-    private char deleteFlag;
+    private String deleteFlag;
+
+    public CountryCompensationStandard() {
+    }
+
+    public CountryCompensationStandard(CountryCompensationStandard countryCompensationStandard) {
+        this.id = countryCompensationStandard.getId();
+        this.year = countryCompensationStandard.getYear();
+        this.city = countryCompensationStandard.getCity();
+        this.county = countryCompensationStandard.getCounty();
+        this.area = countryCompensationStandard.getArea();
+        this.countryZbje = countryCompensationStandard.getCountryZbje();
+        this.otherZbje = countryCompensationStandard.getOtherZbje();
+        this.comment = countryCompensationStandard.getComment();
+        this.createUser = countryCompensationStandard.getCreateUser();
+        this.updateUser = countryCompensationStandard.getUpdateUser();
+        this.createTime = countryCompensationStandard.getCreateTime();
+        this.updateTime = countryCompensationStandard.getUpdateTime();
+        this.deleteFlag = countryCompensationStandard.getDeleteFlag();
+    }
 
     public Long getId() {
         return id;
@@ -62,19 +83,19 @@ public class CountryCompensationStandard implements Serializable {
         this.area = area;
     }
 
-    public String getCountryZbje() {
+    public Double getCountryZbje() {
         return countryZbje;
     }
 
-    public void setCountryZbje(String countryZbje) {
+    public void setCountryZbje(Double countryZbje) {
         this.countryZbje = countryZbje;
     }
 
-    public String getOtherZbje() {
+    public Double getOtherZbje() {
         return otherZbje;
     }
 
-    public void setOtherZbje(String otherZbje) {
+    public void setOtherZbje(Double otherZbje) {
         this.otherZbje = otherZbje;
     }
 
@@ -118,11 +139,15 @@ public class CountryCompensationStandard implements Serializable {
         this.updateTime = updateTime;
     }
 
-    public char getDeleteFlag() {
+    public String getDeleteFlag() {
         return deleteFlag;
     }
 
-    public void setDeleteFlag(char deleteFlag) {
+    public void setDeleteFlag(String deleteFlag) {
         this.deleteFlag = deleteFlag;
+    }
+
+    public String toString(){
+        return JSONObject.fromObject(this).toString();
     }
 }

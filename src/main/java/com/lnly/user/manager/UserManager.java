@@ -20,6 +20,7 @@ public class UserManager {
 	public static UUser md5Pswd(UUser user){
 		//密码为   email + '#' + pswd，然后MD5
 		user.setPswd(md5Pswd(user.getEmail(),user.getPswd()));
+		System.out.println("Hello,World!");
 		return user;
 	}
 	/**
@@ -64,6 +65,12 @@ public class UserManager {
 		return resultData;
 		
 	}
-	
+
+	public static void main(String[] args) throws Exception{
+		String pwd =   md5Pswd("admin", "admin");
+
+		System.out.println(pwd);
+	}
+
 	
 }
