@@ -22,6 +22,7 @@ public class CountryCompensationStandardBo extends CountryCompensationStandard i
 	private Double countryZbje;
 	private Double otherZbje;
 	private String comment;
+	private Integer status;
 	
 	public CountryCompensationStandardBo () {
 	}
@@ -103,5 +104,13 @@ public class CountryCompensationStandardBo extends CountryCompensationStandard i
 	@Override
 	public void setComment(String comment) {
 		this.comment = comment;
+	}
+
+	public Integer getStatus() {
+		return status;
+	}
+
+	public void setStatus(Integer status) {
+		this.status = status;
 	}
 }

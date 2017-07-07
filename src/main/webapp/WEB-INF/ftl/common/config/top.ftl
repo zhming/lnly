@@ -14,7 +14,34 @@
 	     <div role="navigation" class="navbar-collapse collapse">
 	     		<a id="_logo"  href="${basePath}" style="color:#fff; font-size: 24px;" class="navbar-brand hidden-sm">辽宁省林业厅生态公益林管理系统</a>
 	          <ul class="nav navbar-nav" id="topMenu">
-				<li class="dropdown ${(index==1)?string('active','')}">
+                  <li class="dropdown ">
+                      <a aria-expanded="false" aria-haspopup="true" role="button" data-toggle="dropdown" class="dropdown-toggle" href="<%=basePath%>/user/index.shtml">
+                          年度资金补偿标准<span class="caret"></span>
+                      </a>
+                      <ul class="dropdown-menu">
+                          <li><a href="<%=basePath%>/user/index.shtml">年度补偿标准查看</a></li>
+                          <li><a href="<%=basePath%>/user/updateSelf.shtml" >年度补偿标准维护</a></li>
+                      </ul>
+                  </li>
+                  <li class="dropdown ">
+                      <a aria-expanded="false" aria-haspopup="true" role="button" data-toggle="dropdown" class="dropdown-toggle" href="<%=basePath%>/user/index.shtml">
+                          资金数据管理<span class="caret"></span>
+                      </a>
+                      <ul class="dropdown-menu">
+                          <li><a href="<%=basePath%>/user/index.shtml">资金数据查看</a></li>
+                          <li><a href="<%=basePath%>/user/updateSelf.shtml" >资金数据填报</a></li>
+                      </ul>
+                  </li>
+                  <li class="dropdown ">
+                      <a aria-expanded="false" aria-haspopup="true" role="button" data-toggle="dropdown" class="dropdown-toggle" href="<%=basePath%>/user/index.shtml">
+                          数据统计<span class="caret"></span>
+                      </a>
+                      <ul class="dropdown-menu">
+                          <li><a href="<%=basePath%>/user/index.shtml">资金数据查看</a></li>
+                          <li><a href="<%=basePath%>/user/updateSelf.shtml" >资金数据填报</a></li>
+                      </ul>
+                  </li>
+                  <li class="dropdown ${(index==1)?string('active','')}">
 					<a aria-expanded="false" aria-haspopup="true" role="button" data-toggle="dropdown" class="dropdown-toggle" href="${basePath}/user/index.shtml">
 						个人中心<span class="caret"></span>
 					</a>
@@ -62,22 +89,7 @@
 							</@shiro.hasPermission>
 						</ul>
 					</li>	
-				</@shiro.hasAnyRoles>    
-				<li>
-					<a class="dropdown-toggle" target="_blank" href="#" target="_blank">
-						相关信息<span class="collapsing"></span>
-					</a>
-				</li>	          
-				<li>
-					<a class="dropdown-toggle" href="#" target="_blank">
-						本项目介绍<span class="collapsing"></span>
-					</a>
-				</li>	          
-				<li>
-					<a class="dropdown-toggle" href="#" target="_blank">
-						其他版本<span class="collapsing"></span>
-					</a>
-				</li>	          
+				</@shiro.hasAnyRoles>
 	          </ul>
 	           <ul class="nav navbar-nav  pull-right" >
 				<li class="dropdown ${(index==10)?string('active','')}" style="color:#fff;">
@@ -93,7 +105,7 @@
 						</@shiro.user>  
 						<@shiro.guest>   
 							 href="javascript:void(0);" onclick="location.href='${basePath}/u/login.shtml'" class="dropdown-toggle qqlogin" >
-							<img src="http://qzonestyle.gtimg.cn/qzone/vas/opensns/res/img/Connect_logo_1.png">&nbsp;登录</a>
+							<img src="#">&nbsp;登录</a>
 						</@shiro.guest>  					
 				</li>	
 	          </ul>

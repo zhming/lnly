@@ -22,7 +22,4 @@ public interface CountryCompensationStandardMapper {
 
     int updateByPrimaryKey(CountryCompensationStandard record);
 
-    CountryCompensationStandard findUserByEmail(String email);
-
-    List<CountryCompensationStandardBo> selectRoleByUserId(Long id);
 }

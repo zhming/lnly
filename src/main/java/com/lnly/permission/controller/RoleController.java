@@ -1,4 +1,4 @@
-package com.sojson.permission.controller;
+package com.lnly.permission.controller;
 
 import java.util.List;
 import java.util.Map;
@@ -12,12 +12,12 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
-import com.sojson.common.controller.BaseController;
-import com.sojson.common.model.URole;
-import com.sojson.common.utils.LoggerUtils;
-import com.sojson.core.mybatis.page.Pagination;
-import com.sojson.permission.service.RoleService;
-import com.sojson.user.manager.UserManager;
+import com.lnly.common.controller.BaseController;
+import com.lnly.common.model.URole;
+import com.lnly.common.utils.LoggerUtils;
+import com.lnly.core.mybatis.page.Pagination;
+import com.lnly.permission.service.RoleService;
+import com.lnly.user.manager.UserManager;
 /**
  * 
  * 开发公司：itboy.net<br/>

@@ -5,6 +5,7 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
 
+import com.lnly.common.model.AdminDict;
 import com.lnly.common.model.UPermission;
 import com.lnly.common.model.URole;
 import com.lnly.common.model.UUser;
@@ -65,6 +66,9 @@ public class UserManager {
 		return resultData;
 		
 	}
+
+
+	
 
 	public static void main(String[] args) throws Exception{
 		String pwd =   md5Pswd("admin", "admin");

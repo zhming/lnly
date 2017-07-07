@@ -21,6 +21,15 @@
 	     <div role="navigation" class="navbar-collapse collapse">
 	     		<a id="_logo"  href="<%=basePath%>" style="color:#fff; font-size: 24px;" class="navbar-brand hidden-sm">辽宁省林业厅生态公益林管理系统</a>
 	          <ul class="nav navbar-nav" id="topMenu">
+				  <li class="dropdown ">
+					  <a aria-expanded="false" aria-haspopup="true" role="button" data-toggle="dropdown" class="dropdown-toggle" href="<%=basePath%>/user/index.shtml">
+						  年度资金补偿标准<span class="caret"></span>
+					  </a>
+					  <ul class="dropdown-menu">
+						  <li><a href="<%=basePath%>/user/index.shtml">年度补偿标准查看</a></li>
+						  <li><a href="<%=basePath%>/user/updateSelf.shtml" >年度补偿标准维护</a></li>
+					  </ul>
+				  </li>
 				<li class="dropdown ">
 					<a aria-expanded="false" aria-haspopup="true" role="button" data-toggle="dropdown" class="dropdown-toggle" href="<%=basePath%>/user/index.shtml">
 						个人中心<span class="caret"></span>

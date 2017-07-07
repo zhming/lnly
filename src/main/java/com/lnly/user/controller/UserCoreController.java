@@ -57,8 +57,14 @@ public class UserCoreController extends BaseController {
 		
 		return new ModelAndView("user/index");
 	}
-	
-	
+
+	@RequestMapping(value="test",method=RequestMethod.GET)
+	public ModelAndView userIndexTest(){
+
+		return new ModelAndView("business/index");
+	}
+
+
 	/**
 	 * 偷懒一下，通用页面跳转
 	 * @param page

@@ -23,11 +23,11 @@
         <div class="page-container">
             <h1>系统登录</h1>
             <form id="_form" action="" method="post">
-                <input type="text" name="account" class="username" placeholder="Account">
-                <input type="password" name="password" class="password" placeholder="Password">
+                <input type="text" name="account" class="username" placeholder="用户名">
+                <input type="password" name="password" class="password" placeholder="密 码">
                 <button type="button" id="login">登录</button>
-			
-                <button type="button" id="register" class="register">注册</button>
+
+                <#--<button type="button" id="register" class="register">注册</button>-->
 
                 
                 <div class="error"><span>+</span></div>
@@ -90,7 +90,7 @@
 			        	type:"post",
 			        	dataType:"json",
 			        	beforeSend:function(){
-			        		layer.msg('开始登录，请注意后台控制台。');
+			        		layer.msg('登录中。。。。');
 			        	},
 			        	success:function(result){
 				        	layer.close(load);
@@ -108,7 +108,7 @@
 			        	},
 			        	error:function(e){
 			        		console.log(e,e.message);
-			        		layer.msg('请看后台Java控制台，是否报错，确定已经配置数据库和Redis',new Function());
+			        		layer.msg('登录失败',new Function());
 			        	}
 			        });
 			    });
