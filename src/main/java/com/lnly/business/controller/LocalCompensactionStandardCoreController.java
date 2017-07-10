@@ -1,8 +1,8 @@
 package com.lnly.business.controller;
 
-import com.lnly.business.service.CountryCompensationStandardService;
+import com.lnly.business.service.LocalCompensationStandardService;
 import com.lnly.common.controller.BaseController;
-import com.lnly.common.model.CountryCompensationStandard;
+import com.lnly.common.model.LocalCompensationStandard;
 import com.lnly.common.utils.LoggerUtils;
 import net.sf.json.JSONObject;
 import org.springframework.context.annotation.Scope;
@@ -38,11 +38,11 @@ import java.util.Map;
  */
 @Controller
 @Scope(value="prototype")
-@RequestMapping("countryStandard")
-public class CountryCompensactionStandardCoreController extends BaseController {
+@RequestMapping("localStandard")
+public class LocalCompensactionStandardCoreController extends BaseController {
 
 	@Resource
-	CountryCompensationStandardService countryCompensationStandardService;
+	LocalCompensationStandardService localCompensationStandardService;
 	/**
 	 * 个人资料
 	 * @return
@@ -51,11 +51,8 @@ public class CountryCompensactionStandardCoreController extends BaseController {
 	public ModelAndView userIndex(){
 		
 		return new ModelAndView("country/index");
-}
-	@RequestMapping(value = "compensationStandard", method = RequestMethod.GET)
-	public ModelAndView ompensationStandard(){
-		return new ModelAndView("business/compensationStandard");
 	}
+	
 	
 	/**
 	 * 偷懒一下，通用页面跳转
@@ -71,8 +68,8 @@ public class CountryCompensactionStandardCoreController extends BaseController {
 	@ResponseBody
 	public Map<String,Object> getAll(Long id){
 
-		CountryCompensationStandard countryCompensationStandard = countryCompensationStandardService.selectByPrimaryKey(id);
-		resultMap.put("object", countryCompensationStandard);
+		LocalCompensationStandard localCompensationStandard = localCompensationStandardService.selectByPrimaryKey(id);
+		resultMap.put("object", localCompensationStandard);
 		resultMap.put("message", "ok");
 		return resultMap;
 	}
@@ -83,9 +80,9 @@ public class CountryCompensactionStandardCoreController extends BaseController {
 	 */
 	@RequestMapping(value="update",method=RequestMethod.POST)
 	@ResponseBody
-	public Map<String,Object> update(CountryCompensationStandard entity){
+	public Map<String,Object> update(LocalCompensationStandard entity){
 		try {
-			countryCompensationStandardService.updateByPrimaryKeySelective(entity);
+			localCompensationStandardService.updateByPrimaryKeySelective(entity);
 			resultMap.put("status", 200);
 			resultMap.put("message", "修改成功!");
 		} catch (Exception e) {

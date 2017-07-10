@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.lnly.common.dao.SmallClassMapper" >
+  <resultMap id="BaseResultMap" type="com.lnly.common.model.SmallClass" >
+    <id column="id" property="id" jdbcType="BIGINT" />
+      <result column="year" property="year" jdbcType="BIGINT" />
+    <result column="city" property="city" jdbcType="VARCHAR" />
+    <result column="county" property="county" jdbcType="VARCHAR" />
+    <result column="town" property="town" jdbcType="VARCHAR" />
+    <result column="village" property="village" jdbcType="VARCHAR" />
+    <result column="forest_class" property="forestClass" jdbcType="VARCHAR" />
+    <result column="small_class" property="smallClass" jdbcType="VARCHAR" />
+    <result column="area" property="area" jdbcType="DOUBLE" />
+    <result column="sqdj" property="sqdj" jdbcType="VARCHAR" />
+    <result column="forest_belong" property="forestBelong" jdbcType="VARCHAR" />
+    <result column="land_belong" property="lanBelong" jdbcType="VARCHAR" />
+    <result column="xdm" property="xdm" jdbcType="VARCHAR" />
+    <result column="land_zl" property="landZl" jdbcType="VARCHAR" />
+    <result column="source" property="source" jdbcType="VARCHAR" />
+    <result column="forest_zl" property="forestZl" jdbcType="VARCHAR" />
+    <result column="comment" property="comment" jdbcType="TIMESTAMP" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+         id,
+         year,
+      city,
+      county,
+      town,
+      village,
+      forest_class,
+      small_class,
+      area,
+      sqdj,
+      forest_belong,
+      land_belong,
+      xdm,
+      land_zl,
+      source,
+      forest_zl,
+      comment
+  </sql>
+  <sql id="limit_sql">
+  	   <if test="page_sql != null and page_sql != ''">
+      	${page_sql}
+      </if>
+  </sql>
+  
+  <sql id="where_all">
+  	<where>
+  	<if test="findContent != null and findContent !='' " >
+        and (
+        LOWER(city) like  LOWER(CONCAT("%",#{city,jdbcType=VARCHAR},"%")) or
+        LOWER(county) like  LOWER(CONCAT("%",#{county,jdbcType=VARCHAR},"%"))
+        )
+      </if>
+      </where>
+  </sql>
+  <select id="findAll" resultMap="BaseResultMap" >
+  	 select 
+    <include refid="Base_Column_List" />
+    from tb_small_class
+    <include refid="where_all"/>
+    <include refid="limit_sql" />
+  </select>
+  <select id="findCount" resultMap="BaseResultMap" >
+ 	 select count(id) from  tb_small_class
+  	<include refid="where_all" />
+  </select>
+
+    <!-- 登录 -->
+    <select id="findById" resultMap="BaseResultMap" parameterType="java.lang.Long">
+        select
+        <include refid="Base_Column_List" />
+        from tb_small_class
+        where id = #{id,jdbcType=BIGINT}
+    </select>
+
+    <select id="findListByYear" resultMap="BaseResultMap" parameterType="java.lang.Long">
+        select
+        <include refid="Base_Column_List" />
+        from tb_small_class
+        where 1 = 1
+        <if test="year != null " >
+            AND year =    #{year,jdbcType=BIGINT}
+        </if>
+
+
+    </select>
+  
+
+</mapper>

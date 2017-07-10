@@ -15,12 +15,12 @@
 	     		<a id="_logo"  href="${basePath}" style="color:#fff; font-size: 24px;" class="navbar-brand hidden-sm">辽宁省林业厅生态公益林管理系统</a>
 	          <ul class="nav navbar-nav" id="topMenu">
                   <li class="dropdown ">
-                      <a aria-expanded="false" aria-haspopup="true" role="button" data-toggle="dropdown" class="dropdown-toggle" href="<%=basePath%>/user/index.shtml">
+                      <a aria-expanded="false" aria-haspopup="true" role="button" data-toggle="dropdown" class="dropdown-toggle" href="#">
                           年度资金补偿标准<span class="caret"></span>
                       </a>
                       <ul class="dropdown-menu">
-                          <li><a href="<%=basePath%>/user/index.shtml">年度补偿标准查看</a></li>
-                          <li><a href="<%=basePath%>/user/updateSelf.shtml" >年度补偿标准维护</a></li>
+                          <li><a href="${basePath}/user/index.shtml">年度补偿标准查看</a></li>
+                          <li><a href="${basePath}/countryStandard/compensationStandard.shtml" >年度补偿标准维护</a></li>
                       </ul>
                   </li>
                   <li class="dropdown ">
@@ -28,8 +28,8 @@
                           资金数据管理<span class="caret"></span>
                       </a>
                       <ul class="dropdown-menu">
-                          <li><a href="<%=basePath%>/user/index.shtml">资金数据查看</a></li>
-                          <li><a href="<%=basePath%>/user/updateSelf.shtml" >资金数据填报</a></li>
+                          <li><a href="${basePath}/user/index.shtml">资金数据查看</a></li>
+                          <li><a href="${basePath}/user/updateSelf.shtml" >资金数据填报</a></li>
                       </ul>
                   </li>
                   <li class="dropdown ">
@@ -37,8 +37,8 @@
                           数据统计<span class="caret"></span>
                       </a>
                       <ul class="dropdown-menu">
-                          <li><a href="<%=basePath%>/user/index.shtml">资金数据查看</a></li>
-                          <li><a href="<%=basePath%>/user/updateSelf.shtml" >资金数据填报</a></li>
+                          <li><a href="${basePath}/user/index.shtml">资金数据查看</a></li>
+                          <li><a href="${basePath}/user/updateSelf.shtml" >资金数据填报</a></li>
                       </ul>
                   </li>
                   <li class="dropdown ${(index==1)?string('active','')}">

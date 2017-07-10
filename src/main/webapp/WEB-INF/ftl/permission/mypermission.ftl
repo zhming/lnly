@@ -42,7 +42,7 @@
 					$('#getPermissionTree').treeview({
 			          levels: 1,//层级
 			          color: "#428bca",
-			          nodeIcon: "glyphicon glyphicon-user",
+			          nodeIcon: "glyphicon glyphicon-tree-conifer",
 			          showTags: false,//显示数量
 			          data: data//数据
 			        });
