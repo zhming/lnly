@@ -22,22 +22,22 @@
             <h2>资金补偿标准维护</h2>
             <hr>
 
-            <div class="col-sm-6">
-                <div class="radio">
+            <div class="col-sm-12">
+                <div class="radio radio-info radio-inline">
                     <input type="radio" name="radio1" id="radio1" value="option1" checked>
                     <label for="radio1">
-                        Small
+                        国家标准
                     </label>
                 </div>
-                <div class="radio">
+                <div class="radio radio-info radio-inline">
                     <input type="radio" name="radio1" id="radio2" value="option2">
                     <label for="radio2">
-                        Big
+                        地方标准
                     </label>
                 </div>
             </div>
 
-            <div class="form-group">
+            <div class="form-group col-sm-12">
                 <div class="input-group date form_datetime col-md-3" >
                     <input class="form-control" size="16" type="text" value="2017" readonly>
                     <span class="input-group-addon"><span class="glyphicon glyphicon-remove"></span></span>
@@ -45,10 +45,9 @@
                 </div>
                 <input type="hidden" id="dtp_input1" value="" /><br/>
             </div>
-
-
-            <div class="form-group">
-            <div id="getPermissionTree" class="input-group date col-md-3">
+            </div>
+            <div class="form-group col-md-3 ">
+            <div id="getPermissionTree" class="input-group date ">
             </div>
             </div>
         </div>
