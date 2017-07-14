@@ -10,9 +10,7 @@
               <li><a href="${basePath}/user/updatePswd.shtml">密码修改</a></li>
           </ul>
 	  </li>
-		<br />
-        <br />
-        <br /><br />
+	
 
 	  <li class="${(index==2)?string('active',' ')} dropdown">
 	      <a href="${basePath}/role/mypermission.shtml">

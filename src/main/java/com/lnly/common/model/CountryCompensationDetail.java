@@ -9,7 +9,7 @@ import java.util.Date;
 public class CountryCompensationDetail implements Serializable {
     private static final long serialVersionUID = 1L;
     private Long id;
-    private String   city;
+    private String city;
     private String county;
     private String town;
     private String village;
