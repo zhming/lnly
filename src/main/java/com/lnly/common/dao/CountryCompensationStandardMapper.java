@@ -22,4 +22,6 @@ public interface CountryCompensationStandardMapper {
 
     int updateByPrimaryKey(CountryCompensationStandard record);
 
+    List<CountryCompensationStandard> findAll();
+
 }

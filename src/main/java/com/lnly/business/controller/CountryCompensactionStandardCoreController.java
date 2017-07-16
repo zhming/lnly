@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 import javax.annotation.Resource;
+import java.util.List;
 import java.util.Map;
 
 /**
@@ -69,10 +70,25 @@ public class CountryCompensactionStandardCoreController extends BaseController {
 	
 	@RequestMapping(value="findOne",method=RequestMethod.GET)
 	@ResponseBody
-	public Map<String,Object> getAll(Long id){
+	public Map<String,Object> findOne(Long id){
 
 		CountryCompensationStandard countryCompensationStandard = countryCompensationStandardService.selectByPrimaryKey(id);
 		resultMap.put("object", countryCompensationStandard);
+		resultMap.put("message", "ok");
+		return resultMap;
+	}
+
+	@RequestMapping(value="findAll",method=RequestMethod.GET)
+	@ResponseBody
+	public Map<String,Object> getAll(Long id){
+
+		List<CountryCompensationStandard> countryCompensationStandards = null;
+		try {
+			countryCompensationStandards = countryCompensationStandardService.findAll();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		resultMap.put("data", countryCompensationStandards);
 		resultMap.put("message", "ok");
 		return resultMap;
 	}

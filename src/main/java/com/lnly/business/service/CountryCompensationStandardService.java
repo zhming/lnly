@@ -34,5 +34,7 @@ public interface CountryCompensationStandardService {
 
 	public Map<String, Object> deleteRoleByUserIds(String userIds);
 
+	public List<CountryCompensationStandard>   findAll() throws Exception;
+
 
 }

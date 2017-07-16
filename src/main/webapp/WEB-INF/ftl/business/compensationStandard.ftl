@@ -11,6 +11,15 @@
     <link href="${basePath}/css/bootstrap-datetimepicker.min.css" rel="stylesheet" media="screen">
     <link rel="stylesheet" href="${basePath}/css/build.css"/>
     <link rel="stylesheet" href="${basePath}/css/font-awesome.min.css"/>
+
+    <!-- datagrid css -->
+    <link rel="stylesheet" href="${basePath}/css/datagrid/buttons.bootstrap.min.css"/>
+    <link rel="stylesheet" href="${basePath}/css/datagrid/dataTables.bootstrap.min.css"/>
+    <link rel="stylesheet" href="${basePath}/css/datagrid/select.bootstrap.min.css"/>
+    <!-- datagrid css -->
+
+
+
 </head>
 <body data-target="#one" data-spy="scroll">
 
@@ -18,7 +27,7 @@
 <div class="container" style="padding-bottom: 15px;min-height: 300px; margin-top: 40px;">
 <#--row-->
     <div class="row">
-        <div class="col-md-10">
+        <div class="col-md-4">
             <h2>资金补偿标准维护</h2>
             <hr>
 
@@ -38,17 +47,37 @@
             </div>
 
             <div class="form-group col-sm-12">
-                <div class="input-group date form_datetime col-md-3" >
+                <div class="input-group date form_datetime " >
                     <input class="form-control" size="16" type="text" value="2017" readonly>
                     <span class="input-group-addon"><span class="glyphicon glyphicon-remove"></span></span>
                     <span class="input-group-addon"><span class="glyphicon glyphicon-th"></span></span>
                 </div>
                 <input type="hidden" id="dtp_input1" value="" /><br/>
             </div>
+
+            <div class="form-group col-sm-12">
+                <div id="getPermissionTree" class="input-group date ">
+                </div>
             </div>
-            <div class="form-group col-md-3 ">
-            <div id="getPermissionTree" class="input-group date ">
-            </div>
+        </div>
+
+        <div class="col-md-8">
+            <div class="col-sm-12">
+                <div class="table" >
+                    <table id="example" class="table table-striped table-bordered" cellspacing="0" width="100%">
+                        <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>年度</th>
+                            <th>城市</th>
+                            <th>区县</th>
+                            <th>面积</th>
+                            <th>补偿金额</th>
+                            <th>创建时间</th>
+                        </tr>
+                        </thead>
+                    </table>
+                </div>
             </div>
         </div>
     </div>
@@ -60,10 +89,19 @@
 <script src="${basePath}/js/common/bootstrap/bootstrap-treeview.js"></script>
 <script src="${basePath}/js/bootstrap-datetimepicker.min.js"></script>
 <script src="${basePath}/js/locales/bootstrap-datetimepicker.zh-CN.js"></script>
-
 <script src="${basePath}/js/shiro.demo.js"></script>
 
+<!-- datagrid -->
+<script src="${basePath}/js/datagrid/jquery.dataTables.min.js"></script>
+<script src="${basePath}/js/datagrid/dataTables.bootstrap.min.js"></script>
+<script src="${basePath}/js/datagrid/dataTables.buttons.min.js"></script>
+<script src="${basePath}/js/datagrid/buttons.bootstrap.min.js"></script>
+<script src="${basePath}/js/datagrid/dataTables.select.min.js"></script>
+
+<!-- datagrid -->
+
 <script type="text/javascript">
+    
     $('.form_datetime').datetimepicker({
         format: 'yyyy',
         autoclose: true,
@@ -89,9 +127,41 @@
                 data: data//数据
             });
         },'json');
-    
+
     </@shiro.hasPermission>
      });
+
+    $(document).ready(function() {
+ ;
+
+        var table = $('#example').DataTable( {
+            lengthChange: false,
+            ajax: "../countryStandard/findAll.shtml",
+            "language": {
+                "url": "${basePath}/js/datagrid/Chinese.json"
+            },
+            columns: [
+//                { data: null, render: function ( data, type, row ) {
+//                    // Combine the first and last names into a single table field
+//                    return data.first_name+' '+data.last_name;
+//                } },
+                { data: "id" },
+                { data: "year" },
+                { data: "city" },
+                { data: "county" },
+                { data: "area" },
+                { data: "countryZbje" },
+                { data: "createTime" }
+                //{ data: "salary", render: $.fn.dataTable.render.number( ',', '.', 0, '$' ) }
+            ],
+            select: true
+        } );
+
+      
+
+        table.buttons().container()
+                .appendTo( $('.col-sm-6:eq(0)', table.table().container() ) );
+    } );
 
     </script>
 

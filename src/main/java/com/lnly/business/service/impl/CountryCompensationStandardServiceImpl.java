@@ -122,7 +122,11 @@ public class CountryCompensationStandardServiceImpl extends BaseMybatisDao<Count
 		return resultMap;
 
 	}
-	
-	
-	
+
+	@Override
+	public List<CountryCompensationStandard> findAll() throws Exception {
+		return countryCompensationStandardMapper.findAll();
+	}
+
+
 }
