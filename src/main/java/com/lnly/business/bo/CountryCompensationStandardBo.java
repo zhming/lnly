@@ -22,7 +22,7 @@ public class CountryCompensationStandardBo extends CountryCompensationStandard i
 	private Double countryZbje;
 	private Double otherZbje;
 	private String comment;
-	private Integer status;
+	private String createTimeStr;
 	
 	public CountryCompensationStandardBo () {
 	}
@@ -106,11 +106,11 @@ public class CountryCompensationStandardBo extends CountryCompensationStandard i
 		this.comment = comment;
 	}
 
-	public Integer getStatus() {
-		return status;
+	public String getCreateTimeStr() {
+		return createTimeStr;
 	}
 
-	public void setStatus(Integer status) {
-		this.status = status;
+	public void setCreateTimeStr(String createTimeStr) {
+		this.createTimeStr = createTimeStr;
 	}
 }

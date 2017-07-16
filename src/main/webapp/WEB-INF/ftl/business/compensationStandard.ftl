@@ -167,7 +167,7 @@
                 { data: "county" },
                 { data: "area" },
                 { data: "countryZbje" },
-                { data: "createTime" }
+                { data: "createTimeStr" }
                 //{ data: "salary", render: $.fn.dataTable.render.number( ',', '.', 0, '$' ) }
             ],
             "columnDefs": [

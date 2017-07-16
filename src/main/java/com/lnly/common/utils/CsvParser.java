@@ -148,19 +148,71 @@ public class CsvParser{
     public static void main(String[] args)  throws Exception{
        // CsvParser parser=new CsvParser("E:\\lngyl\\国家补偿标准.csv");
 
-        CsvParser parser=new CsvParser("E:\\lngyl\\user.csv");
+        //user
+        //CsvParser parser=new CsvParser("E:\\lngyl\\user.csv");
+
+        CsvParser parser=new CsvParser("E:\\lngyl\\国家补偿标准——全 - 副本.csv");
         
         Object[] arr=parser.getParsedArray();
 
         StringBuffer buff = new StringBuffer();
 
         for(Object obj:arr){
+
+
+
            // buff = proAdminDictSql(buff, (List<String>) obj);
-            buff = proUserSql(buff, (List<String>) obj);
+          //  buff = proUserSql(buff, (List<String>) obj);
+            buff = proCountryStandardSql(buff, (List<String>) obj);
             System.out.println(buff.toString());
         }
     }
 
+
+    private static StringBuffer proCountryStandardSql(StringBuffer buff, List<String> list){
+        buff.setLength(0);
+
+
+        if(list.size() == 4){
+             list.add("");
+            list.add("");
+        }else if(list.size() == 5){
+            list.add("");
+        }else if(list.size() == 1){
+            return buff;
+        }
+
+       if(list.get(0).equals("xh")){
+            return buff;
+       }
+
+
+        buff.append("INSERT INTO `tb_country_compensation_standard` (`year`, `city`, `county`,`area`, `country_zbje`, `other_zbje`, `create_time`, `delete_flag`) VALUES (");
+        List<String> ls= list;
+        buff.append("'").append(ls.get(1)).append("',");
+        buff.append("'").append(ls.get(2)).append("',");
+        buff.append("'").append(ls.get(3)).append("',");
+        String area =  ls.get(4);
+        if(StringUtils.isBlank(area)){
+            area = "0";
+        }
+
+        String country_zbje =  ls.get(5);
+        if(StringUtils.isBlank(country_zbje)){
+            country_zbje = "0";
+        }
+        buff.append("'").append(area).append("',");
+        buff.append("'").append(country_zbje).append("',");
+        buff.append("'").append( StringUtils.isBlank("0")).append("',");
+
+
+        // str_to_date('2017-06-22 21:31:02','%Y-%m-%d %H:%i:%s');
+        buff.append("").append("'2017-07-02 21:31:02'").append(",");
+        buff.append("'").append("0").append("'");
+        buff.append(");");
+
+        return buff;
+    }
 
     private static StringBuffer proUserSql(StringBuffer buff, List<String> obj){
         buff.setLength(0);

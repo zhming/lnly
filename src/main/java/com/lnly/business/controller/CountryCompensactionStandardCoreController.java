@@ -1,10 +1,12 @@
 package com.lnly.business.controller;
 
+import com.lnly.business.bo.CountryCompensationStandardBo;
 import com.lnly.business.service.CountryCompensationStandardService;
 import com.lnly.common.controller.BaseController;
 import com.lnly.common.model.CountryCompensationStandard;
 import com.lnly.common.utils.LoggerUtils;
 import net.sf.json.JSONObject;
+import org.joda.time.DateTime;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -14,6 +16,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 import javax.annotation.Resource;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
@@ -83,12 +86,26 @@ public class CountryCompensactionStandardCoreController extends BaseController {
 	public Map<String,Object> getAll(Long id){
 
 		List<CountryCompensationStandard> countryCompensationStandards = null;
+		List<CountryCompensationStandardBo> resultList = new ArrayList<CountryCompensationStandardBo>();
 		try {
 			countryCompensationStandards = countryCompensationStandardService.findAll();
+			for(CountryCompensationStandard entity : countryCompensationStandards){
+				CountryCompensationStandardBo bo = new CountryCompensationStandardBo();
+				bo.setYear(entity.getYear());
+				bo.setId(entity.getId());
+				bo.setArea(entity.getArea());
+				bo.setCity(entity.getCity());
+				bo.setComment(entity.getComment());
+				bo.setCountryZbje(entity.getCountryZbje());
+				bo.setCounty(entity.getCounty());
+				bo.setOtherZbje(entity.getOtherZbje());
+				bo.setCreateTimeStr(new DateTime(entity.getCreateTime()).toString("yyyy-MM-dd"));
+				resultList.add(bo);
+			}
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-		resultMap.put("data", countryCompensationStandards);
+		resultMap.put("data", resultList);
 		resultMap.put("message", "ok");
 		return resultMap;
 	}
