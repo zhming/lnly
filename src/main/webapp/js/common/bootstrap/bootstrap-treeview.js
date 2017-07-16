@@ -348,7 +348,6 @@
 	// Looks up the DOM for the closest parent list item to retrieve the
 	// data attribute nodeid, which is used to lookup the node in the flattened structure.
 	Tree.prototype.findNode = function (target) {
-
 		var nodeId = target.closest('li.list-group-item').attr('data-nodeid');
 		var node = this.nodes[nodeId];
 
@@ -688,7 +687,8 @@
 
 	Tree.prototype.template = {
 		list: '<ul class="list-group"></ul>',
-		item: '<li class="list-group-item"></li>',
+		//给Bootstrap treeView插件点击列表也能展开子节点
+		item: '<li class="list-group-item" onclick="itemOnclick(this)"></li>',
 		indent: '<span class="indent"></span>',
 		icon: '<span class="icon"></span>',
 		link: '<a href="#" style="color:inherit;"></a>',

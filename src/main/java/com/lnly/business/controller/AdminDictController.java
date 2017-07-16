@@ -111,7 +111,8 @@ public class AdminDictController extends BaseController {
 						for (AdminDictTreeBo up1 : ps1) {
 							Map<String,Object> mapx1 = new LinkedHashMap<String, Object>();
 							mapx1.put("text", up1.getDictName());//权限名称
-							mapx1.put("href",  "javascript:void(0)");//权限url
+							mapx1.put("nodeId", up1.getDictCode());
+							mapx1.put("href",  " up1.getDictCode()");//权限url
 							mapx1.put("tags", "0");//没有下一级
 							list1.add(mapx1);
 						}
