@@ -43,4 +43,6 @@ public interface UUserService {
 	Map<String, Object> addRole2User(Long userId, String ids);
 
 	Map<String, Object> deleteRoleByUserIds(String userIds);
+
+	Pagination<UUser> findAll(ModelMap modelMap,Integer pageNo, Integer pageSize);
 }

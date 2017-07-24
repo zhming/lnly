@@ -5,10 +5,13 @@ import com.lnly.business.service.CountryCompensationStandardService;
 import com.lnly.common.controller.BaseController;
 import com.lnly.common.model.CountryCompensationStandard;
 import com.lnly.common.utils.LoggerUtils;
+import com.lnly.core.mybatis.page.PageEntity;
+import com.lnly.core.mybatis.page.Pagination;
 import net.sf.json.JSONObject;
 import org.joda.time.DateTime;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -16,7 +19,9 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 import javax.annotation.Resource;
+import java.io.UnsupportedEncodingException;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -57,8 +62,13 @@ public class CountryCompensactionStandardCoreController extends BaseController {
 		return new ModelAndView("country/index");
 }
 	@RequestMapping(value = "compensationStandard", method = RequestMethod.GET)
-	public ModelAndView ompensationStandard(){
+	public ModelAndView compensationStandard(){
 		return new ModelAndView("business/compensationStandard");
+	}
+
+	@RequestMapping(value = "compensationStandardPage", method = RequestMethod.GET)
+	public ModelAndView compensationStandardPage(){
+		return new ModelAndView("business/compensationStandardPage");
 	}
 	
 	/**
@@ -83,7 +93,10 @@ public class CountryCompensactionStandardCoreController extends BaseController {
 
 	@RequestMapping(value="findAll",method=RequestMethod.GET)
 	@ResponseBody
-	public Map<String,Object> getAll(Long id){
+	public Map<String,Object> getAll(String dictCode, String year, String type){
+		System.out.println(dictCode);
+		System.out.println(year);                                                                                
+		System.out.println(type);
 
 		List<CountryCompensationStandard> countryCompensationStandards = null;
 		List<CountryCompensationStandardBo> resultList = new ArrayList<CountryCompensationStandardBo>();
@@ -110,6 +123,64 @@ public class CountryCompensactionStandardCoreController extends BaseController {
 		return resultMap;
 	}
 
+	@RequestMapping(value="findAll",method=RequestMethod.POST)
+	@ResponseBody
+	public Map<String,Object> getAllPost(String dictCode, String year, String type){
+		System.out.println(dictCode);
+		System.out.println(year);
+		System.out.println(type);
+		try {
+			dictCode = new String(dictCode.getBytes(), "utf-8");
+			System.out.println(dictCode);
+		} catch (UnsupportedEncodingException e) {
+		}
+
+		List<CountryCompensationStandard> countryCompensationStandards = null;
+		List<CountryCompensationStandardBo> resultList = new ArrayList<CountryCompensationStandardBo>();
+		try {
+			countryCompensationStandards = countryCompensationStandardService.findAll();
+			for(CountryCompensationStandard entity : countryCompensationStandards){
+				CountryCompensationStandardBo bo = new CountryCompensationStandardBo();
+				bo.setYear(entity.getYear());
+				bo.setId(entity.getId());
+				bo.setArea(entity.getArea());
+				bo.setCity(entity.getCity());
+				bo.setComment(entity.getComment());
+				bo.setCountryZbje(entity.getCountryZbje());
+				bo.setCounty(entity.getCounty());
+				bo.setOtherZbje(entity.getOtherZbje());
+				bo.setCreateTimeStr(new DateTime(entity.getCreateTime()).toString("yyyy-MM-dd"));
+				resultList.add(bo);
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		resultMap.put("returnObject", resultList);
+		resultMap.put("message", "ok");
+		return resultMap;
+	}
+
+	/**
+	 * 个人资料修改
+	 * @return
+	 */
+	@RequestMapping(value="add",method=RequestMethod.POST)
+	@ResponseBody
+	public Map<String,Object> add(CountryCompensationStandard entity){
+		try {
+			countryCompensationStandardService.insert(entity);
+			resultMap.put("status", 200);
+			resultMap.put("message", "保存成功!");
+		} catch (Exception e) {
+			resultMap.put("status", 500);
+			resultMap.put("message", "保存失败!");
+			LoggerUtils.fmtError(getClass(), e, "保存失败。[%s]", JSONObject.fromObject(entity).toString());
+		}
+		return resultMap;
+	}
+
+
+
 	/**
 	 * 个人资料修改
 	 * @return
@@ -127,5 +198,25 @@ public class CountryCompensactionStandardCoreController extends BaseController {
 			LoggerUtils.fmtError(getClass(), e, "修改失败。[%s]", JSONObject.fromObject(entity).toString());
 		}
 		return resultMap;
+	}
+
+	/**
+	 * 在线用户管理
+	 * @return
+	 */
+	@RequestMapping(value="findAllPage",method=RequestMethod.POST)
+	@ResponseBody
+	public Map<String, Object> findAll(ModelMap modelMap, PageEntity pageEntity){
+
+		Map<String, Object> result = new HashMap<>();
+
+		Pagination<CountryCompensationStandard> pagination = countryCompensationStandardService.findByPage(modelMap, pageEntity.getiDisplayStart(),pageEntity.getiDisplayLength());
+		result.put("data", pagination.getList());
+		result.put("length", pagination.getList().size());
+		result.put("sEcho",1);
+		result.put("iColumns",5);result.put("sColumns",",,,,");result.put("iDisplayStart",0);
+		result.put("iDisplayLength",10);
+
+		return result;
 	}
 }

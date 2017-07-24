@@ -1,8 +1,10 @@
 package com.lnly.user.controller;
 
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import com.lnly.core.mybatis.page.PageEntity;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Controller;
@@ -62,6 +64,15 @@ public class MemberController extends BaseController {
 		map.put("page", page);
 		return new ModelAndView("member/list");
 	}
+
+	/**
+	 * 用户列表管理
+	 * @return
+	 */
+	@RequestMapping(value="datatables")
+	public ModelAndView listAll(){
+		return new ModelAndView("member/datatables");
+	}
 	/**
 	 * 在线用户管理
 	 * @return
@@ -112,5 +123,32 @@ public class MemberController extends BaseController {
 	public Map<String,Object> forbidUserById(Long id,Long status){
 		return userService.updateForbidUserById(id,status);
 	}
-	
+
+
+	/**
+	 * 在线用户管理
+	 * @return
+	 */
+	@RequestMapping(value="findAll",method=RequestMethod.POST)
+	@ResponseBody
+	public Map<String, Object> findAll(ModelMap modelMap, PageEntity pageEntity){
+
+		Map<String, Object> result = new HashMap<>();
+
+		Pagination<UUser> pagination = userService.findAll(modelMap, pageEntity.getiDisplayStart(),pageEntity.getiDisplayLength());
+		result.put("data", pagination.getList());
+
+		System.out.println("--------------------------------: " + pageEntity.getiDisplayLength());
+		System.out.println("--------------------------------: " + pageEntity.getiDisplayStart());
+
+
+		result.put("sEcho",1);
+		result.put("iColumns",5);result.put("sColumns",",,,,");result.put("iDisplayStart",0);
+		result.put("iDisplayLength",10);
+
+
+
+
+		return result;
+	}
 }

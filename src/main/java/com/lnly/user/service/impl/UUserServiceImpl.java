@@ -199,7 +199,11 @@ public class UUserServiceImpl extends BaseMybatisDao<UUserMapper> implements UUs
 		return resultMap;
 	
 	}
-	
-	
-	
+
+	@Override
+	public Pagination<UUser> findAll(ModelMap modelMap, Integer pageNo, Integer pageSize) {
+		return super.findPage("findAll", "findCount", modelMap, pageNo, pageSize);
+	}
+
+
 }

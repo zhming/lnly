@@ -36,5 +36,10 @@ public interface CountryCompensationStandardService {
 
 	public List<CountryCompensationStandard>   findAll() throws Exception;
 
+	public Pagination<CountryCompensationStandard>   findAllPage(Map<String, Object> resultMap, Integer pageNo,
+																 Integer pageSize) throws Exception;
+
+	public List<CountryCompensationStandard>   findList(String dictCodes, String year) throws Exception;
+
 
 }

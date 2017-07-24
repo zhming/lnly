@@ -41,7 +41,7 @@ public class CountryCompensationStandardServiceImpl extends BaseMybatisDao<Count
 
 	@Override
 	public CountryCompensationStandard insert(CountryCompensationStandard entity) {
-		countryCompensationStandardMapper.insert(entity);
+		countryCompensationStandardMapper.insert(entity);    
 		return entity;
 	}
 
@@ -126,6 +126,16 @@ public class CountryCompensationStandardServiceImpl extends BaseMybatisDao<Count
 	@Override
 	public List<CountryCompensationStandard> findAll() throws Exception {
 		return countryCompensationStandardMapper.findAll();
+	}
+
+	@Override
+	public Pagination<CountryCompensationStandard> findAllPage(Map<String, Object> resultMap, Integer pageNo, Integer pageSize) throws Exception {
+		return null;
+	}
+
+	@Override
+	public List<CountryCompensationStandard> findList(String dictCodes, String year) throws Exception {
+		return countryCompensationStandardMapper.findList(dictCodes, year);
 	}
 
 

@@ -64,7 +64,7 @@
     insert into tb_country_compensation_standard ( id, year, city, county, area, country_zbje,other_zbje,comment,status, create_user,update_user,create_time,update_time
       )
     values (#{id,jdbcType=BIGINT}, #{year,jdbcType=BIGINT}, #{city,jdbcType=VARCHAR},
-      #{county,area=DOUBLE},#{countryZbje,jdbcType=DOUBLE},#{otherZbje,jdbcType=DOUBLE},
+      #{county,jdbcType=DOUBLE}, #{area,jdbcType=DOUBLE},#{countryZbje,jdbcType=DOUBLE},#{otherZbje,jdbcType=DOUBLE},
       #{comment,jdbcType=VARCHAR},#{status,jdbcType=BIGINT},#{createUser,jdbcType=VARCHAR},
       #{updateUser,jdbcType=VARCHAR}, #{createTime,jdbcType=TIMESTAMP}, #{updateTime,jdbcType=TIMESTAMP}
       )

@@ -24,4 +24,6 @@ public interface CountryCompensationStandardMapper {
 
     List<CountryCompensationStandard> findAll();
 
+    List<CountryCompensationStandard> findList(String dictCodes, String year);
+
 }

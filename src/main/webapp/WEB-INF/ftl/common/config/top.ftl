@@ -19,9 +19,9 @@
                           年度资金补偿标准<span class="caret"></span>
                       </a>
                       <ul class="dropdown-menu">
-                          <li><a href="${basePath}/user/index.shtml">年度补偿标准查看</a></li>
+                          <li><a href="${basePath}/countryStandard/compensationStandardPage.shtml">年度补偿标准查看</a></li>
                           <li><a href="${basePath}/countryStandard/compensationStandard.shtml" >年度补偿标准维护</a></li>
-                      </ul>
+                      </ul>                                            
                   </li>
                   <li class="dropdown ">
                       <a aria-expanded="false" aria-haspopup="true" role="button" data-toggle="dropdown" class="dropdown-toggle" href="<%=basePath%>/user/index.shtml">

@@ -23,6 +23,7 @@ public class CountryCompensationStandard implements Serializable {
     private Date createTime;
     private Date updateTime;
     private String deleteFlag;
+    private Integer status;
 
     public CountryCompensationStandard() {
     }
@@ -149,5 +150,14 @@ public class CountryCompensationStandard implements Serializable {
 
     public String toString(){
         return JSONObject.fromObject(this).toString();
+    }
+
+
+    public Integer getStatus() {
+        return status;
+    }
+
+    public void setStatus(Integer status) {
+        this.status = status;
     }
 }

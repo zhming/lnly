@@ -7,7 +7,7 @@
     <result column="name" property="name" jdbcType="VARCHAR" />
   </resultMap>
   <sql id="Base_Column_List" >
-    id, url, name
+    id, url, name               0
   </sql>
   
   <sql id="limit_sql">

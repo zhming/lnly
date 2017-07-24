@@ -55,8 +55,13 @@ public class BaseMybatisDao<T> extends SqlSessionDaoSupport {
 	public Pagination findByPageBySqlId(String sqlId,
 			Map<String, Object> params, Integer pageNo, Integer pageSize) {
 
-		pageNo = null == pageNo ? 1 : pageNo;
-		pageSize = null == pageSize ? 10 : pageSize;
+		if(null == pageNo || 0 == pageNo){
+			pageNo = 1;
+		}
+
+		if(null == pageSize || 0 == pageSize){
+			pageSize = 10;
+		}
 
 		sqlId = String.format("%s.%s", NAMESPACE,sqlId) ;
 
@@ -67,7 +72,10 @@ public class BaseMybatisDao<T> extends SqlSessionDaoSupport {
 		int offset = (page.getPageNo() - 1) * page.getPageSize();
 		String page_sql = String.format(" limit %s , %s", offset,pageSize);
 		params.put("page_sql", page_sql);
-		
+
+		if(-1 == pageSize){
+			params.remove("page_sql");
+		}
 		
 		BoundSql boundSql = c.getMappedStatement(sqlId).getBoundSql(params);
 		String sqlcode = boundSql.getSql();
@@ -119,8 +127,13 @@ public class BaseMybatisDao<T> extends SqlSessionDaoSupport {
 	 */
 	public List findList(String sqlId, Map<String, Object> params,
 			Integer pageNo, Integer pageSize) {
-		pageNo = null == pageNo ? 1 : pageNo;
-		pageSize = null == pageSize ? 10 : pageSize;
+		if(null == pageNo || 0 == pageNo){
+			pageNo = 1;
+		}
+
+		if(null == pageSize || 0 == pageSize){
+			pageSize = 10;
+		}
 
 		int offset = (pageNo - 1) * pageSize;
 		String page_sql = String.format(" limit %s , %s", offset,pageSize);
@@ -137,7 +150,7 @@ public class BaseMybatisDao<T> extends SqlSessionDaoSupport {
 	 * @param params
 	 * @param pageNo
 	 * @param pageSize
-	 * @param requiredType	返回的类型[可以不传参]
+
 	 * @return
 	 */
 	public List findList(Map<String, Object> params, Integer pageNo,
@@ -156,14 +169,19 @@ public class BaseMybatisDao<T> extends SqlSessionDaoSupport {
 	 *            参数
 	 * @param pageNo
 	 *            第几页
-	 * @param pageSize每页显示多少条
-	 * @param requiredType	返回的类型[可以不传参]
+	 * @param pageSize 每页显示多少条
 	 * @return
 	 */
 	public Pagination findPage(String sqlId, String countId,
 			Map<String, Object> params, Integer pageNo, Integer pageSize) {
-		pageNo = null == pageNo ? 1 : pageNo;
-		pageSize = null == pageSize ? 10 : pageSize;
+		if(null == pageNo || 0 == pageNo){
+			pageNo = 1;
+		}
+
+		if(null == pageSize || 0 == pageSize){
+			pageSize = 10;
+		}
+
 		Pagination page = new Pagination();
 		page.setPageNo(pageNo);
 		page.setPageSize(pageSize);

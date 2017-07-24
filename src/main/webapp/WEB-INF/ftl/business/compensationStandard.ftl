@@ -18,15 +18,43 @@
     <link rel="stylesheet" href="${basePath}/css/datagrid/select.bootstrap.min.css"/>
     <!-- datagrid css -->
 
+    <script src="${basePath}/js/common/jquery/jquery1.8.3.min.js"></script>
+    <script src="${basePath}/js/common/layer/layer.js"></script>
+    <script src="${basePath}/js/common/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+    <script src="${basePath}/js/common/bootstrap/bootstrap-treeview.js"></script>
+    <script src="${basePath}/js/bootstrap-datetimepicker.min.js"></script>
+    <script src="${basePath}/js/locales/bootstrap-datetimepicker.zh-CN.js"></script>
+    <script src="${basePath}/js/shiro.demo.js"></script>
+
+    <!-- datagrid -->
+    <script src="${basePath}/js/datagrid/jquery.dataTables.min.js"></script>
+    <script src="${basePath}/js/datagrid/dataTables.bootstrap.min.js"></script>
+    <script src="${basePath}/js/datagrid/dataTables.buttons.min.js"></script>
+    <script src="${basePath}/js/datagrid/buttons.bootstrap.min.js"></script>
+    <script src="${basePath}/js/datagrid/dataTables.select.min.js"></script>
+
+    <script src="${basePath}/js/datagrid/jszip.min.js"></script>
+    <script src="${basePath}/js/datagrid/buttons.html5.min.js"></script>
+    <script src="${basePath}/js/common/jquery/jquery.form-2.82.js?${_v}"></script>
+    <script src="${basePath}/js/bootstrapValidator.min.js"></script>
+
+
+    <!-- datagrid -->
+
     <style>
         div.dataTables_length {
             padding-left: 2em;
         }
+
         div.dataTables_length,
         div.dataTables_filter {
             padding-top: 0.55em;
         }
 
+        /* 个性化 */
+        .btn-primary {
+            background-color: #006dcc;
+        }
     </style>
 
 </head>
@@ -61,12 +89,12 @@
             </div>
 
             <div class="form-group col-sm-12">
-                <div class="input-group date form_datetime " >
+                <div class="input-group date form_datetime ">
                     <input id="yearSelect" class="form-control" size="16" type="text" value="2017" readonly>
                     <span class="input-group-addon"><span class="glyphicon glyphicon-remove"></span></span>
                     <span class="input-group-addon"><span class="glyphicon glyphicon-th"></span></span>
                 </div>
-                <input type="hidden" id="dtp_input1" value="" /><br/>
+                <input type="hidden" id="dtp_input1" value=""/><br/>
             </div>
 
             <div class="form-group col-sm-12">
@@ -77,10 +105,27 @@
 
         <div class="col-md-8">
             <div class="col-sm-12">
-                <div class="table" >
+                <div class="table">
                     <table id="example" class="table table-striped table-bordered" cellspacing="0" width="100%">
                         <thead>
-                        <tr ><strong id="tableTitle">2017年度国家补偿标准</strong></tr>
+                        <tr>
+                            <div class="col-lg-7">
+                                <strong id="tableTitle">2017年度国家补偿标准</strong>
+
+                            </div>
+
+                            <div class="btn-group col-lg-5">
+                                <a class="btn btn-default btn-query " tabindex="0" href="#"><span>查看</span></a>
+                            <@shiro.hasPermission name="/role/addRole.shtml">
+                                <a class="btn btn-default btn-insert " tabindex="0" href="#"
+                                   onclick="viewAddModal();"><span>新增</span></a>
+                            </@shiro.hasPermission>
+
+                                <a class="btn btn-default btn-update " tabindex="0" " href="#"><span>修改</span></a>
+                                <a class="btn btn-default btn-delete " tabindex="0" href="#"><span>删除</span></a>
+                            </div>
+
+                        </tr>
                         <tr>
                             <th>ID</th>
                             <th>年度</th>
@@ -94,45 +139,106 @@
                     </table>
                 </div>
             </div>
+            <div class="hidden">
+                <input type="hidden" id="selectedDictCode" value=""/>
+            </div>
+
+
+        <@shiro.hasPermission name="/bussiness/addGjBcbz.shtml">
+        <#--添加弹框-->
+            <div class="modal fade" id="addRecord" tabindex="-1" role="dialog" aria-labelledby="addroleLabel">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                                    aria-hidden="true">&times;</span></button>
+                            <h4 class="modal-title" id="addBcbzLabel">新增-国家补偿标准维护</h4>
+                        </div>
+                        <form id="addGjbcBzForm" enctype="multipart/form-data"
+                              action="${basePath}/countryStandard/add.shtml" method="post">
+                            <div class="form-group col-sm-12"></div>
+                            <div class="form-group col-sm-12">
+                                <label for="recipient-name" class="control-label">年度:</label>
+                                <div class="input-group date form_datetime ">
+                                    <input id="year" name="year" class="form-control" size="16" type="text" value="2017"
+                                           readonly>
+                                    <span class="input-group-addon"><span
+                                            class="glyphicon glyphicon-remove"></span></span>
+                                    <span class="input-group-addon"><span class="glyphicon glyphicon-th"></span></span>
+                                </div>
+                                <input type="hidden" id="dtp_input1" value=""/>
+                            </div>
+                            <div class="form-group col-sm-12">
+                                <label for="recipient-name" class="control-label">市:</label>
+                                <input type="text" class="form-control" id="city" name="city" placeholder="请输入城市">
+                            </div>
+                            <div class="form-group col-sm-12">
+                                <label for="recipient-name" class="control-label">区县:</label>
+                                <input type="text" class="form-control" id="county" name="county" placeholder="请输入区县名称">
+                            </div>
+                            <div class="form-group col-sm-12">
+                                <label for="recipient-name" class="control-label">面积: 亩</label>
+                                <input type="text" class="form-control" id="area" name="area"
+                                       placeholder="请输入面积  [ 数字]">
+                            </div>
+                            <div class="form-group col-sm-12">
+                                <label for="recipient-name" class="control-label">国有指标金额: 元</label>
+                                <input type="text" class="form-control" id="countryZbje" name="countryZbje"
+                                       placeholder="请输入金额  [数字]">
+                            </div>
+                            <div class="form-group col-sm-12">
+                                <label for="recipient-name" class="control-label">其他指标金额: 元</label>
+                                <input type="text" class="form-control" id="otherZbje" name="otherZbje"
+                                       placeholder="请输入金额  [数字]">
+                            </div>
+                            <div class="form-group col-sm-12">
+                                <label for="recipient-name" class="control-label">备注:</label>
+                                <input type="text" class="form-control" id="comment" name="comment"
+                                       placeholder="请输入备注  ">
+                            </div>
+                            <div class="hidden">
+                                <input type="hidden" id="createUser" name="createUser" value="${token.id}"/>
+                                <input type="hidden" id="updateUser" name="updateUser" value="${token.id}"/>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+                                <button type="submit" class="btn btn-primary">保存</button>
+                            </div>
+                        </form>
+
+                    </div>
+                </div>
+            </div>
+        <#--/添加弹框-->
+        </@shiro.hasPermission>
         </div>
     </div>
 <#--/row-->
 </div>
-<script src="${basePath}/js/common/jquery/jquery1.8.3.min.js"></script>
-<script src="${basePath}/js/common/layer/layer.js"></script>
-<script src="${basePath}/js/common/bootstrap/3.3.5/js/bootstrap.min.js"></script>
-<script src="${basePath}/js/common/bootstrap/bootstrap-treeview.js"></script>
-<script src="${basePath}/js/bootstrap-datetimepicker.min.js"></script>
-<script src="${basePath}/js/locales/bootstrap-datetimepicker.zh-CN.js"></script>
-<script src="${basePath}/js/shiro.demo.js"></script>
 
-<!-- datagrid -->
-<script src="${basePath}/js/datagrid/jquery.dataTables.min.js"></script>
-<script src="${basePath}/js/datagrid/dataTables.bootstrap.min.js"></script>
-<script src="${basePath}/js/datagrid/dataTables.buttons.min.js"></script>
-<script src="${basePath}/js/datagrid/buttons.bootstrap.min.js"></script>
-<script src="${basePath}/js/datagrid/dataTables.select.min.js"></script>
-
-<!-- datagrid -->
 
 <script type="text/javascript">
-    
+
+    var table_flag = false;
+    var table;
+
+
     $('.form_datetime').datetimepicker({
         format: 'yyyy',
         autoclose: true,
         startView: 4,
-        minView:4,
+        minView: 4,
         forceParse: false,
         language: 'zh-CN'
     });
 
-     $(function(){
+    $(function () {
         var load = layer.load();
     <@shiro.hasPermission name="/adminDict/findAll.shtml">
-        $.post("/adminDict/findAll.shtml",{},function(data){
+        $.post("${basePath}/adminDict/findAll.shtml", {}, function (data) {
             layer.close(load);
-            if(data && !data.length){
-                return $("#getPermissionTree").html('<code>您没有任何权限。只有默认的个人中心。</code>'),!1;
+            if (data && !data.length) {
+                return $("#getPermissionTree").html('<code>您没有权限。</code>'), !1;
             }
             $('#getPermissionTree').treeview({
                 levels: 1,//层级
@@ -141,18 +247,144 @@
                 showTags: false,//显示数量
                 data: data//数据
             });
-        },'json');
+        }, 'json');
 
     </@shiro.hasPermission>
-     });
-
-    $(document).ready(function() {
 
 
-        var table = $('#example').DataTable( {
+        $(".btn-query").click(function () {
+            if (table_flag) {
+                $('#example').dataTable({
+                    "srollY": "200px",
+                    "bRetrieve": true
+                });
+
+// Some time later, recreate with just filtering (no scrolling)
+                $('#example').dataTable({
+                    "filter": false,
+                    "bRetrieve": true,
+                    "destroy": true
+                });
+            }
+            getData();
+        });
+
+        
+        var load;
+        $("#addGjbcBzForm").ajaxForm({
+            success: function (result) {
+                layer.close(load);
+                if (result && result.status == 300) {
+                    layer.msg(result.message, function () {
+                    });
+                    return !1;
+                }
+                if (result && result.status == 500) {
+                    layer.msg("操作失败！", function () {
+                    });
+                    return !1;
+                }
+                layer.msg('操作成功！');
+            },
+            beforeSubmit: function () {
+                //判断参数
+                if ($.trim($("#year").val()) == '') {
+                    layer.msg('年份为空！', function () {
+                    });
+                    $("#year").parent().removeClass('has-success').addClass('has-error');
+                    return !1;
+                } else {
+                    $("#year").parent().removeClass('has-error').addClass('has-success');
+                }
+
+                if ($.trim($("#city").val()) == '') {
+                    layer.msg('城市不能为空！', function () {
+                    });
+                    $("#city").parent().removeClass('has-success').addClass('has-error');
+                    return !1;
+                } else {
+                    $("#city").parent().removeClass('has-error').addClass('has-success');
+                }
+
+                if ($.trim($("#county").val()) == '') {
+                    layer.msg('区县不能为空！', function () {
+                    });
+                    $("#county").parent().removeClass('has-success').addClass('has-error');
+                    return !1;
+                } else {
+                    $("#county").parent().removeClass('has-error').addClass('has-success');
+                }
+
+                if ($.trim($("#area").val()) == '') {
+                    layer.msg('面积不能为空！', function () {
+                    });
+                    $("#area").parent().removeClass('has-success').addClass('has-error');
+                    return !1;
+                } else {
+                    if(!checkIsDouble($("#area").val())) {
+                        layer.msg('面积必须是数字！', function () {
+                        });
+                        $("#area").parent().removeClass('has-success').addClass('has-error');
+                        return !1;
+                    }
+
+                    $("#area").parent().removeClass('has-error').addClass('has-success');
+                }
+
+                if ($.trim($("#countryZbje").val()) == '') {
+                    layer.msg('国有指标金额不能为空！', function () {
+                    });
+                    $("#countryZbje").parent().removeClass('has-success').addClass('has-error');
+                    return !1;
+                } else {
+                    if(!checkIsDouble($("#countryZbje").val())) {
+                        layer.msg('国有指标金额必须是数字！', function () {
+                        });
+                        $("#countryZbje").parent().removeClass('has-success').addClass('has-error');
+                        return !1;
+                    }
+                    $("#countryZbje").parent().removeClass('has-error').addClass('has-success');
+                }
+
+                if ($.trim($("#otherZbje").val()) != '') {
+                    if(!checkIsDouble($("#otherZbje").val())) {
+                        layer.msg('其他指标金额必须是数字！', function () {
+                        });
+                        $("#otherZbje").parent().removeClass('has-success').addClass('has-error');
+                        return !1;
+                    }
+                    $("#otherZbje").parent().removeClass('has-error').addClass('has-success');
+                }else{
+                    $("#otherZbje").parent().removeClass('has-error').addClass('has-success');
+                }
+
+
+                load = layer.load();
+            },
+            dataType: "json",
+            clearForm: false
+        });
+
+
+    });
+
+
+
+
+
+    function getData() {
+        var yearSelect = $("#yearSelect").val();
+        var dictCode = $("#selectedDictCode").val();
+        var type = $('input:radio:checked').val();
+        var urlStr = "${basePath}/countryStandard/findAll.shtml?year=" + yearSelect + "&dictCode=" + dictCode + "&type=" + type;
+        table = $('#example').DataTable({
             "bLengthChange": true,
             lengthChange: false,
-            ajax: "../countryStandard/findAll.shtml",
+            "processing": true,
+            "serverSide": false,
+            "bDestroy": true,
+            "bRetrieve": true,
+            ajax: urlStr,
             "language": {
                 "url": "${basePath}/js/datagrid/Chinese.json"
             },
@@ -161,29 +393,57 @@
 //                    // Combine the first and last names into a single table field
 //                    return data.first_name+' '+data.last_name;
 //                } },
-                { data: "id" },
-                { data: "year" },
-                { data: "city" },
-                { data: "county" },
-                { data: "area" },
-                { data: "countryZbje" },
-                { data: "createTimeStr" }
+                {data: "id"},
+                {data: "year"},
+                {data: "city"},
+                {data: "county"},
+                {data: "area"},
+                {data: "countryZbje"},
+                {data: "createTimeStr"}
                 //{ data: "salary", render: $.fn.dataTable.render.number( ',', '.', 0, '$' ) }
             ],
             "columnDefs": [
-                { "orderable": false, "targets": [0, 1, 2, 3] }
-            ] ,
-            "aLengthMenu": [[10, 25, 50, 100, -1], [10, 25, 50,100, "所有"]],
-            select: true
-        } );
+                {"orderable": false, "targets": [0, 1, 2, 3]}
+            ],
+            "aLengthMenu": [[10, 25, 50, 100, -1], [10, 25, 50, 100, "所有"]],
+            select: true,
+            dom: 'Bltip',
+            buttons: [{
+                'extend': 'excelHtml5',//导出文件格式为excel
+                'text': '导出',  //按钮标题
+                'title': 'XXX-', //导出的excel标题
+                'className': 'btn btn-primary', //按钮的class样式
+                'exportOptions': { //从DataTable中选择要收集的数据。这包括列、行、排序和搜索的选项。请参阅button.exportdata()方法以获得完整的详细信息——该参数所提供的对象将直接传递到该操作中，以收集所需的数据，更多options选项参见：https://datatables.net/reference/api/buttons.exportData()
+                    'format': { //用于导出将使用的单元格格式化函数的容器对象 format有三个子标签，header，body和foot
+                        body: function (data, row, column, node) { //body区域的function，可以操作需要导出excel的数据格式
+                            if (column === 4 && (data == null || data == "" || data == "0%")) {
+                                return 0;
+                            }
+                            else {
+                                return data;
+                            }
+                        }
+                    }
+                }
+            }]
+        });
 
         table.buttons().container()
-                .appendTo( $('.col-sm-6:eq(0)', table.table().container() ) );
-    } );
+                .appendTo($('.col-sm-6:eq(0)', table.table().container()));
+        table_flag = true;
 
 
+        table.$('tr').click(function () {
+            alert(111);
+            var data = table.fnGetData(this);
+            alert(data);
+        });
 
-    function itemOnclick(target){
+
+    }
+
+
+    function itemOnclick(target) {
         //找到当前节点id
         var nodeid = $(target).attr('data-nodeid');
         var tree = $('#getPermissionTree');
@@ -191,17 +451,48 @@
         var node = tree.treeview('getNode', nodeid);
 
         var nodeName = node.text;
-        var  yearSelect = $("#yearSelect").val();
+        var yearSelect = $("#yearSelect").val();
+        $("#selectedDictCode").val(nodeName);
         var type = $('input:radio:checked').val();
-        var tableTitle = nodeName + yearSelect + "年度" +  type +  "资金补偿标准";
+        var tableTitle = nodeName + yearSelect + "年度" + type + "资金补偿标准";
         $("#tableTitle").html(tableTitle);
-        if(node.state.expanded){
+        if (node.state.expanded) {
             //处于展开状态则折叠
             tree.treeview('collapseNode', node.nodeId);
         } else {
             //展开
             tree.treeview('expandNode', node.nodeId);
         }
+    }
+
+
+    function viewAddModal() {
+        var type =  $('input:radio:checked').val();
+        console.log("新增补偿标准1" + type);
+        $("#addBcbzLabel").html("新增-" + $('input:radio:checked').val() + "资金补偿标准");
+
+        if("地方" == type){
+            $("#addGjbcBzForm").attr("action", "${basePath}/localStandard/add.shtml");
+            console.log("新增补偿标准2" + type);
+        }
+        console.log("新增补偿标准3" + type);
+
+        $('#addRecord').modal();
+    }
+
+    function addBcbz() {
+        console.log("新增补偿标准");
+    }
+
+    function checkIsDouble(value) {
+        var reg=/^[-\+]?\d+(\.\d+)?$/;
+
+        if(reg.test(value)){
+            return true;
+        }else{
+            return false;
+        }
+
     }
 
 </script>
