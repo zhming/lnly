@@ -144,7 +144,7 @@
             </div>
 
 
-        <@shiro.hasPermission name="/bussiness/addGjBcbz.shtml">
+        <@shiro.hasPermission name="/countryStandard/add.shtml">
         <#--添加弹框-->
             <div class="modal fade" id="addRecord" tabindex="-1" role="dialog" aria-labelledby="addroleLabel">
                 <div class="modal-dialog" role="document">
@@ -181,14 +181,19 @@
                                 <input type="text" class="form-control" id="area" name="area"
                                        placeholder="请输入面积  [ 数字]">
                             </div>
-                            <div class="form-group col-sm-12">
+                            <div class="form-group col-sm-12 gj">
                                 <label for="recipient-name" class="control-label">国有指标金额: 元</label>
                                 <input type="text" class="form-control" id="countryZbje" name="countryZbje"
                                        placeholder="请输入金额  [数字]">
                             </div>
-                            <div class="form-group col-sm-12">
+                            <div class="form-group col-sm-12 gj">
                                 <label for="recipient-name" class="control-label">其他指标金额: 元</label>
                                 <input type="text" class="form-control" id="otherZbje" name="otherZbje"
+                                       placeholder="请输入金额  [数字]">
+                            </div>
+                            <div class="form-group col-sm-12 df">
+                                <label for="recipient-name" class="control-label">金额: 元</label>
+                                <input type="text" class="form-control" id="je" name="je"
                                        placeholder="请输入金额  [数字]">
                             </div>
                             <div class="form-group col-sm-12">
@@ -331,33 +336,52 @@
                     $("#area").parent().removeClass('has-error').addClass('has-success');
                 }
 
-                if ($.trim($("#countryZbje").val()) == '') {
-                    layer.msg('国有指标金额不能为空！', function () {
-                    });
-                    $("#countryZbje").parent().removeClass('has-success').addClass('has-error');
-                    return !1;
-                } else {
-                    if(!checkIsDouble($("#countryZbje").val())) {
-                        layer.msg('国有指标金额必须是数字！', function () {
+                var type =  $('input:radio:checked').val();
+
+                if("国家" == type){
+                    if ($.trim($("#countryZbje").val()) == '') {
+                        layer.msg('国有指标金额不能为空！', function () {
                         });
                         $("#countryZbje").parent().removeClass('has-success').addClass('has-error');
                         return !1;
+                    } else {
+                        if(!checkIsDouble($("#countryZbje").val())) {
+                            layer.msg('国有指标金额必须是数字！', function () {
+                            });
+                            $("#countryZbje").parent().removeClass('has-success').addClass('has-error');
+                            return !1;
+                        }
+                        $("#countryZbje").parent().removeClass('has-error').addClass('has-success');
                     }
-                    $("#countryZbje").parent().removeClass('has-error').addClass('has-success');
-                }
 
-                if ($.trim($("#otherZbje").val()) != '') {
-                    if(!checkIsDouble($("#otherZbje").val())) {
-                        layer.msg('其他指标金额必须是数字！', function () {
-                        });
-                        $("#otherZbje").parent().removeClass('has-success').addClass('has-error');
-                        return !1;
+                    if ($.trim($("#otherZbje").val()) != '') {
+                        if(!checkIsDouble($("#otherZbje").val())) {
+                            layer.msg('其他指标金额必须是数字！', function () {
+                            });
+                            $("#otherZbje").parent().removeClass('has-success').addClass('has-error');
+                            return !1;
+                        }
+                        $("#otherZbje").parent().removeClass('has-error').addClass('has-success');
+                    }else{
+                        $("#otherZbje").parent().removeClass('has-error').addClass('has-success');
                     }
-                    $("#otherZbje").parent().removeClass('has-error').addClass('has-success');
+
                 }else{
-                    $("#otherZbje").parent().removeClass('has-error').addClass('has-success');
+                    if ($.trim($("#je").val()) == '') {
+                        layer.msg('金额不能为空！', function () {
+                        });
+                        $("#je").parent().removeClass('has-success').addClass('has-error');
+                        return !1;
+                    } else {
+                        if(!checkIsDouble($("#je").val())) {
+                            layer.msg('金额必须是数字！', function () {
+                            });
+                            $("#je").parent().removeClass('has-success').addClass('has-error');
+                            return !1;
+                        }
+                        $("#je").parent().removeClass('has-error').addClass('has-success');
+                    }
                 }
-
 
                 load = layer.load();
             },
@@ -469,11 +493,16 @@
     function viewAddModal() {
         var type =  $('input:radio:checked').val();
         console.log("新增补偿标准1" + type);
-        $("#addBcbzLabel").html("新增-" + $('input:radio:checked').val() + "资金补偿标准");
+        $("#addBcbzLabel").html("新增-" + type + "资金补偿标准");
 
         if("地方" == type){
             $("#addGjbcBzForm").attr("action", "${basePath}/localStandard/add.shtml");
+            $(".gj").css("display", "none");
+            $(".df").css("display", "");
             console.log("新增补偿标准2" + type);
+        }else{
+            $(".gj").css("display", "");
+            $(".df").css("display", "none");
         }
         console.log("新增补偿标准3" + type);
 

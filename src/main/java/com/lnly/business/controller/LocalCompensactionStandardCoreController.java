@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 import javax.annotation.Resource;
+import java.util.Date;
 import java.util.Map;
 
 /**
@@ -92,4 +93,27 @@ public class LocalCompensactionStandardCoreController extends BaseController {
 		}
 		return resultMap;
 	}
+
+
+	/**
+	 * 新增国家补偿标准
+	 * @return
+	 */
+	@RequestMapping(value="add",method=RequestMethod.POST)
+	@ResponseBody
+	public Map<String,Object> add(LocalCompensationStandard entity){
+		try {
+			entity.setCreateTime(new Date());
+			entity.setUpdateTime(new Date());
+			localCompensationStandardService.insert(entity);
+			resultMap.put("status", 200);
+			resultMap.put("message", "保存成功!");
+		} catch (Exception e) {
+			resultMap.put("status", 500);
+			resultMap.put("message", "保存失败!");
+			LoggerUtils.fmtError(getClass(), e, "保存失败。[%s]", JSONObject.fromObject(entity).toString());
+		}
+		return resultMap;
+	}
+
 }

@@ -20,10 +20,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import javax.annotation.Resource;
 import java.io.UnsupportedEncodingException;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 /**
  * 
@@ -161,13 +158,15 @@ public class CountryCompensactionStandardCoreController extends BaseController {
 	}
 
 	/**
-	 * 个人资料修改
+	 * 新增国家补偿标准
 	 * @return
 	 */
 	@RequestMapping(value="add",method=RequestMethod.POST)
 	@ResponseBody
 	public Map<String,Object> add(CountryCompensationStandard entity){
 		try {
+			entity.setCreateTime(new Date());
+			entity.setUpdateTime(new Date());
 			countryCompensationStandardService.insert(entity);
 			resultMap.put("status", 200);
 			resultMap.put("message", "保存成功!");
