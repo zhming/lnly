@@ -12,6 +12,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 @Service
@@ -113,7 +114,17 @@ public class LocalCompensationStandardServiceImpl extends BaseMybatisDao<LocalCo
 		return resultMap;
 
 	}
-	
-	
-	
+
+	@Override
+	public List<LocalCompensationStandard> findAll(String city, String county, Integer year) throws Exception {
+		Map<String, Object> map = new HashMap<>();
+
+		map.put("city", city);
+		map.put("county", county);
+		map.put("year", year);
+
+		return localCompensationStandardMapper.findAll(map);
+	}
+
+
 }

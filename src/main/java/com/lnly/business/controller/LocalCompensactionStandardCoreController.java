@@ -1,10 +1,13 @@
 package com.lnly.business.controller;
 
+import com.lnly.business.bo.LocalCompensationStandardBo;
 import com.lnly.business.service.LocalCompensationStandardService;
 import com.lnly.common.controller.BaseController;
 import com.lnly.common.model.LocalCompensationStandard;
 import com.lnly.common.utils.LoggerUtils;
+import com.lnly.common.utils.StringUtils;
 import net.sf.json.JSONObject;
+import org.joda.time.DateTime;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -14,7 +17,9 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 import javax.annotation.Resource;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 import java.util.Map;
 
 /**
@@ -114,6 +119,57 @@ public class LocalCompensactionStandardCoreController extends BaseController {
 			LoggerUtils.fmtError(getClass(), e, "保存失败。[%s]", JSONObject.fromObject(entity).toString());
 		}
 		return resultMap;
+	}
+
+
+	@RequestMapping(value="findAll",method=RequestMethod.GET)
+	@ResponseBody
+	public Map<String,Object> getAllPost(String dictCode, Integer year){
+		System.out.println(dictCode);
+		System.out.println(year);
+		String city ="";
+		String county = "";
+
+		if(StringUtils.isNotBlank(dictCode)){
+			dictCode = StringUtils.getNum(dictCode);
+			if(dictCode.length() == 6){
+				county = dictCode;
+			}else{
+				city = dictCode;
+			}
+		}
+
+
+		List<LocalCompensationStandard> countryCompensationStandards = null;
+		List<LocalCompensationStandardBo> resultList = new ArrayList<LocalCompensationStandardBo>();
+		try {
+			countryCompensationStandards = localCompensationStandardService.findAll(city,county, year);
+			for(LocalCompensationStandard entity : countryCompensationStandards){
+				LocalCompensationStandardBo bo = new LocalCompensationStandardBo();
+				bo.setYear(entity.getYear());
+				bo.setId(entity.getId());
+				bo.setArea(entity.getArea());
+				bo.setCity(entity.getCity());
+				bo.setComment(entity.getComment());
+				bo.setJe(entity.getJe());
+				bo.setCounty(entity.getCounty());
+				bo.setCreateTimeStr(new DateTime(entity.getCreateTime()).toString("yyyy-MM-dd"));
+				resultList.add(bo);
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		resultMap.put("returnObject", resultList);
+		resultMap.put("message", "ok");
+		return resultMap;
+	}
+
+
+
+
+	public static void main(String[] args){
+		String str = "2101沈阳";
+		System.out.println(StringUtils.getNum(str));
 	}
 
 }

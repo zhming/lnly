@@ -95,8 +95,8 @@
                     <span class="input-group-addon"><span class="glyphicon glyphicon-th"></span></span>
                 </div>
                 <input type="hidden" id="dtp_input1" value=""/><br/>
-            </div>
 
+            </div>
             <div class="form-group col-sm-12">
                 <div id="getPermissionTree" class="input-group date ">
                 </div>
@@ -126,13 +126,14 @@
                             </div>
 
                         </tr>
-                        <tr>
+                        
+                        <tr class="df">
                             <th>ID</th>
                             <th>年度</th>
                             <th>城市</th>
                             <th>区县</th>
                             <th>面积</th>
-                            <th>补偿金额</th>
+                            <th>金额</th>
                             <th>创建时间</th>
                         </tr>
                         </thead>
@@ -274,7 +275,7 @@
             getData();
         });
 
-        
+
         var load;
         $("#addGjbcBzForm").ajaxForm({
             success: function (result) {
@@ -326,7 +327,7 @@
                     $("#area").parent().removeClass('has-success').addClass('has-error');
                     return !1;
                 } else {
-                    if(!checkIsDouble($("#area").val())) {
+                    if (!checkIsDouble($("#area").val())) {
                         layer.msg('面积必须是数字！', function () {
                         });
                         $("#area").parent().removeClass('has-success').addClass('has-error');
@@ -336,16 +337,16 @@
                     $("#area").parent().removeClass('has-error').addClass('has-success');
                 }
 
-                var type =  $('input:radio:checked').val();
+                var type = $('input:radio:checked').val();
 
-                if("国家" == type){
+                if ("国家" == type) {
                     if ($.trim($("#countryZbje").val()) == '') {
                         layer.msg('国有指标金额不能为空！', function () {
                         });
                         $("#countryZbje").parent().removeClass('has-success').addClass('has-error');
                         return !1;
                     } else {
-                        if(!checkIsDouble($("#countryZbje").val())) {
+                        if (!checkIsDouble($("#countryZbje").val())) {
                             layer.msg('国有指标金额必须是数字！', function () {
                             });
                             $("#countryZbje").parent().removeClass('has-success').addClass('has-error');
@@ -355,25 +356,25 @@
                     }
 
                     if ($.trim($("#otherZbje").val()) != '') {
-                        if(!checkIsDouble($("#otherZbje").val())) {
+                        if (!checkIsDouble($("#otherZbje").val())) {
                             layer.msg('其他指标金额必须是数字！', function () {
                             });
                             $("#otherZbje").parent().removeClass('has-success').addClass('has-error');
                             return !1;
                         }
                         $("#otherZbje").parent().removeClass('has-error').addClass('has-success');
-                    }else{
+                    } else {
                         $("#otherZbje").parent().removeClass('has-error').addClass('has-success');
                     }
 
-                }else{
+                } else {
                     if ($.trim($("#je").val()) == '') {
                         layer.msg('金额不能为空！', function () {
                         });
                         $("#je").parent().removeClass('has-success').addClass('has-error');
                         return !1;
                     } else {
-                        if(!checkIsDouble($("#je").val())) {
+                        if (!checkIsDouble($("#je").val())) {
                             layer.msg('金额必须是数字！', function () {
                             });
                             $("#je").parent().removeClass('has-success').addClass('has-error');
@@ -393,74 +394,158 @@
     });
 
 
-
-
-
     function getData() {
         var yearSelect = $("#yearSelect").val();
         var dictCode = $("#selectedDictCode").val();
+        
+        console.log(dictCode);
         var type = $('input:radio:checked').val();
-        var urlStr = "${basePath}/countryStandard/findAll.shtml?year=" + yearSelect + "&dictCode=" + dictCode + "&type=" + type;
-        table = $('#example').DataTable({
-            "bLengthChange": true,
-            lengthChange: false,
-            "processing": true,
-            "serverSide": false,
-            "bDestroy": true,
-            "bRetrieve": true,
-            ajax: urlStr,
-            "language": {
-                "url": "${basePath}/js/datagrid/Chinese.json"
-            },
-            columns: [
+        var urlStrGj = "${basePath}/countryStandard/findAll.shtml?year=" + yearSelect + "&dictCode=" + dictCode;
+        var urlStrDf = "${basePath}/localStandard/findAll.shtml?year=" + yearSelect + "&dictCode=" + dictCode;
+
+
+        if ("国家" == type) {
+            table = $('#example').DataTable({
+                "bLengthChange": true,
+                lengthChange: false,
+                "processing": true,
+                "serverSide": false,
+                "bDestroy": true,
+                "bRetrieve": true,
+                ajax: urlStrGj,
+                "language": {
+                    "url": "${basePath}/js/datagrid/Chinese.json"
+                },
+                columns: [
 //                { data: null, render: function ( data, type, row ) {
 //                    // Combine the first and last names into a single table field
 //                    return data.first_name+' '+data.last_name;
 //                } },
-                {data: "id"},
-                {data: "year"},
-                {data: "city"},
-                {data: "county"},
-                {data: "area"},
-                {data: "countryZbje"},
-                {data: "createTimeStr"}
-                //{ data: "salary", render: $.fn.dataTable.render.number( ',', '.', 0, '$' ) }
-            ],
-            "columnDefs": [
-                {"orderable": false, "targets": [0, 1, 2, 3]}
-            ],
-            "aLengthMenu": [[10, 25, 50, 100, -1], [10, 25, 50, 100, "所有"]],
-            select: true,
-            dom: 'Bltip',
-            buttons: [{
-                'extend': 'excelHtml5',//导出文件格式为excel
-                'text': '导出',  //按钮标题
-                'title': 'XXX-', //导出的excel标题
-                'className': 'btn btn-primary', //按钮的class样式
-                'exportOptions': { //从DataTable中选择要收集的数据。这包括列、行、排序和搜索的选项。请参阅button.exportdata()方法以获得完整的详细信息——该参数所提供的对象将直接传递到该操作中，以收集所需的数据，更多options选项参见：https://datatables.net/reference/api/buttons.exportData()
-                    'format': { //用于导出将使用的单元格格式化函数的容器对象 format有三个子标签，header，body和foot
-                        body: function (data, row, column, node) { //body区域的function，可以操作需要导出excel的数据格式
-                            if (column === 4 && (data == null || data == "" || data == "0%")) {
-                                return 0;
-                            }
-                            else {
-                                return data;
+                    {data: "id"},
+                    {data: "year"},
+                    {data: "city"},
+                    {data: "county"},
+                    {data: "area"},
+                    {data: "countryZbje"},
+                    {data: "otherZbje"},
+                    {data: "createTimeStr"}
+                    //{ data: "salary", render: $.fn.dataTable.render.number( ',', '.', 0, '$' ) }
+                ],
+                "columnDefs": [
+                    {"orderable": false, "targets": [0, 1, 2, 3]}
+                ],
+                "aLengthMenu": [[10, 25, 50, 100, -1], [10, 25, 50, 100, "所有"]],
+                select: true,
+                dom: 'Bltip',
+                buttons: [{
+                    'extend': 'excelHtml5',//导出文件格式为excel
+                    'text': '导出',  //按钮标题
+                    'title': 'XXX-', //导出的excel标题
+                    'className': 'btn btn-primary', //按钮的class样式
+                    'exportOptions': { //从DataTable中选择要收集的数据。这包括列、行、排序和搜索的选项。请参阅button.exportdata()方法以获得完整的详细信息——该参数所提供的对象将直接传递到该操作中，以收集所需的数据，更多options选项参见：https://datatables.net/reference/api/buttons.exportData()
+                        'format': { //用于导出将使用的单元格格式化函数的容器对象 format有三个子标签，header，body和foot
+                            body: function (data, row, column, node) { //body区域的function，可以操作需要导出excel的数据格式
+                                if (column === 4 && (data == null || data == "" || data == "0%")) {
+                                    return 0;
+                                }
+                                else {
+                                    return data;
+                                }
                             }
                         }
                     }
-                }
-            }]
-        });
+                }]
+            });
+        } else{
+            table = $('#example').DataTable({
+                "bLengthChange": true,
+                lengthChange: false,
+                "processing": true,
+                "serverSide": false,
+                "bDestroy": true,
+                "bRetrieve": true,
+                ajax: urlStrDf,
+                "language": {
+                    "url": "${basePath}/js/datagrid/Chinese.json"
+                },
+                columns: [
+//                { data: null, render: function ( data, type, row ) {
+//                    // Combine the first and last names into a single table field
+//                    return data.first_name+' '+data.last_name;
+//                } },
+                    {data: "id"},
+                    {data: "year"},
+                    {data: "city"},
+                    {data: "county"},
+                    {data: "area"},
+                    {data: "je"},
+                    {data: "createTimeStr"}
+                    //{ data: "salary", render: $.fn.dataTable.render.number( ',', '.', 0, '$' ) }
+                ],
+                "columnDefs": [
+                    {"orderable": false, "targets": [0, 1, 2, 3]}
+                ],
+                "aLengthMenu": [[10, 25, 50, 100, -1], [10, 25, 50, 100, "所有"]],
+                select: true,
+                dom: 'Bltip',
+                buttons: [{
+                    'extend': 'excelHtml5',//导出文件格式为excel
+                    'text': '导出',  //按钮标题
+                    'title': 'XXX-', //导出的excel标题
+                    'className': 'btn btn-primary', //按钮的class样式
+                    'exportOptions': { //从DataTable中选择要收集的数据。这包括列、行、排序和搜索的选项。请参阅button.exportdata()方法以获得完整的详细信息——该参数所提供的对象将直接传递到该操作中，以收集所需的数据，更多options选项参见：https://datatables.net/reference/api/buttons.exportData()
+                        'format': { //用于导出将使用的单元格格式化函数的容器对象 format有三个子标签，header，body和foot
+                            body: function (data, row, column, node) { //body区域的function，可以操作需要导出excel的数据格式
+                                if (column === 4 && (data == null || data == "" || data == "0%")) {
+                                    return 0;
+                                }
+                                else {
+                                    return data;
+                                }
+                            }
+                        }
+                    }
+                }]
+            });
+        }
+
+
 
         table.buttons().container()
                 .appendTo($('.col-sm-6:eq(0)', table.table().container()));
         table_flag = true;
 
+        
 
-        table.$('tr').click(function () {
-            alert(111);
-            var data = table.fnGetData(this);
-            alert(data);
+
+
+        $('#example tbody').on('click', 'tr', function () {
+            if ($(this).hasClass('selected')) {
+                $(this).removeClass('selected');
+            }
+            else {
+                table.$('tr.selected').removeClass('selected');
+                $(this).addClass('selected');
+            }
+            var rowData = table.row(this).data();
+
+            $("#id").val(rowData.id);
+
+            $("#city").val(rowData.city);
+
+            $("#county").val(rowData.county);
+
+            $("#area").val(rowData.area);
+
+            $("#countryZbje").val(rowData.countryZbje);
+
+            $("#otherZbje").val(rowData.otherZbje);
+
+            $("#je").val(rowData.je);
+
+            $("#comment").val(rowData.comment);
+
+
         });
 
 
@@ -491,34 +576,50 @@
 
 
     function viewAddModal() {
-        var type =  $('input:radio:checked').val();
-        console.log("新增补偿标准1" + type);
+        var type = $('input:radio:checked').val();
         $("#addBcbzLabel").html("新增-" + type + "资金补偿标准");
 
-        if("地方" == type){
+        if ("地方" == type) {
             $("#addGjbcBzForm").attr("action", "${basePath}/localStandard/add.shtml");
             $(".gj").css("display", "none");
             $(".df").css("display", "");
-            console.log("新增补偿标准2" + type);
-        }else{
+        } else {
             $(".gj").css("display", "");
             $(".df").css("display", "none");
         }
-        console.log("新增补偿标准3" + type);
 
         $('#addRecord').modal();
     }
+
+
+    function viewUpdateModal() {
+        var type = $('input:radio:checked').val();
+        $("#addBcbzLabel").html("修改-" + type + "资金补偿标准");
+
+        if ("地方" == type) {
+            $("#addGjbcBzForm").attr("action", "${basePath}/localStandard/add.shtml");
+            $(".gj").css("display", "none");
+            $(".df").css("display", "");
+        } else {
+            $("#addGjbcBzForm").attr("action", "${basePath}/Standard/add.shtml");
+            $(".gj").css("display", "");
+            $(".df").css("display", "none");
+        }
+
+        $('#addRecord').modal();
+    }
+
 
     function addBcbz() {
         console.log("新增补偿标准");
     }
 
     function checkIsDouble(value) {
-        var reg=/^[-\+]?\d+(\.\d+)?$/;
+        var reg = /^[-\+]?\d+(\.\d+)?$/;
 
-        if(reg.test(value)){
+        if (reg.test(value)) {
             return true;
-        }else{
+        } else {
             return false;
         }
 

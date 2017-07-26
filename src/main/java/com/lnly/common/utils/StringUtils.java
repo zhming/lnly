@@ -401,5 +401,13 @@ public class StringUtils extends org.apache.commons.lang.StringUtils{
 			return serializable.toString();
 		}
 	}
-   
+
+
+	public static String getNum(String str){
+		String regEx="[^0-9]";
+		Pattern p = Pattern.compile(regEx);
+		Matcher m = p.matcher(str);
+
+		return  m.replaceAll("").trim();
+	}
 }

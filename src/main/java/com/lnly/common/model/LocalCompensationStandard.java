@@ -13,7 +13,7 @@ public class LocalCompensationStandard implements Serializable {
     private String city;
     private String county;
     private Double area;
-    private String je;
+    private Double je;
     private String comment;
     private String createUser;
     private String updateUser;
@@ -61,11 +61,11 @@ public class LocalCompensationStandard implements Serializable {
         this.area = area;
     }
 
-    public String getJe() {
+    public Double getJe() {
         return je;
     }
 
-    public void setJe(String je) {
+    public void setJe(Double je) {
         this.je = je;
     }
 

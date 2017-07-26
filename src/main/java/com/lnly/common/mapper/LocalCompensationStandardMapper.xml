@@ -26,10 +26,21 @@
 
   <sql id="where_all">
     <where>
-      <if test="findContent != null and findContent !='' " >
+      <if test="city != null and city !=''" >
         and (
-        LOWER(city) like  LOWER(CONCAT("%",#{findContent,jdbcType=VARCHAR},"%")) or
-        LOWER(county) like  LOWER(CONCAT("%",#{findContent,jdbcType=VARCHAR},"%"))
+        LOWER(city) like  LOWER(CONCAT(#{city,jdbcType=VARCHAR},"%"))
+        )
+      </if>
+
+      <if test="county != null and county !='' " >
+        and (
+        LOWER(county) like  LOWER(CONCAT(#{county,jdbcType=VARCHAR},"%"))
+        )
+      </if>
+
+      <if test="year != null and year !='' " >
+        and (
+          year =  #{year,jdbcType=BIGINT}
         )
       </if>
     </where>

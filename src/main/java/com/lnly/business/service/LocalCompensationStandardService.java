@@ -4,6 +4,7 @@ import com.lnly.common.model.CountryCompensationStandard;
 import com.lnly.common.model.LocalCompensationStandard;
 import com.lnly.core.mybatis.page.Pagination;
 
+import java.util.List;
 import java.util.Map;
 
 public interface LocalCompensationStandardService {
@@ -29,6 +30,7 @@ public interface LocalCompensationStandardService {
 	Map<String, Object> updateForbidUserById(Long id, Long status);
 
 	public Map<String, Object> deleteRoleByUserIds(String userIds);
+	public List<LocalCompensationStandard> findAll(String city, String county, Integer year) throws Exception;
 
 
 }
