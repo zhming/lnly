@@ -4,6 +4,7 @@ import com.lnly.business.bo.CountryCompensationStandardBo;
 import com.lnly.business.service.CountryCompensationStandardService;
 import com.lnly.common.controller.BaseController;
 import com.lnly.common.model.CountryCompensationStandard;
+import com.lnly.common.model.LocalCompensationStandard;
 import com.lnly.common.utils.LoggerUtils;
 import com.lnly.core.mybatis.page.PageEntity;
 import com.lnly.core.mybatis.page.Pagination;
@@ -195,6 +196,25 @@ public class CountryCompensactionStandardCoreController extends BaseController {
 			resultMap.put("status", 500);
 			resultMap.put("message", "修改失败!");
 			LoggerUtils.fmtError(getClass(), e, "修改失败。[%s]", JSONObject.fromObject(entity).toString());
+		}
+		return resultMap;
+	}
+
+	/**
+	 * 删除
+	 * @return
+	 */
+	@RequestMapping(value="delete",method=RequestMethod.POST)
+	@ResponseBody
+	public Map<String,Object> delete(Long id){
+		try {
+			countryCompensationStandardService.deleteByPrimaryKey(id);
+			resultMap.put("status", 200);
+			resultMap.put("message", "删除成功!");
+		} catch (Exception e) {
+			resultMap.put("status", 500);
+			resultMap.put("message", "删除失败!");
+			LoggerUtils.fmtError(getClass(), e, "删除失败。[%s]", id);
 		}
 		return resultMap;
 	}

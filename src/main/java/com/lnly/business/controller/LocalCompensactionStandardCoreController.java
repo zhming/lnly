@@ -1,5 +1,6 @@
 package com.lnly.business.controller;
 
+import com.lnly.business.bo.CountryCompensationStandardBo;
 import com.lnly.business.bo.LocalCompensationStandardBo;
 import com.lnly.business.service.LocalCompensationStandardService;
 import com.lnly.common.controller.BaseController;
@@ -81,7 +82,7 @@ public class LocalCompensactionStandardCoreController extends BaseController {
 	}
 
 	/**
-	 * 个人资料修改
+	 * 修改
 	 * @return
 	 */
 	@RequestMapping(value="update",method=RequestMethod.POST)
@@ -99,9 +100,28 @@ public class LocalCompensactionStandardCoreController extends BaseController {
 		return resultMap;
 	}
 
+	/**
+	 * 修改
+	 * @return
+	 */
+	@RequestMapping(value="delete",method=RequestMethod.POST)
+	@ResponseBody
+	public Map<String,Object> delete(Long id){
+		try {
+			localCompensationStandardService.deleteByPrimaryKey(id);
+			resultMap.put("status", 200);
+			resultMap.put("message", "删除成功!");
+		} catch (Exception e) {
+			resultMap.put("status", 500);
+			resultMap.put("message", "删除失败!");
+			LoggerUtils.fmtError(getClass(), e, "删除失败。[%s]", id);
+		}
+		return resultMap;
+	}
+
 
 	/**
-	 * 新增国家补偿标准
+	 * 新增地方补偿标准
 	 * @return
 	 */
 	@RequestMapping(value="add",method=RequestMethod.POST)
@@ -141,11 +161,11 @@ public class LocalCompensactionStandardCoreController extends BaseController {
 
 
 		List<LocalCompensationStandard> countryCompensationStandards = null;
-		List<LocalCompensationStandardBo> resultList = new ArrayList<LocalCompensationStandardBo>();
+		List<CountryCompensationStandardBo> resultList = new ArrayList<CountryCompensationStandardBo>();
 		try {
 			countryCompensationStandards = localCompensationStandardService.findAll(city,county, year);
 			for(LocalCompensationStandard entity : countryCompensationStandards){
-				LocalCompensationStandardBo bo = new LocalCompensationStandardBo();
+				CountryCompensationStandardBo bo = new CountryCompensationStandardBo();
 				bo.setYear(entity.getYear());
 				bo.setId(entity.getId());
 				bo.setArea(entity.getArea());
@@ -159,7 +179,7 @@ public class LocalCompensactionStandardCoreController extends BaseController {
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-		resultMap.put("returnObject", resultList);
+		resultMap.put("data", resultList);
 		resultMap.put("message", "ok");
 		return resultMap;
 	}

@@ -21,6 +21,7 @@ public class CountryCompensationStandardBo extends CountryCompensationStandard i
 	private Double area;
 	private Double countryZbje;
 	private Double otherZbje;
+	private Double je;
 	private String comment;
 	private String createTimeStr;
 	
@@ -112,5 +113,13 @@ public class CountryCompensationStandardBo extends CountryCompensationStandard i
 
 	public void setCreateTimeStr(String createTimeStr) {
 		this.createTimeStr = createTimeStr;
+	}
+
+	public Double getJe() {
+		return je;
+	}
+
+	public void setJe(Double je) {
+		this.je = je;
 	}
 }

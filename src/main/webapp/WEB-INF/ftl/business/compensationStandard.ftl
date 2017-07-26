@@ -121,20 +121,27 @@
                                    onclick="viewAddModal();"><span>新增</span></a>
                             </@shiro.hasPermission>
 
-                                <a class="btn btn-default btn-update " tabindex="0" " href="#"><span>修改</span></a>
-                                <a class="btn btn-default btn-delete " tabindex="0" href="#"><span>删除</span></a>
+                                <a class="btn btn-default btn-update " tabindex="0" onclick="viewUpdateModal();" href="#"><span>修改</span></a>
+                                <a class="btn btn-default btn-delete " tabindex="0"  onclick="deleteById();" href="#"><span>删除</span></a>
+                               
                             </div>
 
                         </tr>
-                        
-                        <tr class="df">
-                            <th>ID</th>
-                            <th>年度</th>
-                            <th>城市</th>
-                            <th>区县</th>
-                            <th>面积</th>
-                            <th>金额</th>
-                            <th>创建时间</th>
+
+                        <tr >
+                            <div id="tr_h" >
+                                <th>ID</th>
+                                <th>年度</th>
+                                <th>城市</th>
+                                <th>区县</th>
+                                <th>面积</th>
+                                <th>国有指标金额</th>
+                                <th>其他指标金额</th>
+                                <th>金额</th>
+                                <th>备注</th>
+                                <th>创建时间</th>
+                            </div>
+
                         </tr>
                         </thead>
                     </table>
@@ -205,6 +212,8 @@
                             <div class="hidden">
                                 <input type="hidden" id="createUser" name="createUser" value="${token.id}"/>
                                 <input type="hidden" id="updateUser" name="updateUser" value="${token.id}"/>
+
+                                <input type="hidden" id="id" name="id" value=""/>
                             </div>
                             <div class="modal-footer">
                                 <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
@@ -397,126 +406,78 @@
     function getData() {
         var yearSelect = $("#yearSelect").val();
         var dictCode = $("#selectedDictCode").val();
-        
+
         console.log(dictCode);
         var type = $('input:radio:checked').val();
         var urlStrGj = "${basePath}/countryStandard/findAll.shtml?year=" + yearSelect + "&dictCode=" + dictCode;
         var urlStrDf = "${basePath}/localStandard/findAll.shtml?year=" + yearSelect + "&dictCode=" + dictCode;
-
-
-        if ("国家" == type) {
-            table = $('#example').DataTable({
-                "bLengthChange": true,
-                lengthChange: false,
-                "processing": true,
-                "serverSide": false,
-                "bDestroy": true,
-                "bRetrieve": true,
-                ajax: urlStrGj,
-                "language": {
-                    "url": "${basePath}/js/datagrid/Chinese.json"
-                },
-                columns: [
-//                { data: null, render: function ( data, type, row ) {
-//                    // Combine the first and last names into a single table field
-//                    return data.first_name+' '+data.last_name;
-//                } },
-                    {data: "id"},
-                    {data: "year"},
-                    {data: "city"},
-                    {data: "county"},
-                    {data: "area"},
-                    {data: "countryZbje"},
-                    {data: "otherZbje"},
-                    {data: "createTimeStr"}
-                    //{ data: "salary", render: $.fn.dataTable.render.number( ',', '.', 0, '$' ) }
-                ],
-                "columnDefs": [
-                    {"orderable": false, "targets": [0, 1, 2, 3]}
-                ],
-                "aLengthMenu": [[10, 25, 50, 100, -1], [10, 25, 50, 100, "所有"]],
-                select: true,
-                dom: 'Bltip',
-                buttons: [{
-                    'extend': 'excelHtml5',//导出文件格式为excel
-                    'text': '导出',  //按钮标题
-                    'title': 'XXX-', //导出的excel标题
-                    'className': 'btn btn-primary', //按钮的class样式
-                    'exportOptions': { //从DataTable中选择要收集的数据。这包括列、行、排序和搜索的选项。请参阅button.exportdata()方法以获得完整的详细信息——该参数所提供的对象将直接传递到该操作中，以收集所需的数据，更多options选项参见：https://datatables.net/reference/api/buttons.exportData()
-                        'format': { //用于导出将使用的单元格格式化函数的容器对象 format有三个子标签，header，body和foot
-                            body: function (data, row, column, node) { //body区域的function，可以操作需要导出excel的数据格式
-                                if (column === 4 && (data == null || data == "" || data == "0%")) {
-                                    return 0;
-                                }
-                                else {
-                                    return data;
-                                }
-                            }
-                        }
-                    }
-                }]
-            });
-        } else{
-            table = $('#example').DataTable({
-                "bLengthChange": true,
-                lengthChange: false,
-                "processing": true,
-                "serverSide": false,
-                "bDestroy": true,
-                "bRetrieve": true,
-                ajax: urlStrDf,
-                "language": {
-                    "url": "${basePath}/js/datagrid/Chinese.json"
-                },
-                columns: [
-//                { data: null, render: function ( data, type, row ) {
-//                    // Combine the first and last names into a single table field
-//                    return data.first_name+' '+data.last_name;
-//                } },
-                    {data: "id"},
-                    {data: "year"},
-                    {data: "city"},
-                    {data: "county"},
-                    {data: "area"},
-                    {data: "je"},
-                    {data: "createTimeStr"}
-                    //{ data: "salary", render: $.fn.dataTable.render.number( ',', '.', 0, '$' ) }
-                ],
-                "columnDefs": [
-                    {"orderable": false, "targets": [0, 1, 2, 3]}
-                ],
-                "aLengthMenu": [[10, 25, 50, 100, -1], [10, 25, 50, 100, "所有"]],
-                select: true,
-                dom: 'Bltip',
-                buttons: [{
-                    'extend': 'excelHtml5',//导出文件格式为excel
-                    'text': '导出',  //按钮标题
-                    'title': 'XXX-', //导出的excel标题
-                    'className': 'btn btn-primary', //按钮的class样式
-                    'exportOptions': { //从DataTable中选择要收集的数据。这包括列、行、排序和搜索的选项。请参阅button.exportdata()方法以获得完整的详细信息——该参数所提供的对象将直接传递到该操作中，以收集所需的数据，更多options选项参见：https://datatables.net/reference/api/buttons.exportData()
-                        'format': { //用于导出将使用的单元格格式化函数的容器对象 format有三个子标签，header，body和foot
-                            body: function (data, row, column, node) { //body区域的function，可以操作需要导出excel的数据格式
-                                if (column === 4 && (data == null || data == "" || data == "0%")) {
-                                    return 0;
-                                }
-                                else {
-                                    return data;
-                                }
-                            }
-                        }
-                    }
-                }]
-            });
+        var urlStr = "";
+        if ("地方" == type) {
+            urlStr =  urlStrDf;
+        }else{
+            urlStr =  urlStrGj;
         }
 
+
+
+        table = $('#example').DataTable({
+            "bLengthChange": true,
+            lengthChange: false,
+            "processing": true,
+            "bRetrieve": true,
+            "bServerSide" : true,
+            "bDestroy" : true,
+            ajax: urlStr,
+            "language": {
+                "url": "${basePath}/js/datagrid/Chinese.json"
+            },
+            columns: [
+//                { data: null, render: function ( data, type, row ) {
+//                    // Combine the first and last names into a single table field
+//                    return data.first_name+' '+data.last_name;
+//                } },
+                {data: "id"},
+                {data: "year"},
+                {data: "city"},
+                {data: "county"},
+                {data: "area"},
+                {data: "countryZbje"},
+                {data: "otherZbje"},
+                {data: "je"},
+                {data: "comment"},
+                {data: "createTimeStr"}
+                //{ data: "salary", render: $.fn.dataTable.render.number( ',', '.', 0, '$' ) }
+            ],
+            "columnDefs": [
+                {"orderable": false, "targets": [0, 1, 2, 3]},
+            ],
+            "aLengthMenu": [[10, 25, 50, 100, -1], [10, 25, 50, 100, "所有"]],
+            select: true,
+            dom: 'Bltip',
+            buttons: [{
+                'extend': 'excelHtml5',//导出文件格式为excel
+                'text': '导出',  //按钮标题
+                'title': 'XXX-', //导出的excel标题
+                'className': 'btn btn-primary', //按钮的class样式
+                'exportOptions': { //从DataTable中选择要收集的数据。这包括列、行、排序和搜索的选项。请参阅button.exportdata()方法以获得完整的详细信息——该参数所提供的对象将直接传递到该操作中，以收集所需的数据，更多options选项参见：https://datatables.net/reference/api/buttons.exportData()
+                    'format': { //用于导出将使用的单元格格式化函数的容器对象 format有三个子标签，header，body和foot
+                        body: function (data, row, column, node) { //body区域的function，可以操作需要导出excel的数据格式
+                            if (column === 4 && (data == null || data == "" || data == "0%")) {
+                                return 0;
+                            }
+                            else {
+                                return data;
+                            }
+                        }
+                    }
+                }
+            }]
+        });
 
 
         table.buttons().container()
                 .appendTo($('.col-sm-6:eq(0)', table.table().container()));
         table_flag = true;
-
-        
-
 
 
         $('#example tbody').on('click', 'tr', function () {
@@ -548,6 +509,27 @@
 
         });
 
+        if ("地方" == type) {
+            var column = table.column(5);
+            column.visible(!column.visible());
+
+            column = table.column(6);
+            column.visible(!column.visible());
+
+            column = table.column(7);
+            column.visible(column.visible());
+        } else{
+            var column = table.column(5);
+            column.visible(column.visible());
+
+            column = table.column(6);
+            column.visible(column.visible());
+            column = table.column(7);
+            column.visible(!column.visible());
+        }
+
+
+
 
     }
 
@@ -576,6 +558,7 @@
 
 
     function viewAddModal() {
+        $("#id").val("");
         var type = $('input:radio:checked').val();
         $("#addBcbzLabel").html("新增-" + type + "资金补偿标准");
 
@@ -597,11 +580,11 @@
         $("#addBcbzLabel").html("修改-" + type + "资金补偿标准");
 
         if ("地方" == type) {
-            $("#addGjbcBzForm").attr("action", "${basePath}/localStandard/add.shtml");
+            $("#addGjbcBzForm").attr("action", "${basePath}/localStandard/update.shtml");
             $(".gj").css("display", "none");
             $(".df").css("display", "");
         } else {
-            $("#addGjbcBzForm").attr("action", "${basePath}/Standard/add.shtml");
+            $("#addGjbcBzForm").attr("action", "${basePath}/countryStandard/update.shtml");
             $(".gj").css("display", "");
             $(".df").css("display", "none");
         }
@@ -610,9 +593,7 @@
     }
 
 
-    function addBcbz() {
-        console.log("新增补偿标准");
-    }
+   
 
     function checkIsDouble(value) {
         var reg = /^[-\+]?\d+(\.\d+)?$/;
@@ -624,6 +605,42 @@
         }
 
     }
+
+
+    <@shiro.hasPermission name="/role/deleteRoleById.shtml">
+    <#--根据ID删除数据-->
+    function deleteById(){
+        var id = $("#id").val();
+        if(null == id || "" == id){
+            return;
+        }
+        var type = $('input:radio:checked').val();
+        var deleteUrl = "";
+        if ("地方" == type) {
+           deleteUrl = "${basePath}/localStandard/delete.shtml";
+        } else {
+            deleteUrl = "${basePath}/countryStandard/delete.shtml";
+        }
+
+
+        var index = layer.confirm("确定删除这条数据？",function(){
+            var load = layer.load();
+            $.post(deleteUrl,{id:id},function(result){
+                layer.close(load);
+                if(result && result.status != 200){
+                    return layer.msg(result.message,so.default),!0;
+                }else{
+                    layer.msg(result.message);
+                    table.row('.selected').remove().draw( false );
+                }
+            },'json');
+            layer.close(index);
+        });
+    }
+    </@shiro.hasPermission>
+
+
+    
 
 </script>
 
