@@ -4,10 +4,10 @@
 
 	<groupId>lngyl</groupId>
 	<artifactId>lngyl</artifactId>
-	<version>0.0.2-SNAPSHOT</version>
+	<version>lngyl-0.0.2-SNAPSHOT</version>
 	<packaging>war</packaging>
 
-	<name>www.sojson.com</name>
+	<name>lngyl</name>
 	<url>http://maven.apache.org</url>
 
 	<properties>

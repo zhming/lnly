@@ -425,7 +425,7 @@
             lengthChange: false,
             "processing": true,
             "bRetrieve": true,
-            "bServerSide" : true,
+            "bServerSide" : false,
             "bDestroy" : true,
             ajax: urlStr,
             "language": {
