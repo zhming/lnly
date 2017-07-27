@@ -10,7 +10,7 @@
 
 
 管理员帐号：admin
-密码：admin
+密码：admin             backup_db.sql
 
 
 Cache配置修改。
@@ -28,3 +28,5 @@ Cache配置修改。
 
 
 
+DB环境：
+    可以直接导入
