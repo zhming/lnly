@@ -43,6 +43,16 @@ public class UUser implements Serializable{
     private Date lastLoginTime;
     /**1:有效，0:禁止登录*/
     private Long status;
+
+    /**
+     * 区划代码
+     */
+    private String dictCode;
+
+    /**
+     * 上级区划代码
+     */
+    private String highDictCode;
     
     
     
@@ -111,5 +121,21 @@ public class UUser implements Serializable{
     }
     public String toString(){
     	return JSONObject.fromObject(this).toString();
+    }
+
+    public String getDictCode() {
+        return dictCode;
+    }
+
+    public void setDictCode(String dictCode) {
+        this.dictCode = dictCode;
+    }
+
+    public String getHighDictCode() {
+        return highDictCode;
+    }
+
+    public void setHighDictCode(String highDictCode) {
+        this.highDictCode = highDictCode;
     }
 }

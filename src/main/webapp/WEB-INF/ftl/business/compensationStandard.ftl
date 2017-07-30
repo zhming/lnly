@@ -98,7 +98,7 @@
 
             </div>
             <div class="form-group col-sm-12">
-                <div id="getPermissionTree" class="input-group date ">
+                <div id="getDictTree" class="input-group date ">
                 </div>
             </div>
         </div>
@@ -123,6 +123,7 @@
 
                                 <a class="btn btn-default btn-update " tabindex="0" onclick="viewUpdateModal();" href="#"><span>修改</span></a>
                                 <a class="btn btn-default btn-delete " tabindex="0"  onclick="deleteById();" href="#"><span>删除</span></a>
+                                
                                
                             </div>
 
@@ -248,14 +249,17 @@
     });
 
     $(function () {
+        var dictCode = "${token.dictCode}";
+        
+
         var load = layer.load();
-    <@shiro.hasPermission name="/adminDict/findAll.shtml">
-        $.post("${basePath}/adminDict/findAll.shtml", {}, function (data) {
+    <@shiro.hasPermission name="/adminDict/findDictTree.shtml">
+        $.post("${basePath}/adminDict/findDictTree.shtml", {dictCode:dictCode}, function (data) {
             layer.close(load);
             if (data && !data.length) {
-                return $("#getPermissionTree").html('<code>您没有权限。</code>'), !1;
+                return $("#getDictTree").html('<code>您没有权限。</code>'), !1;
             }
-            $('#getPermissionTree').treeview({
+            $('#getDictTree').treeview({
                 levels: 1,//层级
                 color: "#428bca",
                 nodeIcon: "glyphicon glyphicon-tree-conifer",
@@ -537,7 +541,7 @@
     function itemOnclick(target) {
         //找到当前节点id
         var nodeid = $(target).attr('data-nodeid');
-        var tree = $('#getPermissionTree');
+        var tree = $('#getDictTree');
         //获取当前节点对象
         var node = tree.treeview('getNode', nodeid);
 

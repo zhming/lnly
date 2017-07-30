@@ -12,4 +12,7 @@ public interface AdminDictService {
 	List<AdminDict> findAll() throws Exception;
 
 	List<AdminDict> findByHighDict(String highDict) throws Exception;
+
+	AdminDict findByDictCode(String dictCode) throws Exception;
+	AdminDict findById(Long id) throws Exception;
 }

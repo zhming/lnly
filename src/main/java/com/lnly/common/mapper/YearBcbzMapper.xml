@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.lnly.common.dao.YearBcbzMapper" >
+  <resultMap id="BaseResultMap" type="com.lnly.common.model.YearBcbz" >
+    <id column="id" property="id" jdbcType="BIGINT" />
+    <result column="year" property="year" jdbcType="VARCHAR" />
+    <result column="bz1" property="bz1" jdbcType="DOUBLE" />
+    <result column="bz2" property="bz2" jdbcType="DOUBLE" />
+    <result column="type" property="type" jdbcType="INT" />
+    <result column="create_time" property="createTime" jdbcType="TIMESTAMP" />
+    <result column="update_time" property="updateTime" jdbcType="TIMESTAMP" />
+
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, year, bz1, bz2, type, create_time, update_time
+  </sql>
+
+  <!-- 查找补偿标注 -->
+  <select id="findBcbz" resultMap="BaseResultMap" >
+  	 select 
+    <include refid="Base_Column_List" />
+    from tb_year_bcbz
+    where year = #{year,jdbcType=VARCHAR} and type = #{type, jdbcType=INT}
+  </select>
+
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Long" >
+    select 
+    <include refid="Base_Column_List" />
+    from tb_year_bcbz
+    where id = #{id,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long" >
+    delete from tb_year_bcbz
+    where id = #{id,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" useGeneratedKeys="true" keyProperty="id" parameterType="com.lnly.common.model.YearBcbz" >
+    insert into tb_year_bcbz ( id, year, bz1, bz2, type, create_time, update_time
+      )
+    values (#{id,jdbcType=BIGINT}, #{bz1,jdbcType=DOUBLE}, #{year,jdbcType=VARCHAR},  #{bz2,jdbcType=DOUBLE},
+     #{createTime,jdbcType=TIMESTAMP}, #{createTime,jdbcType=TIMESTAMP}
+      )
+  </insert>
+
+
+  <update id="updateByPrimaryKey" parameterType="com.lnly.common.model.YearBcbz" >
+    update tb_year_bcbz
+    set year = #{year,jdbcType=VARCHAR},
+      bz1 = #{bz1,jdbcType=DOUBLE},
+      bz2 = #{bz2,jdbcType=DOUBLE},
+      year = #{year,jdbcType=INT},
+      create_time = #{createTime,jdbcType=TIMESTAMP},
+      create_time = #{createTime,jdbcType=TIMESTAMP}
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+</mapper>

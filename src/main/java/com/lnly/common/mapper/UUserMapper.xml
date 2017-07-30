@@ -9,9 +9,11 @@
     <result column="create_time" property="createTime" jdbcType="TIMESTAMP" />
     <result column="last_login_time" property="lastLoginTime" jdbcType="TIMESTAMP" />
     <result column="status" property="status" jdbcType="BIGINT" />
+    <result column="dict_code" property="dictCode" jdbcType="VARCHAR" />
+    <result column="high_dict_code" property="highDictCode" jdbcType="VARCHAR" />
   </resultMap>
   <sql id="Base_Column_List" >
-    id, nickname, email, pswd, create_time, last_login_time,status
+    id, nickname, email, pswd, create_time, last_login_time,status, dict_code, high_dict_code
   </sql>
   <sql id="limit_sql">
   	   <if test="page_sql != null and page_sql != ''">
@@ -98,10 +100,10 @@
   </delete>
   <insert id="insert" useGeneratedKeys="true" keyProperty="id" parameterType="com.lnly.common.model.UUser" >
     insert into u_user (id, nickname, email, 
-      pswd, create_time, last_login_time,status
+      pswd, create_time, last_login_time,status, dict_code, high_dict_code
       )
     values (#{id,jdbcType=BIGINT}, #{nickname,jdbcType=VARCHAR}, #{email,jdbcType=VARCHAR}, 
-      #{pswd,jdbcType=VARCHAR}, #{createTime,jdbcType=TIMESTAMP}, #{lastLoginTime,jdbcType=TIMESTAMP},#{status,jdbcType=BIGINT}
+      #{pswd,jdbcType=VARCHAR}, #{createTime,jdbcType=TIMESTAMP}, #{lastLoginTime,jdbcType=TIMESTAMP},#{status,jdbcType=BIGINT},#{dictCode,jdbcType=VARCHAR},#{highDictCode,jdbcType=VARCHAR}
       )
   </insert>
   <insert id="insertSelective" useGeneratedKeys="true" keyProperty="id" parameterType="com.lnly.common.model.UUser" >
@@ -128,6 +130,12 @@
       <if test="status != null" >
         status,
       </if>
+      <if test="dictCOde != null" >
+        dict_code,
+      </if>
+      <if test="highDictCode != null" >
+        high_dict_code,
+      </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides="," >
       <if test="id != null" >
@@ -149,7 +157,13 @@
         #{lastLoginTime,jdbcType=TIMESTAMP},
       </if>
       <if test="status != null" >
-        #{status,jdbcType=BIGINT}
+        #{status,jdbcType=BIGINT},
+      </if>
+      <if test="dictCode != null" >
+        #{dictCode,jdbcType=VARCHAR},
+      </if>
+      <if test="highDictCode != null" >
+        #{highDictCode,jdbcType=VARCHAR}
       </if>
     </trim>
   </insert>
@@ -174,6 +188,12 @@
       <if test="status != null" >
         status = #{status,jdbcType=BIGINT},
       </if>
+      <if test="dictCode != null" >
+        dict_code = #{dictCode,jdbcType=VARCHAR},
+      </if>
+      <if test="highDictCode != null" >
+        high_dict_code = #{highDictCode,jdbcType=VARCHAR}
+      </if>
     </set>
     where id = #{id,jdbcType=BIGINT}
   </update>
@@ -184,6 +204,8 @@
       pswd = #{pswd,jdbcType=VARCHAR},
       create_time = #{createTime,jdbcType=TIMESTAMP},
       last_login_time = #{lastLoginTime,jdbcType=TIMESTAMP},
+      dict_code = #{dictCode,jdbcType=VARCHAR},
+      high_dict_code = #{highDictCode,jdbcType=VARCHAR},
       status = #{status,jdbcType=BIGINT}
     where id = #{id,jdbcType=BIGINT}
   </update>

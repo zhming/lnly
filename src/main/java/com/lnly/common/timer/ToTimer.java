@@ -24,7 +24,7 @@ public class ToTimer{
 		/**
 		 * 调用存储过程，重新创建表，插入初始化数据。
 		 */
-		roleService.initData();
+//		roleService.initData();
 		System.out.println(new Date().getTime());
 	}
 

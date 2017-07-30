@@ -1,13 +1,16 @@
-package com.lnly.core.shiro.cache;
+package com.lnly.core.shiro.cache.impl;
 
-import java.util.Collection;
-import java.util.Set;
-
-import org.apache.shiro.cache.Cache;
-import org.apache.shiro.cache.CacheException;
-
+import com.lnly.business.service.AdminDictService;
 import com.lnly.common.utils.LoggerUtils;
 import com.lnly.common.utils.SerializeUtil;
+import com.lnly.core.shiro.cache.JedisManager;
+import org.apache.shiro.cache.Cache;
+import org.apache.shiro.cache.CacheException;
+import org.springframework.stereotype.Component;
+
+import javax.annotation.Resource;
+import java.util.Collection;
+import java.util.Set;
 
 /**
  * Description
@@ -25,16 +28,15 @@ import com.lnly.common.utils.SerializeUtil;
  * @email 35691226@qq.com
  */
 
+@Component
 @SuppressWarnings("unchecked")
-public class JedisShiroCache<K, V> implements Cache<K, V> {
+public class JedisDictCache<K, V> implements Cache<K, V> {
 
 	/**
 	 * 为了不和其他的缓存混淆，采用追加前缀方式以作区分
 	 */
-    private static final String REDIS_SHIRO_CACHE = "shiro-demo-cache:";
 
-
-    private static final String REDIS_DICT_CACHE = "shiro-demo-cache:";
+    private static final String REDIS_DICT_CACHE = "dict-cache:";
 
     /**
      * Redis 分片(分区)，也可以在配置文件中配置
@@ -42,12 +44,15 @@ public class JedisShiroCache<K, V> implements Cache<K, V> {
     private static final int DB_INDEX = 1;
 
     private JedisManager jedisManager;
-    
+
     private String name;
 
-    
-	static final Class<JedisShiroCache> SELF = JedisShiroCache.class;
-    public JedisShiroCache(String name, JedisManager jedisManager) {
+    @Resource
+    private AdminDictService adminDictService;
+
+
+	static final Class<JedisDictCache> SELF = JedisDictCache.class;
+    public JedisDictCache(String name, JedisManager jedisManager) {
         this.name = name;
         this.jedisManager = jedisManager;
     }
@@ -71,6 +76,10 @@ public class JedisShiroCache<K, V> implements Cache<K, V> {
         byte[] byteValue = new byte[0];
         try {
             byteValue = jedisManager.getValueByKey(DB_INDEX, byteKey);
+            if(null == byteValue) {
+
+            }
+
         } catch (Exception e) {
             LoggerUtils.error(SELF, "get value by cache throw exception",e);
         }
@@ -125,7 +134,7 @@ public class JedisShiroCache<K, V> implements Cache<K, V> {
     }
 
     private String buildCacheKey(Object key) {
-        return REDIS_SHIRO_CACHE + getName() + ":" + key;
+        return REDIS_DICT_CACHE + getName() + ":" + key;
     }
 
 }

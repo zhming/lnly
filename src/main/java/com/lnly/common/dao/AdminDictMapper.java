@@ -11,4 +11,7 @@ public interface AdminDictMapper {
     List<AdminDict> findAll();
 
     List<AdminDict> findByHighDict(String highDict);
+
+    AdminDict findByDictCode(String dictCode) ;
+    AdminDict findById(Long id)  ;
 }

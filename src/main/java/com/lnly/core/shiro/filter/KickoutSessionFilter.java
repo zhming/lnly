@@ -23,23 +23,19 @@ import com.lnly.core.shiro.cache.VCache;
 import com.lnly.core.shiro.session.ShiroSessionRepository;
 import com.lnly.core.shiro.token.manager.TokenManager;
 /**
- * 
- * 开发公司：SOJSON在线工具 <p>
- * 版权所有：© www.sojson.com<p>
- * 博客地址：http://www.sojson.com/blog/  <p>
+ * Description
  * <p>
- * 
- * 相同帐号登录控制
- * 
  * <p>
- * 
+ * <p>
  * 区分　责任人　日期　　　　说明<br/>
- * 创建　周柏成　2016年6月2日 　<br/>
+ * 创建　钱志明　${date} 　<br/>
+ * <p>
+ * *******
+ * <p>
  *
- * @author zhou-baicheng
- * @email  so@sojson.com
- * @version 1.0,2016年6月2日 <br/>
- * 
+ * @author qianzhiming
+ * @version 1.0, 2017年7月1日 <br/>
+ * @email 35691226@qq.com
  */
 @SuppressWarnings({"unchecked","static-access"})
 public class KickoutSessionFilter extends AccessControlFilter {

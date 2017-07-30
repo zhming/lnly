@@ -8,25 +8,24 @@ import org.apache.shiro.subject.Subject;
 import org.apache.shiro.util.StringUtils;
 import org.apache.shiro.web.filter.AccessControlFilter;
 import org.apache.shiro.web.util.WebUtils;
+
 /**
- * 
- * 开发公司：SOJSON在线工具 <p>
- * 版权所有：© www.sojson.com<p>
- * 博客地址：http://www.sojson.com/blog/  <p>
- * <p>
- * 
  * 角色判断校验
- * 
  * <p>
- * 
+ * <p>
+ * <p>
  * 区分　责任人　日期　　　　说明<br/>
- * 创建　周柏成　2016年6月2日 　<br/>
+ * 创建　钱志明　${date} 　<br/>
+ * <p>
+ * *******
+ * <p>
  *
- * @author zhou-baicheng
- * @email  so@sojson.com
- * @version 1.0,2016年6月2日 <br/>
- * 
+ * @author qianzhiming
+ * @version 1.0, 2017年7月1日 <br/>
+ * @email 35691226@qq.com
  */
+
+
 public class RoleFilter extends AccessControlFilter {
 
 	static final String LOGIN_URL = "http://www.sojson.com/user/open/toLogin.shtml";

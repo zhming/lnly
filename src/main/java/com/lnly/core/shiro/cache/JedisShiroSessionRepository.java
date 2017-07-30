@@ -12,7 +12,7 @@ import com.lnly.core.shiro.session.SessionStatus;
 import com.lnly.core.shiro.session.ShiroSessionRepository;
 /**
  * Session 管理
- * @author sojson.com
+ * @author qianzhiming
  *
  */
 @SuppressWarnings("unchecked")

@@ -12,27 +12,25 @@ import com.lnly.common.utils.LoggerUtils;
 
 import net.sf.json.JSONObject;
 
+
 /**
- * 
- * 开发公司：itboy.net<br/>
- * 版权：itboy.net<br/>
- * <p>
- * 
  * Shiro Filter 工具类
  * 
  * <p>
- * 
+ * <p>
+ * <p>
  * 区分　责任人　日期　　　　说明<br/>
- * 创建　周柏成　2016年5月27日 　<br/>
+ * 创建　钱志明　${date} 　<br/>
  * <p>
  * *******
  * <p>
- * 
- * @author zhou-baicheng
- * @email i@itboy.net
- * @version 1.0,2016年5月27日 <br/>
- * 
+ *
+ * @author qianzhiming
+ * @version 1.0, 2017年7月1日 <br/>
+ * @email 35691226@qq.com
  */
+
+
 public class ShiroFilterUtils {
 	final static Class<? extends ShiroFilterUtils> CLAZZ = ShiroFilterUtils.class;
 	//登录页面

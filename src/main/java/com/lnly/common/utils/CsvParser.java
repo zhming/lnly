@@ -4,6 +4,7 @@ import com.lnly.user.manager.UserManager;
 
 import java.io.BufferedReader;
 import java.io.FileReader;
+import java.io.UnsupportedEncodingException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.regex.Matcher;
@@ -151,7 +152,9 @@ public class CsvParser{
         //user
         //CsvParser parser=new CsvParser("E:\\lngyl\\user.csv");
 
-        CsvParser parser=new CsvParser("E:\\lngyl\\国家补偿标准——全 - 副本.csv");
+      // CsvParser parser=new CsvParser("E:\\lngyl\\国家补偿标准——全 - 副本.csv");
+
+        CsvParser parser=new CsvParser("E:\\lngyl\\user222.csv");
         
         Object[] arr=parser.getParsedArray();
 
@@ -161,9 +164,9 @@ public class CsvParser{
 
 
 
-           // buff = proAdminDictSql(buff, (List<String>) obj);
+           buff = proAdminDictSql(buff, (List<String>) obj);
           //  buff = proUserSql(buff, (List<String>) obj);
-            buff = proCountryStandardSql(buff, (List<String>) obj);
+//            buff = proCountryStandardSql(buff, (List<String>) obj);
             System.out.println(buff.toString());
         }
     }
@@ -237,9 +240,10 @@ public class CsvParser{
         buff.setLength(0);
         buff.append("INSERT INTO tb_admin_dict ( dict_code,dict_name,high_dict,comment) VALUES (");
         List<String> ls= obj;
-        buff.append("'").append(ls.get(3)).append("',");
-        buff.append("'").append(ls.get(3)).append("',");
-        buff.append("'").append(ls.get(2)).append("',");
+        buff.append("'").append(ls.get(9)).append("',");
+        buff.append("'").append(ls.get(1)).append("',");
+            buff.append("'").append(ls.get(8)).append("',");
+
         buff.append("'").append("").append("'");
         buff.append(");");
 

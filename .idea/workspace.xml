@@ -6,204 +6,41 @@
     </artifacts-to-build>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e5ab77ab-1618-47c7-82e4-0daea9cd7a57" name="Default" comment="base plugin ok!">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/webapp/images/title.JPG" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/webapp/images/title1.JPG" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/artifacts/lnlygyl_war.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__joda_time_joda_time_2_3.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/artifacts/shiro_demo_war.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/com/sojson/common/controller/BaseController.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/com/sojson/common/controller/CommonController.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/com/sojson/common/dao/UPermissionMapper.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/com/sojson/common/dao/URoleMapper.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/com/sojson/common/dao/URolePermissionMapper.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/com/sojson/common/dao/UUserMapper.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/com/sojson/common/dao/UUserRoleMapper.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/com/sojson/common/mapper/UPermissionMapper.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/com/sojson/common/mapper/URoleMapper.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/com/sojson/common/mapper/URolePermissionMapper.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/com/sojson/common/mapper/UUserMapper.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/com/sojson/common/mapper/UUserRoleMapper.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/com/sojson/common/model/UPermission.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/com/sojson/common/model/URole.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/com/sojson/common/model/URolePermission.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/com/sojson/common/model/UUser.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/com/sojson/common/model/UUserRole.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/com/sojson/common/timer/ToTimer.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/com/sojson/common/utils/CookieUtil.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/com/sojson/common/utils/DateUtil.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/com/sojson/common/utils/LoggerUtils.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/com/sojson/common/utils/MathUtil.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/com/sojson/common/utils/SerializeUtil.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/com/sojson/common/utils/SpringContextUtil.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/com/sojson/common/utils/StringUtils.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/com/sojson/common/utils/UtilPath.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/com/sojson/common/utils/VerifyCodeUtils$Verify.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/com/sojson/common/utils/VerifyCodeUtils.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/com/sojson/common/utils/VinuxPostMethod$1.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/com/sojson/common/utils/VinuxPostMethod.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/com/sojson/core/config/IConfig.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/com/sojson/core/freemarker/extend/Ferrmarker.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/com/sojson/core/freemarker/extend/FreeMarkerConfigExtend.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/com/sojson/core/freemarker/extend/FreeMarkerViewExtend.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/com/sojson/core/freemarker/utils/FreemarkerTagUtil.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/com/sojson/core/mybatis/BaseMybatisDao.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/com/sojson/core/mybatis/page/Dialect.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/com/sojson/core/mybatis/page/MysqlDialect.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/com/sojson/core/mybatis/page/OracleDialect.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/com/sojson/core/mybatis/page/Paginable.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/com/sojson/core/mybatis/page/Pagination.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/com/sojson/core/mybatis/page/SimplePage.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/com/sojson/core/shiro/CustomShiroSessionDAO.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/com/sojson/core/shiro/cache/JedisManager.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/com/sojson/core/shiro/cache/JedisShiroCache.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/com/sojson/core/shiro/cache/JedisShiroSessionRepository.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/com/sojson/core/shiro/cache/ShiroCacheManager.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/com/sojson/core/shiro/cache/VCache.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/com/sojson/core/shiro/cache/impl/CustomShiroCacheManager.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/com/sojson/core/shiro/cache/impl/JedisShiroCacheManager.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/com/sojson/core/shiro/filter/KickoutSessionFilter.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/com/sojson/core/shiro/filter/LoginFilter.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/com/sojson/core/shiro/filter/PermissionFilter.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/com/sojson/core/shiro/filter/RoleFilter.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/com/sojson/core/shiro/filter/ShiroFilterUtils.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/com/sojson/core/shiro/filter/SimpleAuthFilter.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/com/sojson/core/shiro/listenter/CustomSessionListener.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/com/sojson/core/shiro/session/CustomSessionManager.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/com/sojson/core/shiro/session/SessionStatus.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/com/sojson/core/shiro/session/ShiroSessionRepository.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/com/sojson/core/shiro/token/SampleRealm.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/com/sojson/core/shiro/token/ShiroToken.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/com/sojson/core/shiro/token/manager/TokenManager.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/com/sojson/core/statics/APPKEY.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/com/sojson/core/statics/Constant.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/com/sojson/core/tags/APITemplateModel.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/com/sojson/core/tags/SuperCustomTag.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/com/sojson/core/tags/WYFTemplateModel.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/com/sojson/permission/bo/RolePermissionAllocationBo.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/com/sojson/permission/bo/UPermissionBo.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/com/sojson/permission/bo/URoleBo.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/com/sojson/permission/bo/UserRoleAllocationBo.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/com/sojson/permission/controller/PermissionAllocationController.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/com/sojson/permission/controller/PermissionController.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/com/sojson/permission/controller/RoleController.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/com/sojson/permission/controller/UserRoleAllocationController.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/com/sojson/permission/service/PermissionService.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/com/sojson/permission/service/RoleService.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/com/sojson/permission/service/impl/PermissionServiceImpl.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/com/sojson/permission/service/impl/RoleServiceImpl.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/com/sojson/user/bo/UserOnlineBo.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/com/sojson/user/controller/MemberController.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/com/sojson/user/controller/UserCoreController.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/com/sojson/user/controller/UserLoginController.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/com/sojson/user/manager/UserManager.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/com/sojson/user/service/UUserService.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/com/sojson/user/service/impl/UUserServiceImpl.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/shiro.demo-0.0.2-SNAPSHOT/WEB-INF/classes/com/sojson/common/controller/BaseController.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/shiro.demo-0.0.2-SNAPSHOT/WEB-INF/classes/com/sojson/common/controller/CommonController.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/shiro.demo-0.0.2-SNAPSHOT/WEB-INF/classes/com/sojson/common/dao/UPermissionMapper.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/shiro.demo-0.0.2-SNAPSHOT/WEB-INF/classes/com/sojson/common/dao/URoleMapper.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/shiro.demo-0.0.2-SNAPSHOT/WEB-INF/classes/com/sojson/common/dao/URolePermissionMapper.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/shiro.demo-0.0.2-SNAPSHOT/WEB-INF/classes/com/sojson/common/dao/UUserMapper.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/shiro.demo-0.0.2-SNAPSHOT/WEB-INF/classes/com/sojson/common/dao/UUserRoleMapper.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/shiro.demo-0.0.2-SNAPSHOT/WEB-INF/classes/com/sojson/common/mapper/UPermissionMapper.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/shiro.demo-0.0.2-SNAPSHOT/WEB-INF/classes/com/sojson/common/mapper/URoleMapper.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/shiro.demo-0.0.2-SNAPSHOT/WEB-INF/classes/com/sojson/common/mapper/URolePermissionMapper.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/shiro.demo-0.0.2-SNAPSHOT/WEB-INF/classes/com/sojson/common/mapper/UUserMapper.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/shiro.demo-0.0.2-SNAPSHOT/WEB-INF/classes/com/sojson/common/mapper/UUserRoleMapper.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/shiro.demo-0.0.2-SNAPSHOT/WEB-INF/classes/com/sojson/common/model/UPermission.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/shiro.demo-0.0.2-SNAPSHOT/WEB-INF/classes/com/sojson/common/model/URole.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/shiro.demo-0.0.2-SNAPSHOT/WEB-INF/classes/com/sojson/common/model/URolePermission.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/shiro.demo-0.0.2-SNAPSHOT/WEB-INF/classes/com/sojson/common/model/UUser.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/shiro.demo-0.0.2-SNAPSHOT/WEB-INF/classes/com/sojson/common/model/UUserRole.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/shiro.demo-0.0.2-SNAPSHOT/WEB-INF/classes/com/sojson/common/timer/ToTimer.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/shiro.demo-0.0.2-SNAPSHOT/WEB-INF/classes/com/sojson/common/utils/CookieUtil.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/shiro.demo-0.0.2-SNAPSHOT/WEB-INF/classes/com/sojson/common/utils/DateUtil.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/shiro.demo-0.0.2-SNAPSHOT/WEB-INF/classes/com/sojson/common/utils/LoggerUtils.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/shiro.demo-0.0.2-SNAPSHOT/WEB-INF/classes/com/sojson/common/utils/MathUtil.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/shiro.demo-0.0.2-SNAPSHOT/WEB-INF/classes/com/sojson/common/utils/SerializeUtil.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/shiro.demo-0.0.2-SNAPSHOT/WEB-INF/classes/com/sojson/common/utils/SpringContextUtil.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/shiro.demo-0.0.2-SNAPSHOT/WEB-INF/classes/com/sojson/common/utils/StringUtils.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/shiro.demo-0.0.2-SNAPSHOT/WEB-INF/classes/com/sojson/common/utils/UtilPath.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/shiro.demo-0.0.2-SNAPSHOT/WEB-INF/classes/com/sojson/common/utils/VerifyCodeUtils$Verify.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/shiro.demo-0.0.2-SNAPSHOT/WEB-INF/classes/com/sojson/common/utils/VerifyCodeUtils.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/shiro.demo-0.0.2-SNAPSHOT/WEB-INF/classes/com/sojson/common/utils/VinuxPostMethod$1.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/shiro.demo-0.0.2-SNAPSHOT/WEB-INF/classes/com/sojson/common/utils/VinuxPostMethod.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/shiro.demo-0.0.2-SNAPSHOT/WEB-INF/classes/com/sojson/core/config/IConfig.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/shiro.demo-0.0.2-SNAPSHOT/WEB-INF/classes/com/sojson/core/freemarker/extend/Ferrmarker.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/shiro.demo-0.0.2-SNAPSHOT/WEB-INF/classes/com/sojson/core/freemarker/extend/FreeMarkerConfigExtend.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/shiro.demo-0.0.2-SNAPSHOT/WEB-INF/classes/com/sojson/core/freemarker/extend/FreeMarkerViewExtend.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/shiro.demo-0.0.2-SNAPSHOT/WEB-INF/classes/com/sojson/core/freemarker/utils/FreemarkerTagUtil.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/shiro.demo-0.0.2-SNAPSHOT/WEB-INF/classes/com/sojson/core/mybatis/BaseMybatisDao.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/shiro.demo-0.0.2-SNAPSHOT/WEB-INF/classes/com/sojson/core/mybatis/page/Dialect.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/shiro.demo-0.0.2-SNAPSHOT/WEB-INF/classes/com/sojson/core/mybatis/page/MysqlDialect.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/shiro.demo-0.0.2-SNAPSHOT/WEB-INF/classes/com/sojson/core/mybatis/page/OracleDialect.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/shiro.demo-0.0.2-SNAPSHOT/WEB-INF/classes/com/sojson/core/mybatis/page/Paginable.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/shiro.demo-0.0.2-SNAPSHOT/WEB-INF/classes/com/sojson/core/mybatis/page/Pagination.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/shiro.demo-0.0.2-SNAPSHOT/WEB-INF/classes/com/sojson/core/mybatis/page/SimplePage.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/shiro.demo-0.0.2-SNAPSHOT/WEB-INF/classes/com/sojson/core/shiro/CustomShiroSessionDAO.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/shiro.demo-0.0.2-SNAPSHOT/WEB-INF/classes/com/sojson/core/shiro/cache/JedisManager.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/shiro.demo-0.0.2-SNAPSHOT/WEB-INF/classes/com/sojson/core/shiro/cache/JedisShiroCache.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/shiro.demo-0.0.2-SNAPSHOT/WEB-INF/classes/com/sojson/core/shiro/cache/JedisShiroSessionRepository.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/shiro.demo-0.0.2-SNAPSHOT/WEB-INF/classes/com/sojson/core/shiro/cache/ShiroCacheManager.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/shiro.demo-0.0.2-SNAPSHOT/WEB-INF/classes/com/sojson/core/shiro/cache/VCache.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/shiro.demo-0.0.2-SNAPSHOT/WEB-INF/classes/com/sojson/core/shiro/cache/impl/CustomShiroCacheManager.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/shiro.demo-0.0.2-SNAPSHOT/WEB-INF/classes/com/sojson/core/shiro/cache/impl/JedisShiroCacheManager.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/shiro.demo-0.0.2-SNAPSHOT/WEB-INF/classes/com/sojson/core/shiro/filter/KickoutSessionFilter.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/shiro.demo-0.0.2-SNAPSHOT/WEB-INF/classes/com/sojson/core/shiro/filter/LoginFilter.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/shiro.demo-0.0.2-SNAPSHOT/WEB-INF/classes/com/sojson/core/shiro/filter/PermissionFilter.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/shiro.demo-0.0.2-SNAPSHOT/WEB-INF/classes/com/sojson/core/shiro/filter/RoleFilter.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/shiro.demo-0.0.2-SNAPSHOT/WEB-INF/classes/com/sojson/core/shiro/filter/ShiroFilterUtils.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/shiro.demo-0.0.2-SNAPSHOT/WEB-INF/classes/com/sojson/core/shiro/filter/SimpleAuthFilter.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/shiro.demo-0.0.2-SNAPSHOT/WEB-INF/classes/com/sojson/core/shiro/listenter/CustomSessionListener.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/shiro.demo-0.0.2-SNAPSHOT/WEB-INF/classes/com/sojson/core/shiro/session/CustomSessionManager.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/shiro.demo-0.0.2-SNAPSHOT/WEB-INF/classes/com/sojson/core/shiro/session/SessionStatus.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/shiro.demo-0.0.2-SNAPSHOT/WEB-INF/classes/com/sojson/core/shiro/session/ShiroSessionRepository.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/shiro.demo-0.0.2-SNAPSHOT/WEB-INF/classes/com/sojson/core/shiro/token/SampleRealm.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/shiro.demo-0.0.2-SNAPSHOT/WEB-INF/classes/com/sojson/core/shiro/token/ShiroToken.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/shiro.demo-0.0.2-SNAPSHOT/WEB-INF/classes/com/sojson/core/shiro/token/manager/TokenManager.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/shiro.demo-0.0.2-SNAPSHOT/WEB-INF/classes/com/sojson/core/statics/APPKEY.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/shiro.demo-0.0.2-SNAPSHOT/WEB-INF/classes/com/sojson/core/statics/Constant.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/shiro.demo-0.0.2-SNAPSHOT/WEB-INF/classes/com/sojson/core/tags/APITemplateModel.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/shiro.demo-0.0.2-SNAPSHOT/WEB-INF/classes/com/sojson/core/tags/SuperCustomTag.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/shiro.demo-0.0.2-SNAPSHOT/WEB-INF/classes/com/sojson/core/tags/WYFTemplateModel.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/shiro.demo-0.0.2-SNAPSHOT/WEB-INF/classes/com/sojson/permission/bo/RolePermissionAllocationBo.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/shiro.demo-0.0.2-SNAPSHOT/WEB-INF/classes/com/sojson/permission/bo/UPermissionBo.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/shiro.demo-0.0.2-SNAPSHOT/WEB-INF/classes/com/sojson/permission/bo/URoleBo.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/shiro.demo-0.0.2-SNAPSHOT/WEB-INF/classes/com/sojson/permission/bo/UserRoleAllocationBo.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/shiro.demo-0.0.2-SNAPSHOT/WEB-INF/classes/com/sojson/permission/controller/PermissionAllocationController.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/shiro.demo-0.0.2-SNAPSHOT/WEB-INF/classes/com/sojson/permission/controller/PermissionController.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/shiro.demo-0.0.2-SNAPSHOT/WEB-INF/classes/com/sojson/permission/controller/RoleController.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/shiro.demo-0.0.2-SNAPSHOT/WEB-INF/classes/com/sojson/permission/controller/UserRoleAllocationController.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/shiro.demo-0.0.2-SNAPSHOT/WEB-INF/classes/com/sojson/permission/service/PermissionService.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/shiro.demo-0.0.2-SNAPSHOT/WEB-INF/classes/com/sojson/permission/service/RoleService.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/shiro.demo-0.0.2-SNAPSHOT/WEB-INF/classes/com/sojson/permission/service/impl/PermissionServiceImpl.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/shiro.demo-0.0.2-SNAPSHOT/WEB-INF/classes/com/sojson/permission/service/impl/RoleServiceImpl.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/shiro.demo-0.0.2-SNAPSHOT/WEB-INF/classes/com/sojson/user/bo/UserOnlineBo.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/shiro.demo-0.0.2-SNAPSHOT/WEB-INF/classes/com/sojson/user/controller/MemberController.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/shiro.demo-0.0.2-SNAPSHOT/WEB-INF/classes/com/sojson/user/controller/UserCoreController.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/shiro.demo-0.0.2-SNAPSHOT/WEB-INF/classes/com/sojson/user/controller/UserLoginController.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/shiro.demo-0.0.2-SNAPSHOT/WEB-INF/classes/com/sojson/user/manager/UserManager.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/shiro.demo-0.0.2-SNAPSHOT/WEB-INF/classes/com/sojson/user/service/UUserService.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/shiro.demo-0.0.2-SNAPSHOT/WEB-INF/classes/com/sojson/user/service/impl/UUserServiceImpl.class" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/shiro.demo-0.0.2-SNAPSHOT.war" afterPath="$PROJECT_DIR$/target/shiro.demo-0.0.2-SNAPSHOT.war" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/compiler.xml" afterPath="$PROJECT_DIR$/.idea/compiler.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" />
+    <list default="true" id="e5ab77ab-1618-47c7-82e4-0daea9cd7a57" name="Default" comment="backup_db.sql">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/com/lnly/business/controller/YearBcbzController.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/com/lnly/business/service/YearBcbzService.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/com/lnly/business/service/impl/YearBcbzServiceImpl.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/com/lnly/common/dao/YearBcbzMapper.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/com/lnly/common/mapper/YearBcbzMapper.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/com/lnly/common/model/YearBcbz.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/com/lnly/core/shiro/cache/impl/JedisDictCache.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pom.xml" afterPath="$PROJECT_DIR$/pom.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/lnly/business/controller/AdminDictController.java" afterPath="$PROJECT_DIR$/src/main/java/com/lnly/business/controller/AdminDictController.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/lnly/business/service/AdminDictService.java" afterPath="$PROJECT_DIR$/src/main/java/com/lnly/business/service/AdminDictService.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/lnly/business/service/impl/AdminDictServiceImpl.java" afterPath="$PROJECT_DIR$/src/main/java/com/lnly/business/service/impl/AdminDictServiceImpl.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/lnly/common/dao/AdminDictMapper.java" afterPath="$PROJECT_DIR$/src/main/java/com/lnly/common/dao/AdminDictMapper.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/lnly/common/mapper/AdminDictMapper.xml" afterPath="$PROJECT_DIR$/src/main/java/com/lnly/common/mapper/AdminDictMapper.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/lnly/common/mapper/UUserMapper.xml" afterPath="$PROJECT_DIR$/src/main/java/com/lnly/common/mapper/UUserMapper.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/lnly/common/model/UUser.java" afterPath="$PROJECT_DIR$/src/main/java/com/lnly/common/model/UUser.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/lnly/common/timer/ToTimer.java" afterPath="$PROJECT_DIR$/src/main/java/com/lnly/common/timer/ToTimer.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/lnly/common/utils/CsvParser.java" afterPath="$PROJECT_DIR$/src/main/java/com/lnly/common/utils/CsvParser.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/lnly/core/shiro/cache/JedisManager.java" afterPath="$PROJECT_DIR$/src/main/java/com/lnly/core/shiro/cache/JedisManager.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/lnly/core/shiro/cache/JedisShiroCache.java" afterPath="$PROJECT_DIR$/src/main/java/com/lnly/core/shiro/cache/JedisShiroCache.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/lnly/core/shiro/cache/JedisShiroSessionRepository.java" afterPath="$PROJECT_DIR$/src/main/java/com/lnly/core/shiro/cache/JedisShiroSessionRepository.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/lnly/core/shiro/cache/ShiroCacheManager.java" afterPath="$PROJECT_DIR$/src/main/java/com/lnly/core/shiro/cache/ShiroCacheManager.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/lnly/core/shiro/cache/VCache.java" afterPath="$PROJECT_DIR$/src/main/java/com/lnly/core/shiro/cache/VCache.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/lnly/core/shiro/cache/impl/CustomShiroCacheManager.java" afterPath="$PROJECT_DIR$/src/main/java/com/lnly/core/shiro/cache/impl/CustomShiroCacheManager.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/lnly/core/shiro/cache/impl/JedisShiroCacheManager.java" afterPath="$PROJECT_DIR$/src/main/java/com/lnly/core/shiro/cache/impl/JedisShiroCacheManager.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/lnly/core/shiro/filter/KickoutSessionFilter.java" afterPath="$PROJECT_DIR$/src/main/java/com/lnly/core/shiro/filter/KickoutSessionFilter.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/lnly/core/shiro/filter/LoginFilter.java" afterPath="$PROJECT_DIR$/src/main/java/com/lnly/core/shiro/filter/LoginFilter.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/lnly/core/shiro/filter/PermissionFilter.java" afterPath="$PROJECT_DIR$/src/main/java/com/lnly/core/shiro/filter/PermissionFilter.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/lnly/core/shiro/filter/RoleFilter.java" afterPath="$PROJECT_DIR$/src/main/java/com/lnly/core/shiro/filter/RoleFilter.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/lnly/core/shiro/filter/ShiroFilterUtils.java" afterPath="$PROJECT_DIR$/src/main/java/com/lnly/core/shiro/filter/ShiroFilterUtils.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/lnly/core/shiro/filter/SimpleAuthFilter.java" afterPath="$PROJECT_DIR$/src/main/java/com/lnly/core/shiro/filter/SimpleAuthFilter.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/lnly/core/shiro/service/impl/ShiroManagerImpl.java" afterPath="$PROJECT_DIR$/src/main/java/com/lnly/core/shiro/service/impl/ShiroManagerImpl.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/lnly/core/tags/SuperCustomTag.java" afterPath="$PROJECT_DIR$/src/main/java/com/lnly/core/tags/SuperCustomTag.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/ftl/business/compensationStandard.ftl" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/ftl/business/compensationStandard.ftl" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/shiro_base_auth.ini" afterPath="$PROJECT_DIR$/target/classes/shiro_base_auth.ini" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/shiro.demo-0.0.2-SNAPSHOT/META-INF/MANIFEST.MF" afterPath="$PROJECT_DIR$/target/shiro.demo-0.0.2-SNAPSHOT/META-INF/MANIFEST.MF" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/shiro.demo-0.0.2-SNAPSHOT/WEB-INF/classes/shiro_base_auth.ini" afterPath="$PROJECT_DIR$/target/shiro.demo-0.0.2-SNAPSHOT/WEB-INF/classes/shiro_base_auth.ini" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/shiro.demo-0.0.2-SNAPSHOT/WEB-INF/ftl/common/config/left.ftl" afterPath="$PROJECT_DIR$/target/shiro.demo-0.0.2-SNAPSHOT/WEB-INF/ftl/common/config/left.ftl" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/shiro.demo-0.0.2-SNAPSHOT/WEB-INF/ftl/common/config/top.ftl" afterPath="$PROJECT_DIR$/target/shiro.demo-0.0.2-SNAPSHOT/WEB-INF/ftl/common/config/top.ftl" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/shiro.demo-0.0.2-SNAPSHOT/WEB-INF/ftl/permission/mypermission.ftl" afterPath="$PROJECT_DIR$/target/shiro.demo-0.0.2-SNAPSHOT/WEB-INF/ftl/permission/mypermission.ftl" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/shiro.demo-0.0.2-SNAPSHOT/WEB-INF/ftl/user/login.ftl" afterPath="$PROJECT_DIR$/target/shiro.demo-0.0.2-SNAPSHOT/WEB-INF/ftl/user/login.ftl" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/shiro.demo-0.0.2-SNAPSHOT/WEB-INF/views/common/config/top.jsp" afterPath="$PROJECT_DIR$/target/shiro.demo-0.0.2-SNAPSHOT/WEB-INF/views/common/config/top.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/shiro.demo-0.0.2-SNAPSHOT/js/common/bootstrap/bootstrap-treeview.js" afterPath="$PROJECT_DIR$/target/shiro.demo-0.0.2-SNAPSHOT/js/common/bootstrap/bootstrap-treeview.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/shiro.demo-0.0.2-SNAPSHOT/js/common/supersized-init.js" afterPath="$PROJECT_DIR$/target/shiro.demo-0.0.2-SNAPSHOT/js/common/supersized-init.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/.idea/artifacts/shiro_demo_war_exploded.xml" afterPath="$PROJECT_DIR$/.idea/artifacts/lnlygyl_war_exploded.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/ftl/common/config/top.ftl" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/ftl/common/config/top.ftl" />
     </list>
     <ignored path="$PROJECT_DIR$/target/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -214,28 +51,7 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="compensationStandard.ftl" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/ftl/business/compensationStandard.ftl">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="209">
-              <caret line="437" column="45" lean-forward="true" selection-start-line="437" selection-start-column="45" selection-end-line="437" selection-end-column="45" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="pom.xml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/pom.xml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="228">
-              <caret line="12" column="16" lean-forward="false" selection-start-line="12" selection-start-column="16" selection-end-line="12" selection-end-column="16" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-    </leaf>
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300" />
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -243,19 +59,10 @@
         <option value="Class" />
       </list>
     </option>
+    <option name="SCHEME" value="Project" />
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>当前用户没有登录</find>
-      <find>sessionId</find>
-      <find>resultMap</find>
-      <find>LocalCompensationStandard</find>
-      <find>CountryCompensationStandar</find>
-      <find>countryCompensationStandard</find>
-      <find>datetimepicker1</find>
-      <find>&lt;li class=&quot;list-group-item&quot;&gt;&lt;/li&gt;</find>
-      <find>form_datetime</find>
-      <find>list-group-item</find>
       <find>guava</find>
       <find>findAllPage</find>
       <find>format</find>
@@ -276,12 +83,23 @@
       <find>id</find>
       <find>formId</find>
       <find>top</find>
+      <find>getPermissionTree</find>
+      <find>CustomShiroCacheManager</find>
+      <find>customShiroCacheManager</find>
+      <find>jedisPool</find>
+      <find>JedisManager</find>
+      <find>securityManager</find>
+      <find>REDIS_SHIRO_CACHE</find>
+      <find>JedisShiroCache</find>
+      <find>main</find>
+      <find>token</find>
     </findStrings>
     <replaceStrings>
       <replace>lnly</replace>
       <replace>localCompensationStandard</replace>
       <replace>tb_local_compensation_standard</replace>
       <replace>LocalCompensationStandard</replace>
+      <replace>getDictTree</replace>
     </replaceStrings>
     <dirStrings>
       <dir>D:\workspace\java\SpringMVC-Mybatis-Shiro-redis-0.2-master\src\main\webapp\js</dir>
@@ -299,43 +117,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/main/java/com/lnly/business/bo/AdminDictTreeBo.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/lnly/common/mapper/AdminDictMapper.xml" />
-        <option value="$PROJECT_DIR$/src/main/java/com/lnly/user/manager/UserManager.java" />
-        <option value="$PROJECT_DIR$/src/main/resources/shiro_base_auth.ini" />
-        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/ftl/user/index_person.ftl" />
-        <option value="$PROJECT_DIR$/src/main/java/com/lnly/common/model/SmallClass.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/lnly/common/dao/SmallClassMapper.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/lnly/business/service/SmallServiceService.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/lnly/business/service/impl/AdminDictServiceImpl.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/lnly/business/service/impl/SmallClassServiceImpl.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/lnly/business/controller/SmallClassController.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/lnly/common/mapper/SmallMapper.xml" />
-        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/ftl/permission/mypermission.ftl" />
-        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/ftl/business/CompensationStandard.ftl" />
-        <option value="$PROJECT_DIR$/src/main/java/com/lnly/common/model/CountryCompensationDetail.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/lnly/common/model/AdminDict.java" />
-        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/ftl/common/config/left.ftl" />
-        <option value="$PROJECT_DIR$/src/main/webapp/js/common/moment.js" />
-        <option value="$PROJECT_DIR$/src/main/webapp/js/common/bootstrap/bootstrap-treeview.js" />
-        <option value="$PROJECT_DIR$/src/main/java/com/lnly/business/controller/AdminDictController.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/lnly/common/utils/CsvParser.java" />
-        <option value="$PROJECT_DIR$/pom.xml" />
-        <option value="$PROJECT_DIR$/src/main/java/com/lnly/core/mybatis/page/PageEntity.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/lnly/user/service/UUserService.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/lnly/user/service/impl/UUserServiceImpl.java" />
-        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/ftl/business/compensationStandardPage.ftl" />
-        <option value="$PROJECT_DIR$/src/main/java/com/lnly/business/service/CountryCompensationStandardService.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/lnly/common/dao/CountryCompensationStandardMapper.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/lnly/business/service/impl/CountryCompensationStandardServiceImpl.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/lnly/common/mapper/UPermissionMapper.xml" />
-        <option value="$PROJECT_DIR$/src/main/java/com/lnly/core/mybatis/BaseMybatisDao.java" />
-        <option value="$PROJECT_DIR$/src/main/webapp/js/common/supersized-init.js" />
-        <option value="$PROJECT_DIR$/src/main/webapp/css/common/base.css" />
-        <option value="$PROJECT_DIR$/src/main/java/com/lnly/user/controller/MemberController.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/lnly/common/model/CountryCompensationStandard.java" />
-        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/ftl/user/updateSelf.ftl" />
-        <option value="$PROJECT_DIR$/src/main/java/com/lnly/business/bo/LocalCompensationStandardBo.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/lnly/common/model/LocalCompensationStandard.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/lnly/business/service/impl/LocalCompensationStandardServiceImpl.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/lnly/business/service/LocalCompensationStandardService.java" />
@@ -348,8 +129,45 @@
         <option value="$PROJECT_DIR$/src/main/java/com/lnly/business/controller/CountryCompensactionStandardCoreController.java" />
         <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/ftl/common/config/top_new.ftl" />
         <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/ftl/user/index.ftl" />
-        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/ftl/common/config/top.ftl" />
+        <option value="$PROJECT_DIR$/readme.rd" />
+        <option value="$PROJECT_DIR$/src/main/java/com/lnly/core/shiro/cache/JedisDictCache1.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/lnly/core/shiro/cache/JedisShiroCache.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/lnly/core/shiro/cache/JedisShiroSessionRepository.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/lnly/core/shiro/cache/JedisDictCache.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/lnly/core/shiro/cache/impl/CustomShiroCacheManager.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/lnly/core/shiro/cache/impl/JedisShiroCacheManager.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/lnly/core/shiro/cache/ShiroCacheManager.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/lnly/core/shiro/cache/VCache.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/lnly/core/shiro/filter/KickoutSessionFilter.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/lnly/core/shiro/filter/LoginFilter.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/lnly/core/shiro/filter/PermissionFilter.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/lnly/core/shiro/filter/RoleFilter.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/lnly/core/shiro/filter/ShiroFilterUtils.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/lnly/core/shiro/filter/SimpleAuthFilter.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/lnly/core/shiro/cache/JedisManager.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/lnly/common/timer/ToTimer.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/lnly/core/shiro/cache/impl/JedisDictCache.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/lnly/core/tags/SuperCustomTag.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/lnly/core/shiro/service/impl/ShiroManagerImpl.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/lnly/common/dao/AdminDictMapper.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/lnly/business/service/AdminDictService.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/lnly/common/cache/AbstractBaseRedisDao.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/lnly/business/service/impl/AdminDictServiceImpl.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/lnly/common/utils/CsvParser.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/lnly/common/model/UUser.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/lnly/common/mapper/UUserMapper.xml" />
+        <option value="$PROJECT_DIR$/src/main/java/com/lnly/common/mapper/AdminDictMapper.xml" />
+        <option value="$PROJECT_DIR$/src/main/java/com/lnly/business/controller/AdminDictController.java" />
         <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/ftl/business/compensationStandard.ftl" />
+        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/ftl/common/config/top.ftl" />
+        <option value="$PROJECT_DIR$/src/main/java/com/lnly/common/model/YearBcbz.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/lnly/common/mapper/YearBcbzMapper.xml" />
+        <option value="$PROJECT_DIR$/src/main/java/com/lnly/common/dao/YearBcbzMapper.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/lnly/business/service/UUserService.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/lnly/business/service/impl/UUserServiceImpl.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/lnly/business/service/YearBcbzService.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/lnly/business/service/impl/YearBcbzServiceImpl.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/lnly/business/controller/YearBcbzController.java" />
       </list>
     </option>
   </component>
@@ -436,10 +254,9 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="Scratches" />
+      <pane id="Scope" />
       <pane id="PackagesPane" />
-      <pane id="AndroidView" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -447,76 +264,11 @@
               <item name="shiro.demo" type="b2602c69:ProjectViewProjectNode" />
               <item name="SpringMVC-Mybatis-Shiro-redis-0.2-master" type="462c0819:PsiDirectoryNode" />
             </path>
-            <path>
-              <item name="shiro.demo" type="b2602c69:ProjectViewProjectNode" />
-              <item name="SpringMVC-Mybatis-Shiro-redis-0.2-master" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="shiro.demo" type="b2602c69:ProjectViewProjectNode" />
-              <item name="SpringMVC-Mybatis-Shiro-redis-0.2-master" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="shiro.demo" type="b2602c69:ProjectViewProjectNode" />
-              <item name="SpringMVC-Mybatis-Shiro-redis-0.2-master" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="webapp" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="shiro.demo" type="b2602c69:ProjectViewProjectNode" />
-              <item name="SpringMVC-Mybatis-Shiro-redis-0.2-master" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="webapp" type="462c0819:PsiDirectoryNode" />
-              <item name="WEB-INF" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="shiro.demo" type="b2602c69:ProjectViewProjectNode" />
-              <item name="SpringMVC-Mybatis-Shiro-redis-0.2-master" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="webapp" type="462c0819:PsiDirectoryNode" />
-              <item name="WEB-INF" type="462c0819:PsiDirectoryNode" />
-              <item name="ftl" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="shiro.demo" type="b2602c69:ProjectViewProjectNode" />
-              <item name="SpringMVC-Mybatis-Shiro-redis-0.2-master" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="webapp" type="462c0819:PsiDirectoryNode" />
-              <item name="WEB-INF" type="462c0819:PsiDirectoryNode" />
-              <item name="ftl" type="462c0819:PsiDirectoryNode" />
-              <item name="business" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="shiro.demo" type="b2602c69:ProjectViewProjectNode" />
-              <item name="SpringMVC-Mybatis-Shiro-redis-0.2-master" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="webapp" type="462c0819:PsiDirectoryNode" />
-              <item name="WEB-INF" type="462c0819:PsiDirectoryNode" />
-              <item name="ftl" type="462c0819:PsiDirectoryNode" />
-              <item name="common" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="shiro.demo" type="b2602c69:ProjectViewProjectNode" />
-              <item name="SpringMVC-Mybatis-Shiro-redis-0.2-master" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="webapp" type="462c0819:PsiDirectoryNode" />
-              <item name="WEB-INF" type="462c0819:PsiDirectoryNode" />
-              <item name="ftl" type="462c0819:PsiDirectoryNode" />
-              <item name="common" type="462c0819:PsiDirectoryNode" />
-              <item name="config" type="462c0819:PsiDirectoryNode" />
-            </path>
           </expand>
           <select />
         </subPane>
       </pane>
+      <pane id="AndroidView" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -533,21 +285,21 @@
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
     <property name="extract.method.default.visibility" value="private" />
-    <property name="settings.editor.selected.configurable" value="editor.preferences.fonts.default" />
+    <property name="settings.editor.selected.configurable" value="copyright.profiles" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\workspace\java\SpringMVC-Mybatis-Shiro-redis-0.2-master\src\main\java\com\lnly\common\mapper" />
       <recent name="D:\workspace\java\SpringMVC-Mybatis-Shiro-redis-0.2-master\src\main\webapp\images" />
       <recent name="D:\workspace\java\SpringMVC-Mybatis-Shiro-redis-0.2-master\src\main\webapp\WEB-INF\ftl\common\config" />
       <recent name="D:\workspace\java\SpringMVC-Mybatis-Shiro-redis-0.2-master\src\main\webapp\js" />
       <recent name="D:\workspace\java\SpringMVC-Mybatis-Shiro-redis-0.2-master\src\main\webapp\js\common" />
-      <recent name="D:\workspace\java\SpringMVC-Mybatis-Shiro-redis-0.2-master\src\main\webapp\WEB-INF\ftl\member" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
-      <recent name="com.lnly.business.bo" />
       <recent name="com.lnly.business.controller" />
       <recent name="com.lnly.business.service.impl" />
       <recent name="com.lnly.business.service" />
+      <recent name="com.lnly.common.dao" />
       <recent name="com.lnly.common.model" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
@@ -1139,9 +891,9 @@
     </list>
     <recent_temporary>
       <list size="4">
-        <item index="0" class="java.lang.String" itemvalue="Application.LocalCompensactionStandardCoreController" />
-        <item index="1" class="java.lang.String" itemvalue="Application.UserManager" />
-        <item index="2" class="java.lang.String" itemvalue="Application.CsvParser" />
+        <item index="0" class="java.lang.String" itemvalue="Application.CsvParser" />
+        <item index="1" class="java.lang.String" itemvalue="Application.LocalCompensactionStandardCoreController" />
+        <item index="2" class="java.lang.String" itemvalue="Application.UserManager" />
         <item index="3" class="java.lang.String" itemvalue="Application.VerifyCodeUtils" />
       </list>
     </recent_temporary>
@@ -1191,7 +943,12 @@
       <workItem from="1500992506261" duration="784000" />
       <workItem from="1500993940118" duration="8551000" />
       <workItem from="1501073680170" duration="14031000" />
-      <workItem from="1501169706493" duration="184000" />
+      <workItem from="1501169706493" duration="1748000" />
+      <workItem from="1501248291114" duration="8205000" />
+      <workItem from="1501294646688" duration="11856000" />
+      <workItem from="1501318747086" duration="1858000" />
+      <workItem from="1501332105210" duration="5213000" />
+      <workItem from="1501395300325" duration="11135000" />
     </task>
     <task id="LOCAL-00001" summary="countryCompensationStandard">
       <created>1499265174948</created>
@@ -1291,11 +1048,39 @@
       <option name="project" value="LOCAL" />
       <updated>1501082760268</updated>
     </task>
-    <option name="localTasksCounter" value="15" />
+    <task id="LOCAL-00015" summary="base plugin ok!">
+      <created>1501169940174</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1501169940174</updated>
+    </task>
+    <task id="LOCAL-00016" summary="readme">
+      <created>1501170977913</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1501170977913</updated>
+    </task>
+    <task id="LOCAL-00017" summary="backup_db.sql">
+      <created>1501171155953</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1501171155953</updated>
+    </task>
+    <task id="LOCAL-00018" summary="backup_db.sql readme">
+      <created>1501171281211</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1501171281211</updated>
+    </task>
+    <option name="localTasksCounter" value="19" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="214129000" />
+    <option name="totallyTimeSpent" value="253960000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
@@ -1303,7 +1088,7 @@
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.57610995" sideWeight="0.2703125" order="8" side_tool="true" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32946146" sideWeight="0.5" order="14" side_tool="false" content_ui="tabs" />
-      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.106770836" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
+      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.106770836" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
@@ -1313,6 +1098,7 @@
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.28541225" sideWeight="0.8411458" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3266385" sideWeight="0.42552084" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Java Enterprise" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
@@ -1330,11 +1116,10 @@
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Properties" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3266385" sideWeight="0.42552084" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="REST Client" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32980973" sideWeight="0.49791667" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32946146" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32875264" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -1363,16 +1148,19 @@
     <MESSAGE value="add local bcbz ok!" />
     <MESSAGE value="页面异常 地方数据， 后台数据处理哦看" />
     <MESSAGE value="页面异常 地方数据， 后台数据处理ok" />
-    <MESSAGE value="base plugin ok!" />
     <MESSAGE value="新增、添加、删除ok" />
-    <option name="LAST_COMMIT_MESSAGE" value="新增、添加、删除ok" />
+    <MESSAGE value="base plugin ok!" />
+    <MESSAGE value="readme" />
+    <MESSAGE value="backup_db.sql" />
+    <MESSAGE value="backup_db.sql readme" />
+    <option name="LAST_COMMIT_MESSAGE" value="backup_db.sql readme" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/com/lnly/common/utils/CsvParser.java</url>
-          <line>189</line>
+          <line>192</line>
           <properties />
           <option name="timeStamp" value="4" />
         </line-breakpoint>
@@ -1386,7 +1174,7 @@
       <breakpoints-dialog>
         <breakpoints-dialog />
       </breakpoints-dialog>
-      <option name="time" value="23" />
+      <option name="time" value="38" />
     </breakpoint-manager>
     <watches-manager />
   </component>
@@ -1395,391 +1183,442 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/lnly/common/mapper/UPermissionMapper.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="57">
-          <caret line="9" column="33" lean-forward="false" selection-start-line="9" selection-start-column="33" selection-end-line="9" selection-end-column="33" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/org/mybatis/mybatis/3.1.0/mybatis-3.1.0.jar!/org/apache/ibatis/mapping/MappedStatement.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="93">
-          <caret line="124" column="20" lean-forward="false" selection-start-line="124" selection-start-column="20" selection-end-line="124" selection-end-column="20" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/lnly/common/dao/URoleMapper.java">
+    <entry file="jar://$MAVEN_REPOSITORY$/org/apache/shiro/shiro-all/1.2.5/shiro-all-1.2.5.jar!/org/apache/shiro/mgt/SubjectDAO.class">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="76">
-          <caret line="8" column="17" lean-forward="false" selection-start-line="8" selection-start-column="17" selection-end-line="8" selection-end-column="17" />
+          <caret line="7" column="31" lean-forward="false" selection-start-line="7" selection-start-column="24" selection-end-line="7" selection-end-column="31" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/lnly/core/mybatis/BaseMybatisDao.java">
+    <entry file="jar://$MAVEN_REPOSITORY$/org/apache/shiro/shiro-all/1.2.5/shiro-all-1.2.5.jar!/org/apache/shiro/web/mgt/DefaultWebSecurityManager.class">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2869">
-          <caret line="170" column="21" lean-forward="false" selection-start-line="170" selection-start-column="21" selection-end-line="170" selection-end-column="21" />
+        <state relative-caret-position="399">
+          <caret line="71" column="38" lean-forward="false" selection-start-line="71" selection-start-column="28" selection-end-line="71" selection-end-column="38" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/ftl/permission/index.ftl">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/lnly/core/shiro/service/ShiroManager.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2812">
-          <caret line="148" column="72" lean-forward="false" selection-start-line="148" selection-start-column="68" selection-end-line="148" selection-end-column="72" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/lnly/common/dao/UUserRoleMapper.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="76">
-          <caret line="7" column="17" lean-forward="false" selection-start-line="7" selection-start-column="17" selection-end-line="7" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/lnly/common/dao/UPermissionMapper.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="76">
-          <caret line="8" column="17" lean-forward="false" selection-start-line="8" selection-start-column="17" selection-end-line="8" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/lnly/common/dao/SmallClassMapper.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="76">
-          <caret line="7" column="17" lean-forward="false" selection-start-line="7" selection-start-column="17" selection-end-line="7" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/lnly/common/mapper/AdminDictMapper.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="551">
-          <caret line="29" column="50" lean-forward="false" selection-start-line="29" selection-start-column="50" selection-end-line="29" selection-end-column="50" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/js/common/bootstrap/3.3.5/css/bootstrap.min.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="391">
-          <caret line="4" column="48353" lean-forward="false" selection-start-line="4" selection-start-column="48353" selection-end-line="4" selection-end-column="48353" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/css/common/base.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="337">
-          <caret line="437" column="0" lean-forward="true" selection-start-line="437" selection-start-column="0" selection-end-line="437" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/lnly/core/shiro/token/manager/TokenManager.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1444">
-          <caret line="102" column="24" lean-forward="false" selection-start-line="102" selection-start-column="24" selection-end-line="102" selection-end-column="24" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/lnly/user/manager/UserManager.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="283">
-          <caret line="70" column="43" lean-forward="true" selection-start-line="70" selection-start-column="43" selection-end-line="70" selection-end-column="43" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/lnly/permission/controller/RoleController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-530">
-          <caret line="44" column="45" lean-forward="true" selection-start-line="44" selection-start-column="45" selection-end-line="44" selection-end-column="45" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/lnly/permission/controller/PermissionController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="116">
-          <caret line="43" column="51" lean-forward="true" selection-start-line="43" selection-start-column="51" selection-end-line="43" selection-end-column="51" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/lnly/permission/controller/UserRoleAllocationController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="705">
-          <caret line="66" column="45" lean-forward="false" selection-start-line="66" selection-start-column="27" selection-end-line="66" selection-end-column="45" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/lnly/user/controller/UserLoginController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1121">
-          <caret line="84" column="37" lean-forward="false" selection-start-line="84" selection-start-column="37" selection-end-line="84" selection-end-column="37" />
-          <folding />
+        <state relative-caret-position="38">
+          <caret line="2" column="17" lean-forward="false" selection-start-line="2" selection-start-column="17" selection-end-line="2" selection-end-column="17" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/lnly/core/shiro/session/CustomSessionManager.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2850">
-          <caret line="166" column="18" lean-forward="false" selection-start-line="166" selection-start-column="18" selection-end-line="166" selection-end-column="18" />
-          <folding />
+        <state relative-caret-position="25">
+          <caret line="48" column="16" lean-forward="true" selection-start-line="48" selection-start-column="16" selection-end-line="48" selection-end-column="16" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/lnly/user/controller/MemberController.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/lnly/core/shiro/session/SessionStatus.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1121">
-          <caret line="81" column="25" lean-forward="false" selection-start-line="81" selection-start-column="13" selection-end-line="81" selection-end-column="25" />
-          <folding />
+        <state relative-caret-position="153">
+          <caret line="17" column="58" lean-forward="true" selection-start-line="17" selection-start-column="58" selection-end-line="17" selection-end-column="58" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/ftl/member/datatables.ftl">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/lnly/core/shiro/session/ShiroSessionRepository.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="285">
-          <caret line="15" column="48" lean-forward="true" selection-start-line="15" selection-start-column="48" selection-end-line="15" selection-end-column="48" />
+        <state relative-caret-position="215">
+          <caret line="26" column="17" lean-forward="false" selection-start-line="26" selection-start-column="17" selection-end-line="26" selection-end-column="17" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/lnly/user/service/UUserService.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/lnly/core/shiro/CustomShiroSessionDAO.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="380">
-          <caret line="34" column="33" lean-forward="true" selection-start-line="34" selection-start-column="33" selection-end-line="34" selection-end-column="33" />
-          <folding />
+        <state relative-caret-position="419">
+          <caret line="46" column="21" lean-forward="true" selection-start-line="46" selection-start-column="21" selection-end-line="46" selection-end-column="21" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/ftl/member/onlineDetails.ftl">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="432">
-          <caret line="39" column="52" lean-forward="false" selection-start-line="39" selection-start-column="32" selection-end-line="39" selection-end-column="52" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/lnly/user/controller/UserCoreController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1938">
-          <caret line="121" column="31" lean-forward="false" selection-start-line="121" selection-start-column="31" selection-end-line="121" selection-end-column="31" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/ftl/user/updateSelf.ftl">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="931">
-          <caret line="49" column="86" lean-forward="false" selection-start-line="49" selection-start-column="8" selection-end-line="49" selection-end-column="86" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/js/bootstrapValidator.min.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/lnly/common/model/CountryCompensationStandard.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1824">
-          <caret line="153" column="0" lean-forward="false" selection-start-line="153" selection-start-column="0" selection-end-line="153" selection-end-column="0" />
-          <folding>
-            <element signature="e#3762#3763#0" expanded="false" />
-            <element signature="e#3791#3792#0" expanded="false" />
-            <element signature="e#3836#3837#0" expanded="false" />
-            <element signature="e#3872#3873#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/lnly/business/bo/LocalCompensationStandardBo.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="361">
-          <caret line="21" column="23" lean-forward="true" selection-start-line="21" selection-start-column="23" selection-end-line="21" selection-end-column="23" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/lnly/common/model/LocalCompensationStandard.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/lnly/core/statics/APPKEY.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="133">
-          <caret line="20" column="55" lean-forward="true" selection-start-line="20" selection-start-column="55" selection-end-line="20" selection-end-column="55" />
-          <folding>
-            <element signature="e#1247#1248#0" expanded="false" />
-            <element signature="e#1272#1273#0" expanded="false" />
-            <element signature="e#1308#1309#0" expanded="false" />
-            <element signature="e#1336#1337#0" expanded="false" />
-          </folding>
+          <caret line="7" column="17" lean-forward="false" selection-start-line="7" selection-start-column="17" selection-end-line="7" selection-end-column="17" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/lnly/business/service/CountryCompensationStandardService.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/lnly/core/tags/APITemplateModel.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="532">
-          <caret line="36" column="55" lean-forward="true" selection-start-line="36" selection-start-column="55" selection-end-line="36" selection-end-column="55" />
+        <state relative-caret-position="215">
+          <caret line="34" column="13" lean-forward="false" selection-start-line="34" selection-start-column="13" selection-end-line="34" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/lnly/core/statics/Constant.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-526">
+          <caret line="25" column="17" lean-forward="false" selection-start-line="25" selection-start-column="17" selection-end-line="25" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/lnly/core/tags/SuperCustomTag.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="110">
+          <caret line="28" column="36" lean-forward="false" selection-start-line="28" selection-start-column="36" selection-end-line="28" selection-end-column="36" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/lnly/core/tags/WYFTemplateModel.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="215">
+          <caret line="35" column="22" lean-forward="false" selection-start-line="35" selection-start-column="22" selection-end-line="35" selection-end-column="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/lnly/core/shiro/service/impl/ShiroManagerImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="57">
+          <caret line="18" column="9" lean-forward="true" selection-start-line="18" selection-start-column="9" selection-end-line="18" selection-end-column="9" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/lnly/business/service/SmallClassService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="76">
+          <caret line="7" column="17" lean-forward="false" selection-start-line="7" selection-start-column="17" selection-end-line="7" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/lnly/common/dao/AdminDictMapper.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="190">
+          <caret line="15" column="22" lean-forward="false" selection-start-line="15" selection-start-column="14" selection-end-line="15" selection-end-column="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/lnly/business/service/cache.java" />
+    <entry file="file://$PROJECT_DIR$/src/main/resources/spring-shiro.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1444">
+          <caret line="76" column="85" lean-forward="false" selection-start-line="76" selection-start-column="85" selection-end-line="76" selection-end-column="85" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/lnly/common/dao/CountryCompensationStandardMapper.java">
+    <entry file="file://$PROJECT_DIR$/src/main/resources/spring-cache.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="266">
-          <caret line="18" column="28" lean-forward="false" selection-start-line="18" selection-start-column="28" selection-end-line="18" selection-end-column="28" />
+        <state relative-caret-position="57">
+          <caret line="3" column="41" lean-forward="false" selection-start-line="3" selection-start-column="41" selection-end-line="3" selection-end-column="41" />
+          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/lnly/business/service/impl/CountryCompensationStandardServiceImpl.java">
+    <entry file="file://$PROJECT_DIR$/src/main/resources/spring-mvc.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="233">
-          <caret line="131" column="62" lean-forward="false" selection-start-line="131" selection-start-column="51" selection-end-line="131" selection-end-column="62" />
+        <state relative-caret-position="0">
+          <caret line="0" column="35" lean-forward="false" selection-start-line="0" selection-start-column="35" selection-end-line="0" selection-end-column="35" />
+          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/lnly/user/service/impl/UUserServiceImpl.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/lnly/core/shiro/cache/ShiroCacheManager.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="266">
-          <caret line="71" column="34" lean-forward="true" selection-start-line="71" selection-start-column="34" selection-end-line="71" selection-end-column="34" />
+        <state relative-caret-position="152">
+          <caret line="8" column="6" lean-forward="false" selection-start-line="8" selection-start-column="6" selection-end-line="8" selection-end-column="6" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/lnly/common/dao/UUserMapper.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/lnly/core/shiro/cache/impl/JedisShiroCacheManager.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="456">
+          <caret line="28" column="29" lean-forward="false" selection-start-line="28" selection-start-column="11" selection-end-line="28" selection-end-column="29" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/lnly/core/shiro/cache/impl/CustomShiroCacheManager.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="342">
+          <caret line="23" column="3" lean-forward="false" selection-start-line="23" selection-start-column="3" selection-end-line="23" selection-end-column="3" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/lnly/core/shiro/cache/JedisShiroCache.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="402">
+          <caret line="48" column="69" lean-forward="false" selection-start-line="48" selection-start-column="4" selection-end-line="48" selection-end-column="69" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/lnly/common/cache/AbstractBaseRedisDao.java" />
+    <entry file="jar://C:/Program Files/Java/jdk1.7.0_17/src.zip!/java/net/PlainSocketImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="194">
+          <caret line="156" column="0" lean-forward="false" selection-start-line="156" selection-start-column="0" selection-end-line="156" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://C:/Program Files/Java/jdk1.7.0_17/src.zip!/java/net/AbstractPlainSocketImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="186">
+          <caret line="338" column="0" lean-forward="false" selection-start-line="338" selection-start-column="0" selection-end-line="338" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://C:/Program Files/Java/jdk1.7.0_17/src.zip!/java/net/DualStackPlainSocketImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="186">
+          <caret line="68" column="0" lean-forward="false" selection-start-line="68" selection-start-column="0" selection-end-line="68" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://C:/Program Files/Java/jdk1.7.0_17/src.zip!/java/net/SocksSocketImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="194">
+          <caret line="390" column="0" lean-forward="false" selection-start-line="390" selection-start-column="0" selection-end-line="390" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://C:/Program Files/Java/jdk1.7.0_17/src.zip!/java/net/Socket.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="186">
+          <caret line="578" column="0" lean-forward="false" selection-start-line="578" selection-start-column="0" selection-end-line="578" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/lnly/core/shiro/cache/JedisManager.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="205">
+          <caret line="145" column="31" lean-forward="true" selection-start-line="145" selection-start-column="31" selection-end-line="145" selection-end-column="31" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/lnly/business/bo/AdminDictTreeBo.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="294">
+          <caret line="24" column="16" lean-forward="false" selection-start-line="24" selection-start-column="16" selection-end-line="24" selection-end-column="16" />
+          <folding>
+            <element signature="e#499#500#0" expanded="false" />
+            <element signature="e#539#540#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://C:/Program Files/Java/jdk1.7.0_17/src.zip!/java/util/List.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="365">
+          <caret line="440" column="49" lean-forward="true" selection-start-line="440" selection-start-column="49" selection-end-line="440" selection-end-column="49" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/lnly/common/utils/CsvParser.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="323">
-          <caret line="21" column="39" lean-forward="false" selection-start-line="21" selection-start-column="16" selection-end-line="21" selection-end-column="39" />
+          <caret line="163" column="5" lean-forward="true" selection-start-line="163" selection-start-column="5" selection-end-line="163" selection-end-column="5" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/lnly/common/model/UUser.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="180">
+          <caret line="94" column="24" lean-forward="true" selection-start-line="94" selection-start-column="24" selection-end-line="94" selection-end-column="24" />
+          <folding>
+            <element signature="e#2366#2367#0" expanded="false" />
+            <element signature="e#2397#2398#0" expanded="false" />
+            <element signature="e#2445#2446#0" expanded="false" />
+            <element signature="e#2485#2486#0" expanded="false" />
+            <element signature="e#2524#2525#0" expanded="false" />
+            <element signature="e#2559#2560#0" expanded="false" />
+            <element signature="e#2615#2616#0" expanded="false" />
+            <element signature="e#2663#2664#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/lnly/common/mapper/UUserMapper.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-703">
-          <caret line="20" column="23" lean-forward="true" selection-start-line="20" selection-start-column="23" selection-end-line="20" selection-end-column="23" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/lnly/business/service/LocalCompensationStandardService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="309">
-          <caret line="29" column="24" lean-forward="true" selection-start-line="29" selection-start-column="24" selection-end-line="29" selection-end-column="24" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/lnly/business/service/impl/LocalCompensationStandardServiceImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="418">
-          <caret line="37" column="27" lean-forward="true" selection-start-line="37" selection-start-column="27" selection-end-line="37" selection-end-column="27" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/lnly/common/dao/LocalCompensationStandardMapper.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="266">
-          <caret line="18" column="27" lean-forward="true" selection-start-line="18" selection-start-column="27" selection-end-line="18" selection-end-column="27" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/lnly/common/utils/StringUtils.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="177">
-          <caret line="37" column="26" lean-forward="false" selection-start-line="37" selection-start-column="26" selection-end-line="37" selection-end-column="26" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/lnly/common/mapper/LocalCompensationStandardMapper.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="684">
-          <caret line="36" column="41" lean-forward="false" selection-start-line="36" selection-start-column="41" selection-end-line="36" selection-end-column="41" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/lnly/business/bo/CountryCompensationStandardBo.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="139">
-          <caret line="85" column="47" lean-forward="false" selection-start-line="85" selection-start-column="47" selection-end-line="85" selection-end-column="47" />
+        <state relative-caret-position="95">
+          <caret line="62" column="44" lean-forward="true" selection-start-line="62" selection-start-column="44" selection-end-line="62" selection-end-column="44" />
           <folding>
-            <element signature="e#2020#2021#0" expanded="true" />
-            <element signature="e#2036#2037#0" expanded="true" />
-            <element signature="e#2069#2070#0" expanded="true" />
-            <element signature="e#2088#2089#0" expanded="true" />
+            <marker date="1501338665926" expanded="true" signature="1562:1626" ph="select from u_user" />
+            <marker date="1501338665926" expanded="true" signature="1763:1792" ph="select count... u_user" />
+            <marker date="1501338665926" expanded="true" signature="1959:2498" ph="select u.id,... u_user" />
+            <marker date="1501338665926" expanded="true" signature="2598:2830" ph="select ur.id... u_role" />
+            <marker date="1501338665926" expanded="true" signature="2737:2790" ph="select id fr... u_user" />
+            <marker date="1501338665926" expanded="true" signature="3167:3312" ph="select from u_user" />
+            <marker date="1501338665926" expanded="true" signature="3410:3518" ph="select from u_user" />
+            <marker date="1501338665926" expanded="true" signature="3632:3733" ph="select from u_user" />
+            <marker date="1501338665926" expanded="true" signature="3817:3872" ph="delete from " />
+            <marker date="1501338665926" expanded="true" signature="3998:4413" ph="insert into u_user... " />
+            <marker date="1501338665926" expanded="true" signature="6170:7032" ph="update u_use... " />
+            <marker date="1501338665926" expanded="true" signature="7129:7569" ph="update u_use... " />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/lnly/common/mapper/CountryCompensationStandardMapper.xml">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/lnly/common/mapper/AdminDictMapper.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="285">
-          <caret line="42" column="70" lean-forward="true" selection-start-line="42" selection-start-column="70" selection-end-line="42" selection-end-column="70" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/lnly/business/controller/CountryCompensactionStandardCoreController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="228">
-          <caret line="208" column="71" lean-forward="true" selection-start-line="208" selection-start-column="71" selection-end-line="208" selection-end-column="71" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/ftl/role/index.ftl">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1087">
-          <caret line="86" column="87" lean-forward="true" selection-start-line="86" selection-start-column="87" selection-end-line="86" selection-end-column="87" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/lnly/business/controller/LocalCompensactionStandardCoreController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="304">
-          <caret line="112" column="34" lean-forward="false" selection-start-line="112" selection-start-column="27" selection-end-line="112" selection-end-column="34" />
+        <state relative-caret-position="72">
+          <caret line="33" column="12" lean-forward="false" selection-start-line="33" selection-start-column="12" selection-end-line="33" selection-end-column="12" />
           <folding>
-            <element signature="e#4423#4454#0" expanded="true" />
+            <marker date="1501339102648" expanded="true" signature="1228:1299" ph="select from tb_admin_dict" />
+            <marker date="1501339102648" expanded="true" signature="1435:1471" ph="select count... tb_admin_dict" />
+            <marker date="1501339102648" expanded="true" signature="1586:1719" ph="select from tb_admin_dict" />
+            <marker date="1501339102648" expanded="true" signature="1586:1738" ph="select from tb_admin_dict" />
+            <marker date="1501339102648" expanded="true" signature="1854:1987" ph="select from tb_admin_dict" />
+            <marker date="1501339102648" expanded="true" signature="2095:2220" ph="select from tb_admin_dict" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/ftl/business/compensationStandardPage.ftl">
+    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/spring-web/4.2.5.RELEASE/spring-web-4.2.5.RELEASE.jar!/org/springframework/web/method/support/InvocableHandlerMethod.class">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3396">
-          <caret line="196" column="39" lean-forward="true" selection-start-line="196" selection-start-column="39" selection-end-line="196" selection-end-column="39" />
+        <state relative-caret-position="234">
+          <caret line="139" column="0" lean-forward="false" selection-start-line="139" selection-start-column="0" selection-end-line="139" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/ftl/common/config/top111.ftl" />
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/js/common/supersized-init.js">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/lnly/business/service/AdminDictService.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="418">
-          <caret line="22" column="55" lean-forward="true" selection-start-line="22" selection-start-column="43" selection-end-line="22" selection-end-column="55" />
+        <state relative-caret-position="152">
+          <caret line="13" column="40" lean-forward="true" selection-start-line="13" selection-start-column="40" selection-end-line="13" selection-end-column="40" />
+          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/ftl/user/index.ftl">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/lnly/business/service/impl/AdminDictServiceImpl.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="228">
-          <caret line="12" column="44" lean-forward="false" selection-start-line="12" selection-start-column="44" selection-end-line="12" selection-end-column="44" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/ftl/common/config/top.ftl">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="399">
-          <caret line="21" column="61" lean-forward="true" selection-start-line="21" selection-start-column="61" selection-end-line="21" selection-end-column="61" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/pom.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="228">
-          <caret line="12" column="16" lean-forward="false" selection-start-line="12" selection-start-column="16" selection-end-line="12" selection-end-column="16" />
+        <state relative-caret-position="-152">
+          <caret line="30" column="0" lean-forward="false" selection-start-line="30" selection-start-column="0" selection-end-line="33" selection-end-column="79" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/ftl/business/compensationStandard.ftl">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="209">
-          <caret line="437" column="45" lean-forward="true" selection-start-line="437" selection-start-column="45" selection-end-line="437" selection-end-column="45" />
+        <state relative-caret-position="177">
+          <caret line="125" column="32" lean-forward="false" selection-start-line="125" selection-start-column="32" selection-end-line="125" selection-end-column="32" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/ftl/common/config/top.ftl">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="437">
+          <caret line="26" column="20" lean-forward="true" selection-start-line="26" selection-start-column="20" selection-end-line="26" selection-end-column="20" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/lnly/common/model/AdminDict.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="342">
+          <caret line="18" column="29" lean-forward="false" selection-start-line="18" selection-start-column="21" selection-end-line="18" selection-end-column="29" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/lnly/common/model/YearBcbz.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="152">
+          <caret line="8" column="19" lean-forward="false" selection-start-line="8" selection-start-column="19" selection-end-line="8" selection-end-column="19" />
+          <folding>
+            <element signature="e#615#616#0" expanded="true" />
+            <element signature="e#654#655#0" expanded="true" />
+            <element signature="e#681#682#0" expanded="true" />
+            <element signature="e#706#707#0" expanded="true" />
+            <element signature="e#740#741#0" expanded="true" />
+            <element signature="e#768#769#0" expanded="true" />
+            <element signature="e#799#800#0" expanded="true" />
+            <element signature="e#826#827#0" expanded="true" />
+            <element signature="e#866#867#0" expanded="true" />
+            <element signature="e#898#899#0" expanded="true" />
+            <element signature="e#928#929#0" expanded="true" />
+            <element signature="e#954#955#0" expanded="true" />
+            <element signature="e#992#993#0" expanded="true" />
+            <element signature="e#1022#1023#0" expanded="true" />
+            <element signature="e#1052#1053#0" expanded="true" />
+            <element signature="e#1078#1079#0" expanded="true" />
+            <element signature="e#1116#1117#0" expanded="true" />
+            <element signature="e#1146#1147#0" expanded="true" />
+            <element signature="e#1178#1179#0" expanded="true" />
+            <element signature="e#1205#1206#0" expanded="true" />
+            <element signature="e#1246#1247#0" expanded="true" />
+            <element signature="e#1278#1279#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/lnly/common/dao/UUserMapper.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="95">
+          <caret line="9" column="0" lean-forward="false" selection-start-line="9" selection-start-column="0" selection-end-line="25" selection-end-column="46" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/lnly/common/dao/YearBcbzMapper.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="285">
+          <caret line="20" column="0" lean-forward="true" selection-start-line="20" selection-start-column="0" selection-end-line="20" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/lnly/common/mapper/YearBcbzMapper.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="204">
+          <caret line="17" column="36" lean-forward="true" selection-start-line="17" selection-start-column="36" selection-end-line="17" selection-end-column="36" />
+          <folding>
+            <marker date="1501427798048" expanded="true" signature="923:1035" ph="select from u_user" />
+            <marker date="1501427798048" expanded="true" signature="923:1068" ph="select from tb_year_bcbz" />
+            <marker date="1501427798048" expanded="true" signature="1179:1286" ph="select from u_user" />
+            <marker date="1501427798048" expanded="true" signature="1370:1431" ph="delete from " />
+            <marker date="1501427798048" expanded="true" signature="1560:1835" ph="insert into u_user... " />
+            <marker date="1501427798048" expanded="true" signature="1937:2248" ph="update u_use... " />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/lnly/business/service/impl/YearBcbzServiceImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="95">
+          <caret line="24" column="98" lean-forward="false" selection-start-line="24" selection-start-column="83" selection-end-line="24" selection-end-column="98" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/lnly/business/controller/CountryCompensactionStandardCoreController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-3040">
+          <caret line="53" column="44" lean-forward="true" selection-start-line="53" selection-start-column="44" selection-end-line="53" selection-end-column="44" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/lnly/business/controller/AdminDictController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="356">
+          <caret line="227" column="22" lean-forward="true" selection-start-line="211" selection-start-column="3" selection-end-line="227" selection-end-column="5" />
+          <folding>
+            <element signature="e#5761#5782#0" expanded="true" />
+            <element signature="e#5853#5869#0" expanded="true" />
+            <element signature="e#6190#6211#0" expanded="true" />
+            <element signature="e#6338#6354#0" expanded="true" />
+            <element signature="e#6779#6800#0" expanded="true" />
+            <element signature="e#6954#6970#0" expanded="true" />
+            <element signature="e#7520#7541#0" expanded="true" />
+            <element signature="e#7719#7735#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/lnly/business/service/YearBcbzService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="247">
+          <caret line="21" column="7" lean-forward="false" selection-start-line="21" selection-start-column="4" selection-end-line="21" selection-end-column="7" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/lnly/business/controller/YearBcbzController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="717">
+          <caret line="84" column="33" lean-forward="true" selection-start-line="84" selection-start-column="33" selection-end-line="84" selection-end-column="33" />
           <folding />
         </state>
       </provider>
@@ -1796,6 +1635,18 @@
               <list>
                 <option value="0.2" />
                 <option value="0.5" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="Copyright.UI">
+        <settings>
+          <last-edited>ss</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
               </list>
             </option>
           </splitter-proportions>
