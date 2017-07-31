@@ -21,7 +21,7 @@ public interface YearBcbzService {
 
     int updateByPrimaryKey(YearBcbz record);
     
-    YearBcbz findBcbz(String year, Integer type);
+    YearBcbz findBcbz(String year, String type);
 
 
 }

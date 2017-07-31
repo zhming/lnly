@@ -1,11 +1,13 @@
 package com.lnly.business.controller;
 
+import com.lnly.business.bo.BcbzPageEntity;
 import com.lnly.business.bo.CountryCompensationStandardBo;
 import com.lnly.business.service.CountryCompensationStandardService;
 import com.lnly.common.controller.BaseController;
 import com.lnly.common.model.CountryCompensationStandard;
 import com.lnly.common.model.LocalCompensationStandard;
 import com.lnly.common.utils.LoggerUtils;
+import com.lnly.common.utils.StringUtils;
 import com.lnly.core.mybatis.page.PageEntity;
 import com.lnly.core.mybatis.page.Pagination;
 import net.sf.json.JSONObject;
@@ -68,6 +70,12 @@ public class CountryCompensactionStandardCoreController extends BaseController {
 	public ModelAndView compensationStandardPage(){
 		return new ModelAndView("business/compensationStandardPage");
 	}
+
+
+	@RequestMapping(value = "datatables", method = RequestMethod.GET)
+	public ModelAndView datatables(){
+		return new ModelAndView("business/datatables");
+	}
 	
 	/**
 	 * 偷懒一下，通用页面跳转
@@ -123,10 +131,11 @@ public class CountryCompensactionStandardCoreController extends BaseController {
 
 	@RequestMapping(value="findAll",method=RequestMethod.POST)
 	@ResponseBody
-	public Map<String,Object> getAllPost(String dictCode, String year, String type){
-		System.out.println(dictCode);
-		System.out.println(year);
-		System.out.println(type);
+	public Map<String,Object> getAllPost(BcbzPageEntity param){
+		System.out.println(param.getDictCode());
+		System.out.println(param.getYear());
+		System.out.println(param.getType());
+		String dictCode = param.getDictCode();
 		try {
 			dictCode = new String(dictCode.getBytes(), "utf-8");
 			System.out.println(dictCode);
@@ -153,7 +162,10 @@ public class CountryCompensactionStandardCoreController extends BaseController {
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-		resultMap.put("returnObject", resultList);
+		resultMap.put("data", resultList);
+		resultMap.put("iDisplayLength", param.getiDisplayLength());
+		resultMap.put("iDisplayStart", param.getiDisplayStart());
+		resultMap.put("count", resultList.size());
 		resultMap.put("message", "ok");
 		return resultMap;
 	}

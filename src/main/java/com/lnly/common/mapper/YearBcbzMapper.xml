@@ -6,7 +6,7 @@
     <result column="year" property="year" jdbcType="VARCHAR" />
     <result column="bz1" property="bz1" jdbcType="DOUBLE" />
     <result column="bz2" property="bz2" jdbcType="DOUBLE" />
-    <result column="type" property="type" jdbcType="INT" />
+    <result column="type" property="type" jdbcType="VARCHAR" />
     <result column="create_time" property="createTime" jdbcType="TIMESTAMP" />
     <result column="update_time" property="updateTime" jdbcType="TIMESTAMP" />
 
@@ -20,7 +20,7 @@
   	 select 
     <include refid="Base_Column_List" />
     from tb_year_bcbz
-    where year = #{year,jdbcType=VARCHAR} and type = #{type, jdbcType=INT}
+    where year = #{year,jdbcType=VARCHAR} and type = #{type, jdbcType=VARCHAR}
   </select>
 
   <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Long" >
@@ -47,7 +47,7 @@
     set year = #{year,jdbcType=VARCHAR},
       bz1 = #{bz1,jdbcType=DOUBLE},
       bz2 = #{bz2,jdbcType=DOUBLE},
-      year = #{year,jdbcType=INT},
+      year = #{year,jdbcType=VARCHAR},
       create_time = #{createTime,jdbcType=TIMESTAMP},
       create_time = #{createTime,jdbcType=TIMESTAMP}
     where id = #{id,jdbcType=BIGINT}

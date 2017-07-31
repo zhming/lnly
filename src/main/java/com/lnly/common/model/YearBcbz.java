@@ -11,12 +11,12 @@ public class YearBcbz implements Serializable {
     private String year;
     private Double bz1;
     private Double bz2;
-    private Integer type;
+    private String type;
 
     public YearBcbz() {
     }
 
-    public YearBcbz(Long id,String year, Double bz1, Double bz2, Integer type) {
+    public YearBcbz(Long id,String year, Double bz1, Double bz2, String type) {
         this.id = id;
         this.year = year;
         this.bz1 = bz1;
@@ -24,9 +24,7 @@ public class YearBcbz implements Serializable {
         this.type = type;
     }
 
-    public static long getSerialVersionUID() {
-        return serialVersionUID;
-    }
+   
 
     public Long getId() {
         return id;
@@ -60,11 +58,11 @@ public class YearBcbz implements Serializable {
         this.bz2 = bz2;
     }
 
-    public Integer getType() {
+    public String getType() {
         return type;
     }
 
-    public void setType(Integer type) {
+    public void setType(String type) {
         this.type = type;
     }
 }

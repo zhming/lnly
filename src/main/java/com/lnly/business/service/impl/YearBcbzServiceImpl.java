@@ -57,7 +57,7 @@ public class YearBcbzServiceImpl extends BaseMybatisDao<YearBcbzMapper> implemen
 
 
 	@Override
-	public YearBcbz findBcbz(String year ,Integer type) {
+	public YearBcbz findBcbz(String year ,String type) {
 		Map<String,Object> map = new HashMap<String, Object>();
 		map.put("year", year);
 		map.put("type", type);

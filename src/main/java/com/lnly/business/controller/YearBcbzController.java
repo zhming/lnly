@@ -41,7 +41,7 @@ public class YearBcbzController extends BaseController {
 
     @RequestMapping(value = "findBcbz", method = RequestMethod.GET)
     @ResponseBody
-    public Map<String, Object> findBcbz(String year, Integer type) {
+    public Map<String, Object> findBcbz(String year, String type) {
         Map<String, Object> result = new HashMap<>();
         try {
             YearBcbz entity = yearBcbzService.findBcbz(year, type);
