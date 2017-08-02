@@ -173,7 +173,7 @@ public class LocalCompensactionStandardCoreController extends BaseController {
 				bo.setComment(entity.getComment());
 				bo.setJe(entity.getJe());
 				bo.setCounty(entity.getCounty());
-				bo.setCreateTimeStr(new DateTime(entity.getCreateTime()).toString("yyyy-MM-dd"));
+				bo.setCreateTime(entity.getCreateTime());
 				resultList.add(bo);
 			}
 		} catch (Exception e) {

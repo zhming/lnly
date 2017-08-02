@@ -42,9 +42,37 @@
  	 select count(id) from  u_user
   	<include refid="where_all" />
   </select>
-  
-  
-  <!-- 用户权限分配的分页查询 -->
+
+
+
+    <select id="findCondition" resultMap="BaseResultMap" >
+        select
+        <include refid="Base_Column_List" />
+        from u_user
+        <include refid="where_condition"/>
+        <include refid="limit_sql" />
+    </select>
+
+    <sql id="where_condition">
+        <where>
+            <if test="nickname != null and nickname !='' " >
+                and (
+                LOWER(nickname) like  LOWER(CONCAT("%",#{nickname, jdbcType=VARCHAR},"%"))
+                )
+            </if>
+        </where>
+    </sql>
+
+    <select id="findConditionCount" resultMap="BaseResultMap" >
+        select
+        count(*)
+        from u_user
+        <include refid="where_condition"/>
+    </select>
+
+
+
+    <!-- 用户权限分配的分页查询 -->
   <select id="findUserAndRole" resultType="com.lnly.permission.bo.UserRoleAllocationBo">
   	select u.id,u.nickname,u.email,u.create_time,u.last_login_time,u.status ,group_concat(ur.name) roleNames,group_concat(ur.id)roleIds from
 	 u_user u

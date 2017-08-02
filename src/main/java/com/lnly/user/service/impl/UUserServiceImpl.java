@@ -206,4 +206,8 @@ public class UUserServiceImpl extends BaseMybatisDao<UUserMapper> implements UUs
 	}
 
 
+    @Override
+    public Pagination<UUser> findCondition(Map<String, Object> resultMap, Integer pageNo, Integer pageSize) {
+        return super.findPage("findCondition", "findConditionCount", resultMap, pageNo, pageSize);
+    }
 }

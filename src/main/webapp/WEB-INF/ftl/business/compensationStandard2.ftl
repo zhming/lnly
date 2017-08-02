@@ -104,8 +104,131 @@
         </div>
 
         <div class="col-md-8">
+            <div class="col-sm-12">
+                <div class="table">
+                    <table id="example" class="table table-striped table-bordered" cellspacing="0" width="100%">
+                        <thead>
+                        <tr>
+                            <div class="col-lg-9">
+                                <strong id="tableTitle">2017年度国家补偿标准</strong>
+                                
+                                <div class="hidden" id="hidden_filter">
+                                    <div class="row" style="margin-right:0;">
+                                        <input type="text" id="searchContent" name="searchContent" value="" class="form-control input-small" style = "width:100px" placeholder = "请输入地名" />
+                                        <input type="hidden" id="searchYear" name="searchYear" value="" class="form-control input-small" style = "width:150px" placeholder = "" />
+                                        <input type="hidden" id="searchType" name="searchType" value="" class="form-control input-small" style = "width:150px" placeholder = "" />
+                                        <button id="go_search" class="btn btn-default">查询</button>
+                                        <button id="addButton" onclick="viewAddModal();" class="btn btn-default">新增</button>
+                                        <button id="updateButton" onclick="viewUpdateModal();" class="btn btn-default">修改</button>
+                                        <button id="deleteButton" onclick="deleteById();" class="btn btn-default">删除</button>
+                                    </div>
 
-             <#include "compensationStandard1.ftl"/>
+                                </div>
+
+                            </div>
+
+                        </tr>
+
+                        <tr >
+                            <div id="tr_h" >
+                                <th>ID</th>
+                                <th>年度</th>
+                                <th>城市</th>
+                                <th>区县</th>
+                                <th>面积</th>
+                                <th>国有指标金额</th>
+                                <th>其他指标金额</th>
+                                <th>金额</th>
+                                <th>备注</th>
+                                <th>创建时间</th>
+                            </div>
+
+                        </tr>
+                        </thead>
+                    </table>
+                </div>
+            </div>
+            <div class="hidden">
+                <input type="hidden" id="selectedDictCode" value=""/>
+            </div>
+
+
+        <@shiro.hasPermission name="/countryStandard/add.shtml">
+        <#--添加弹框-->
+            <div class="modal fade" id="addRecord" tabindex="-1" role="dialog" aria-labelledby="addroleLabel">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                                    aria-hidden="true">&times;</span></button>
+                            <h4 class="modal-title" id="addBcbzLabel">新增-国家补偿标准维护</h4>
+                        </div>
+                        <form id="addGjbcBzForm" enctype="multipart/form-data"
+                              action="${basePath}/countryStandard/add.shtml" method="post">
+                            <div class="form-group col-sm-12"></div>
+                            <div class="form-group col-sm-12">
+                                <label for="recipient-name" class="control-label">年度:</label>
+                                <div class="input-group date form_datetime ">
+                                    <input id="year" name="year" class="form-control" size="16" type="text" value="2017"
+                                           readonly>
+                                    <span class="input-group-addon"><span
+                                            class="glyphicon glyphicon-remove"></span></span>
+                                    <span class="input-group-addon"><span class="glyphicon glyphicon-th"></span></span>
+                                </div>
+                                <input type="hidden" id="dtp_input1" value=""/>
+                            </div>
+                            <div class="form-group col-sm-12">
+                                <label for="recipient-name" class="control-label">市:</label>
+                                <input type="text" class="form-control" id="city" name="city" placeholder="请输入城市">
+                            </div>
+                            <div class="form-group col-sm-12">
+                                <label for="recipient-name" class="control-label">区县:</label>
+                                <input type="text" class="form-control" id="county" name="county" placeholder="请输入区县名称">
+                            </div>
+                            <div class="form-group col-sm-12">
+                                <label for="recipient-name" class="control-label">面积: 亩</label>
+                                <input type="text" class="form-control" id="area" name="area"
+                                       placeholder="请输入面积  [ 数字]">
+                            </div>
+                            <div class="form-group col-sm-12 gj">
+                                <label for="recipient-name" class="control-label">国有指标金额: 元</label>
+                                <input type="text" class="form-control" id="countryZbje" name="countryZbje"
+                                       placeholder="请输入金额  [数字]">
+                            </div>
+                            <div class="form-group col-sm-12 gj">
+                                <label for="recipient-name" class="control-label">其他指标金额: 元</label>
+                                <input type="text" class="form-control" id="otherZbje" name="otherZbje"
+                                       placeholder="请输入金额  [数字]">
+                            </div>
+                            <div class="form-group col-sm-12 df">
+                                <label for="recipient-name" class="control-label">金额: 元</label>
+                                <input type="text" class="form-control" id="je" name="je"
+                                       placeholder="请输入金额  [数字]">
+                            </div>
+                            <div class="form-group col-sm-12">
+                                <label for="recipient-name" class="control-label">备注:</label>
+                                <input type="text" class="form-control" id="comment" name="comment"
+                                       placeholder="请输入备注  ">
+                            </div>
+                            <div class="hidden">
+                                <input type="hidden" id="createUser" name="createUser" value="${token.id}"/>
+                                <input type="hidden" id="updateUser" name="updateUser" value="${token.id}"/>
+
+                                <input type="hidden" id="id" name="id" value=""/>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+                                <button type="submit" class="btn btn-primary">保存</button>
+                            </div>
+                        </form>
+
+                    </div>
+                </div>
+            </div>
+
+
+        <#--/添加弹框-->
+        </@shiro.hasPermission>
         </div>
     </div>
 <#--/row-->
@@ -282,7 +405,140 @@
             clearForm: false
         });
 
-        
+        var tablePrefix = "#example_";
+        $("#example").dataTable({
+            serverSide: true,//分页，取数据等等的都放到服务端去
+            processing: true,//载入数据的时候是否显示“载入中”
+            pageLength: 10,//首次加载的数据条数
+            ordering: false,//排序操作在服务端进行，所以可以关了。
+            ajax: {//类似jquery的ajax参数，基本都可以用。
+                type: "post",//后台指定了方式，默认get，外加datatable默认构造的参数很长，有可能超过get的最大长度。
+                url: "${basePath}/countryStandard/findAll.shtml",
+                dataSrc: "data",//默认data，也可以写其他的，格式化table的时候取里面的数据
+                data: function (d) {//d 是原始的发送给服务器的数据，默认很长。
+                    var param = {};//因为服务端排序，可以新建一个参数对象
+                    param.iDisplayLength = d.length;//页面显示记录条数，在页面显示每页显示多少项的时候
+                    param.iDisplayStart = d.start;//开始的记录序号
+                    var formData = $("#filter_form").serializeArray();//把form里面的数据序列化成数组
+                    formData.forEach(function (e) {
+                        param[e.name] = e.value;
+                    });
+                    return param;//自定义需要传递的参数。
+                },
+            },
+            columns: [//对应上面thead里面的序列
+                { data: "id", },//字段名字和返回的json序列的key对应
+                { data: "year", },
+                { data: "city", },
+                { data: "county", },
+                { data: "area", },
+                { data: "countryZbje", },
+                { data: "otherZbje", },
+                { data: "je", },
+                { data: "comment", },
+
+                {
+                    //Student 没有hireDate
+                    data: function (e) {
+                        if (e.createTime) {//默认是/Date(794851200000)/格式，需要显示成年月日方式
+                            return new Date(Number((""+e.createTime).replace(/\D/g, ''))).toLocaleDateString();
+                        }
+                        return "空";
+                    }
+                }
+                /*
+                ,
+                {
+                    data: function (e) {//这里给最后一列返回一个操作列表
+                        //e是得到的json数组中的一个item ，可以用于控制标签的属性。
+                        return '<a class="btn btn-default btn-xs show-detail-json"><i class="icon-edit"></i>显示详细</a>';
+                    }
+                }
+                */
+            ],
+            initComplete: function (setting, json) {
+                //初始化完成之后替换原先的搜索框。
+                //本来想把form标签放到hidden_filter 里面，因为事件绑定的缘故，还是拿出来。
+                $(tablePrefix + "filter").html("<form id='filter_form'>" + $("#hidden_filter").html() + "</form>");
+
+            },
+            language: {
+                lengthMenu: '<select class="form-control input-xsmall">' + '<option value="5">5</option>' + '<option value="10">10</option>' + '<option value="20">20</option>' + '<option value="30">30</option>' + '<option value="40">40</option>' + '<option value="50">50</option>' + '</select>条记录',//左上角的分页大小显示。
+                processing: "载入中",//处理页面数据的时候的显示
+                paginate: {//分页的样式文本内容。
+                    previous: "上一页",
+                    next: "下一页",
+                    first: "第一页",
+                    last: "最后一页"
+                },
+
+                zeroRecords: "没有内容",//table tbody内容为空时，tbody的内容。
+                //下面三者构成了总体的左下角的内容。
+                info: "总共_PAGES_ 页，显示第_START_ 到第 _END_ ，筛选之后得到 _TOTAL_ 条，初始_MAX_ 条 ",//左下角的信息显示，大写的词为关键字。
+                infoEmpty: "0条记录",//筛选为空时左下角的显示。
+                infoFiltered: ""//筛选之后的左下角筛选提示(另一个是分页信息显示，在上面的info中已经设置，所以可以不显示)，
+            }
+        });
+        //$("#table_server_filter input[type=search]").css({ width: "auto" });//右上角的默认搜索文本框，不写这个就超出去了。
+
+        $(document).on("submit", "#filter_form", function () {
+            return false;
+        });
+        $(document).on("click", "#go_search", function () {
+            $("#example").DataTable().draw(false);//点搜索重新绘制table。
+            var type = $('input:radio:checked').val();
+            console.log(type);
+            if ("地方" == type) {
+                var column = $("#example").DataTable().column(5);
+                column.visible(column.visible());
+
+                column = $("#example").DataTable().column(6);
+                column.visible(column.visible());
+                column = $("#example").DataTable().column(7);
+                column.visible(!column.visible());
+            } else{
+                var column = $("#example").DataTable().column(5);
+                column.visible(column.visible());
+
+                column = $("#example").DataTable().column(6);
+                column.visible(column.visible());
+                column = $("#example").DataTable().column("je");
+                column.visible(!column.visible());
+            }
+        });
+        $(document).on("click", ".show-detail-json", function () {//取出当前行的数据
+            alert(JSON.stringify($("#example").DataTable().row($(this).parents("tr")).data()));
+        });
+
+        $('#example tbody').on('click', 'tr', function () {
+            var table =  $("#example").dataTable();
+            if ($(this).hasClass('selected')) {
+                $(this).removeClass('selected');
+            }
+            else {
+                table.$('tr.selected').removeClass('selected');
+                $(this).addClass('selected');
+            }
+            var rowData = $("#example").DataTable().row($(this)).data();
+
+            $("#id").val(rowData.id);
+
+            $("#city").val(rowData.city);
+
+            $("#county").val(rowData.county);
+
+            $("#area").val(rowData.area);
+
+            $("#countryZbje").val(rowData.countryZbje);
+
+            $("#otherZbje").val(rowData.otherZbje);
+
+            $("#je").val(rowData.je);
+
+            $("#comment").val(rowData.comment);
+
+
+        });
 
 
     });

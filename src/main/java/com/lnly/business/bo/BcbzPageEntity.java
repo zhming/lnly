@@ -18,32 +18,32 @@ import com.lnly.core.mybatis.page.PageEntity;
  * @email 35691226@qq.com
  */
 public class BcbzPageEntity extends PageEntity {
-    private String year;
-    private String dictCode;
-    private String type;
+    private String searchYear;
+    private String searchContent;
+    private String searchType;
 
 
-    public String getYear() {
-        return year;
+    public String getSearchYear() {
+        return searchYear;
     }
 
-    public void setYear(String year) {
-        this.year = year;
+    public void setSearchYear(String searchYear) {
+        this.searchYear = searchYear;
     }
 
-    public String getDictCode() {
-        return dictCode;
+    public String getSearchContent() {
+        return searchContent;
     }
 
-    public void setDictCode(String dictCode) {
-        this.dictCode = dictCode;
+    public void setSearchContent(String searchContent) {
+        this.searchContent = searchContent;
     }
 
-    public String getType() {
-        return type;
+    public String getSearchType() {
+        return searchType;
     }
 
-    public void setType(String type) {
-        this.type = type;
+    public void setSearchType(String searchType) {
+        this.searchType = searchType;
     }
 }

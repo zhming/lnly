@@ -1,10 +1,10 @@
-package com.lnly.common.dao;
-
-import com.lnly.common.model.UUser;
-import com.lnly.permission.bo.URoleBo;
+package com.lnly.common.mapper;
 
 import java.util.List;
 import java.util.Map;
+
+import com.lnly.common.model.UUser;
+import com.lnly.permission.bo.URoleBo;
 
 public interface UUserMapper {
     int deleteByPrimaryKey(Long id);

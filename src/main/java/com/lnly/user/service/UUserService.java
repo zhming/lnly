@@ -24,19 +24,19 @@ public interface UUserService {
 
     int updateByPrimaryKey(UUser record);
     
-    UUser login(String email ,String pswd);
+    UUser login(String email, String pswd);
 
 	UUser findUserByEmail(String email);
 
 	Pagination<UUser> findByPage(Map<String, Object> resultMap, Integer pageNo,
-			Integer pageSize);
+                                 Integer pageSize);
 
 	Map<String, Object> deleteUserById(String ids);
 
 	Map<String, Object> updateForbidUserById(Long id, Long status);
 
 	Pagination<UserRoleAllocationBo> findUserAndRole(ModelMap modelMap,
-			Integer pageNo, Integer pageSize);
+                                                     Integer pageNo, Integer pageSize);
 
 	List<URoleBo> selectRoleByUserId(Long id);
 
@@ -44,5 +44,8 @@ public interface UUserService {
 
 	Map<String, Object> deleteRoleByUserIds(String userIds);
 
-	Pagination<UUser> findAll(ModelMap modelMap,Integer pageNo, Integer pageSize);
+	Pagination<UUser> findAll(ModelMap modelMap, Integer pageNo, Integer pageSize);
+
+    Pagination<UUser> findCondition(Map<String, Object> resultMap, Integer pageNo,
+                                    Integer pageSize);
 }

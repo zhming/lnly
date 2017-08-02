@@ -130,7 +130,7 @@ public class CountryCompensationStandardServiceImpl extends BaseMybatisDao<Count
 
 	@Override
 	public Pagination<CountryCompensationStandard> findAllPage(Map<String, Object> resultMap, Integer pageNo, Integer pageSize) throws Exception {
-		return null;
+		return super.findPage("findAll", "findCount", resultMap, pageNo, pageSize);
 	}
 
 	@Override

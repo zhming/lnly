@@ -23,7 +23,7 @@ public class CountryCompensationStandardBo extends CountryCompensationStandard i
 	private Double otherZbje;
 	private Double je;
 	private String comment;
-	private String createTimeStr;
+	private Date createTime;
 	
 	public CountryCompensationStandardBo () {
 	}
@@ -107,12 +107,14 @@ public class CountryCompensationStandardBo extends CountryCompensationStandard i
 		this.comment = comment;
 	}
 
-	public String getCreateTimeStr() {
-		return createTimeStr;
+	@Override
+	public Date getCreateTime() {
+		return createTime;
 	}
 
-	public void setCreateTimeStr(String createTimeStr) {
-		this.createTimeStr = createTimeStr;
+	@Override
+	public void setCreateTime(Date createTime) {
+		this.createTime = createTime;
 	}
 
 	public Double getJe() {

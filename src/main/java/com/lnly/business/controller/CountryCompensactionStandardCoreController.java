@@ -52,6 +52,9 @@ public class CountryCompensactionStandardCoreController extends BaseController {
 
 	@Resource
 	CountryCompensationStandardService countryCompensationStandardService;
+
+	private static int iEcho = 0;
+
 	/**
 	 * 个人资料
 	 * @return
@@ -118,7 +121,7 @@ public class CountryCompensactionStandardCoreController extends BaseController {
 				bo.setCountryZbje(entity.getCountryZbje());
 				bo.setCounty(entity.getCounty());
 				bo.setOtherZbje(entity.getOtherZbje());
-				bo.setCreateTimeStr(new DateTime(entity.getCreateTime()).toString("yyyy-MM-dd"));
+				bo.setCreateTime(entity.getCreateTime());
 				resultList.add(bo);
 			}
 		} catch (Exception e) {
@@ -132,40 +135,48 @@ public class CountryCompensactionStandardCoreController extends BaseController {
 	@RequestMapping(value="findAll",method=RequestMethod.POST)
 	@ResponseBody
 	public Map<String,Object> getAllPost(BcbzPageEntity param){
-		System.out.println(param.getDictCode());
-		System.out.println(param.getYear());
-		System.out.println(param.getType());
-		String dictCode = param.getDictCode();
-		try {
-			dictCode = new String(dictCode.getBytes(), "utf-8");
-			System.out.println(dictCode);
-		} catch (UnsupportedEncodingException e) {
+		iEcho++;
+		Map<String, Object> map = new HashMap<>();
+		if(StringUtils.isNotBlank(param.getSearchYear())){
+			map.put("year", param.getSearchYear());
 		}
+
+		if(StringUtils.isNotBlank(param.getSearchContent())){
+			map.put("searchContent", param.getSearchContent());
+		}
+
 
 		List<CountryCompensationStandard> countryCompensationStandards = null;
 		List<CountryCompensationStandardBo> resultList = new ArrayList<CountryCompensationStandardBo>();
 		try {
-			countryCompensationStandards = countryCompensationStandardService.findAll();
-			for(CountryCompensationStandard entity : countryCompensationStandards){
-				CountryCompensationStandardBo bo = new CountryCompensationStandardBo();
-				bo.setYear(entity.getYear());
-				bo.setId(entity.getId());
-				bo.setArea(entity.getArea());
-				bo.setCity(entity.getCity());
-				bo.setComment(entity.getComment());
-				bo.setCountryZbje(entity.getCountryZbje());
-				bo.setCounty(entity.getCounty());
-				bo.setOtherZbje(entity.getOtherZbje());
-				bo.setCreateTimeStr(new DateTime(entity.getCreateTime()).toString("yyyy-MM-dd"));
-				resultList.add(bo);
+			Pagination<CountryCompensationStandard> pagination =  countryCompensationStandardService.findAllPage(map, param.getiDisplayStart(), param.getiDisplayLength());
+			if(null != pagination){
+				countryCompensationStandards = pagination.getList();
+				for(CountryCompensationStandard entity : countryCompensationStandards){
+					CountryCompensationStandardBo bo = new CountryCompensationStandardBo();
+					bo.setYear(entity.getYear());
+					bo.setId(entity.getId());
+					bo.setArea(entity.getArea());
+					bo.setCity(entity.getCity());
+					bo.setComment(entity.getComment());
+					bo.setCountryZbje(entity.getCountryZbje());
+					bo.setCounty(entity.getCounty());
+					bo.setOtherZbje(entity.getOtherZbje());
+					bo.setCreateTime(entity.getCreateTime());
+					resultList.add(bo);
+				}
 			}
+
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
+		resultMap.put("iEcho", iEcho);
 		resultMap.put("data", resultList);
 		resultMap.put("iDisplayLength", param.getiDisplayLength());
 		resultMap.put("iDisplayStart", param.getiDisplayStart());
-		resultMap.put("count", resultList.size());
+ 		resultMap.put("total", resultList.size());
+			resultMap.put("sColumns", ",,,,");
+		resultMap.put("iColumns", 9);
 		resultMap.put("message", "ok");
 		return resultMap;
 	}

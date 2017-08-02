@@ -4,7 +4,15 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import com.lnly.core.mybatis.page.PageEntity;
+
+import com.lnly.common.controller.BaseController;
+import com.lnly.common.model.UUser;
+import com.lnly.common.utils.StringUtils;
+import com.lnly.core.mybatis.page.Pagination;
+import com.lnly.core.shiro.session.CustomSessionManager;
+import com.lnly.user.bo.UserOnlineBo;
+import com.lnly.user.bo.UserPageEntity;
+import com.lnly.user.service.UUserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Controller;
@@ -15,12 +23,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
-import com.lnly.common.controller.BaseController;
-import com.lnly.common.model.UUser;
-import com.lnly.core.mybatis.page.Pagination;
-import com.lnly.core.shiro.session.CustomSessionManager;
-import com.lnly.user.bo.UserOnlineBo;
-import com.lnly.user.service.UUserService;
+
 /**
  * 
  * 开发公司：itboy.net<br/>
@@ -49,9 +52,11 @@ public class MemberController extends BaseController {
 	 * 用户手动操作Session
 	 * */
 	@Autowired
-	CustomSessionManager customSessionManager;
+    CustomSessionManager customSessionManager;
 	@Autowired
-	UUserService userService;
+    UUserService userService;
+
+	public static int iEcho = 1;
 	/**
 	 * 用户列表管理
 	 * @return
@@ -63,15 +68,6 @@ public class MemberController extends BaseController {
 		Pagination<UUser> page = userService.findByPage(map,pageNo,pageSize);
 		map.put("page", page);
 		return new ModelAndView("member/list");
-	}
-
-	/**
-	 * 用户列表管理
-	 * @return
-	 */
-	@RequestMapping(value="datatables")
-	public ModelAndView listAll(){
-		return new ModelAndView("member/datatables");
 	}
 	/**
 	 * 在线用户管理
@@ -94,7 +90,7 @@ public class MemberController extends BaseController {
 	/**
 	 * 改变Session状态
 	 * @param status
-	 * @param sessionId
+	 * @param
 	 * @return
 	 */
 	@RequestMapping(value="changeSessionStatus",method=RequestMethod.POST)
@@ -124,6 +120,16 @@ public class MemberController extends BaseController {
 		return userService.updateForbidUserById(id,status);
 	}
 
+	/**
+	 *
+	 * @return
+	 */
+	@RequestMapping(value="datatables",method =RequestMethod.GET)
+	@ResponseBody
+	public ModelAndView test(){
+		return new ModelAndView("member/datatables");
+	}
+
 
 	/**
 	 * 在线用户管理
@@ -131,24 +137,46 @@ public class MemberController extends BaseController {
 	 */
 	@RequestMapping(value="findAll",method=RequestMethod.POST)
 	@ResponseBody
-	public Map<String, Object> findAll(ModelMap modelMap, PageEntity pageEntity){
-
-		Map<String, Object> result = new HashMap<>();
-
-		Pagination<UUser> pagination = userService.findAll(modelMap, pageEntity.getiDisplayStart(),pageEntity.getiDisplayLength());
-		result.put("data", pagination.getList());
-
-		System.out.println("--------------------------------: " + pageEntity.getiDisplayLength());
-		System.out.println("--------------------------------: " + pageEntity.getiDisplayStart());
-
-
-		result.put("sEcho",1);
-		result.put("iColumns",5);result.put("sColumns",",,,,");result.put("iDisplayStart",0);
-		result.put("iDisplayLength",10);
+	public Map<String, Object> findAll(ModelMap modelMap, UserPageEntity entity){
+        Map<String, Object> result = new HashMap<>();
+		iEcho = iEcho + 1;
+	    try{
+if(StringUtils.isNotBlank(entity.getNickname())){
+    System.out.println( "@@@@@@@@@@@@@@@@@@@@@@@@@@@@"+new String(entity.getNickname().getBytes(), "utf-8"));
+    modelMap.put("nickname", entity.getNickname());
+}
 
 
+//		Pagination<UUser> pagination = userService.findAll(modelMap, pageEntity.getiDisplayStart(),pageEntity.getiDisplayLength());
+            Pagination<UUser> pagination = userService.findCondition(modelMap, entity.getiDisplayStart(),entity.getiDisplayLength());
+            result.put("data", pagination.getList());
+
+            System.out.println("--------------------------------: " + entity.getiDisplayLength());
+            System.out.println("--------------------------------: " + entity.getiDisplayStart());
+
+            // json = "{\"sEcho\":" + initEcho + ",\"iTotalRecords\":" + count + ",\"iTotalDisplayRecords\":" + count + ",\"aaData\":" + jsonArray2.toString() + "}";
+
+            result.put("iEcho",iEcho);
+            result.put("iColumns",5);
+            result.put("sColumns",",,,,");
+            result.put("iDisplayStart",entity.getiDisplayStart());
+            result.put("iDisplayLength",entity.getiDisplayLength());
+            result.put("total", pagination.getTotalCount());
+        }catch (Exception e){
+	        e.printStackTrace();
+        }
 
 
 		return result;
 	}
+
+
+	public static void main(String[] args){
+		String ss = "(12, '8446666', '8446666', '4afdc875a67a55528c224ce088be2ab8', '2016-05-27 22:34:19', '2016-06-15 17:03:16', 1),";
+
+		for(int i = 0; i < 5000; i++){
+			System.out.println("(" + (12 + i) +", '8446666"+i+"', '8446666"+i+"', '4afdc875a67a55528c224ce088be2ab8', '2016-05-27 22:34:19', '2016-06-15 17:03:16', 1),");
+		}
+	}
+
 }
