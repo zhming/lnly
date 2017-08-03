@@ -7,25 +7,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="e5ab77ab-1618-47c7-82e4-0daea9cd7a57" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/sqldialects.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/com/lnly/common/mapper/UUserMapper.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/com/lnly/user/bo/UserPageEntity.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/ftl/business/compensationStandard1.ftl" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/ftl/business/compensationStandard2.ftl" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/com/lnly/common/mapper/CountryCompensationDetailMapper.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/lnly/business/bo/BcbzPageEntity.java" afterPath="$PROJECT_DIR$/src/main/java/com/lnly/business/bo/BcbzPageEntity.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/lnly/business/bo/CountryCompensationStandardBo.java" afterPath="$PROJECT_DIR$/src/main/java/com/lnly/business/bo/CountryCompensationStandardBo.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/lnly/business/controller/CountryCompensactionStandardCoreController.java" afterPath="$PROJECT_DIR$/src/main/java/com/lnly/business/controller/CountryCompensactionStandardCoreController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/lnly/business/controller/LocalCompensactionStandardCoreController.java" afterPath="$PROJECT_DIR$/src/main/java/com/lnly/business/controller/LocalCompensactionStandardCoreController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/lnly/business/service/impl/CountryCompensationStandardServiceImpl.java" afterPath="$PROJECT_DIR$/src/main/java/com/lnly/business/service/impl/CountryCompensationStandardServiceImpl.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/lnly/common/dao/UUserMapper.java" afterPath="$PROJECT_DIR$/src/main/java/com/lnly/common/dao/UUserMapper.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/lnly/common/mapper/CountryCompensationStandardMapper.xml" afterPath="$PROJECT_DIR$/src/main/java/com/lnly/common/mapper/CountryCompensationStandardMapper.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/lnly/common/mapper/UUserMapper.xml" afterPath="$PROJECT_DIR$/src/main/java/com/lnly/common/mapper/UUserMapper.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/lnly/user/controller/MemberController.java" afterPath="$PROJECT_DIR$/src/main/java/com/lnly/user/controller/MemberController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/lnly/user/service/UUserService.java" afterPath="$PROJECT_DIR$/src/main/java/com/lnly/user/service/UUserService.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/lnly/user/service/impl/UUserServiceImpl.java" afterPath="$PROJECT_DIR$/src/main/java/com/lnly/user/service/impl/UUserServiceImpl.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/ftl/business/compensationStandard.ftl" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/ftl/business/compensationStandard.ftl" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/ftl/business/datatables.ftl" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/ftl/business/datatables.ftl" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/lnly/common/model/CountryCompensationDetail.java" afterPath="$PROJECT_DIR$/src/main/java/com/lnly/common/model/CountryCompensationDetail.java" />
     </list>
     <ignored path="$PROJECT_DIR$/target/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -52,12 +36,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>CountryCompensationStandard</find>
-      <find>other</find>
-      <find>status</find>
-      <find>selected</find>
-      <find>findA</find>
-      <find>$(&quot;#selectedDictCode&quot;)</find>
       <find>selectedDictCode</find>
       <find>id</find>
       <find>formId</find>
@@ -82,6 +60,12 @@
       <find>go_search</find>
       <find>tr_hh</find>
       <find>hidden_filter</find>
+      <find>searchYear</find>
+      <find>itemOnclick</find>
+      <find>国家</find>
+      <find>table</find>
+      <find>check</find>
+      <find>tb_country_compensation_standard</find>
     </findStrings>
     <replaceStrings>
       <replace>lnly</replace>
@@ -90,6 +74,8 @@
       <replace>LocalCompensationStandard</replace>
       <replace>getDictTree</replace>
       <replace>3399CC</replace>
+      <replace>地方</replace>
+      <replace>tb_country_compensation_detail</replace>
     </replaceStrings>
     <dirStrings>
       <dir>D:\workspace\java\SpringMVC-Mybatis-Shiro-redis-0.2-master\src\main\webapp\js</dir>
@@ -107,11 +93,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/readme.rd" />
-        <option value="$PROJECT_DIR$/src/main/java/com/lnly/core/shiro/cache/JedisDictCache1.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/lnly/core/shiro/cache/JedisShiroCache.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/lnly/core/shiro/cache/JedisShiroSessionRepository.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/lnly/core/shiro/cache/JedisDictCache.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/lnly/core/shiro/cache/impl/CustomShiroCacheManager.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/lnly/core/shiro/cache/impl/JedisShiroCacheManager.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/lnly/core/shiro/cache/ShiroCacheManager.java" />
@@ -135,8 +116,6 @@
         <option value="$PROJECT_DIR$/src/main/java/com/lnly/common/model/UUser.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/lnly/common/mapper/UUserMapper.xml" />
         <option value="$PROJECT_DIR$/src/main/java/com/lnly/common/mapper/AdminDictMapper.xml" />
-        <option value="$PROJECT_DIR$/src/main/java/com/lnly/business/controller/AdminDictController.java" />
-        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/ftl/common/config/top.ftl" />
         <option value="$PROJECT_DIR$/src/main/java/com/lnly/common/dao/YearBcbzMapper.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/lnly/business/service/UUserService.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/lnly/business/service/impl/UUserServiceImpl.java" />
@@ -151,13 +130,20 @@
         <option value="$PROJECT_DIR$/src/main/java/com/lnly/user/controller/MemberController.java" />
         <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/ftl/business/datatables.ftl" />
         <option value="$PROJECT_DIR$/src/main/java/com/lnly/business/bo/CountryCompensationStandardBo.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/lnly/business/controller/LocalCompensactionStandardCoreController.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/lnly/business/bo/BcbzPageEntity.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/lnly/business/service/impl/CountryCompensationStandardServiceImpl.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/lnly/common/mapper/CountryCompensationStandardMapper.xml" />
         <option value="$PROJECT_DIR$/src/main/java/com/lnly/business/controller/CountryCompensactionStandardCoreController.java" />
-        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/ftl/business/compensationStandard.ftl" />
+        <option value="$PROJECT_DIR$/src/main/java/com/lnly/common/mapper/CountryCompensationStandardMapper.xml" />
+        <option value="$PROJECT_DIR$/src/main/java/com/lnly/business/bo/BcbzPageEntity.java" />
         <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/ftl/business/compensationStandard1.ftl" />
+        <option value="$PROJECT_DIR$/src/main/java/com/lnly/business/controller/AdminDictController.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/lnly/common/mapper/LocalCompensationStandardMapper.xml" />
+        <option value="$PROJECT_DIR$/src/main/java/com/lnly/business/service/impl/LocalCompensationStandardServiceImpl.java" />
+        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/ftl/common/config/top.ftl" />
+        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/ftl/business/compensationStandard.ftl" />
+        <option value="$PROJECT_DIR$/src/main/java/com/lnly/business/controller/LocalCompensactionStandardCoreController.java" />
+        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/ftl/business/localCompensationStandard.ftl" />
+        <option value="$PROJECT_DIR$/src/main/java/com/lnly/common/model/CountryCompensationDetail.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/lnly/common/mapper/CountryCompensationDetailMapper.xml" />
       </list>
     </option>
   </component>
@@ -244,10 +230,10 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scratches" />
-      <pane id="Scope" />
       <pane id="AndroidView" />
       <pane id="PackagesPane" />
+      <pane id="Scope" />
+      <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -259,6 +245,56 @@
               <item name="shiro.demo" type="b2602c69:ProjectViewProjectNode" />
               <item name="SpringMVC-Mybatis-Shiro-redis-0.2-master" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="shiro.demo" type="b2602c69:ProjectViewProjectNode" />
+              <item name="SpringMVC-Mybatis-Shiro-redis-0.2-master" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="shiro.demo" type="b2602c69:ProjectViewProjectNode" />
+              <item name="SpringMVC-Mybatis-Shiro-redis-0.2-master" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="shiro.demo" type="b2602c69:ProjectViewProjectNode" />
+              <item name="SpringMVC-Mybatis-Shiro-redis-0.2-master" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="lnly" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="shiro.demo" type="b2602c69:ProjectViewProjectNode" />
+              <item name="SpringMVC-Mybatis-Shiro-redis-0.2-master" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="lnly" type="462c0819:PsiDirectoryNode" />
+              <item name="common" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="shiro.demo" type="b2602c69:ProjectViewProjectNode" />
+              <item name="SpringMVC-Mybatis-Shiro-redis-0.2-master" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="lnly" type="462c0819:PsiDirectoryNode" />
+              <item name="common" type="462c0819:PsiDirectoryNode" />
+              <item name="mapper" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="shiro.demo" type="b2602c69:ProjectViewProjectNode" />
+              <item name="SpringMVC-Mybatis-Shiro-redis-0.2-master" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="lnly" type="462c0819:PsiDirectoryNode" />
+              <item name="common" type="462c0819:PsiDirectoryNode" />
+              <item name="model" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -283,12 +319,10 @@
     <property name="settings.editor.selected.configurable" value="copyright.profiles" />
   </component>
   <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="D:\workspace\java\SpringMVC-Mybatis-Shiro-redis-0.2-master\src\main\webapp\WEB-INF\ftl\business" />
-      <recent name="D:\workspace\java\SpringMVC-Mybatis-Shiro-redis-0.2-master\src\main\java\com\lnly\user\service\impl" />
-      <recent name="D:\workspace\java\SpringMVC-Mybatis-Shiro-redis-0.2-master\src\main\java\com\lnly\user\service" />
-      <recent name="D:\workspace\java\SpringMVC-Mybatis-Shiro-redis-0.2-master\src\main\java\com\lnly\common\mapper" />
-      <recent name="D:\workspace\java\SpringMVC-Mybatis-Shiro-redis-0.2-master\src\main\java\com\lnly\user\bo" />
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\workspace\java\SpringMVC-Mybatis-Shiro-redis-0.2-master\src\main\webapp\js\common" />
+      <recent name="D:\workspace\java\SpringMVC-Mybatis-Shiro-redis-0.2-master\src\main\webapp\js" />
+      <recent name="D:\workspace\java\SpringMVC-Mybatis-Shiro-redis-0.2-master\src\main\webapp\css\common" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
       <recent name="com.lnly.common.dao" />
@@ -297,10 +331,12 @@
       <recent name="com.lnly.business.service" />
       <recent name="com.lnly.common.model" />
     </key>
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="D:\workspace\java\SpringMVC-Mybatis-Shiro-redis-0.2-master\src\main\webapp\js\common" />
-      <recent name="D:\workspace\java\SpringMVC-Mybatis-Shiro-redis-0.2-master\src\main\webapp\js" />
-      <recent name="D:\workspace\java\SpringMVC-Mybatis-Shiro-redis-0.2-master\src\main\webapp\css\common" />
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\workspace\java\SpringMVC-Mybatis-Shiro-redis-0.2-master\src\main\java\com\lnly\common\mapper" />
+      <recent name="D:\workspace\java\SpringMVC-Mybatis-Shiro-redis-0.2-master\src\main\webapp\WEB-INF\ftl\business" />
+      <recent name="D:\workspace\java\SpringMVC-Mybatis-Shiro-redis-0.2-master\src\main\java\com\lnly\user\service\impl" />
+      <recent name="D:\workspace\java\SpringMVC-Mybatis-Shiro-redis-0.2-master\src\main\java\com\lnly\user\service" />
+      <recent name="D:\workspace\java\SpringMVC-Mybatis-Shiro-redis-0.2-master\src\main\java\com\lnly\user\bo" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -945,7 +981,8 @@
       <workItem from="1501332105210" duration="5213000" />
       <workItem from="1501395300325" duration="12668000" />
       <workItem from="1501507051616" duration="11029000" />
-      <workItem from="1501678869370" duration="13916000" />
+      <workItem from="1501678869370" duration="14705000" />
+      <workItem from="1501763992289" duration="11408000" />
     </task>
     <task id="LOCAL-00001" summary="countryCompensationStandard">
       <created>1499265174948</created>
@@ -1087,11 +1124,25 @@
       <option name="project" value="LOCAL" />
       <updated>1501518385188</updated>
     </task>
-    <option name="localTasksCounter" value="21" />
+    <task id="LOCAL-00021" summary="datatables search ok">
+      <created>1501693505055</created>
+      <option name="number" value="00021" />
+      <option name="presentableId" value="LOCAL-00021" />
+      <option name="project" value="LOCAL" />
+      <updated>1501693505055</updated>
+    </task>
+    <task id="LOCAL-00022" summary="补偿标准维护模块OK">
+      <created>1501773524434</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1501773524434</updated>
+    </task>
+    <option name="localTasksCounter" value="23" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="280438000" />
+    <option name="totallyTimeSpent" value="292635000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
@@ -1099,7 +1150,7 @@
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.57610995" sideWeight="0.2703125" order="8" side_tool="true" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32946146" sideWeight="0.5" order="14" side_tool="false" content_ui="tabs" />
-      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.106770836" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
+      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.106770836" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
@@ -1118,7 +1169,7 @@
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.35200846" sideWeight="0.7296875" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Spring" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="13" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.1984375" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3296875" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Web" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="true" content_ui="tabs" />
       <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
@@ -1164,7 +1215,9 @@
     <MESSAGE value="readme" />
     <MESSAGE value="backup_db.sql readme" />
     <MESSAGE value="backup_db.sql" />
-    <option name="LAST_COMMIT_MESSAGE" value="backup_db.sql" />
+    <MESSAGE value="datatables search ok" />
+    <MESSAGE value="补偿标准维护模块OK" />
+    <option name="LAST_COMMIT_MESSAGE" value="补偿标准维护模块OK" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1194,123 +1247,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="jar://C:/Program Files/Java/jdk1.7.0_17/src.zip!/java/net/AbstractPlainSocketImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="186">
-          <caret line="338" column="0" lean-forward="false" selection-start-line="338" selection-start-column="0" selection-end-line="338" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://C:/Program Files/Java/jdk1.7.0_17/src.zip!/java/net/DualStackPlainSocketImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="186">
-          <caret line="68" column="0" lean-forward="false" selection-start-line="68" selection-start-column="0" selection-end-line="68" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://C:/Program Files/Java/jdk1.7.0_17/src.zip!/java/net/SocksSocketImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="194">
-          <caret line="390" column="0" lean-forward="false" selection-start-line="390" selection-start-column="0" selection-end-line="390" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://C:/Program Files/Java/jdk1.7.0_17/src.zip!/java/net/Socket.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="186">
-          <caret line="578" column="0" lean-forward="false" selection-start-line="578" selection-start-column="0" selection-end-line="578" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/lnly/core/shiro/cache/JedisManager.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="205">
-          <caret line="145" column="31" lean-forward="true" selection-start-line="145" selection-start-column="31" selection-end-line="145" selection-end-column="31" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/lnly/business/bo/AdminDictTreeBo.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="294">
-          <caret line="24" column="16" lean-forward="false" selection-start-line="24" selection-start-column="16" selection-end-line="24" selection-end-column="16" />
-          <folding>
-            <element signature="e#499#500#0" expanded="false" />
-            <element signature="e#539#540#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://C:/Program Files/Java/jdk1.7.0_17/src.zip!/java/util/List.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="365">
-          <caret line="440" column="49" lean-forward="true" selection-start-line="440" selection-start-column="49" selection-end-line="440" selection-end-column="49" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/lnly/common/utils/CsvParser.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="323">
-          <caret line="163" column="5" lean-forward="true" selection-start-line="163" selection-start-column="5" selection-end-line="163" selection-end-column="5" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/lnly/common/model/UUser.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180">
-          <caret line="94" column="24" lean-forward="true" selection-start-line="94" selection-start-column="24" selection-end-line="94" selection-end-column="24" />
-          <folding>
-            <element signature="e#2366#2367#0" expanded="false" />
-            <element signature="e#2397#2398#0" expanded="false" />
-            <element signature="e#2445#2446#0" expanded="false" />
-            <element signature="e#2485#2486#0" expanded="false" />
-            <element signature="e#2524#2525#0" expanded="false" />
-            <element signature="e#2559#2560#0" expanded="false" />
-            <element signature="e#2615#2616#0" expanded="false" />
-            <element signature="e#2663#2664#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/lnly/common/mapper/AdminDictMapper.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="72">
-          <caret line="33" column="12" lean-forward="false" selection-start-line="33" selection-start-column="12" selection-end-line="33" selection-end-column="12" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/spring-web/4.2.5.RELEASE/spring-web-4.2.5.RELEASE.jar!/org/springframework/web/method/support/InvocableHandlerMethod.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="234">
-          <caret line="139" column="0" lean-forward="false" selection-start-line="139" selection-start-column="0" selection-end-line="139" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/ftl/common/config/top.ftl">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="437">
-          <caret line="26" column="20" lean-forward="true" selection-start-line="26" selection-start-column="20" selection-end-line="26" selection-end-column="20" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/lnly/common/model/AdminDict.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="342">
-          <caret line="18" column="29" lean-forward="false" selection-start-line="18" selection-start-column="21" selection-end-line="18" selection-end-column="29" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/spring.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-19">
-          <caret line="13" column="33" lean-forward="true" selection-start-line="13" selection-start-column="33" selection-end-line="13" selection-end-column="33" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/resources/spring-cache.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="19">
@@ -1347,23 +1283,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="285">
           <caret line="15" column="41" lean-forward="false" selection-start-line="15" selection-start-column="41" selection-end-line="15" selection-end-column="41" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/lnly/business/controller/AdminDictController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3838">
-          <caret line="219" column="55" lean-forward="true" selection-start-line="219" selection-start-column="55" selection-end-line="219" selection-end-column="55" />
-          <folding>
-            <element signature="e#5761#5782#0" expanded="false" />
-            <element signature="e#5853#5869#0" expanded="false" />
-            <element signature="e#6190#6211#0" expanded="false" />
-            <element signature="e#6338#6354#0" expanded="false" />
-            <element signature="e#6779#6800#0" expanded="false" />
-            <element signature="e#6954#6970#0" expanded="false" />
-            <element signature="e#7520#7541#0" expanded="false" />
-            <element signature="e#7719#7735#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1535,22 +1454,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/lnly/common/mapper/UUserMapper.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/lnly/common/dao/UUserMapper.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="95">
-          <caret line="9" column="0" lean-forward="false" selection-start-line="9" selection-start-column="0" selection-end-line="25" selection-end-column="46" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/lnly/user/service/UUserService.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -1563,9 +1466,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="490">
           <caret line="128" column="43" lean-forward="true" selection-start-line="51" selection-start-column="6" selection-end-line="128" selection-end-column="11" />
-          <folding>
-            <element signature="n#style#0;n#input#0;n#div#0;n#div#0;n#body#0;n#html#0;n#html#0;n#!!top" expanded="true" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1573,15 +1474,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="399">
           <caret line="222" column="47" lean-forward="true" selection-start-line="216" selection-start-column="14" selection-end-line="222" selection-end-column="40" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/lnly/business/controller/LocalCompensactionStandardCoreController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1206">
-          <caret line="175" column="49" lean-forward="false" selection-start-line="175" selection-start-column="49" selection-end-line="175" selection-end-column="49" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1606,27 +1498,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/lnly/business/bo/BcbzPageEntity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180">
-          <caret line="12" column="95" lean-forward="true" selection-start-line="12" selection-start-column="95" selection-end-line="12" selection-end-column="95" />
-          <folding>
-            <element signature="e#465#466#0" expanded="true" />
-            <element signature="e#498#499#0" expanded="true" />
-            <element signature="e#550#551#0" expanded="true" />
-            <element signature="e#594#595#0" expanded="true" />
-            <element signature="e#634#635#0" expanded="true" />
-            <element signature="e#670#671#0" expanded="true" />
-            <element signature="e#728#729#0" expanded="true" />
-            <element signature="e#778#779#0" expanded="true" />
-            <element signature="e#815#816#0" expanded="true" />
-            <element signature="e#848#849#0" expanded="true" />
-            <element signature="e#900#901#0" expanded="true" />
-            <element signature="e#944#945#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/lnly/core/mybatis/page/PageEntity.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="266">
@@ -1643,7 +1514,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-754">
           <caret line="81" column="0" lean-forward="false" selection-start-line="81" selection-start-column="0" selection-end-line="81" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1652,29 +1522,6 @@
         <state relative-caret-position="376">
           <caret line="38" column="53" lean-forward="false" selection-start-line="38" selection-start-column="53" selection-end-line="38" selection-end-column="53" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/lnly/common/mapper/UUserMapper.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="95">
-          <caret line="62" column="44" lean-forward="true" selection-start-line="62" selection-start-column="44" selection-end-line="62" selection-end-column="44" />
-          <folding>
-            <marker date="1501667874791" expanded="true" signature="1562:1626" ph="select from u_user" />
-            <marker date="1501667874791" expanded="true" signature="1763:1792" ph="select count... u_user" />
-            <marker date="1501667874791" expanded="true" signature="1908:1979" ph="select from u_user" />
-            <marker date="1501667874791" expanded="true" signature="2434:2477" ph="select count... u_user" />
-            <marker date="1501667874791" expanded="true" signature="2655:3194" ph="select u.id,... u_user" />
-            <marker date="1501667874791" expanded="true" signature="3294:3526" ph="select ur.id... u_role" />
-            <marker date="1501667874791" expanded="true" signature="3433:3486" ph="select id fr... u_user" />
-            <marker date="1501667874791" expanded="true" signature="3863:4008" ph="select from u_user" />
-            <marker date="1501667874791" expanded="true" signature="4106:4214" ph="select from u_user" />
-            <marker date="1501667874791" expanded="true" signature="4328:4429" ph="select from u_user" />
-            <marker date="1501667874791" expanded="true" signature="4513:4568" ph="delete from " />
-            <marker date="1501667874791" expanded="true" signature="4694:5109" ph="insert into u_user... " />
-            <marker date="1501667874791" expanded="true" signature="6866:7728" ph="update u_use... " />
-            <marker date="1501667874791" expanded="true" signature="7825:8265" ph="update u_use... " />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1694,53 +1541,253 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/lnly/common/mapper/CountryCompensationStandardMapper.xml">
+    <entry file="file://$PROJECT_DIR$/pom.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="361">
-          <caret line="46" column="23" lean-forward="true" selection-start-line="46" selection-start-column="23" selection-end-line="46" selection-end-column="23" />
+        <state relative-caret-position="342">
+          <caret line="31" column="33" lean-forward="true" selection-start-line="31" selection-start-column="33" selection-end-line="31" selection-end-column="33" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/lnly/common/mapper/UUserMapper.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="76">
+          <caret line="8" column="17" lean-forward="false" selection-start-line="8" selection-start-column="17" selection-end-line="8" selection-end-column="17" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/lnly/common/mapper/UUserMapper.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="456">
+          <caret line="81" column="49" lean-forward="false" selection-start-line="81" selection-start-column="38" selection-end-line="81" selection-end-column="49" />
           <folding>
-            <marker date="1501687316246" expanded="true" signature="1982:2072" ph="select from tb_country_compensation_standard" />
-            <marker date="1501687316246" expanded="true" signature="2208:2263" ph="select count... tb_country_compensation_standard" />
-            <marker date="1501687316246" expanded="true" signature="2413:2540" ph="select from tb_country_compensation_standard" />
-            <marker date="1501687316246" expanded="true" signature="2624:2705" ph="delete from " />
-            <marker date="1501687316246" expanded="true" signature="2853:3434" ph="insert into tb_country_compensation_standard... " />
-            <marker date="1501687316246" expanded="true" signature="5838:6869" ph="update tb_co... " />
-            <marker date="1501687316246" expanded="true" signature="6988:7474" ph="update tb_co... " />
+            <marker date="1501667874791" expanded="true" signature="1562:1626" ph="select from u_user" />
+            <marker date="1501667874791" expanded="true" signature="1763:1792" ph="select count... u_user" />
+            <marker date="1501667874791" expanded="true" signature="1908:1979" ph="select from u_user" />
+            <marker date="1501667874791" expanded="true" signature="2434:2477" ph="select count... u_user" />
+            <marker date="1501667874791" expanded="true" signature="2655:3194" ph="select u.id,... u_user" />
+            <marker date="1501667874791" expanded="true" signature="3294:3526" ph="select ur.id... u_role" />
+            <marker date="1501667874791" expanded="true" signature="3433:3486" ph="select id fr... u_user" />
+            <marker date="1501667874791" expanded="true" signature="3863:4008" ph="select from u_user" />
+            <marker date="1501667874791" expanded="true" signature="4106:4214" ph="select from u_user" />
+            <marker date="1501667874791" expanded="true" signature="4328:4429" ph="select from u_user" />
+            <marker date="1501667874791" expanded="true" signature="4513:4568" ph="delete from " />
+            <marker date="1501667874791" expanded="true" signature="4694:5109" ph="insert into u_user... " />
+            <marker date="1501667874791" expanded="true" signature="6866:7728" ph="update u_use... " />
+            <marker date="1501667874791" expanded="true" signature="7825:8265" ph="update u_use... " />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/lnly/business/controller/CountryCompensactionStandardCoreController.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/lnly/common/dao/UUserMapper.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="118">
-          <caret line="146" column="39" lean-forward="true" selection-start-line="146" selection-start-column="39" selection-end-line="146" selection-end-column="39" />
-          <folding>
-            <element signature="e#4791#4822#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="304">
+          <caret line="20" column="51" lean-forward="true" selection-start-line="20" selection-start-column="51" selection-end-line="20" selection-end-column="51" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/lnly/business/bo/BcbzPageEntity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="251">
+          <caret line="22" column="42" lean-forward="false" selection-start-line="22" selection-start-column="19" selection-end-line="22" selection-end-column="42" />
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/ftl/business/compensationStandard2.ftl">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="171">
-          <caret line="252" column="19" lean-forward="false" selection-start-line="252" selection-start-column="18" selection-end-line="252" selection-end-column="19" />
+        <state relative-caret-position="247">
+          <caret line="256" column="55" lean-forward="true" selection-start-line="256" selection-start-column="55" selection-end-line="256" selection-end-column="55" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/ftl/business/compensationStandard-0.ftl">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1596">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/ftl/business/compensationStandard1.ftl">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="300">
-          <caret line="453" column="29" lean-forward="true" selection-start-line="453" selection-start-column="29" selection-end-line="453" selection-end-column="29" />
+        <state relative-caret-position="228">
+          <caret line="81" column="221" lean-forward="true" selection-start-line="80" selection-start-column="39" selection-end-line="81" selection-end-column="221" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/lnly/business/controller/AdminDictController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2850">
+          <caret line="167" column="40" lean-forward="false" selection-start-line="167" selection-start-column="40" selection-end-line="167" selection-end-column="40" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/lnly/business/service/LocalCompensationStandardService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="218">
+          <caret line="24" column="52" lean-forward="false" selection-start-line="24" selection-start-column="42" selection-end-line="24" selection-end-column="52" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/lnly/core/mybatis/BaseMybatisDao.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="194">
+          <caret line="239" column="22" lean-forward="false" selection-start-line="239" selection-start-column="22" selection-end-line="239" selection-end-column="22" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/lnly/common/mapper/CountryCompensationStandardMapper.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="228">
+          <caret line="39" column="20" lean-forward="true" selection-start-line="30" selection-start-column="4" selection-end-line="39" selection-end-column="11" />
+          <folding>
+            <marker date="1501766602644" expanded="true" signature="2095:2185" ph="select from tb_country_compensation_standard" />
+            <marker date="1501766602644" expanded="true" signature="2321:2376" ph="select count... tb_country_compensation_standard" />
+            <marker date="1501766602644" expanded="true" signature="2526:2653" ph="select from tb_country_compensation_standard" />
+            <marker date="1501766602644" expanded="true" signature="2737:2818" ph="delete from " />
+            <marker date="1501766602644" expanded="true" signature="2966:3547" ph="insert into tb_country_compensation_standard... " />
+            <marker date="1501766602644" expanded="true" signature="5951:6982" ph="update tb_co... " />
+            <marker date="1501766602644" expanded="true" signature="7101:7587" ph="update tb_co... " />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/lnly/business/service/impl/LocalCompensationStandardServiceImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="204">
+          <caret line="53" column="43" lean-forward="true" selection-start-line="53" selection-start-column="43" selection-end-line="53" selection-end-column="43" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/ftl/common/config/top.ftl">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="228">
+          <caret line="18" column="34" lean-forward="true" selection-start-line="18" selection-start-column="34" selection-end-line="18" selection-end-column="34" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/ftl/business/compensationStandard.ftl">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="148">
-          <caret line="343" column="14" lean-forward="true" selection-start-line="343" selection-start-column="14" selection-end-line="343" selection-end-column="14" />
+        <state relative-caret-position="228">
+          <caret line="435" column="32" lean-forward="false" selection-start-line="435" selection-start-column="25" selection-end-line="435" selection-end-column="32" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/lnly/common/mapper/LocalCompensationStandardMapper.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="95">
+          <caret line="35" column="57" lean-forward="true" selection-start-line="35" selection-start-column="57" selection-end-line="35" selection-end-column="57" />
+          <folding>
+            <marker date="1501771320351" expanded="true" signature="1899:1986" ph="select from tb_local_compensation_standard" />
+            <marker date="1501771320351" expanded="true" signature="2124:2177" ph="select count... tb_local_compensation_standard" />
+            <marker date="1501771320351" expanded="true" signature="2324:2448" ph="select from tb_local_compensation_standard" />
+            <marker date="1501771320351" expanded="true" signature="2532:2611" ph="delete from " />
+            <marker date="1501771320351" expanded="true" signature="2757:3234" ph="insert into tb_local_compensation_standard... " />
+            <marker date="1501771320351" expanded="true" signature="5299:6110" ph="update tb_lo... " />
+            <marker date="1501771320351" expanded="true" signature="6227:6582" ph="update tb_lo... " />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/lnly/common/model/LocalCompensationStandard.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="285">
+          <caret line="16" column="26" lean-forward="false" selection-start-line="16" selection-start-column="19" selection-end-line="16" selection-end-column="26" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/lnly/business/controller/LocalCompensactionStandardCoreController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="285">
+          <caret line="51" column="38" lean-forward="true" selection-start-line="51" selection-start-column="38" selection-end-line="51" selection-end-column="38" />
+          <folding>
+            <element signature="e#4780#4811#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/ftl/business/localCompensationStandard.ftl">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="133">
+          <caret line="280" column="58" lean-forward="true" selection-start-line="280" selection-start-column="58" selection-end-line="280" selection-end-column="58" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/lnly/business/controller/CountryCompensactionStandardCoreController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="380">
+          <caret line="172" column="40" lean-forward="true" selection-start-line="172" selection-start-column="40" selection-end-line="172" selection-end-column="40" />
+          <folding>
+            <element signature="e#4929#4960#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/ftl/business/index.ftl">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="228">
+          <caret line="12" column="31" lean-forward="true" selection-start-line="12" selection-start-column="31" selection-end-line="12" selection-end-column="31" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/ftl/common/500.ftl">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/ftl/common/404.ftl">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/lnly/common/model/CountryCompensationDetail.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="205">
+          <caret line="14" column="36" lean-forward="true" selection-start-line="14" selection-start-column="36" selection-end-line="14" selection-end-column="36" />
+          <folding>
+            <element signature="e#5840#5841#0" expanded="true" />
+            <element signature="e#5872#5873#0" expanded="true" />
+            <element signature="e#5920#5921#0" expanded="true" />
+            <element signature="e#5962#5963#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/lnly/common/mapper/CountryCompensationDetailMapper.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-551">
+          <caret line="99" column="29" lean-forward="true" selection-start-line="99" selection-start-column="29" selection-end-line="99" selection-end-column="29" />
+          <folding>
+            <marker date="1501775502253" expanded="true" signature="3859:3947" ph="select from tb_country_compensation_standard" />
+            <marker date="1501775502253" expanded="true" signature="3859:3953" ph="select from tb_country_compensation_detail" />
+            <marker date="1501775502253" expanded="true" signature="4104:4156" ph="select count... tb_country_compensation_detail" />
+            <marker date="1501775502253" expanded="true" signature="4312:4447" ph="select from tb_country_compensation_detail" />
+            <marker date="1501775502253" expanded="true" signature="4534:4613" ph="delete from " />
+            <marker date="1501775502253" expanded="true" signature="4774:6355" ph="insert into tb_country_compensation_detail... " />
+            <marker date="1501775502253" expanded="true" signature="9294:10521" ph="update tb_co... " />
+            <marker date="1501775502253" expanded="true" signature="10643:11127" ph="update tb_co... " />
+            <marker date="1501775502253" expanded="true" signature="10680:11127" ph="update tb_co... " />
+          </folding>
         </state>
       </provider>
     </entry>

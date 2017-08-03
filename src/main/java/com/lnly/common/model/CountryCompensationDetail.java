@@ -31,6 +31,7 @@ public class CountryCompensationDetail implements Serializable {
     private String remitNum;
     private String remitUserName;
     private char sendFlag;
+    private char checkFlag;
     private String comment;
     private String createUser;
     private String updateUser;
@@ -268,5 +269,13 @@ public class CountryCompensationDetail implements Serializable {
 
     public void setDeleteFlag(char deleteFlag) {
         this.deleteFlag = deleteFlag;
+    }
+
+    public char getCheckFlag() {
+        return checkFlag;
+    }
+
+    public void setCheckFlag(char checkFlag) {
+        this.checkFlag = checkFlag;
     }
 }
