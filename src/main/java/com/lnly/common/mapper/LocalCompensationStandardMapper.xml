@@ -26,25 +26,19 @@
 
   <sql id="where_all">
     <where>
-      <if test="city != null and city !=''" >
+      <if test="searchContent != null and searchContent !='' " >
         and (
-        LOWER(city) like  LOWER(CONCAT(#{city,jdbcType=VARCHAR},"%"))
+        LOWER(city) like  LOWER(CONCAT("%",#{searchContent,jdbcType=VARCHAR},"%")) or
+        LOWER(county) like  LOWER(CONCAT("%",#{searchContent,jdbcType=VARCHAR},"%"))
         )
       </if>
-
-      <if test="county != null and county !='' " >
-        and (
-        LOWER(county) like  LOWER(CONCAT(#{county,jdbcType=VARCHAR},"%"))
-        )
-      </if>
-
       <if test="year != null and year !='' " >
-        and (
-          year =  #{year,jdbcType=BIGINT}
-        )
+        and
+        year =  #{year,jdbcType=INTEGER}
       </if>
     </where>
   </sql>
+
   <select id="findAll" resultMap="BaseResultMap" >
     select
     <include refid="Base_Column_List" />
@@ -52,6 +46,7 @@
     <include refid="where_all"/>
     <include refid="limit_sql" />
   </select>
+
   <select id="findCount" resultMap="BaseResultMap" >
     select count(id) from  tb_local_compensation_standard
     <include refid="where_all" />

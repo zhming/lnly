@@ -34,6 +34,10 @@
         LOWER(county) like  LOWER(CONCAT("%",#{searchContent,jdbcType=VARCHAR},"%"))
         )
       </if>
+      <if test="year != null and year !='' " >
+        and 
+        year =  #{year,jdbcType=INTEGER}
+      </if>
       </where>
   </sql>
 

@@ -19,8 +19,9 @@
                           年度资金补偿标准<span class="caret"></span>
                       </a>
                       <ul class="dropdown-menu">
-                          <li><a href="${basePath}/countryStandard/compensationStandard.shtml" >年度补偿标准维护</a></li>
-                          <li><a href="${basePath}/countryStandard/compensationStandardPage.shtml">年度补偿标准设置</a></li>
+                          <li><a href="${basePath}/countryStandard/compensationStandard.shtml" >国家年度补偿标准维护</a></li>
+                          <li><a href="${basePath}/localStandard/localCompensationStandard.shtml">地方年度补偿标准维护</a></li>
+                          <li><a href="${basePath}/localStandard/localCompensationStandard.shtml">年度补偿标准设置</a></li>
                       </ul>                                            
                   </li>
                   <li class="dropdown ">

@@ -161,7 +161,7 @@ public class AdminDictController extends BaseController {
                 mapx.put("text", up.getDictName());//权限名称
                 mapx.put("href", "javascript:void(0)");//权限url
                 mapx.put("tags", "1");//没有下一级
-
+                mapx.put("dictCode", up.getDictCode());//权限名称
 
                 List<AdminDictTreeBo> ps1 = up.getChildren();
                 mapx.put("tags", new Integer[]{ps1.size()});//显示子数据条数
@@ -174,6 +174,7 @@ public class AdminDictController extends BaseController {
                         mapx1.put("nodeId", up1.getDictCode());
                         mapx1.put("href", " up1.getDictCode()");//权限url
                         mapx1.put("tags", "1");//没有下一级
+                        mapx1.put("dictCode", up1.getDictCode());//权限名称
 
                         List<AdminDictTreeBo> ps2 = up1.getChildren();
                         mapx1.put("tags", new Integer[]{ps2.size()});//显示子数据条数
@@ -186,7 +187,7 @@ public class AdminDictController extends BaseController {
                                 mapx2.put("nodeId", up2.getDictCode());
                                 mapx2.put("href", " up2.getDictCode()");//权限url
                                 mapx2.put("tags", "0");//没有下一级
-
+                                mapx2.put("dictCode", up2.getDictCode());//权限名称
 
                                 list2.add(mapx2);
                             }

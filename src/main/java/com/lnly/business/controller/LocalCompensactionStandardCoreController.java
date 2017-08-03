@@ -1,5 +1,6 @@
 package com.lnly.business.controller;
 
+import com.lnly.business.bo.BcbzPageEntity;
 import com.lnly.business.bo.CountryCompensationStandardBo;
 import com.lnly.business.bo.LocalCompensationStandardBo;
 import com.lnly.business.service.LocalCompensationStandardService;
@@ -7,6 +8,7 @@ import com.lnly.common.controller.BaseController;
 import com.lnly.common.model.LocalCompensationStandard;
 import com.lnly.common.utils.LoggerUtils;
 import com.lnly.common.utils.StringUtils;
+import com.lnly.core.mybatis.page.Pagination;
 import net.sf.json.JSONObject;
 import org.joda.time.DateTime;
 import org.springframework.context.annotation.Scope;
@@ -18,10 +20,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 import javax.annotation.Resource;
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 /**
  * 
@@ -50,6 +49,8 @@ public class LocalCompensactionStandardCoreController extends BaseController {
 
 	@Resource
 	LocalCompensationStandardService localCompensationStandardService;
+	private static int iEcho;
+
 	/**
 	 * 个人资料
 	 * @return
@@ -59,8 +60,14 @@ public class LocalCompensactionStandardCoreController extends BaseController {
 		
 		return new ModelAndView("country/index");
 	}
-	
-	
+
+
+	@RequestMapping(value = "localCompensationStandard", method = RequestMethod.GET)
+	public ModelAndView compensationStandard(){
+		return new ModelAndView("business/localCompensationStandard");
+	}
+
+
 	/**
 	 * 偷懒一下，通用页面跳转
 	 * @param page
@@ -142,47 +149,60 @@ public class LocalCompensactionStandardCoreController extends BaseController {
 	}
 
 
-	@RequestMapping(value="findAll",method=RequestMethod.GET)
+	@RequestMapping(value="findAll",method=RequestMethod.POST)
 	@ResponseBody
-	public Map<String,Object> getAllPost(String dictCode, Integer year){
-		System.out.println(dictCode);
-		System.out.println(year);
-		String city ="";
-		String county = "";
+	public Map<String,Object> getAllPost(BcbzPageEntity param){
+		iEcho++;
+		Map<String, Object> map = new HashMap<>();
+		if(StringUtils.isNotBlank(param.getSearchYear())){
+			map.put("year", param.getSearchYear());
+		}
 
-		if(StringUtils.isNotBlank(dictCode)){
-			dictCode = StringUtils.getNum(dictCode);
-			if(dictCode.length() == 6){
-				county = dictCode;
-			}else{
-				city = dictCode;
-			}
+		if(StringUtils.isNotBlank(param.getSearchContentFromSelect())){
+			map.put("searchContent", param.getSearchContentFromSelect());
+		}
+
+		if(StringUtils.isNotBlank(param.getSearchContent())){
+			map.put("searchContent", param.getSearchContent());
 		}
 
 
-		List<LocalCompensationStandard> countryCompensationStandards = null;
+
+
+		List<LocalCompensationStandard> localCompensationStandards = null;
 		List<CountryCompensationStandardBo> resultList = new ArrayList<CountryCompensationStandardBo>();
 		try {
-			countryCompensationStandards = localCompensationStandardService.findAll(city,county, year);
-			for(LocalCompensationStandard entity : countryCompensationStandards){
-				CountryCompensationStandardBo bo = new CountryCompensationStandardBo();
-				bo.setYear(entity.getYear());
-				bo.setId(entity.getId());
-				bo.setArea(entity.getArea());
-				bo.setCity(entity.getCity());
-				bo.setComment(entity.getComment());
-				bo.setJe(entity.getJe());
-				bo.setCounty(entity.getCounty());
-				bo.setCreateTime(entity.getCreateTime());
-				resultList.add(bo);
+			Pagination<LocalCompensationStandard> pagination =  localCompensationStandardService.findByPage(map, param.getiDisplayStart(), param.getiDisplayLength());
+			if(null != pagination){
+				localCompensationStandards = pagination.getList();
+				for(LocalCompensationStandard entity : localCompensationStandards){
+					CountryCompensationStandardBo bo = new CountryCompensationStandardBo();
+					bo.setYear(entity.getYear());
+					bo.setId(entity.getId());
+					bo.setArea(entity.getArea());
+					bo.setCity(entity.getCity());
+					bo.setComment(entity.getComment());
+					bo.setCounty(entity.getCounty());
+					bo.setJe(entity.getJe());
+					bo.setCreateTime(entity.getCreateTime());
+					resultList.add(bo);
+				}
 			}
+
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
+		resultMap.put("iEcho", iEcho);
 		resultMap.put("data", resultList);
+		resultMap.put("iDisplayLength", param.getiDisplayLength());
+		resultMap.put("iDisplayStart", param.getiDisplayStart());
+		resultMap.put("total", resultList.size());
+		resultMap.put("sColumns", ",,,,");
+		resultMap.put("iColumns", 7);
 		resultMap.put("message", "ok");
 		return resultMap;
 	}
+
 
 
 

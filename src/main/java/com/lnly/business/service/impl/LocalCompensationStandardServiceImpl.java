@@ -65,7 +65,7 @@ public class LocalCompensationStandardServiceImpl extends BaseMybatisDao<LocalCo
 	@Override
 	public Pagination<LocalCompensationStandard> findByPage(Map<String, Object> resultMap,
 			Integer pageNo, Integer pageSize) {
-		return super.findPage(resultMap, pageNo, pageSize);
+		return super.findPage("findAll", "findCount",resultMap, pageNo, pageSize);
 	}
 
 	@Override

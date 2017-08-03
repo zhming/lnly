@@ -18,18 +18,10 @@ import com.lnly.core.mybatis.page.PageEntity;
  * @email 35691226@qq.com
  */
 public class BcbzPageEntity extends PageEntity {
-    private String searchYear;
+    private Integer searchYear;
     private String searchContent;
-    private String searchType;
+    private String searchContentFromSelect;
 
-
-    public String getSearchYear() {
-        return searchYear;
-    }
-
-    public void setSearchYear(String searchYear) {
-        this.searchYear = searchYear;
-    }
 
     public String getSearchContent() {
         return searchContent;
@@ -39,11 +31,20 @@ public class BcbzPageEntity extends PageEntity {
         this.searchContent = searchContent;
     }
 
-    public String getSearchType() {
-        return searchType;
+
+    public String getSearchContentFromSelect() {
+        return searchContentFromSelect;
     }
 
-    public void setSearchType(String searchType) {
-        this.searchType = searchType;
+    public void setSearchContentFromSelect(String searchContentFromSelect) {
+        this.searchContentFromSelect = searchContentFromSelect;
+    }
+
+    public Integer getSearchYear() {
+        return searchYear;
+    }
+
+    public void setSearchYear(Integer searchYear) {
+        this.searchYear = searchYear;
     }
 }

@@ -2,7 +2,7 @@
 <html lang="zh-cn">
 <head>
     <meta charset="utf-8"/>
-    <title>辽宁省林业厅生态公益林管理系统-资金补偿标准维护</title>
+    <title>辽宁省林业厅生态公益林管理系统-地方资金补偿标准维护</title>
     <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport"/>
     <link rel="icon" href="${basePath}/favicon.ico" type="image/x-icon"/>
     <link rel="shortcut icon" href="${basePath}/favicon.ico"/>
@@ -66,13 +66,13 @@
     <div class="row">
 
         <div class="col-md-12">
-            <h2>资金补偿标准维护</h2>
+            <h2>地方资金补偿标准维护</h2>
             <hr>
 
         </div>
         <div class="col-md-4">
 
-
+            <!--
             <div class="col-sm-12">
                 <div class="radio radio-info radio-inline">
                     <input type="radio" name="radio1" id="radio1" value="国家" checked>
@@ -87,7 +87,7 @@
                     </label>
                 </div>
             </div>
-
+                -->
             <div class="form-group col-sm-12">
                 <div class="input-group date form_datetime ">
                     <input id="yearSelect" class="form-control" size="16" type="text" value="2017" readonly>
@@ -110,13 +110,13 @@
                         <thead>
                         <tr>
                             <div class="col-lg-9">
-                                <strong id="tableTitle">2017年度国家补偿标准</strong>
+                                <strong id="tableTitle">2017年度地方补偿标准</strong>
                                 
                                 <div class="hidden" id="hidden_filter">
                                     <div class="row" style="margin-right:0;">
                                         <input type="text" id="searchContent" name="searchContent" value="" class="form-control input-small" style = "width:100px" placeholder = "请输入地名" />
                                         <input type="hidden" id="searchYear" name="searchYear" value="" class="form-control input-small" style = "width:150px" placeholder = "" />
-                                        <input type="hidden" id="searchType" name="searchType" value="" class="form-control input-small" style = "width:150px" placeholder = "" />
+                                        <input type="hidden" id="searchContentFromSelect" name="searchContentFromSelect" value="${token.dictCode}" class="form-control input-small" style = "width:150px" placeholder = "" />
                                         <button id="go_search" class="btn btn-default">查询</button>
                                         <button id="addButton" onclick="viewAddModal();" class="btn btn-default">新增</button>
                                         <button id="updateButton" onclick="viewUpdateModal();" class="btn btn-default">修改</button>
@@ -136,8 +136,6 @@
                                 <th>城市</th>
                                 <th>区县</th>
                                 <th>面积</th>
-                                <th>国有指标金额</th>
-                                <th>其他指标金额</th>
                                 <th>金额</th>
                                 <th>备注</th>
                                 <th>创建时间</th>
@@ -161,7 +159,7 @@
                         <div class="modal-header">
                             <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
                                     aria-hidden="true">&times;</span></button>
-                            <h4 class="modal-title" id="addBcbzLabel">新增-国家补偿标准维护</h4>
+                            <h4 class="modal-title" id="addBcbzLabel">新增-地方补偿标准维护</h4>
                         </div>
                         <form id="addGjbcBzForm" enctype="multipart/form-data"
                               action="${basePath}/countryStandard/add.shtml" method="post">
@@ -273,24 +271,6 @@
     </@shiro.hasPermission>
 
 
-        $(".btn-query").click(function () {
-            if (table_flag) {
-                $('#example').dataTable({
-                    "srollY": "200px",
-                    "bRetrieve": true
-                });
-
-// Some time later, recreate with just filtering (no scrolling)
-                $('#example').dataTable({
-                    "filter": false,
-                    "bRetrieve": true,
-                    "destroy": true
-                });
-            }
-            getData();
-        });
-
-
         var load;
         $("#addGjbcBzForm").ajaxForm({
             success: function (result) {
@@ -352,7 +332,7 @@
                     $("#area").parent().removeClass('has-error').addClass('has-success');
                 }
 
-                var type = $('input:radio:checked').val();
+                var type = "地方";
 
                 if ("国家" == type) {
                     if ($.trim($("#countryZbje").val()) == '') {
@@ -413,7 +393,7 @@
             ordering: false,//排序操作在服务端进行，所以可以关了。
             ajax: {//类似jquery的ajax参数，基本都可以用。
                 type: "post",//后台指定了方式，默认get，外加datatable默认构造的参数很长，有可能超过get的最大长度。
-                url: "${basePath}/countryStandard/findAll.shtml",
+                url: "${basePath}/localStandard/findAll.shtml",
                 dataSrc: "data",//默认data，也可以写其他的，格式化table的时候取里面的数据
                 data: function (d) {//d 是原始的发送给服务器的数据，默认很长。
                     var param = {};//因为服务端排序，可以新建一个参数对象
@@ -432,8 +412,6 @@
                 { data: "city", },
                 { data: "county", },
                 { data: "area", },
-                { data: "countryZbje", },
-                { data: "otherZbje", },
                 { data: "je", },
                 { data: "comment", },
 
@@ -485,26 +463,11 @@
             return false;
         });
         $(document).on("click", "#go_search", function () {
+            var yearSelect = $("#yearSelect").val();
+            $("#filter_form [name='searchYear']").val(yearSelect);
             $("#example").DataTable().draw(false);//点搜索重新绘制table。
-            var type = $('input:radio:checked').val();
-            console.log(type);
-            if ("地方" == type) {
-                var column = $("#example").DataTable().column(5);
-                column.visible(column.visible());
 
-                column = $("#example").DataTable().column(6);
-                column.visible(column.visible());
-                column = $("#example").DataTable().column(7);
-                column.visible(!column.visible());
-            } else{
-                var column = $("#example").DataTable().column(5);
-                column.visible(column.visible());
 
-                column = $("#example").DataTable().column(6);
-                column.visible(column.visible());
-                column = $("#example").DataTable().column("je");
-                column.visible(!column.visible());
-            }
         });
         $(document).on("click", ".show-detail-json", function () {//取出当前行的数据
             alert(JSON.stringify($("#example").DataTable().row($(this).parents("tr")).data()));
@@ -544,63 +507,7 @@
     });
 
 
-    function getData() {
 
-
-
-
-        $('#example tbody').on('click', 'tr', function () {
-            if ($(this).hasClass('selected')) {
-                $(this).removeClass('selected');
-            }
-            else {
-                table.$('tr.selected').removeClass('selected');
-                $(this).addClass('selected');
-            }
-            var rowData = table.row(this).data();
-
-            $("#id").val(rowData.id);
-
-            $("#city").val(rowData.city);
-
-            $("#county").val(rowData.county);
-
-            $("#area").val(rowData.area);
-
-            $("#countryZbje").val(rowData.countryZbje);
-
-            $("#otherZbje").val(rowData.otherZbje);
-
-            $("#je").val(rowData.je);
-
-            $("#comment").val(rowData.comment);
-
-
-        });
-
-        if ("地方" == type) {
-            var column = table.column(5);
-            column.visible(!column.visible());
-
-            column = table.column(6);
-            column.visible(!column.visible());
-
-            column = table.column(7);
-            column.visible(column.visible());
-        } else{
-            var column = table.column(5);
-            column.visible(column.visible());
-
-            column = table.column(6);
-            column.visible(column.visible());
-            column = table.column(7);
-            column.visible(!column.visible());
-        }
-
-
-
-
-    }
 
 
     function itemOnclick(target) {
@@ -612,8 +519,7 @@
 
         var nodeName = node.text;
         var yearSelect = $("#yearSelect").val();
-        $("#searchYear").val(yearSelect);
-        $("#searchContent").val(nodeName);
+        $("#filter_form [name='searchContentFromSelect']").val(nodeName);
         var type = $('input:radio:checked').val();
         var tableTitle = nodeName + yearSelect + "年度" + type + "资金补偿标准";
         $("#tableTitle").html(tableTitle);
@@ -629,8 +535,8 @@
 
     function viewAddModal() {
         $("#id").val("");
-        var type = $('input:radio:checked').val();
-        $("#addBcbzLabel").html("新增-" + type + "资金补偿标准");
+        var type = "地方";
+        $("#addBcbzLabel").html("新增-地方资金补偿标准");
 
         if ("地方" == type) {
             $("#addGjbcBzForm").attr("action", "${basePath}/localStandard/add.shtml");
@@ -641,13 +547,16 @@
             $(".df").css("display", "none");
         }
 
+
+
+
         $('#addRecord').modal();
     }
 
 
     function viewUpdateModal() {
-        var type = $('input:radio:checked').val();
-        $("#addBcbzLabel").html("修改-" + type + "资金补偿标准");
+        var type = "地方";
+        $("#addBcbzLabel").html("修改-地方资金补偿标准");
 
         if ("地方" == type) {
             $("#addGjbcBzForm").attr("action", "${basePath}/localStandard/update.shtml");
@@ -659,6 +568,7 @@
             $(".df").css("display", "none");
         }
 
+       
         $('#addRecord').modal();
     }
 
@@ -684,7 +594,7 @@
         if(null == id || "" == id){
             return;
         }
-        var type = $('input:radio:checked').val();
+        var type = "地方";
         var deleteUrl = "";
         if ("地方" == type) {
            deleteUrl = "${basePath}/localStandard/delete.shtml";
@@ -701,7 +611,8 @@
                     return layer.msg(result.message,so.default),!0;
                 }else{
                     layer.msg(result.message);
-                    table.row('.selected').remove().draw( false );
+                    $("#example").dataTable().$('tr.selected').remove();
+                    $("#example").dataTable().draw(false);
                 }
             },'json');
             layer.close(index);
