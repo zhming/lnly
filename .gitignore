@@ -1,0 +1,65 @@
+# Created by .ignore support plugin (hsz.mobi)
+### Java template
+# Compiled class file
+*.class
+
+# Log file
+*.log
+
+# BlueJ files
+*.ctxt
+target
+# Mobile Tools for Java (J2ME)
+.mtj.tmp/
+
+# Package Files #
+*.jar
+*.war
+*.ear
+*.zip
+*.tar.gz
+*.rar
+
+# virtual machine crash logs, see http://www.java.com/en/download/help/error_hotspot.xml
+hs_err_pid*
+
+
+.idea/fileTemplates/
+classes/
+src/main/webapp/favicon1.ico
+src/main/webapp/favicon48.ico
+src/main/webapp/www.ico.la_916629ad5f0d84bda4f339209433725b_64X64.ico
+target/0727.sql
+target/08021.sql
+target/classes/com/
+target/compensationStandard.ftl
+target/favicon.ico
+target/generated-sources/
+target/jdbc.properties
+target/lngyl-0.0.2-SNAPSHOT/
+target/lngyl-lngyl-0.0.2-SNAPSHOT/
+target/login_1.JPG
+target/login_2.JPG
+target/login_3.JPG
+target/maven-archiver/
+target/maven-status/
+target/server.xml
+target/shiro.demo-0.0.2-SNAPSHOT/WEB-INF/classes/com/
+target/shiro.demo-0.0.2-SNAPSHOT/WEB-INF/ftl/business/
+target/shiro.demo-0.0.2-SNAPSHOT/WEB-INF/ftl/user/index_person.ftl
+target/shiro.demo-0.0.2-SNAPSHOT/css/bootstrap-datepicker.min.css
+target/shiro.demo-0.0.2-SNAPSHOT/css/bootstrap-datetimepicker.min.css
+target/shiro.demo-0.0.2-SNAPSHOT/css/build.css
+target/shiro.demo-0.0.2-SNAPSHOT/css/datagrid/
+target/shiro.demo-0.0.2-SNAPSHOT/css/font-awesome.min.css
+target/shiro.demo-0.0.2-SNAPSHOT/images/
+target/shiro.demo-0.0.2-SNAPSHOT/js/bootstrap-datepicker.min.js
+target/shiro.demo-0.0.2-SNAPSHOT/js/bootstrap-datetimepicker.min.js
+target/shiro.demo-0.0.2-SNAPSHOT/js/bootstrap/
+target/shiro.demo-0.0.2-SNAPSHOT/js/common/lib/
+target/shiro.demo-0.0.2-SNAPSHOT/js/common/locales/
+target/shiro.demo-0.0.2-SNAPSHOT/js/datagrid/
+target/shiro.demo-0.0.2-SNAPSHOT/js/jquery/
+target/shiro.demo-0.0.2-SNAPSHOT/js/locales/
+target/shiro.demo-0.0.2-SNAPSHOT/js/moment/
+target/supersized-init.js
