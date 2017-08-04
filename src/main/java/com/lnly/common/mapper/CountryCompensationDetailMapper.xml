@@ -13,7 +13,7 @@
         <result column="forest_class" property="forestClass" jdbcType="VARCHAR"/>
         <result column="small_class" property="smallClass" jdbcType="VARCHAR"/>
         <result column="little_class" property="littleClass" jdbcType="VARCHAR"/>
-        <result column="land_class" property="landClass" jdbcType="VARCHAR"/>
+        <result column="land_types" property="landTypes" jdbcType="VARCHAR"/>
 
         <result column="forest_belong" property="forestBelong" jdbcType="VARCHAR"/>
         <result column="land_belong" property="landBelong" jdbcType="VARCHAR"/>

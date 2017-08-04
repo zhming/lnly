@@ -29,8 +29,8 @@
                           资金数据管理<span class="caret"></span>
                       </a>
                       <ul class="dropdown-menu">
-                          <li><a href="${basePath}/user/index.shtml">资金数据查看</a></li>
-                          <li><a href="${basePath}/user/updateSelf.shtml" >资金数据填报</a></li>
+                          <li><a href="${basePath}/countryDetail/countryCompensationDetail.shtml">国家补偿资金发放明细</a></li>
+                          <li><a href="${basePath}/localDetail/localCompensationDetail.shtml" >地方补偿资金发放明细</a></li>
                       </ul>
                   </li>
                   <li class="dropdown ">

@@ -16,7 +16,7 @@ public class CountryCompensationDetail implements Serializable {
     private String forestClass;
     private String smallClass;
     private String littleClass;
-    private String landClass;
+    private String landTypes;
     private String forestBelong;
     private String landBelong;
     private String source;
@@ -103,12 +103,12 @@ public class CountryCompensationDetail implements Serializable {
         this.littleClass = littleClass;
     }
 
-    public String getLandClass() {
-        return landClass;
+    public String getLandTypes() {
+        return landTypes;
     }
 
-    public void setLandClass(String landClass) {
-        this.landClass = landClass;
+    public void setLandTypes(String landTypes) {
+        this.landTypes = landTypes;
     }
 
     public String getForestBelong() {
