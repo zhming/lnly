@@ -217,7 +217,7 @@
                                 <label for="recipient-name" class="control-label">林地所有权:</label>
                                 <input type="text" class="form-control" id="forestBelong" name="forestBelong" placeholder="">
                             </div>
-
+                                                      
                             <div class="form-group col-sm-4">
                                 <label for="recipient-name" class="control-label">土地所有权:</label>
                                 <input type="text" class="form-control" id="landBelong" name="landBelong" placeholder="">
