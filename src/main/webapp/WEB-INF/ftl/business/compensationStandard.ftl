@@ -627,7 +627,8 @@
                     return layer.msg(result.message,so.default),!0;
                 }else{
                     layer.msg(result.message);
-                    table.row('.selected').remove().draw( false );
+                    $('.selected').remove();
+                    $("#example").DataTable().draw(false);//点搜索重新绘制table。
                 }
             },'json');
             layer.close(index);

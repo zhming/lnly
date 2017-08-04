@@ -141,7 +141,7 @@ public class CountryCompensactionStandardCoreController extends BaseController {
 			map.put("year", param.getSearchYear());
 		}
 
-		if(StringUtils.isNotBlank(param.getSearchContentFromSelect())){
+		if(StringUtils.isNotBlank(param.getSearchContentFromSelect()) && !"210000".equals(param.getSearchContentFromSelect())){
 			map.put("searchContent", param.getSearchContentFromSelect());
 		}
 
