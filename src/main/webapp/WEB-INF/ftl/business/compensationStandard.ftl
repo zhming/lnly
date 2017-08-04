@@ -627,7 +627,8 @@
                     return layer.msg(result.message,so.default),!0;
                 }else{
                     layer.msg(result.message);
-                     $('.selected').remove();
+                      $("#example").dataTable().$('tr.selected').remove();
+                    $("#example").dataTable().draw(false);
                 }
             },'json');
             layer.close(index);
