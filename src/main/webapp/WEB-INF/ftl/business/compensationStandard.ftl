@@ -627,7 +627,7 @@
                     return layer.msg(result.message,so.default),!0;
                 }else{
                     layer.msg(result.message);
-                    table.row('.selected').remove().draw( false );
+                     $('.selected').remove();
                 }
             },'json');
             layer.close(index);
