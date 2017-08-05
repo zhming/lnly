@@ -72,16 +72,14 @@
         </div>
         <div class="col-md-4">
             <div class="form-group col-sm-12">
-                <div class="input-group date form_datetime ">
-                    <input id="yearSelect" class="form-control" size="16" type="text" value="2017" readonly>
+                <div class="input-group date form_datetime col-sm-8">
+                    <input id="yearSelect" class="form-control" size="16" type="text" value="" readonly>
                     <span class="input-group-addon"><span class="glyphicon glyphicon-remove"></span></span>
                     <span class="input-group-addon"><span class="glyphicon glyphicon-th"></span></span>
                 </div>
                 <input type="hidden" id="dtp_input1" value=""/><br/>
 
-            </div>
-            <div class="form-group col-sm-12">
-                <div id="getDictTree" class="input-group date ">
+                <div id="getDictTree" class="input-group date col-sm-8">
                 </div>
             </div>
         </div>
@@ -604,6 +602,9 @@
 
         });
 
+        //初始化年份
+        var nowYear = new Date().getYear();
+        $("#yearSelect").val(1900 + nowYear);
 
     });
 
@@ -622,7 +623,7 @@
         var yearSelect = $("#yearSelect").val();
         $("#filter_form [name='searchContentFromSelect']").val(nodeName);
         var type = $('input:radio:checked').val();
-        var tableTitle = nodeName + yearSelect + "年度" + type + "资金补偿标准";
+        var tableTitle = nodeName + yearSelect + "年度地方补偿资金发放明细";
         $("#tableTitle").html(tableTitle);
         if (node.state.expanded) {
             //处于展开状态则折叠
