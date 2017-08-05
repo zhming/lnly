@@ -7,17 +7,16 @@ import java.util.Date;
  * Created by monsoon on 2017-07-02.
  */
 public class LocalCompensationDetail implements Serializable {
-
     private static final long serialVersionUID = 1L;
     private Long id;
-    private String  city;
+    private String city;
     private String county;
     private String town;
     private String village;
     private String forestClass;
     private String smallClass;
     private String littleClass;
-    private String landClass;
+    private String landTypes;
     private String forestBelong;
     private String landBelong;
     private String source;
@@ -32,6 +31,7 @@ public class LocalCompensationDetail implements Serializable {
     private String remitNum;
     private String remitUserName;
     private char sendFlag;
+    private char checkFlag;
     private String comment;
     private String createUser;
     private String updateUser;
@@ -103,12 +103,12 @@ public class LocalCompensationDetail implements Serializable {
         this.littleClass = littleClass;
     }
 
-    public String getLandClass() {
-        return landClass;
+    public String getLandTypes() {
+        return landTypes;
     }
 
-    public void setLandClass(String landClass) {
-        this.landClass = landClass;
+    public void setLandTypes(String landTypes) {
+        this.landTypes = landTypes;
     }
 
     public String getForestBelong() {
@@ -269,5 +269,13 @@ public class LocalCompensationDetail implements Serializable {
 
     public void setDeleteFlag(char deleteFlag) {
         this.deleteFlag = deleteFlag;
+    }
+
+    public char getCheckFlag() {
+        return checkFlag;
+    }
+
+    public void setCheckFlag(char checkFlag) {
+        this.checkFlag = checkFlag;
     }
 }

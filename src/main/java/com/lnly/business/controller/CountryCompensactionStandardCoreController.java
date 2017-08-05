@@ -25,26 +25,7 @@ import javax.annotation.Resource;
 import java.io.UnsupportedEncodingException;
 import java.util.*;
 
-/**
- * 
- * 开发公司：itboy.net<br/>
- * 版权：itboy.net<br/>
- * <p>
- * 
- * 用户管理
- * 
- * <p>
- * 
- * 区分　责任人　日期　　　　说明<br/>
- * 创建　周柏成　2016年5月3日 　<br/>
- * <p>
- * *******
- * <p>
- * @author zhou-baicheng
- * @email  i@itboy.net
- * @version 1.0,2016年5月3日 <br/>
- * 
- */
+
 @Controller
 @Scope(value="prototype")
 @RequestMapping("countryStandard")
@@ -56,7 +37,6 @@ public class CountryCompensactionStandardCoreController extends BaseController {
 	private static int iEcho = 0;
 
 	/**
-	 * 个人资料
 	 * @return
 	 */
 	@RequestMapping(value="index",method=RequestMethod.GET)
@@ -81,7 +61,6 @@ public class CountryCompensactionStandardCoreController extends BaseController {
 	}
 	
 	/**
-	 * 偷懒一下，通用页面跳转
 	 * @param page
 	 * @return
 	 */
@@ -249,7 +228,6 @@ public class CountryCompensactionStandardCoreController extends BaseController {
 	}
 
 	/**
-	 * 在线用户管理
 	 * @return
 	 */
 	@RequestMapping(value="findAllPage",method=RequestMethod.POST)

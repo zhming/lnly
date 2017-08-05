@@ -1,9 +1,9 @@
 package com.lnly.business.controller;
 
 import com.lnly.business.bo.BcbzPageEntity;
-import com.lnly.business.service.CountryCompensationDetailService;
+import com.lnly.business.service.LocalCompensationDetailService;
 import com.lnly.common.controller.BaseController;
-import com.lnly.common.model.CountryCompensationDetail;
+import com.lnly.common.model.LocalCompensationDetail;
 import com.lnly.common.utils.LoggerUtils;
 import com.lnly.common.utils.StringUtils;
 import com.lnly.core.mybatis.page.PageEntity;
@@ -19,60 +19,43 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 import javax.annotation.Resource;
-import java.util.*;
+import java.util.Date;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
-/**
- *
- * 开发公司：itboy.net<br/>
- * 版权：itboy.net<br/>
- * <p>
- *
- * 用户管理
- *
- * <p>
- *
- * 区分　责任人　日期　　　　说明<br/>
- * 创建　周柏成　2016年5月3日 　<br/>
- * <p>
- * *******
- * <p>
- * @author zhou-baicheng
- * @email  i@itboy.net
- * @version 1.0,2016年5月3日 <br/>
- *
- */
+
 @Controller
 @Scope(value="prototype")
-@RequestMapping("countryDetail")
-public class CountryCompensationDetailController extends BaseController {
+@RequestMapping("localDetail")
+public class LocalCompensationDetailController extends BaseController {
 
     @Resource
-    CountryCompensationDetailService countryCompensationDetailService;
+    LocalCompensationDetailService localCompensationDetailService;
 
     private static int iEcho = 0;
 
  
-    @RequestMapping(value = "countryCompensationDetail", method = RequestMethod.GET)
+    @RequestMapping(value = "localCompensationDetail", method = RequestMethod.GET)
     public ModelAndView compensationStandard(){
-        return new ModelAndView("business/countryCompensationDetail");
+        return new ModelAndView("business/localCompensationDetail");
     }
 
     /**
-     * 偷懒一下，通用页面跳转
      * @param page
      * @return
      */
     @RequestMapping(value="{page}",method=RequestMethod.GET)
     public ModelAndView toPage(@PathVariable("page")String page){
-        return new ModelAndView(String.format("country/%s", page));
+        return new ModelAndView(String.format("local/%s", page));
     }
 
     @RequestMapping(value="findOne",method=RequestMethod.GET)
     @ResponseBody
     public Map<String,Object> findOne(Long id){
 
-        CountryCompensationDetail countryCompensationStandard = countryCompensationDetailService.selectByPrimaryKey(id);
-        resultMap.put("object", countryCompensationStandard);
+        LocalCompensationDetail localCompensationStandard = localCompensationDetailService.selectByPrimaryKey(id);
+        resultMap.put("object", localCompensationStandard);
         resultMap.put("message", "ok");
         return resultMap;
     }
@@ -97,21 +80,21 @@ public class CountryCompensationDetailController extends BaseController {
 
 
 
-        List<CountryCompensationDetail> countryCompensationStandards = null;
+        List<LocalCompensationDetail> localCompensationStandards = null;
         try {
-            Pagination<CountryCompensationDetail> pagination =  countryCompensationDetailService.findByPage(map, param.getiDisplayStart(), param.getiDisplayLength());
+            Pagination<LocalCompensationDetail> pagination =  localCompensationDetailService.findByPage(map, param.getiDisplayStart(), param.getiDisplayLength());
             if(null != pagination){
-                countryCompensationStandards = pagination.getList();
+                localCompensationStandards = pagination.getList();
             }
 
         } catch (Exception e) {
             e.printStackTrace();
         }
         resultMap.put("iEcho", iEcho);
-        resultMap.put("data", countryCompensationStandards);
+        resultMap.put("data", localCompensationStandards);
         resultMap.put("iDisplayLength", param.getiDisplayLength());
         resultMap.put("iDisplayStart", param.getiDisplayStart());
-        resultMap.put("total", countryCompensationStandards.size());
+        resultMap.put("total", localCompensationStandards.size());
         resultMap.put("sColumns", ",,,,");
         resultMap.put("iColumns", 9);
         resultMap.put("message", "ok");
@@ -124,11 +107,11 @@ public class CountryCompensationDetailController extends BaseController {
      */
     @RequestMapping(value="add",method=RequestMethod.POST)
     @ResponseBody
-    public Map<String,Object> add(CountryCompensationDetail entity){
+    public Map<String,Object> add(LocalCompensationDetail entity){
         try {
             entity.setCreateTime(new Date());
             entity.setUpdateTime(new Date());
-            countryCompensationDetailService.insert(entity);
+            localCompensationDetailService.insert(entity);
             resultMap.put("status", 200);
             resultMap.put("message", "保存成功!");
         } catch (Exception e) {
@@ -147,9 +130,9 @@ public class CountryCompensationDetailController extends BaseController {
      */
     @RequestMapping(value="update",method=RequestMethod.POST)
     @ResponseBody
-    public Map<String,Object> update(CountryCompensationDetail entity){
+    public Map<String,Object> update(LocalCompensationDetail entity){
         try {
-            countryCompensationDetailService.updateByPrimaryKey(entity);
+            localCompensationDetailService.updateByPrimaryKey(entity);
             resultMap.put("status", 200);
             resultMap.put("message", "修改成功!");
         } catch (Exception e) {
@@ -168,7 +151,7 @@ public class CountryCompensationDetailController extends BaseController {
     @ResponseBody
     public Map<String,Object> delete(Long id){
         try {
-            countryCompensationDetailService.deleteByPrimaryKey(id);
+            localCompensationDetailService.deleteByPrimaryKey(id);
             resultMap.put("status", 200);
             resultMap.put("message", "删除成功!");
         } catch (Exception e) {
@@ -180,7 +163,6 @@ public class CountryCompensationDetailController extends BaseController {
     }
 
     /**
-     * 在线用户管理
      * @return
      */
     @RequestMapping(value="findAllPage",method=RequestMethod.POST)
@@ -189,7 +171,7 @@ public class CountryCompensationDetailController extends BaseController {
 
         Map<String, Object> result = new HashMap<>();
 
-        Pagination<CountryCompensationDetail> pagination = countryCompensationDetailService.findByPage(modelMap, pageEntity.getiDisplayStart(),pageEntity.getiDisplayLength());
+        Pagination<LocalCompensationDetail> pagination = localCompensationDetailService.findByPage(modelMap, pageEntity.getiDisplayStart(),pageEntity.getiDisplayLength());
         result.put("data", pagination.getList());
         result.put("length", pagination.getList().size());
         result.put("sEcho",1);

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="com.lnly.common.dao.CountryCompensationDetailMapper">
-    <resultMap id="BaseResultMap" type="com.lnly.common.model.CountryCompensationDetail">
+<mapper namespace="com.lnly.common.dao.LocalCompensationDetailMapper">
+    <resultMap id="BaseResultMap" type="com.lnly.common.model.LocalCompensationDetail">
 
 
         <id column="id" property="id" jdbcType="BIGINT"/>
@@ -67,12 +67,12 @@
     <select id="findAll" resultMap="BaseResultMap">
         select
         <include refid="Base_Column_List"/>
-        from tb_country_compensation_detail
+        from tb_local_compensation_detail
         <include refid="where_all"/>
         <include refid="limit_sql"/>
     </select>
     <select id="findCount" resultMap="BaseResultMap">
-        select count(id) from tb_country_compensation_detail
+        select count(id) from tb_local_compensation_detail
         <include refid="where_all"/>
     </select>
 
@@ -80,16 +80,16 @@
     <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Long">
         select
         <include refid="Base_Column_List"/>
-        from tb_country_compensation_detail
+        from tb_local_compensation_detail
         where id = #{id,jdbcType=BIGINT}
     </select>
     <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
-    delete from tb_country_compensation_detail
+    delete from tb_local_compensation_detail
     where id = #{id,jdbcType=BIGINT}
   </delete>
     <insert id="insert" useGeneratedKeys="true" keyProperty="id"
-            parameterType="com.lnly.common.model.CountryCompensationDetail">
-    insert into tb_country_compensation_detail (
+            parameterType="com.lnly.common.model.LocalCompensationDetail">
+    insert into tb_local_compensation_detail (
         id,
         check_flag,
         city,
@@ -159,8 +159,8 @@
   </insert>
 
 
-    <update id="updateByPrimaryKey" parameterType="com.lnly.common.model.CountryCompensationDetail">
-        update tb_country_compensation_detail
+    <update id="updateByPrimaryKey" parameterType="com.lnly.common.model.LocalCompensationDetail">
+        update tb_local_compensation_detail
         set
         <if test="checkFlag != null and checkFlag !=''">
             check_flag = #{checkFlag,jdbcType=VARCHAR},

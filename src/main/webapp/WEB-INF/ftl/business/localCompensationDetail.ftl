@@ -2,7 +2,7 @@
 <html lang="zh-cn">
 <head>
     <meta charset="utf-8"/>
-    <title>辽宁省林业厅生态公益林管理系统-国家补偿资金发放明细</title>
+    <title>辽宁省林业厅生态公益林管理系统-地方补偿资金发放明细</title>
     <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport"/>
     <link rel="icon" href="${basePath}/favicon.ico" type="image/x-icon"/>
     <link rel="shortcut icon" href="${basePath}/favicon.ico"/>
@@ -66,7 +66,7 @@
     <div class="row" style="margin-lef: -10px;">
 
         <div class="col-md-12">
-            <h2>国家补偿资金发放明细</h2>
+            <h2>地方补偿资金发放明细</h2>
             <hr>
 
         </div>
@@ -93,7 +93,7 @@
                         <thead>
                         <tr>
                             <div class="col-lg-9">
-                                <strong id="tableTitle">2017年度国家补偿资金发放明细</strong>
+                                <strong id="tableTitle">2017年度地方补偿资金发放明细</strong>
                                 
                                 <div class="hidden" id="hidden_filter">
                                     <div class="row" style="margin-right:0;">
@@ -153,7 +153,7 @@
             </div>
 
 
-        <@shiro.hasPermission name="/countryStandard/add.shtml">
+        <@shiro.hasPermission name="/localStandard/add.shtml">
         <#--添加弹框-->
             <div class="modal fade" id="addRecord" tabindex="-1" role="dialog" aria-labelledby="addroleLabel">
                 <div class="modal-dialog" role="document">
@@ -161,10 +161,10 @@
                         <div class="modal-header">
                             <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
                                     aria-hidden="true">&times;</span></button>
-                            <h4 class="modal-title" id="addBcbzLabel">新增-国家补偿资金发放明细</h4>
+                            <h4 class="modal-title" id="addBcbzLabel">新增-地方补偿资金发放明细</h4>
                         </div>
                         <form id="addGjbcBzForm" enctype="multipart/form-data"
-                              action="${basePath}/countryDetail/add.shtml" method="post">
+                              action="${basePath}/localDetail/add.shtml" method="post">
                             <div class="form-group col-sm-12"></div>
                             <div class="form-group col-sm-6">
                                 <label for="recipient-name" class="control-label">年度:</label>
@@ -260,7 +260,7 @@
                             </div>
 
                             <div class="form-group col-sm-4">
-                                <label for="recipient-name" class="control-label">国家补偿标准:</label>
+                                <label for="recipient-name" class="control-label">地方补偿标准:</label>
                                 <input type="text" class="form-control" id="compensationStandard" name="compensationStandard" value="11" placeholder="" readonly>
                             </div>
 
@@ -450,7 +450,7 @@
             "scrollX": true, //水平滚动条
             ajax: {//类似jquery的ajax参数，基本都可以用。
                 type: "post",//后台指定了方式，默认get，外加datatable默认构造的参数很长，有可能超过get的最大长度。
-                url: "${basePath}/countryDetail/findAll.shtml",
+                url: "${basePath}/localDetail/findAll.shtml",
                 dataSrc: "data",//默认data，也可以写其他的，格式化table的时候取里面的数据
                 data: function (d) {//d 是原始的发送给服务器的数据，默认很长。
                     var param = {};//因为服务端排序，可以新建一个参数对象
@@ -473,7 +473,7 @@
                     "sTitle"     : "序号",
                     "sClass"     : "dt-center",
                     "bSortable"  : false,
-                    "sWidth"     : "2%",
+                    "sWidth"     : "3%",
                     "data"       : null,
                     "targets"    : 0
                 },
@@ -640,10 +640,10 @@
 
 
     function viewUpdateModal() {
-        var type = "国家";
-        $("#addBcbzLabel").html("修改-国家补偿资金发放明细");
+        var type = "地方";
+        $("#addBcbzLabel").html("修改-地方补偿资金发放明细");
 
-        $("#addGjbcBzForm").attr("action", "${basePath}/countryDetail/update.shtml");
+        $("#addGjbcBzForm").attr("action", "${basePath}/localDetail/update.shtml");
 
         $('#addRecord').modal();
     }
@@ -663,14 +663,14 @@
     }
 
 
-    <@shiro.hasPermission name="/countryDetail/delete.shtml">
+    <@shiro.hasPermission name="/localDetail/delete.shtml">
     <#--根据ID删除数据-->
     function deleteById(){
         var id = $("#id").val();
         if(null == id || "" == id){
             return;
         }
-        var deleteUrl = "${basePath}/countryDetail/delete.shtml";
+        var deleteUrl = "${basePath}/localDetail/delete.shtml";
 
         var index = layer.confirm("确定删除这条数据？",function(){
             var load = layer.load();

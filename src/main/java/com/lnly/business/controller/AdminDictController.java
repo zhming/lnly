@@ -121,6 +121,7 @@ public class AdminDictController extends BaseController {
                 result = toTreeData(rootTree);
                 if(null != result){
                     try {
+                        jedisManager.deleteByKey(DB_INDEX, byteKey);
                         jedisManager.saveValueByKey(DB_INDEX, byteKey,SerializeUtil.serialize(result), 50000 );
                     } catch (Exception e1) {
                         e1.printStackTrace();

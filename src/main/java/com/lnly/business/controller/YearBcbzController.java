@@ -43,19 +43,32 @@ public class YearBcbzController extends BaseController {
     @ResponseBody
     public Map<String, Object> findBcbz(String year, String type) {
         Map<String, Object> result = new HashMap<>();
-        try {
-            YearBcbz entity = yearBcbzService.findBcbz(year, type);
-            result.put("data", entity);
-            result.put("message", "ok");
-        } catch (Exception e) {
-            e.printStackTrace();
-            result.put("message", "error");
 
+        byte[] byteKey = SerializeUtil.serialize(buildCacheKey(year, type));
+        byte[] byteValue = new byte[0];
+        try {
+            byteValue = jedisManager.getValueByKey(DB_INDEX, byteKey);
+            result = (   Map<String, Object>) SerializeUtil.deserialize(byteValue);
+            LoggerUtils.debug(SELF, "This value from cache!" + result.size());
+        } catch (Exception e) {
+            try {
+                YearBcbz entity = yearBcbzService.findBcbz(year, type);
+                result.put("data", entity);
+                result.put("message", "ok");
+                jedisManager.saveValueByKey(DB_INDEX, byteKey,SerializeUtil.serialize(result), 500000 );
+            } catch (Exception e1) {
+                e1.printStackTrace();
+                result.put("message", "error");
+
+            }
         }
+
+
+
         return result;
     }
 
-    @RequestMapping(value = "add", method = RequestMethod.GET)
+    @RequestMapping(value = "add", method = RequestMethod.POST)
     @ResponseBody
     public Map<String, Object> add(YearBcbz bcbz) {
         Map<String, Object> result = new HashMap<>();
@@ -63,6 +76,9 @@ public class YearBcbzController extends BaseController {
             YearBcbz entity = yearBcbzService.insert(bcbz);
             result.put("data", entity);
             result.put("message", "ok");
+            byte[] byteKey = SerializeUtil.serialize(buildCacheKey(bcbz.getYear(), bcbz.getType()));
+            jedisManager.deleteByKey(DB_INDEX, byteKey);
+            jedisManager.saveValueByKey(DB_INDEX, byteKey,SerializeUtil.serialize(result), 500000 );
         } catch (Exception e) {
             e.printStackTrace();
             result.put("message", "error");
@@ -71,7 +87,7 @@ public class YearBcbzController extends BaseController {
         return result;
     }
 
-    @RequestMapping(value = "update", method = RequestMethod.GET)
+    @RequestMapping(value = "update", method = RequestMethod.POST)
     @ResponseBody
     public Map<String, Object> update(YearBcbz bcbz) {
         Map<String, Object> result = new HashMap<>();
@@ -83,6 +99,9 @@ public class YearBcbzController extends BaseController {
             }else{
                 result.put("data", ret);
                 result.put("message", "ok");
+                byte[] byteKey = SerializeUtil.serialize(buildCacheKey(bcbz.getYear(), bcbz.getType()));
+                jedisManager.deleteByKey(DB_INDEX, byteKey);
+                jedisManager.saveValueByKey(DB_INDEX, byteKey,SerializeUtil.serialize(result), 500000 );
             }
 
         } catch (Exception e) {
@@ -93,8 +112,39 @@ public class YearBcbzController extends BaseController {
         return result;
     }
 
-    private String buildCacheKey(String key) {
-        return ADMIN_DICT_TREE_PRE + key;
+
+    @RequestMapping(value = "delete", method = RequestMethod.POST)
+    @ResponseBody
+    public Map<String, Object> delte(Long id) {
+        Map<String, Object> result = new HashMap<>();
+        try {
+            YearBcbz bcbz = yearBcbzService.selectByPrimaryKey(id);
+
+            if(null != bcbz){
+                int ret = yearBcbzService.deleteByPrimaryKey(id);
+                if( 1 != ret){
+                    result.put("data", ret);
+                    result.put("message", "fail");
+                }else{
+                    result.put("data", ret);
+                    result.put("message", "ok");
+                    byte[] byteKey = SerializeUtil.serialize(buildCacheKey(bcbz.getYear(), bcbz.getType()));
+                    jedisManager.deleteByKey(DB_INDEX, byteKey);
+                }
+            }
+
+
+
+        } catch (Exception e) {
+            e.printStackTrace();
+            result.put("message", "error");
+
+        }
+        return result;
+    }
+
+    private String buildCacheKey(String year, String type) {
+        return ADMIN_DICT_TREE_PRE + year + "_" + type;
     }
 
 }
