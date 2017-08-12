@@ -12,5 +12,9 @@ public interface SmallClassService {
 	SmallClass findById(Long id) throws Exception;
 	
 	List<SmallClass> findListByYear(Long year) throws Exception;
+	AdminDict findByDictCode(String dictCode) throws Exception;
+	List<AdminDict> findByHighDict(String highDict) throws Exception;
 
 }
+
+

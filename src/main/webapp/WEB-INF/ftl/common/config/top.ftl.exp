@@ -1,0 +1,143 @@
+<#macro top index>
+<script baseUrl="${basePath}" src="${basePath}/js/user.login.js"></script>
+<#--<link rel="stylesheet" href="http://cdn.static.runoob.com/libs/bootstrap/3.3.7/css/bootstrap.min.css">-->
+<link href="http://netdna.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+<#--<script src="http://cdn.static.runoob.com/libs/jquery/2.1.1/jquery.min.js"></script>-->
+<#--<script src="http://cdn.static.runoob.com/libs/bootstrap/3.3.7/js/bootstrap.min.js"></script>-->
+<style type="text/css">
+    .navBtn{
+        background:#428bca;
+        font-weight:bold;
+    }
+    .nav-tabs > li{
+        padding:5px
+    }
+
+    .menu-target {
+        width:160px;
+        background:#428bca;
+        color:white;
+        border-radius:10px;
+    }
+
+    .tab-content > .tab-pane{
+        padding-left:10px;
+    }
+
+
+    .menu-active{
+        color:#60A8D8;
+        background: -webkit-radial-gradient(#428bca, #3090C0); /* Safari 5.1 - 6.0 */
+        background: -o-radial-gradient(#428bca, #3090C0); /* Opera 11.6 - 12.0 */
+        background: -moz-radial-gradient(#428bca, #3090C0); /* Firefox 3.6 - 15 */
+        background: radial-gradient(#428bca, #3090C0); /* 标准的语法（必须放在最后） */
+    }
+
+    .nav-tabs.nav-justified>.active>a, .nav-tabs.nav-justified>.active>a:focus, .nav-tabs.nav-justified>.active>a:hover {
+        border: 1px solid #4090C0;
+    }
+
+
+    .nav-tabs.nav-justified>li>a {
+        border-bottom: 1px solid #4090C0;
+        border-radius: 4px 4px 0 0;
+    }
+
+    .nav-tabs>li.active>a, .nav-tabs>li.active>a:focus, .nav-tabs>li.active>a:hover {
+        color: #555;
+        cursor: default;
+        background-color: #337ab7;
+        border: 1px solid #ddd;
+        border-bottom-color: transparent;
+    }
+
+
+    .navSec {
+        background: #337ab7;
+        margin-top: -5px;
+        margin-left: 50px;
+    }
+    .navBtn{
+        font: 微软雅黑;
+        font-size: 18px;
+    }
+
+    .header_{
+
+        height: 186px;
+        background:url(${basePath}/images/title.jpg);
+        -moz-background-size:100% 100%; /* 老版本的 Firefox */
+        background-size:100% 100%;
+        background-repeat:no-repeat;
+        padding: 5px;
+        box-sizing: border-box;
+        margin-top:-5%;
+    }
+
+    .main_{
+        margin-top: 130px;
+    }
+
+</style>
+
+
+<div class="header_">
+
+    <div class="main_ ">
+        <ul class="nav nav-tabs nav-justified">
+            <li><a class="btn btn-default navBtn" data-toggle="tab" href="#home">年度资金补偿标准</a></li>
+            <li><a class="btn btn-default navBtn" data-toggle="tab" href="#m2">资金数据管理</a></li>
+            <li><a class="btn btn-default navBtn" data-toggle="tab" href="#m3">数据统计</a></li>
+            <li><a class="btn btn-default navBtn" data-toggle="tab" href="#m4">个人中心</a></li>
+            <li><a class="btn btn-default navBtn" data-toggle="tab" href="#m5">用户中心</a></li>
+            <li><a class="btn btn-default navBtn" data-toggle="tab" href="#m6">权限管理</a></li>
+        </ul>
+        <div class="tab-content navSec" style="margin-left:-5px;">
+            <div id="home" class="tab-pane fade in active">
+                <button id="btn1" type="button" class="btn btn-default btn-xs navbar-btn menu-target">国家年度补偿标准维护</button>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <button id="btn2" type="button" class="btn btn-default btn-xs navbar-btn menu-target">地方年度补偿标准维护</button>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <button id="btn3" type="button" class="btn btn-default btn-xs navbar-btn menu-target">年度补偿标准设置</button>
+
+            </div>
+            <div id="m2" class="tab-pane fade">
+                <button type="button" class="btn btn-default btn-xs navbar-btn menu-target">国家补偿资金发放明细</button>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <button type="button" class="btn btn-default btn-xs navbar-btn menu-target">地方补偿资金发放明细</button>
+            </div>
+            <div id="m3" class="tab-pane fade">
+                <button type="button" class="btn btn-default btn-xs navbar-btn menu-target">查看报表</button>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <button type="button" class="btn btn-default btn-xs navbar-btn menu-target">menu3-2</button>
+            </div>
+            <div id="m4" class="tab-pane fade">
+                <button type="button" class="btn btn-default btn-xs navbar-btn menu-target">menu4-1</button>
+                <button type="button" class="btn btn-default btn-xs navbar-btn menu-target">menu4-2</button>
+            </div>
+            <div id="m5" class="tab-pane fade">
+                <button type="button" class="btn btn-default btn-xs navbar-btn menu-target">menu5-1</button>
+                <button type="button" class="btn btn-default btn-xs navbar-btn menu-target">menu5-2</button>
+            </div>
+            <div id="m6" class="tab-pane fade">
+                <button type="button" class="btn btn-default btn-xs navbar-btn menu-target">menu6-1</button>
+                <button type="button" class="btn btn-default btn-xs navbar-btn menu-target">menu6-2</button>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+    $(function(){
+        $(".menu-target").click(function(){
+            $(".menu-target").removeClass("menu-active");
+            $(this).addClass("menu-active");
+        });
+
+    });
+
+	function button1(){
+	    this.location="${basePath}/countryStandard/compensationStandard.shtml";
+	}
+
+</script>
+</#macro>

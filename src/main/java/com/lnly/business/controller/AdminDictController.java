@@ -71,6 +71,7 @@ public class AdminDictController extends BaseController {
 
 
                 rootTree = new AdminDictTreeBo();
+                rootTree.setId(adminDictService.findByDictCode(dictCode).getId());
                 rootTree.setDictCode(dictCode);
                 rootTree.setDictName(dictName);
                 rootTree.setChildren(new ArrayList<AdminDictTreeBo>());
@@ -80,6 +81,7 @@ public class AdminDictController extends BaseController {
                 List<AdminDict> listA = adminDictService.findByHighDict(rootTree.getDictCode());
                 for (AdminDict dict : listA) {
                     AdminDictTreeBo treeBo = new AdminDictTreeBo();
+                    treeBo.setId(dict.getId());
                     treeBo.setDictCode(dict.getDictCode());
                     treeBo.setDictName(dict.getDictName());
                     treeBo.setChildren(new ArrayList<AdminDictTreeBo>());
@@ -93,6 +95,7 @@ public class AdminDictController extends BaseController {
                         List<AdminDict> listC = adminDictService.findByHighDict(treeBo.getDictCode());
                         for (AdminDict dict : listC) {
                             AdminDictTreeBo treeBoC = new AdminDictTreeBo();
+                            treeBoC.setId(dict.getId());
                             treeBoC.setDictCode(dict.getDictCode());
                             treeBoC.setDictName(dict.getDictName());
                             treeBoC.setChildren(new ArrayList<AdminDictTreeBo>());
@@ -107,6 +110,7 @@ public class AdminDictController extends BaseController {
                                 if(null != listD){
                                     for (AdminDict dict : listE) {
                                         AdminDictTreeBo treeBoE = new AdminDictTreeBo();
+                                        treeBoE.setId(dict.getId());
                                         treeBoE.setDictCode(dict.getDictCode());
                                         treeBoE.setDictName(dict.getDictName());
                                         treeBoE.setChildren(new ArrayList<AdminDictTreeBo>());
@@ -151,44 +155,35 @@ public class AdminDictController extends BaseController {
         //角色列表
         Map<String, Object> map = new LinkedHashMap<String, Object>();
         map.put("text", root.getDictName());//名称
-        map.put("href", "javascript:void(0)");//链接
         List<AdminDictTreeBo> ps = root.getChildren();
-        map.put("tags", new Integer[]{ps.size()});//显示子数据条数
+        map.put("tags", new Long[]{root.getId()});//显示子数据条数
         if (null != ps && ps.size() > 0) {
             List<Map<String, Object>> list = new LinkedList<Map<String, Object>>();
             //权限列表
             for (AdminDictTreeBo up : ps) {
                 Map<String, Object> mapx = new LinkedHashMap<String, Object>();
                 mapx.put("text", up.getDictName());//权限名称
-                mapx.put("href", "javascript:void(0)");//权限url
-                mapx.put("tags", "1");//没有下一级
-                mapx.put("dictCode", up.getDictCode());//权限名称
+                mapx.put("tags", new Long[]{up.getId()});//没有下一级
 
                 List<AdminDictTreeBo> ps1 = up.getChildren();
-                mapx.put("tags", new Integer[]{ps1.size()});//显示子数据条数
+                mapx.put("tags", new Long[]{up.getId()});//显示子数据条数
                 if (null != ps1 && ps.size() > 0) {
                     List<Map<String, Object>> list1 = new LinkedList<Map<String, Object>>();
                     //权限列表
                     for (AdminDictTreeBo up1 : ps1) {
                         Map<String, Object> mapx1 = new LinkedHashMap<String, Object>();
                         mapx1.put("text", up1.getDictName());//权限名称
-                        mapx1.put("nodeId", up1.getDictCode());
-                        mapx1.put("href", " up1.getDictCode()");//权限url
-                        mapx1.put("tags", "1");//没有下一级
-                        mapx1.put("dictCode", up1.getDictCode());//权限名称
+                        mapx1.put("tags",  new Long[]{up1.getId()});//没有下一级
 
                         List<AdminDictTreeBo> ps2 = up1.getChildren();
-                        mapx1.put("tags", new Integer[]{ps2.size()});//显示子数据条数
+                        mapx1.put("tags", new Long[]{up1.getId()});//显示子数据条数
                         if (null != ps1 && ps.size() > 0) {
                             List<Map<String, Object>> list2 = new LinkedList<Map<String, Object>>();
                             //权限列表
                             for (AdminDictTreeBo up2 : ps2) {
                                 Map<String, Object> mapx2 = new LinkedHashMap<String, Object>();
                                 mapx2.put("text", up2.getDictName());//权限名称
-                                mapx2.put("nodeId", up2.getDictCode());
-                                mapx2.put("href", " up2.getDictCode()");//权限url
-                                mapx2.put("tags", "0");//没有下一级
-                                mapx2.put("dictCode", up2.getDictCode());//权限名称
+                                mapx2.put("tags",  new Long[]{up2 .getId()});//没有下一级
 
                                 list2.add(mapx2);
                             }

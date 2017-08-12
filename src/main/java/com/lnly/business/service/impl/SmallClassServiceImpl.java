@@ -35,4 +35,14 @@ public class SmallClassServiceImpl extends BaseMybatisDao<SmallClassMapper> impl
 		return smallClassMapper.findListByYear(year);
 	}
 
+	@Override
+	public AdminDict findByDictCode(String dictCode) throws Exception {
+		return null;
+	}
+
+	@Override
+	public List<AdminDict> findByHighDict(String highDict) throws Exception {
+		return null;
+	}
+
 }

@@ -6,6 +6,7 @@ import java.util.List;
  * Created by monsoon on 2017-07-08.
  */
 public class AdminDictTreeBo {
+    private Long id;
     private String dictCode;
     private String dictName;
     private List<AdminDictTreeBo> children;
@@ -32,5 +33,13 @@ public class AdminDictTreeBo {
 
     public void setChildren(List<AdminDictTreeBo> children) {
         this.children = children;
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
     }
 }

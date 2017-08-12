@@ -152,8 +152,10 @@ public class LocalCompensactionStandardCoreController extends BaseController {
 
 		List<LocalCompensationStandard> localCompensationStandards = null;
 		List<CountryCompensationStandardBo> resultList = new ArrayList<CountryCompensationStandardBo>();
+		int total = 0;
 		try {
-			Pagination<LocalCompensationStandard> pagination =  localCompensationStandardService.findByPage(map, param.getiDisplayStart(), param.getiDisplayLength());
+			Pagination<LocalCompensationStandard> pagination =  localCompensationStandardService.findByPage(map, param.getiDisplayStart() / param.getiDisplayLength(), param.getiDisplayLength());
+			total = pagination.getTotalCount();
 			if(null != pagination){
 				localCompensationStandards = pagination.getList();
 				for(LocalCompensationStandard entity : localCompensationStandards){
@@ -177,7 +179,8 @@ public class LocalCompensactionStandardCoreController extends BaseController {
 		resultMap.put("data", resultList);
 		resultMap.put("iDisplayLength", param.getiDisplayLength());
 		resultMap.put("iDisplayStart", param.getiDisplayStart());
-		resultMap.put("total", resultList.size());
+		resultMap.put("recordsTotal", total);
+		resultMap.put("recordsFiltered", total);
 		resultMap.put("sColumns", ",,,,");
 		resultMap.put("iColumns", 7);
 		resultMap.put("message", "ok");

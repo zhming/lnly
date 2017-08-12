@@ -98,8 +98,10 @@ public class CountryCompensationDetailController extends BaseController {
 
 
         List<CountryCompensationDetail> countryCompensationStandards = null;
+        int total = 0;
         try {
-            Pagination<CountryCompensationDetail> pagination =  countryCompensationDetailService.findByPage(map, param.getiDisplayStart(), param.getiDisplayLength());
+            Pagination<CountryCompensationDetail> pagination =  countryCompensationDetailService.findByPage(map, param.getiDisplayStart()/param.getiDisplayLength(), param.getiDisplayLength());
+            total = pagination.getTotalCount();
             if(null != pagination){
                 countryCompensationStandards = pagination.getList();
             }
@@ -111,7 +113,9 @@ public class CountryCompensationDetailController extends BaseController {
         resultMap.put("data", countryCompensationStandards);
         resultMap.put("iDisplayLength", param.getiDisplayLength());
         resultMap.put("iDisplayStart", param.getiDisplayStart());
-        resultMap.put("total", countryCompensationStandards.size());
+
+        resultMap.put("recordsTotal", total);
+        resultMap.put("recordsFiltered", total);
         resultMap.put("sColumns", ",,,,");
         resultMap.put("iColumns", 9);
         resultMap.put("message", "ok");

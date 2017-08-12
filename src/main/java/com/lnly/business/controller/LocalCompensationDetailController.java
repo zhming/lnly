@@ -81,8 +81,10 @@ public class LocalCompensationDetailController extends BaseController {
 
 
         List<LocalCompensationDetail> localCompensationStandards = null;
+        int total = 0;
         try {
-            Pagination<LocalCompensationDetail> pagination =  localCompensationDetailService.findByPage(map, param.getiDisplayStart(), param.getiDisplayLength());
+            Pagination<LocalCompensationDetail> pagination =  localCompensationDetailService.findByPage(map, param.getiDisplayStart() / param.getiDisplayLength(), param.getiDisplayLength());
+            total = pagination.getTotalCount();
             if(null != pagination){
                 localCompensationStandards = pagination.getList();
             }
@@ -94,7 +96,9 @@ public class LocalCompensationDetailController extends BaseController {
         resultMap.put("data", localCompensationStandards);
         resultMap.put("iDisplayLength", param.getiDisplayLength());
         resultMap.put("iDisplayStart", param.getiDisplayStart());
-        resultMap.put("total", localCompensationStandards.size());
+
+        resultMap.put("recordsTotal", total);
+        resultMap.put("recordsFiltered", total);
         resultMap.put("sColumns", ",,,,");
         resultMap.put("iColumns", 9);
         resultMap.put("message", "ok");

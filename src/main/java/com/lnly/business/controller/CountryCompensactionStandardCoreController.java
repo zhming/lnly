@@ -133,8 +133,10 @@ public class CountryCompensactionStandardCoreController extends BaseController {
 
 		List<CountryCompensationStandard> countryCompensationStandards = null;
 		List<CountryCompensationStandardBo> resultList = new ArrayList<CountryCompensationStandardBo>();
+		int total = 0;
 		try {
-			Pagination<CountryCompensationStandard> pagination =  countryCompensationStandardService.findAllPage(map, param.getiDisplayStart(), param.getiDisplayLength());
+			Pagination<CountryCompensationStandard> pagination =  countryCompensationStandardService.findAllPage(map, param.getiDisplayStart()/param.getiDisplayLength(), param.getiDisplayLength());
+			total = pagination.getTotalCount();
 			if(null != pagination){
 				countryCompensationStandards = pagination.getList();
 				for(CountryCompensationStandard entity : countryCompensationStandards){
@@ -159,6 +161,9 @@ public class CountryCompensactionStandardCoreController extends BaseController {
 		resultMap.put("data", resultList);
 		resultMap.put("iDisplayLength", param.getiDisplayLength());
 		resultMap.put("iDisplayStart", param.getiDisplayStart());
+
+		resultMap.put("recordsTotal", total);
+		resultMap.put("recordsFiltered", total);
  		resultMap.put("total", resultList.size());
 			resultMap.put("sColumns", ",,,,");
 		resultMap.put("iColumns", 9);
