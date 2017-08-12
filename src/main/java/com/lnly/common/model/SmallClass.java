@@ -8,6 +8,7 @@ import java.io.Serializable;
 public class SmallClass implements Serializable {
     private static final long serialVersionUID = 1L;
     private Long id;
+    private String year;
     private String city;
     private String county;
     private String town;
@@ -17,7 +18,7 @@ public class SmallClass implements Serializable {
     private Double area;
     private String sqdj;
     private String forestBelong;
-    private String lanBelong;
+    private String landBelong;
     private String xdm;
     private String landZl;
     private String source;
@@ -39,7 +40,7 @@ public class SmallClass implements Serializable {
         this.area = area;
         this.sqdj = sqdj;
         this.forestBelong = forestBelong;
-        this.lanBelong = lanBelong;
+        this.landBelong = lanBelong;
         this.xdm = xdm;
         this.landZl = landZl;
         this.source = source;
@@ -127,12 +128,12 @@ public class SmallClass implements Serializable {
         this.forestBelong = forestBelong;
     }
 
-    public String getLanBelong() {
-        return lanBelong;
+    public String getLandBelong() {
+        return landBelong;
     }
 
-    public void setLanBelong(String lanBelong) {
-        this.lanBelong = lanBelong;
+    public void setLandBelong(String landBelong) {
+        this.landBelong = landBelong;
     }
 
     public String getXdm() {
@@ -173,5 +174,13 @@ public class SmallClass implements Serializable {
 
     public void setComment(String comment) {
         this.comment = comment;
+    }
+
+    public String getYear() {
+        return year;
+    }
+
+    public void setYear(String year) {
+        this.year = year;
     }
 }

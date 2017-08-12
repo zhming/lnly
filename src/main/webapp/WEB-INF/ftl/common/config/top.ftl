@@ -38,7 +38,7 @@
                           数据统计<span class="caret"></span>
                       </a>
                       <ul class="dropdown-menu">
-                          <li><a href="${basePath}/user/index.shtml">资金数据查看</a></li>
+                          <li><a href="${basePath}/smallClass/smallClassDataDetail.shtml">国家及地方小班数据明细</a></li>
                           <li><a href="${basePath}/user/updateSelf.shtml" >资金数据填报</a></li>
                       </ul>
                   </li>

@@ -482,38 +482,43 @@
                     "data": "id",
 
                 },//字段名字和返回的json序列的key对应
-                { data: "year", },
-                { data: "city", },
-                { data: "county", },
-                { data: "town", },
-                { data: "village", },
-                { data: "forestClass", },
-                { data: "smallClass", },
-                { data: "landTypes", },
-                { data: "littleClass", },
-                { data: "forestBelong", },
-                { data: "landBelong", },
-                { data: "source", },
-                { data: "belongProve", },
-                { data: "identityCard", },
-                { data: "username", },
-                { data: "uniteUsername", },
-                { data: "area", },
-                { data: "compensationStandard", },
-                { data: "compensationAmount", },
-                { data: "remitNum", },
-                { data: "remitUserName", },
-                { data: "sendFlag", },
-                { data: "checkFlag", },
-                { data: "comment", },
+                {
+                    data: "year",
+                    "sTitle": "年度",
+                },
+                {data: "city", "sTitle": "市",},
+                {data: "county", "sTitle": "县",},
+                {data: "town", "sTitle": "乡",},
+                {data: "village", "sTitle": "村",},
+                {data: "forestClass", "sTitle": "林班",},
+                {data: "smallClass", "sTitle": "小班",},
+                {data: "landTypes", "sTitle": "地类",},
+                {data: "littleClass", "sTitle": "细班",},
+                {data: "forestBelong", "sTitle": "林地所有权",},
+                {data: "landBelong", "sTitle": "土地所有权",},
+                {data: "source", "sTitle": "起源",},
+                {data: "belongProve", "sTitle": "权属证明",},
+                {data: "identityCard", "sTitle": "身份证号",},
+                {data: "username", "sTitle": "户名",},
+                {data: "uniteUsername", "sTitle": "联户户名",},
+                {data: "area", "sTitle": "面积(亩)",},
+                {data: "compensationStandard", "sTitle": "补偿标准",},
+                {data: "compensationAmount", "sTitle": "补偿金额",},
+                {data: "remitNum", "sTitle": "汇款帐号",},
+                {data: "remitUserName", "sTitle": "汇款姓名",},
+                {data: "sendFlag", "sTitle": "是否发放",},
+                {data: "checkFlag", "sTitle": "审批状态",},
+                {data: "comment", "sTitle": "备注",},
                 {
                     //Student 没有hireDate
                     data: function (e) {
                         if (e.createTime) {//默认是/Date(794851200000)/格式，需要显示成年月日方式
-                            return new Date(Number((""+e.createTime).replace(/\D/g, ''))).toLocaleDateString();
+                            return new Date(Number(("" + e.createTime).replace(/\D/g, ''))).toLocaleDateString();
                         }
                         return "空";
-                    }
+                    },
+                    "sTitle": "创建时间"
+
                 }
                 /*
                 ,

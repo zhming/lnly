@@ -1,14 +1,20 @@
 package com.lnly.common.dao;
 
 import com.lnly.common.model.AdminDict;
+import com.lnly.common.model.CountryCompensationDetail;
 import com.lnly.common.model.SmallClass;
 
 import java.util.List;
+import java.util.Map;
 
 public interface SmallClassMapper {
-    List<SmallClass> findAll();
-
     SmallClass findById(Long id);
+    int deleteByPrimaryKey(Long id);
 
-    List<SmallClass> findListByYear(Long year);
+    int insert(SmallClass record);
+
+    SmallClass selectByPrimaryKey(Long id);
+
+    int update(SmallClass record);
+
 }

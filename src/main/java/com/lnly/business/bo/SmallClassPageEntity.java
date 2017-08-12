@@ -17,8 +17,9 @@ import com.lnly.core.mybatis.page.PageEntity;
  * @version 1.0, 2017年7月1日 <br/>
  * @email 35691226@qq.com
  */
-public class BcbzPageEntity extends PageEntity {
-    private Integer searchYear;
+public class SmallClassPageEntity extends PageEntity {
+    private Long searchId;
+    private String searchYear;
     private String searchContent;
     private String searchContentFromSelect;
 
@@ -40,11 +41,19 @@ public class BcbzPageEntity extends PageEntity {
         this.searchContentFromSelect = searchContentFromSelect;
     }
 
-    public Integer getSearchYear() {
+    public String getSearchYear() {
         return searchYear;
     }
 
-    public void setSearchYear(Integer searchYear) {
+    public void setSearchYear(String searchYear) {
         this.searchYear = searchYear;
+    }
+
+    public Long getSearchId() {
+        return searchId;
+    }
+
+    public void setSearchId(Long searchId) {
+        this.searchId = searchId;
     }
 }

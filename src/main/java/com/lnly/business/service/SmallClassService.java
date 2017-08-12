@@ -2,18 +2,28 @@ package com.lnly.business.service;
 
 import com.lnly.common.model.AdminDict;
 import com.lnly.common.model.SmallClass;
+import com.lnly.core.mybatis.page.Pagination;
 
 import java.util.List;
 
 public interface SmallClassService {
 
-	List<SmallClass> findAll() throws Exception;
 
 	SmallClass findById(Long id) throws Exception;
-	
-	List<SmallClass> findListByYear(Long year) throws Exception;
-	AdminDict findByDictCode(String dictCode) throws Exception;
-	List<AdminDict> findByHighDict(String highDict) throws Exception;
+
+    void deleteByPrimaryKey(Long id)throws Exception;
+
+    SmallClass insert(SmallClass record)throws Exception;
+
+    SmallClass update(SmallClass record)throws Exception;
+
+	/**
+	 * 获取子列表
+	 * @param entity
+	 * @return
+	 * @throws Exception
+	 */
+    public Pagination<SmallClass> findAll(SmallClass entity, Integer pageNo, Integer pageSize) throws Exception;
 
 }
 

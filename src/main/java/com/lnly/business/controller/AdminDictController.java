@@ -176,7 +176,7 @@ public class AdminDictController extends BaseController {
                         mapx1.put("tags",  new Long[]{up1.getId()});//没有下一级
 
                         List<AdminDictTreeBo> ps2 = up1.getChildren();
-                        mapx1.put("tags", new Long[]{up1.getId()});//显示子数据条数
+                        mapx1.put("tags", new Long[]{up1.getId()});//显示子数据条数  ,
                         if (null != ps1 && ps.size() > 0) {
                             List<Map<String, Object>> list2 = new LinkedList<Map<String, Object>>();
                             //权限列表

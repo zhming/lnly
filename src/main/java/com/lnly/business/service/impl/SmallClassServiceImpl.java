@@ -7,11 +7,14 @@ import com.lnly.common.dao.SmallClassMapper;
 import com.lnly.common.model.AdminDict;
 import com.lnly.common.model.SmallClass;
 import com.lnly.core.mybatis.BaseMybatisDao;
+import com.lnly.core.mybatis.page.Pagination;
 import com.lnly.core.shiro.session.CustomSessionManager;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 @Service
 public class SmallClassServiceImpl extends BaseMybatisDao<SmallClassMapper> implements SmallClassService {
@@ -20,9 +23,7 @@ public class SmallClassServiceImpl extends BaseMybatisDao<SmallClassMapper> impl
 	@Autowired
 	SmallClassMapper smallClassMapper;
 
-	@Override
-	public List<SmallClass> findAll() throws Exception {
-		return smallClassMapper.findAll();
+	public SmallClassServiceImpl() {
 	}
 
 	@Override
@@ -30,19 +31,39 @@ public class SmallClassServiceImpl extends BaseMybatisDao<SmallClassMapper> impl
 		return smallClassMapper.findById(id);
 	}
 
-	@Override
-	public List<SmallClass> findListByYear(Long year) throws Exception {
-		return smallClassMapper.findListByYear(year);
+    @Override
+    public void deleteByPrimaryKey(Long id) throws Exception {
+        smallClassMapper.deleteByPrimaryKey(id);
+    }
+
+    @Override
+    public SmallClass insert(SmallClass record) throws Exception {
+        int ret =  smallClassMapper.insert(record);
+        if (ret != 1){
+            throw new Exception("insert tb_small_class record error");
+        }
+        return record;
+    }
+
+    @Override
+    public SmallClass update(SmallClass record) throws Exception {
+        int ret =  smallClassMapper.update(record);
+        if (ret != 1){
+            throw new Exception("update tb_small_class record error");
+        }
+        return record;
+    }
+
+    @Override
+	public Pagination<SmallClass> findAll(SmallClass entity, Integer pageNo, Integer pageSize) throws Exception {
+		Map<String, Object> params = new HashMap<String, Object>();
+		params.put("year", entity.getYear());
+		params.put("city", entity.getCity());
+		params.put("county", entity.getCounty());
+		params.put("village", entity.getVillage());
+		params.put("town", entity.getTown());
+        return super.findPage("findAll", "findCount", params, pageNo, pageSize);
 	}
 
-	@Override
-	public AdminDict findByDictCode(String dictCode) throws Exception {
-		return null;
-	}
-
-	@Override
-	public List<AdminDict> findByHighDict(String highDict) throws Exception {
-		return null;
-	}
 
 }
