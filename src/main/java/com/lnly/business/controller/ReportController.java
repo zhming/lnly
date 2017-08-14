@@ -1,0 +1,176 @@
+package com.lnly.business.controller;
+
+import com.lnly.business.bo.LocalZbdhJdBo;
+import com.lnly.business.bo.LocalZbdhJdPageEntity;
+import com.lnly.business.bo.SmallClassPageEntity;
+import com.lnly.business.service.AdminDictService;
+import com.lnly.business.service.SmallClassService;
+import com.lnly.common.model.AdminDict;
+import com.lnly.common.model.SmallClass;
+import com.lnly.common.utils.LoggerUtils;
+import com.lnly.common.utils.SerializeUtil;
+import com.lnly.common.utils.StaticValusUtil;
+import com.lnly.core.mybatis.page.Pagination;
+import com.lnly.core.shiro.cache.JedisManager;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Scope;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.servlet.ModelAndView;
+
+import javax.annotation.Resource;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
+/**
+ * 数据统计
+ * <p>
+ * <p>
+ * <p>
+ * 区分　责任人　日期　　　　说明<br/>
+ * 创建　钱志明　2017-08-14 　<br/>
+ * <p>
+ * *******
+ * <p>
+ *
+ * @author qianzhiming
+ * @version 1.0, 2017年7月1日 <br/>
+ * @email 35691226@qq.com
+ */
+
+@Controller
+@Scope(value="prototype")
+@RequestMapping("report")
+public class ReportController {
+    @Resource
+    SmallClassService smallClassService;
+
+    @Resource
+    AdminDictService adminDictService;
+
+
+
+    @Autowired
+    public JedisManager jedisManager;
+
+
+
+    private static final String KEY_PRE = "report_zbdh_jd_data_pre_";
+
+    private static final int DB_INDEX = 1;
+
+
+    static final Class<ReportController> SELF = ReportController.class;
+
+    private static int iEcho = 0;
+
+    @RequestMapping(value = "localZbdhJdReport", method = RequestMethod.GET)
+    public ModelAndView localZbdhJdReport(){
+        return new ModelAndView("report/localZbdhJdReport");
+    }
+
+    @RequestMapping(value = "contryZbdhJdReport", method = RequestMethod.GET)
+    public ModelAndView contryZbdhJdReport(){
+        return new ModelAndView("report/contryZbdhJdReport");
+    }
+
+
+    @RequestMapping(value = "findLocalZbdhJd", method = RequestMethod.POST)
+    @ResponseBody
+    public Map<String,Object> findLocalZbdhJd(LocalZbdhJdPageEntity param) {
+        iEcho++;
+        Long searchId = param.getSearchId();
+        String dictName = "";
+        String colum = "";
+        String dictCode = "";
+        AdminDict adminDictH = null;
+
+        List<LocalZbdhJdBo> result = new ArrayList<>();
+        LocalZbdhJdBo bo = new LocalZbdhJdBo();
+        bo.setDict("辽宁省");
+        bo.setWclC("50%");
+        bo.setZbdhZbJe("55660012");
+        bo.setSjdhJe("45000000");
+        bo.setWdhJe("10660012");
+        bo.setWcl("58%");
+        bo.setZbdhZb1("3500000");
+        bo.setSjdhJe1("2500000");
+        bo.setWcl1("78%");
+
+        bo.setZbdhZb2("3500000");
+        bo.setSjdhJe2("2500000");
+        bo.setWcl2("78%");
+        result.add(bo);
+
+        Map<String, Object> resultMap = new HashMap<>();
+        resultMap.put("iEcho", iEcho);
+        resultMap.put("data", result);
+        resultMap.put("iDisplayLength", 10);
+        resultMap.put("iDisplayStart", 0);
+//
+        resultMap.put("recordsTotal", 1);
+        resultMap.put("recordsFiltered", 1);
+        resultMap.put("sColumns", ",,,,");
+        resultMap.put("iColumns", 12);
+        resultMap.put("message", "ok");
+//        resultMap.put("error", "no data");
+         return resultMap;
+
+
+
+    }
+
+
+    @RequestMapping(value = "findContryZbdhJd", method = RequestMethod.POST)
+    @ResponseBody
+    public Map<String,Object> findContryZbdhJd(LocalZbdhJdPageEntity param) {
+        iEcho++;
+        Long searchId = param.getSearchId();
+        String dictName = "";
+        String colum = "";
+        String dictCode = "";
+        AdminDict adminDictH = null;
+
+        List<LocalZbdhJdBo> result = new ArrayList<>();
+        LocalZbdhJdBo bo = new LocalZbdhJdBo();
+        bo.setDict("辽宁省");
+        bo.setWclC("50%");
+        bo.setZbdhZbJe("55660012");
+        bo.setSjdhJe("45000000");
+        bo.setWdhJe("10660012");
+        bo.setWcl("58%");
+        bo.setZbdhZb1("3500000");
+        bo.setSjdhJe1("2500000");
+        bo.setWcl1("78%");
+
+        bo.setZbdhZb2("3500000");
+        bo.setSjdhJe2("2500000");
+        bo.setWcl2("78%");
+        result.add(bo);
+
+        Map<String, Object> resultMap = new HashMap<>();
+        resultMap.put("iEcho", iEcho);
+        resultMap.put("data", result);
+        resultMap.put("iDisplayLength", 10);
+        resultMap.put("iDisplayStart", 0);
+//
+        resultMap.put("recordsTotal", 1);
+        resultMap.put("recordsFiltered", 1);
+        resultMap.put("sColumns", ",,,,");
+        resultMap.put("iColumns", 12);
+        resultMap.put("message", "ok");
+//        resultMap.put("error", "no data");
+        return resultMap;
+
+
+
+    }
+
+    private String buildCacheKey(String year, String key) {
+        return KEY_PRE + year+ "_" + key;
+    }
+}

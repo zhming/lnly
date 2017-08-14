@@ -79,18 +79,18 @@ public class SmallClassController extends BaseController {
                 //地级市
                 colum = "city";
             }else if(dictCode.length() == 6 && !dictCode.endsWith("00")){
+                adminDictH = adminDictService.findByDictCode(adminDict.getHighDict());
                 //区县
                 colum = "county";
             }else if(dictCode.length() > 6){
+                adminDictH = adminDictService.findByDictCode(adminDict.getHighDict());
                 //乡镇
                 colum = "town";
             }else{
                 LoggerUtils.debug(SELF, "query info error!adminDictId="+searchId);
                 throw new Exception("query info error!");
             }
-            if(dictCode.length() > 6) {
-                adminDictH = adminDictService.findByDictCode(adminDict.getHighDict());
-            }
+            
 
         } catch (Exception e) {
             LoggerUtils.fmtDebug(this.getClass(), "find adminDict fail[id=%s]", searchId);

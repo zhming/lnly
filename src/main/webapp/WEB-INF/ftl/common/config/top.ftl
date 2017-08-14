@@ -38,8 +38,10 @@
                           数据统计<span class="caret"></span>
                       </a>
                       <ul class="dropdown-menu">
+                          <li><a href="${basePath}/report/localZbdhJdReport.shtml" >地方公益林直补到户工作进度报表</a></li>
+                          <li><a href="${basePath}/report/contryZbdhJdReport.shtml">国家公益林直补到户工作进度报表</a></li>
                           <li><a href="${basePath}/smallClass/smallClassDataDetail.shtml">国家及地方小班数据明细</a></li>
-                          <li><a href="${basePath}/user/updateSelf.shtml" >资金数据填报</a></li>
+
                       </ul>
                   </li>
                   <li class="dropdown ${(index==1)?string('active','')}">

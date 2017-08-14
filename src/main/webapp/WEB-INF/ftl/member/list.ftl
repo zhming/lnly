@@ -121,7 +121,7 @@
 									<td>
 										<@shiro.hasPermission name="/member/forbidUserById.shtml">
 										${(it.status==1)?string('<i class="glyphicon glyphicon-eye-close"></i>&nbsp;','<i class="glyphicon glyphicon-eye-open"></i>&nbsp;')}
-										<a href="javascript:forbidUserById(${(it.status==1)?string(0,1)},${it.id})">
+										<a href="javascript:forbidUserById(${(it.status==1)?string('0','1')},${it.id})">
 											${(it.status==1)?string('禁止登录','激活登录')}
 										</a>
 										</@shiro.hasPermission>
