@@ -9,7 +9,7 @@ import java.util.Date;
 public class LocalCompensationStandard implements Serializable {
     private static final long serialVersionUID = 1L;
     private Long id;
-    private Integer year;
+    private String year;
     private String city;
     private String county;
     private Double area;
@@ -29,11 +29,11 @@ public class LocalCompensationStandard implements Serializable {
         this.id = id;
     }
 
-    public Integer getYear() {
+    public String getYear() {
         return year;
     }
 
-    public void setYear(Integer year) {
+    public void setYear(String year) {
         this.year = year;
     }
 

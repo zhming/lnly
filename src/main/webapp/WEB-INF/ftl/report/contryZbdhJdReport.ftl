@@ -86,7 +86,11 @@
                     <span class="input-group-addon"><span class="glyphicon glyphicon-th"></span></span>
                 </div>
                 <input type="hidden" id="dtp_input1" value=""/><br/>
-
+                <div  class="row col-sm-8">
+                    <input type="text" id="searchTree" name="searchTree" value=""
+                           class="form-control input-small" style="width:225px"
+                           placeholder="请输入乡镇、区县、市名称"/>
+                </div>
                 <div id="getDictTree" class="input-group date col-sm-8">
                 </div>
             </div>
@@ -101,9 +105,6 @@
                             <div class="col-lg-9">
                                 <div class="hidden" id="hidden_filter">
                                     <div class="row" style="margin-right:0;">
-                                        <input type="text" id="searchContent" name="searchContent" value=""
-                                               class="form-control input-small" style="width:100px"
-                                               placeholder="请输入地名"/>
                                         <input type="hidden" id="searchYear" name="searchYear" value=""
                                                class="form-control input-small" style="width:150px" placeholder=""/>
                                         <input type="hidden" id="searchId" name="searchId" value=""
@@ -329,6 +330,28 @@
            
         });
 
+        $("#searchTree").change(function () {
+            var tree = $('#getDictTree');
+            var node = tree.treeview('getNode', 0);
+            if (node.state.expanded) {
+                //处于展开状态则折叠
+                tree.treeview('collapseNode', node.nodeId);
+            }
+            var param = $(this).val();
+
+            console.log(param);
+            tree.treeview('search', [param, {
+                ignoreCase: true,     // case insensitive
+                exactMatch: false,    // like or equals
+                revealResults: true,  // reveal matching nodes
+            }]);
+            var searchResults = $(".search-result");
+            console.log($(searchResults[0]).attr("data-nodeid"));
+            var selectedId = $(searchResults[0]).attr("data-nodeid");
+            var node = tree.treeview('getNode', selectedId);
+            tree.treeview('selectNode', [node, {silent: true}]);
+
+        });
 
 
     });

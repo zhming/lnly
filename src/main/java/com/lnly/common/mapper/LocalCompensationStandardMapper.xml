@@ -3,7 +3,7 @@
 <mapper namespace="com.lnly.common.dao.LocalCompensationStandardMapper" >
   <resultMap id="BaseResultMap" type="com.lnly.common.model.LocalCompensationStandard" >
     <id column="id" property="id" jdbcType="BIGINT" />
-    <result column="year" property="year" jdbcType="BIGINT" />
+    <result column="year" property="year" jdbcType="VARCHAR" />
     <result column="city" property="city" jdbcType="VARCHAR" />
     <result column="county" property="county" jdbcType="VARCHAR" />
     <result column="area" property="area" jdbcType="DOUBLE" />
@@ -26,6 +26,7 @@
 
   <sql id="where_all">
     <where>
+        1 = 1
       <if test="searchContent != null and searchContent !='' " >
         and (
         LOWER(city) like  LOWER(CONCAT("%",#{searchContent,jdbcType=VARCHAR},"%")) or
@@ -34,7 +35,7 @@
       </if>
       <if test="year != null and year !='' " >
         and
-        year =  #{year,jdbcType=INTEGER}
+        year =  #{year,jdbcType=VARCHAR}
       </if>
     </where>
   </sql>
@@ -67,7 +68,7 @@
   <insert id="insert" useGeneratedKeys="true" keyProperty="id" parameterType="com.lnly.common.model.LocalCompensationStandard" >
     insert into tb_local_compensation_standard ( id, year, city, county, area, je,comment, create_user,update_user,create_time,update_time
     )
-    values (#{id,jdbcType=BIGINT}, #{year,jdbcType=BIGINT}, #{city,jdbcType=VARCHAR},
+    values (#{id,jdbcType=BIGINT}, #{year,jdbcType=VARCHAR}, #{city,jdbcType=VARCHAR},
     #{county,jdbcType=DOUBLE}, #{area,jdbcType=DOUBLE},#{je,jdbcType=DOUBLE},
     #{comment,jdbcType=VARCHAR},#{createUser,jdbcType=VARCHAR},
     #{updateUser,jdbcType=VARCHAR}, #{createTime,jdbcType=TIMESTAMP}, #{updateTime,jdbcType=TIMESTAMP}
@@ -116,7 +117,7 @@
         #{id,jdbcType=BIGINT},
       </if>
       <if test="year != null" >
-        #{year,jdbcType=BIGINT},
+        #{year,jdbcType=VARCHAR},
       </if>
       <if test="city != null" >
         #{city,jdbcType=VARCHAR},
@@ -153,7 +154,7 @@
     update tb_local_compensation_standard
     <set >
       <if test="year != null" >
-        year =  #{year,jdbcType=BIGINT},
+        year =  #{year,jdbcType=VARCHAR},
       </if>
       <if test="city != null" >
         city = #{city,jdbcType=VARCHAR},
@@ -182,7 +183,7 @@
   </update>
   <update id="updateByPrimaryKey" parameterType="com.lnly.common.model.LocalCompensationStandard" >
     update tb_local_compensation_standard
-    set year = #{year,jdbcType=BIGINT},
+    set year = #{year,jdbcType=VARCHAR},
     city = #{city,jdbcType=VARCHAR},
     county = #{county,jdbcType=VARCHAR},
     area = #{area,jdbcType=DOUBLE},

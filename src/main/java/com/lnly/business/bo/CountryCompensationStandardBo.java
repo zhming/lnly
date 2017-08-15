@@ -15,7 +15,7 @@ public class CountryCompensationStandardBo extends CountryCompensationStandard i
 
 	private static final long serialVersionUID = 1L;
 
-	private Integer year;
+	private String year;
 	private String city;
 	private String county;
 	private Double area;
@@ -37,17 +37,17 @@ public class CountryCompensationStandardBo extends CountryCompensationStandard i
 		return serialVersionUID;
 	}
 
-	@Override
-	public Integer getYear() {
-		return year;
-	}
+    @Override
+    public String getYear() {
+        return year;
+    }
 
-	@Override
-	public void setYear(Integer year) {
-		this.year = year;
-	}
+    @Override
+    public void setYear(String year) {
+        this.year = year;
+    }
 
-	@Override
+    @Override
 	public String getCity() {
 		return city;
 	}

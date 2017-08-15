@@ -24,7 +24,7 @@ public class LocalCompensationDetail implements Serializable {
     private String identityCard;
     private String username;
     private String uniteUsername;
-    private Integer year;
+    private String year;
     private Double area;
     private Double compensationStandard;
     private Double compensationAmount;
@@ -167,11 +167,11 @@ public class LocalCompensationDetail implements Serializable {
         this.uniteUsername = uniteUsername;
     }
 
-    public Integer getYear() {
+    public String getYear() {
         return year;
     }
 
-    public void setYear(Integer year) {
+    public void setYear(String year) {
         this.year = year;
     }
 

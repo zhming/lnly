@@ -5,7 +5,7 @@
 
 
         <id column="id" property="id" jdbcType="BIGINT"/>
-        <result column="year" property="year" jdbcType="BIGINT"/>
+        <result column="year" property="year" jdbcType="VARCHAR"/>
         <result column="city" property="city" jdbcType="VARCHAR"/>
         <result column="county" property="county" jdbcType="VARCHAR"/>
         <result column="town" property="town" jdbcType="VARCHAR"/>
@@ -58,7 +58,7 @@
             </if>
             <if test="year != null and year !='' ">
                 and
-                year = #{year,jdbcType=INTEGER}
+                year = #{year,jdbcType=VARCHAR}
             </if>
         </where>
     </sql>
