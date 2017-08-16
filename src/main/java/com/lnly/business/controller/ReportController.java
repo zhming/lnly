@@ -78,6 +78,48 @@ public class ReportController {
         return new ModelAndView("report/contryZbdhJdReport");
     }
 
+    @RequestMapping(value = "countryGrantAreaSumReport", method = RequestMethod.GET)
+    public ModelAndView countryGrantAreaSumReport(){
+        return new ModelAndView("report/countryGrantAreaSumReport");
+    }
+
+    @RequestMapping(value = "localGrantAreaSumReport", method = RequestMethod.GET)
+    public ModelAndView localGrantAreaSumReport(){
+        return new ModelAndView("report/localGrantAreaSumReport");
+    }
+
+    @RequestMapping(value = "countryGrantAreaSumResearchReport", method = RequestMethod.GET)
+    public ModelAndView countryGrantAreaSumResearchReport(){
+        return new ModelAndView("report/countryGrantAreaSumResearchReport");
+    }
+
+    @RequestMapping(value = "localGrantAreaSumResearchReport", method = RequestMethod.GET)
+    public ModelAndView localGrantAreaSumResearchReport(){
+        return new ModelAndView("report/localGrantAreaSumResearchReport");
+    }
+
+    @RequestMapping(value = "localSmallClassGrantReport", method = RequestMethod.GET)
+    public ModelAndView localSmallClassGrantReport(){
+        return new ModelAndView("report/localSmallClassGrantReport");
+    }
+
+    @RequestMapping(value = "countrySmallClassGrantReport", method = RequestMethod.GET)
+    public ModelAndView countrySmallClassGrantReport(){
+        return new ModelAndView("report/countrySmallClassGrantReport");
+    }
+
+    @RequestMapping(value = "grantNoOkAreaSumDetail", method = RequestMethod.GET)
+    public ModelAndView grantNoOkAreaSumDetail(){
+        return new ModelAndView("report/grantNoOkAreaSumDetail");
+    }
+
+    @RequestMapping(value = "grantOkAreaSumDetail", method = RequestMethod.GET)
+    public ModelAndView grantOkAreaSumDetail(){
+        return new ModelAndView("report/grantOkAreaSumDetail");
+    }
+
+
+
 
     @RequestMapping(value = "findLocalZbdhJd", method = RequestMethod.POST)
     @ResponseBody

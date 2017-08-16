@@ -40,6 +40,12 @@
                       <ul class="dropdown-menu">
                           <li><a href="${basePath}/report/localZbdhJdReport.shtml" >地方公益林直补到户工作进度报表</a></li>
                           <li><a href="${basePath}/report/contryZbdhJdReport.shtml">国家公益林直补到户工作进度报表</a></li>
+                          <li><a href="${basePath}/report/localSmallClassGrantReport.shtml">地方公益林发放面积小于小班面积统计表</a></li>
+                          <li><a href="${basePath}/report/countrySmallClassGrantReport.shtml">国家公益林发放面积小于小班面积统计表</a></li>
+                          <li><a href="${basePath}/report/localGrantAreaSumReport.shtml">地方公益林直补到户发放面积与金额汇总报表</a></li>
+                          <li><a href="${basePath}/report/countryGrantAreaSumReport.shtml">国家公益林直补到户发放面积与金额汇总报表</a></li>
+                          <li><a href="${basePath}/report/grantOkAreaSumDetail.shtml">国家及地方直补到户资金发放明细</a></li>
+                          <li><a href="${basePath}/report/grantNoOkAreaSumDetail.shtml">国家及地方直补到户资金未发放明细</a></li>
                           <li><a href="${basePath}/smallClass/smallClassDataDetail.shtml">国家及地方小班数据明细</a></li>
 
                       </ul>
