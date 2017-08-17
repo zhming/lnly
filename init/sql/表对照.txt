@@ -1,0 +1,76 @@
+s_ndbz   补偿标准设置  0 国家  1 地方
+
+d_file0  f_d_file0  发放明细
+国家发放明细
+select count(1) from d_file0 t where t.flh like '2016%' and t.deltime is null;
+select t.f1, t.f2, t.f3, t.f4, t.f5, t.f6,t.f18, t.f7, t.f8, t.f9, t.f10, t.f11, t.f12, t.keyword, t.title, t.f19, substr(t.flh, 0, 4), t.ys, t.f13, t.f14, t.f16, t.f17, t.f15, t.isff, t.status, t.creator, t.createtime, t.edittor, t.edittime from d_file0 t where t.flh like '2016%' and t.f1 like '2101%' and t.deltime is null;
+
+
+1	1	CREATOR	创建者	1	38	0	0	1	21	0	1111011111000000
+2	2	CREATETIME	创建时间	11	0	0	0	1	21	0	1111011111000000
+3	3	EDITOR	修改者	1	38	0	0	1	21	0	1111011111000000
+4	4	EDITTIME	修改时间	11	0	0	0	1	21	0	1111011111000000
+5	5	DELTOR	删除者	1	38	0	0	1	21	0	1111011111000000
+6	6	DELTIME	删除时间	11	0	0	0	1	21	0	1111011111000000
+7	7	STATUS	状态	3	0	1	0	1	21	0	1111111111000000
+8	8	ATTR	记录属性	3	0	0	0	1	21	0	1111111111000000
+9	9	ATTREX	扩展属性	3	0	0	0	1	21	0	1111111111000000
+10	10	ATTACHED	原文标志	3	0	0	0	1	21	0	1111111111000000
+11	11	BMID	所属部门	1	254	0	0	1	21	0	1111011111000000
+12	12	PID	父ID	3	0	1	0	1	21	0	1111111111000000
+13	13	DID	ID	3	0	1	1	1	21	0	1111111111000000
+14	14	QZH	全宗号	1	16	0	0	0	21	0	1111001111000000
+15	15	F1	市	1	50	0	0	0	1	0	0000000000000000
+16	16	F2	县	1	50	0	0	0	1	0	0000000000000000
+17	17	F3	乡	1	50	0	0	0	1	0	0000000000000000
+18	18	F4	村	1	50	0	0	0	1	0	0000000000000000
+19	19	F5	林班	1	50	0	0	0	1	0	0000000000000000
+20	20	F6	小班	1	50	0	0	0	1	0	0000000000000000
+21	21	F18	细班	1	50	0	0	0	1	0	0000000000000000
+22	22	F7	小地名	1	200	0	0	0	1	0	0000000000000000
+23	23	F8	地类	1	200	0	0	0	1	0	0000000000000000
+24	24	F9	林木所有权	1	200	0	0	0	1	0	0000000000000000
+25	25	F10	土地所有权	1	50	0	0	0	1	0	0000000000000000
+26	26	F11	起源	1	200	0	0	0	1	0	0000000000000000
+27	27	F12	权属证明	1	100	0	0	0	1	0	0000000000000000
+28	28	KEYWORD	身份证号码	1	24	0	0	0	0	0	0000000000000000
+29	29	HH	盒号	1	4	0	0	0	0	0	0000000000000000
+30	30	TITLE	户名	1	128	0	0	0	0	0	0000000000000000
+31	31	F19	联户户名	1	500	0	0	0	1	0	0000000000000000
+32	32	FLH	年度季度号	1	128	0	0	0	0	0	0000000000000000
+33	33	YS	面积	6	0	0	0	0	0	0	0000000000000000
+34	34	F13	补偿标准	6	0	0	0	0	1	0	0000000000000000
+35	35	F14	补偿金额	6	0	0	0	0	1	0	0000000000000000
+36	36	F16	汇款账号	1	200	0	0	0	1	0	0000000000000000
+37	37	F17	汇款户名	1	50	0	0	0	1	0	0000000000000000
+38	38	F15	备注	1	300	0	0	0	1	0	0000000000000000
+39	39	ISFF	是否已发放	1	20	0	0	0	1	0	0000000000000000
+
+
+
+
+
+地方发放明细
+select count(1) from d_file1 t where t.flh like '2016%' and t.deltime is null;
+
+
+
+国家已发放资金汇总
+select * from(select '0' as type1, t.year, '辽宁省' as dict, sum(t.area) as area,  sum(t.compensation_amount) amount  from tb_country_compensation_detail t where t.send_flag='是' group by t.year
+
+union  all
+
+select '1' as type1, t.year,  t.city as dict, sum(t.area) as area,  sum(t.compensation_amount) amount  from tb_country_compensation_detail  t where t.send_flag='是' group by t.year, t.city
+
+union  all
+
+select '2' as type1, t.year, t.county, sum(t.area) as area,  sum(t.compensation_amount) amount  from tb_country_compensation_detail t where t.send_flag='是' group by t.year, t.county
+
+union  all
+
+select '3' as type1, t.year, t.town, sum(t.area) as area,  sum(t.compensation_amount) amount  from tb_country_compensation_detail t where t.send_flag='是' group by t.year, t.town
+
+union all
+
+select '4' as type1, t.year, t.village, sum(t.area) as area,  sum(t.compensation_amount) amount  from tb_country_compensation_detail t where t.send_flag='是' group by t.year, t.village) t5 ;
+
