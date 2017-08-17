@@ -38,6 +38,15 @@
         <result column="update_time" property="updateTime" jdbcType="TIMESTAMP"/>
         <result column="delete_flag" property="deleteFlag" jdbcType="CHAR"/>
     </resultMap>
+
+
+    <resultMap id="GrantAreaSumBo1" type="com.lnly.business.bo.GrantAreaSumBo1">
+        <result column="year" property="year" jdbcType="VARCHAR"/>
+        <result column="type" property="type" jdbcType="VARCHAR"/>
+        <result column="dict" property="dict" jdbcType="VARCHAR"/>
+        <result column="area" property="area" jdbcType="DOUBLE"/>
+        <result column="amount" property="amount" jdbcType="DOUBLE"/>
+    </resultMap>
     <sql id="Base_Column_List">
     id, check_flag, city, county, town, village, forest_class, small_class, little_class, land_types, forest_belong, land_belong, source, belong_prove, identity_card, username, unite_username, year, area, compensation_standard, compensation_amount, remit_num, remit_user_name, send_flag, comment, create_user, update_user, create_time, update_time, delete_flag
   </sql>
@@ -246,4 +255,26 @@
 
         where id = #{id,jdbcType=BIGINT}
     </update>
+
+
+    <select id="countrySendReport" resultMap="GrantAreaSumBo1" >
+        select * from(select '0' as type1, t.year, '辽宁省' as dict, round(sum(t.area), 2) as area,  round(sum(t.compensation_amount), 2) amount  from tb_country_compensation_detail t where t.send_flag='是' group by t.year
+
+        union  all
+
+        select '1' as type1, t.year,  t.city as dict, round(sum(t.area), 2) as area,  round(sum(t.compensation_amount), 2) amount  from tb_country_compensation_detail  t where t.send_flag='是' group by t.year, t.city
+
+        union  all
+
+        select '2' as type1, t.year, t.county, round(sum(t.area), 2) as area,  round(sum(t.compensation_amount), 2) amount  from tb_country_compensation_detail t where t.send_flag='是' group by t.year, t.county
+
+        union  all
+
+        select '3' as type1, t.year, t.town, round(sum(t.area), 2) as area,  round(sum(t.compensation_amount), 2) amount  from tb_country_compensation_detail t where t.send_flag='是' group by t.year, t.town
+
+        union all
+
+        select '4' as type1, t.year, t.village, round(sum(t.area), 2) as area,  round(sum(t.compensation_amount), 2) amount  from tb_country_compensation_detail t where t.send_flag='是' group by t.year, t.village) t5 ;
+
+    </select>
 </mapper>
