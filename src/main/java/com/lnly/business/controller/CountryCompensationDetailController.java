@@ -9,6 +9,9 @@ import com.lnly.common.utils.StringUtils;
 import com.lnly.core.mybatis.page.PageEntity;
 import com.lnly.core.mybatis.page.Pagination;
 import net.sf.json.JSONObject;
+import org.apache.http.HttpRequest;
+import org.apache.http.HttpResponse;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
@@ -16,9 +19,14 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.multipart.MultipartFile;
+import org.springframework.web.multipart.MultipartHttpServletRequest;
+import org.springframework.web.multipart.commons.CommonsMultipartResolver;
 import org.springframework.web.servlet.ModelAndView;
 
 import javax.annotation.Resource;
+import javax.servlet.http.HttpServletRequest;
+import java.io.File;
 import java.util.*;
 
 /**
@@ -48,6 +56,7 @@ public class CountryCompensationDetailController extends BaseController {
 
     @Resource
     CountryCompensationDetailService countryCompensationDetailService;
+
 
     private static int iEcho = 0;
 
@@ -204,4 +213,53 @@ public class CountryCompensationDetailController extends BaseController {
 
         return result;
     }
+
+
+    /**
+     * 使用SpringMVC封装好的方法进行文件上传
+     * @param request
+     * @param response
+     */
+    @RequestMapping("/upload")
+    public Map<String, Object> upload2(HttpRequest request, HttpResponse response) {
+        String fileName= "";
+        HttpServletRequest  servletRequest = (HttpServletRequest)request;
+        try{
+            //获取解析器
+            CommonsMultipartResolver resolver = new CommonsMultipartResolver();
+            //判断是否是文件
+            if(resolver.isMultipart(servletRequest)){
+                //进行转换
+                MultipartHttpServletRequest multiRequest = (MultipartHttpServletRequest)(request);
+                //获取所有文件名称
+                Iterator<String> it = multiRequest.getFileNames();
+                while(it.hasNext()){
+                    //根据文件名称取文件
+                    MultipartFile file = multiRequest.getFile(it.next());
+                    fileName = file.getOriginalFilename();
+                    String localPath = "D:/temp/" + fileName;
+                    File newFile = new File(localPath);
+                    //上传的文件写入到指定的文件中
+                    file.transferTo(newFile);
+
+                    //解析数据
+                    
+
+                    resultMap.put("status", 200);
+                    resultMap.put("message", "操作成功!");
+                }
+            }
+
+
+        }catch (Exception e){
+            resultMap.put("status", 500);
+            resultMap.put("message", "操作失败!");
+            LoggerUtils.fmtError(getClass(), e, "操作失败。[%s]", fileName);
+        }
+
+        return  resultMap;
+    }
 }
+
+
+

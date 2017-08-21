@@ -11,6 +11,9 @@
     <link href="${basePath}/css/bootstrap-datetimepicker.min.css" rel="stylesheet" media="screen">
     <link rel="stylesheet" href="${basePath}/css/build.css"/>
     <link rel="stylesheet" href="${basePath}/css/font-awesome.min.css"/>
+    <link rel="stylesheet" href="${basePath}/css/fileinput.min.css"/>
+    <link rel="stylesheet" href="${basePath}/css/fileinput-rtl.min.css"/>
+
 
     <!-- datagrid css -->
     <link rel="stylesheet" href="${basePath}/css/datagrid/buttons.bootstrap.min.css"/>
@@ -37,6 +40,7 @@
     <script src="${basePath}/js/datagrid/buttons.html5.min.js"></script>
     <script src="${basePath}/js/common/jquery/jquery.form-2.82.js?${_v}"></script>
     <script src="${basePath}/js/bootstrapValidator.min.js"></script>
+    <script src="${basePath}/js/fileinput.min.js"></script>
 
 
     <!-- datagrid -->
@@ -112,6 +116,8 @@
                                         </button>
                                         <button id="deleteButton" onclick="deleteById();" class="btn btn-default">删除
                                         </button>
+                                        <button id="deleteButton" onclick="viewUploadModal();" class="btn btn-default">批量导入
+                                        </button>
                                     </div>
 
                                 </div>
@@ -129,6 +135,7 @@
                 <input type="hidden" id="selectedDictCode" value=""/>
             </div>
 
+            
 
         <@shiro.hasPermission name="/countryStandard/add.shtml">
         <#--添加弹框-->
@@ -297,6 +304,24 @@
                 </div>
             </div>
 
+            <div class="modal fade" id="uploadRecord" tabindex="-1" role="dialog" aria-labelledby="uploadRecordLabel">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                                    aria-hidden="true">&times;</span></button>
+                            <h4 class="modal-title" id="addBcbzLabel">批量导入</h4>
+                        </div>
+                        <div class="form-group">
+                            <form action="${basePath}/countryDetail/upload.shtml" method="post" enctype="multipart/form-data">
+                                <input type="file" name="fileUpload" />
+                                <input type="submit" value="上传文件" />
+                            </form>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
 
         <#--/添加弹框-->
         </@shiro.hasPermission>
@@ -322,6 +347,8 @@
     });
 
     $(function () {
+
+
         var dictCode = "${token.dictCode}";
 
 
@@ -608,6 +635,8 @@
 
         });
 
+
+      
     });
 
 
@@ -636,6 +665,11 @@
 
     function viewAddModal() {
         $('#addRecord').modal();
+    }
+
+    function viewUploadModal() {
+        $('#uploadRecord').modal();
+
     }
 
 
@@ -686,7 +720,22 @@
         });
     }
     </@shiro.hasPermission>
+    function pageAjaxDone(json) {
+        YUNM.debug(json);
+        YUNM.ajaxDone(json);
 
+        if (json[YUNM.keys.statusCode] == YUNM.statusCode.ok) {
+            var msg = json[YUNM.keys.message];
+            // 弹出消息提示
+            YUNM.debug(msg);
+
+            if (YUNM.callbackType.confirmTimeoutForward == json.callbackType) {
+                $.showSuccessTimeout(msg, function() {
+                    window.location = json.forwardUrl;
+                });
+            }
+        }
+    }
 
 </script>
 
