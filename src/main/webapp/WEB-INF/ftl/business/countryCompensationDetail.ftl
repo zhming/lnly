@@ -98,11 +98,12 @@
                     <table id="example" class="table table-striped table-bordered" cellspacing="0" width="100%">
                         <thead>
                         <tr>
-                            <div class="col-lg-9">
+                            <div class="col-sm-10">
                                 <strong id="tableTitle">2017年度国家补偿资金发放明细</strong>
 
                                 <div class="hidden" id="hidden_filter">
                                     <div class="row" style="margin-right:0;">
+                                        <input type="hidden" id="searchEmail" name="searchEmail" value="${token.email}"/>
                                         <input type="hidden" id="searchYear" name="searchYear" value=""
                                                class="form-control input-small" style="width:150px" placeholder=""/>
                                         <input type="hidden" id="searchContentFromSelect" name="searchContentFromSelect"
@@ -116,8 +117,11 @@
                                         </button>
                                         <button id="deleteButton" onclick="deleteById();" class="btn btn-default">删除
                                         </button>
-                                        <button id="deleteButton" onclick="viewUploadModal();" class="btn btn-default">批量导入
+                                        <button id="importButton" onclick="viewUploadModal();" class="btn btn-default">批量导入
                                         </button>
+                                        <button id="checkButton" onclick="check();"  class="btn btn-default">批量审批
+                                        </button>
+                                       
                                     </div>
 
                                 </div>
@@ -125,7 +129,40 @@
                             </div>
 
                         </tr>
+                        <tr>
+                            <th>
+                            <#--checkboxk-->
+                                <input type="checkbox" class="checkall" />
+                            </th>
+                            <th>序号</th>
+                            <th>年度</th>
+                            <th>市</th>
+                            <th>县</th>
+                            <th>乡</th>
+                            <th>村</th>
+                            <th>林班</th>
+                            <th>小班</th>
+                            <th>地类</th>
+                            <th>细班</th>
+                            <th>林地所有权</th>
+                            <th>土地所有权</th>
+                            <th>起源</th>
+                            <th>权属证明</th>
+                            <th>身份证号</th>
+                            <th>户名</th>
+                            <th>联户户名</th>
+                            <th>面积(亩)</th>
+                            <th>补偿标准</th>
+                            <th>补偿金额</th>
+                            <th>汇款帐号</th>
+                            <th>汇款姓名</th>
+                            <th>是否发放</th>
+                            <th>审批状态</th>
+                            <th>备注</th>
+                            <th>创建时间</th>
 
+
+                        </tr>
 
                         </thead>
                     </table>
@@ -135,7 +172,7 @@
                 <input type="hidden" id="selectedDictCode" value=""/>
             </div>
 
-            
+
 
         <@shiro.hasPermission name="/countryStandard/add.shtml">
         <#--添加弹框-->
@@ -313,8 +350,9 @@
                             <h4 class="modal-title" id="addBcbzLabel">批量导入</h4>
                         </div>
                         <div class="form-group">
-                            <form action="${basePath}/countryDetail/upload.shtml" method="post" enctype="multipart/form-data">
-                                <input type="file" name="fileUpload" />
+                            <form id="uploadForm" action="${basePath}/countryDetail/upload.shtml" method="post" enctype="multipart/form-data">
+                                <input type="file" id="fileUpload" name="fileUpload" />
+                                <input type="hidden" id="email" name="email" value="${token.email}"/>
                                 <input type="submit" value="上传文件" />
                             </form>
                         </div>
@@ -453,7 +491,41 @@
             clearForm: false
         });
 
+
+        $("#uploadForm").ajaxForm({
+            success: function (result) {
+                layer.close(load);
+                if (result && result.status == 300) {
+                    layer.msg(result.message, function () {
+                    });
+                    return !1;
+                }
+                if (result && result.status == 500) {
+                    layer.msg("操作失败！", function () {
+                    });
+                    return !1;
+                }
+                layer.msg('操作成功！');
+            },
+            beforeSubmit: function () {
+
+                var reg=new RegExp(".xlsx$");
+                var filePath =$("#fileUpload").val();
+               console.log(filePath);
+               if(! reg.test(filePath)){
+                   layer.msg('导入文件必须是xlsx格式！', function () {
+                   });
+                   return !1;
+               }
+
+                load = layer.load();
+            },
+            dataType: "json",
+            clearForm: false
+        });
+
         var tablePrefix = "#example_";
+        var dictCode = "${token.dictCode}";
         $("#example").dataTable({
             serverSide: true,//分页，取数据等等的都放到服务端去
             processing: true,//载入数据的时候是否显示“载入中”
@@ -462,7 +534,7 @@
             "scrollX": true, //水平滚动条
             ajax: {//类似jquery的ajax参数，基本都可以用。
                 type: "post",//后台指定了方式，默认get，外加datatable默认构造的参数很长，有可能超过get的最大长度。
-                url: "${basePath}/countryDetail/findAll.shtml",
+                url: "${basePath}/countryDetail/findAll.shtml?dictCode=" + dictCode,
                 dataSrc: "data",//默认data，也可以写其他的，格式化table的时候取里面的数据
                 data: function (d) {//d 是原始的发送给服务器的数据，默认很长。
                     var param = {};//因为服务端排序，可以新建一个参数对象
@@ -476,52 +548,56 @@
                 },
             },
             "fnDrawCallback": function () {
-                this.api().column(0).nodes().each(function (cell, i) {
+                this.api().column(1).nodes().each(function (cell, i) {
                     cell.innerHTML = i + 1;
                 });
             },
             columns: [//对应上面thead里面的序列
+
+                {
+                    //Student 没有hireDate
+                    data: function (e) {
+                        if (e.id) {//默认是/Date(794851200000)/格式，需要显示成年月日方式
+                            return '<input type="checkbox" name="checkchild" class="checkchild"  value="' + e.id + '" />';
+                        }
+                        return "";
+                    }
+
+                },
                 {
                     "sTitle": "序号",
                     "sClass": "dt-center",
                     "bSortable": false,
-                    "sWidth": "2%",
                     "data": null,
-                    "targets": 0
+                    "targets": 1
                 },
-                {
-                    "sTitle": "ID",
-                    "sClass": "hidden",
-                    "data": "id",
-
-                },//字段名字和返回的json序列的key对应
                 {
                     data: "year",
                     "sTitle": "年度",
                 },
-                {data: "city", "sTitle": "市",},
-                {data: "county", "sTitle": "县",},
-                {data: "town", "sTitle": "乡",},
-                {data: "village", "sTitle": "村",},
-                {data: "forestClass", "sTitle": "林班",},
-                {data: "smallClass", "sTitle": "小班",},
-                {data: "landTypes", "sTitle": "地类",},
-                {data: "littleClass", "sTitle": "细班",},
-                {data: "forestBelong", "sTitle": "林地所有权",},
-                {data: "landBelong", "sTitle": "土地所有权",},
-                {data: "source", "sTitle": "起源",},
-                {data: "belongProve", "sTitle": "权属证明",},
-                {data: "identityCard", "sTitle": "身份证号",},
-                {data: "username", "sTitle": "户名",},
-                {data: "uniteUsername", "sTitle": "联户户名",},
-                {data: "area", "sTitle": "面积(亩)",},
-                {data: "compensationStandard", "sTitle": "补偿标准",},
-                {data: "compensationAmount", "sTitle": "补偿金额",},
-                {data: "remitNum", "sTitle": "汇款帐号",},
-                {data: "remitUserName", "sTitle": "汇款姓名",},
-                {data: "sendFlag", "sTitle": "是否发放",},
-                {data: "checkFlag", "sTitle": "审批状态",},
-                {data: "comment", "sTitle": "备注",},
+                {data: "city", },
+                {data: "county", },
+                {data: "town", },
+                {data: "village",},
+                {data: "forestClass", },
+                {data: "smallClass", },
+                {data: "landTypes", },
+                {data: "littleClass",},
+                {data: "forestBelong", },
+                {data: "landBelong",},
+                {data: "source", },
+                {data: "belongProve",},
+                {data: "identityCard",},
+                {data: "username",},
+                {data: "uniteUsername",},
+                {data: "area",},
+                {data: "compensationStandard",},
+                {data: "compensationAmount", },
+                {data: "remitNum", },
+                {data: "remitUserName", },
+                {data: "sendFlag", },
+                {data: "checkFlag", },
+                {data: "comment", },
                 {
                     //Student 没有hireDate
                     data: function (e) {
@@ -636,9 +712,64 @@
         });
 
 
-      
+        $(".checkall").click(function () {
+            var check = $(this).prop("checked");
+            $(".checkchild").prop("checked", check);
+        });
+
+
+
     });
 
+
+
+    function check(){
+        var checkStatus = "0";
+        var dictCode = "${token.dictCode}";
+        if(dictCode.length == 6){
+            //区县审批
+            checkStatus = "1";
+        }else if(dictCode.length == 4){
+             //市级审批
+            checkStatus = "2";
+        }else if(dictCode == "210000"){
+            //省级审批
+            checkStatus = "3";
+        }
+
+        if(checkStatus == "0"){
+            layer.msg("无权审批");
+            return;
+        }
+        console.log("check");
+        var ids = "";
+        $('input[name="checkchild"]:checked').each(function(){
+            console.log($(this).val());
+            ids +=  $(this).val() + ",";
+        });
+
+        if(ids.length == 0){
+            layer.msg("请选取要审批的数据");
+        }
+
+        var deleteUrl = "${basePath}/countryDetail/check.shtml";
+
+        var index = layer.confirm("批量审批数据", function () {
+            var load = layer.load();
+            $.post(deleteUrl, {ids: ids, checkStatus:checkStatus}, function (result) {
+                layer.close(load);
+                if (result && result.status != 200) {
+                    return layer.msg(result.message, so.default), !0;
+                } else {
+                    layer.msg(result.message);
+                    $('.selected').remove();
+                    $("#example").DataTable().draw(false);//点搜索重新绘制table。
+                }
+            }, 'json');
+            layer.close(index);
+        });
+
+    }
 
     function itemOnclick(target) {
         //找到当前节点id
@@ -736,6 +867,8 @@
             }
         }
     }
+
+
 
 </script>
 

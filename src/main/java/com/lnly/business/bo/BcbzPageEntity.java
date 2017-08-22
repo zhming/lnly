@@ -21,6 +21,7 @@ public class BcbzPageEntity extends PageEntity {
     private Integer searchYear;
     private String searchContent;
     private String searchContentFromSelect;
+    private String searchEmail;
 
 
     public String getSearchContent() {
@@ -46,5 +47,13 @@ public class BcbzPageEntity extends PageEntity {
 
     public void setSearchYear(Integer searchYear) {
         this.searchYear = searchYear;
+    }
+
+    public String getSearchEmail() {
+        return searchEmail;
+    }
+
+    public void setSearchEmail(String searchEmail) {
+        this.searchEmail = searchEmail;
     }
 }

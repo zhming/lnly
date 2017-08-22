@@ -25,13 +25,13 @@ public class CountryCompensationDetail implements Serializable {
     private String username;
     private String uniteUsername;
     private String year;
-    private Double area;
-    private Double compensationStandard;
-    private Double compensationAmount;
+    private String area;
+    private String compensationStandard;
+    private String compensationAmount;
     private String remitNum;
     private String remitUserName;
-    private char sendFlag;
-    private char checkFlag;
+    private String sendFlag;
+    private String checkFlag;
     private String comment;
     private String createUser;
     private String updateUser;
@@ -175,27 +175,27 @@ public class CountryCompensationDetail implements Serializable {
         this.year = year;
     }
 
-    public Double getArea() {
+    public String getArea() {
         return area;
     }
 
-    public void setArea(Double area) {
+    public void setArea(String area) {
         this.area = area;
     }
 
-    public Double getCompensationStandard() {
+    public String getCompensationStandard() {
         return compensationStandard;
     }
 
-    public void setCompensationStandard(Double compensationStandard) {
+    public void setCompensationStandard(String compensationStandard) {
         this.compensationStandard = compensationStandard;
     }
 
-    public Double getCompensationAmount() {
+    public String getCompensationAmount() {
         return compensationAmount;
     }
 
-    public void setCompensationAmount(Double compensationAmount) {
+    public void setCompensationAmount(String compensationAmount) {
         this.compensationAmount = compensationAmount;
     }
 
@@ -215,13 +215,7 @@ public class CountryCompensationDetail implements Serializable {
         this.remitUserName = remitUserName;
     }
 
-    public char getSendFlag() {
-        return sendFlag;
-    }
 
-    public void setSendFlag(char sendFlag) {
-        this.sendFlag = sendFlag;
-    }
 
     public String getComment() {
         return comment;
@@ -271,11 +265,55 @@ public class CountryCompensationDetail implements Serializable {
         this.deleteFlag = deleteFlag;
     }
 
-    public char getCheckFlag() {
+    public String getSendFlag() {
+        return sendFlag;
+    }
+
+    public void setSendFlag(String sendFlag) {
+        this.sendFlag = sendFlag;
+    }
+
+    public String getCheckFlag() {
         return checkFlag;
     }
 
-    public void setCheckFlag(char checkFlag) {
+    public void setCheckFlag(String checkFlag) {
         this.checkFlag = checkFlag;
+    }
+
+    @Override
+    public String toString() {
+        return "CountryCompensationDetail{" +
+                "id=" + id +
+                ", city='" + city + '\'' +
+                ", county='" + county + '\'' +
+                ", town='" + town + '\'' +
+                ", village='" + village + '\'' +
+                ", forestClass='" + forestClass + '\'' +
+                ", smallClass='" + smallClass + '\'' +
+                ", littleClass='" + littleClass + '\'' +
+                ", landTypes='" + landTypes + '\'' +
+                ", forestBelong='" + forestBelong + '\'' +
+                ", landBelong='" + landBelong + '\'' +
+                ", source='" + source + '\'' +
+                ", belongProve='" + belongProve + '\'' +
+                ", identityCard='" + identityCard + '\'' +
+                ", username='" + username + '\'' +
+                ", uniteUsername='" + uniteUsername + '\'' +
+                ", year='" + year + '\'' +
+                ", area='" + area + '\'' +
+                ", compensationStandard='" + compensationStandard + '\'' +
+                ", compensationAmount='" + compensationAmount + '\'' +
+                ", remitNum='" + remitNum + '\'' +
+                ", remitUserName='" + remitUserName + '\'' +
+                ", sendFlag='" + sendFlag + '\'' +
+                ", checkFlag='" + checkFlag + '\'' +
+                ", comment='" + comment + '\'' +
+                ", createUser='" + createUser + '\'' +
+                ", updateUser='" + updateUser + '\'' +
+                ", createTime=" + createTime +
+                ", updateTime=" + updateTime +
+                ", deleteFlag=" + deleteFlag +
+                '}';
     }
 }

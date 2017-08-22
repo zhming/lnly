@@ -62,6 +62,7 @@
             <if test="searchContent != null and searchContent !='' ">
                 and (
                 LOWER(city) like LOWER(CONCAT("%",#{searchContent,jdbcType=VARCHAR},"%")) or
+                LOWER(town) like LOWER(CONCAT("%",#{searchContent,jdbcType=VARCHAR},"%")) or
                 LOWER(county) like LOWER(CONCAT("%",#{searchContent,jdbcType=VARCHAR},"%"))
                 )
             </if>
