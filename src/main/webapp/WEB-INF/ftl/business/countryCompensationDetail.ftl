@@ -550,7 +550,25 @@
             "fnDrawCallback": function () {
                 this.api().column(1).nodes().each(function (cell, i) {
                     cell.innerHTML = i + 1;
+
+                    console.log($(this).parent()[i]);
+                    //$(this).parent()[i].style.backgroundColor = "red";
+                    var obj = $(this).parent()[i];
+                        var cell = obj.cells[24];//获取某行下面的某个td元素
+                        console.log(cell.innerHTML);//cell.innerHTML获取元素里头的值
+                        if(cell.innerHTML == "1"){
+                            $(this).parent()[i].style.backgroundColor = "blue";
+                        } else if(cell.innerHTML == "2"){
+                            $(this).parent()[i].style.backgroundColor = "orange";
+                        }  else if(cell.innerHTML == "3"){
+                            $(this).parent()[i].style.backgroundColor = "green";
+                        }
+
+
                 });
+
+
+
             },
             columns: [//对应上面thead里面的序列
 
@@ -604,6 +622,7 @@
                         if (e.createTime) {//默认是/Date(794851200000)/格式，需要显示成年月日方式
                             return new Date(Number(("" + e.createTime).replace(/\D/g, ''))).toLocaleDateString();
                         }
+
                         return "空";
                     },
                     "sTitle": "创建时间"
@@ -726,16 +745,22 @@
     function check(){
         var checkStatus = "0";
         var dictCode = "${token.dictCode}";
-        if(dictCode.length == 6){
-            //区县审批
-            checkStatus = "1";
-        }else if(dictCode.length == 4){
-             //市级审批
-            checkStatus = "2";
-        }else if(dictCode == "210000"){
-            //省级审批
-            checkStatus = "3";
+       
+        console.log("dictCode: " + dictCode);
+        console.log("dictCode46: " + dictCode.substr(4, 6));
+        if(dictCode.length <= 6 ){
+            if(dictCode.substr(4, 6) != "00"){
+                //区县审批
+                checkStatus = "1";
+            }else if(dictCode.substr(4, 6) == "00" && dictCode != "210000"){
+                //市级审批
+                checkStatus = "2";
+            }else if(dictCode == "210000"){
+                //省级审批
+                checkStatus = "3";
+            }
         }
+
 
         if(checkStatus == "0"){
             layer.msg("无权审批");

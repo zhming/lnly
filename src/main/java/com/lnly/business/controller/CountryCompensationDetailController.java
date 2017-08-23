@@ -126,11 +126,18 @@ public class CountryCompensationDetailController extends BaseController {
             map.put("searchContent", param.getSearchContent());
         }
 
-        if(!map.containsKey("")) {
+        if(!map.containsKey("searchContent")) {
             String searchEmail = param.getSearchEmail();
             try {
-                AdminDict dict = adminDictService.findByDictCode(dictCode);
-                map.put("searchContent", dict.getDictName());
+                UUser user = userService.findUserByEmail(searchEmail);
+                if(StringUtils.isBlank(dictCode)){
+                    dictCode = user.getDictCode();
+                }
+                if(!"210000".equalsIgnoreCase(user.getDictCode())){
+                    AdminDict dict = adminDictService.findByDictCode(dictCode);
+                    map.put("searchContent", dict.getDictName());
+                }
+
             } catch (Exception e) {
                 e.printStackTrace();
             }
@@ -214,6 +221,7 @@ public class CountryCompensationDetailController extends BaseController {
     @RequestMapping(value = "check", method = RequestMethod.POST)
     @ResponseBody
     public Map<String, Object> check(String ids, String checkStatus) {
+        LoggerUtils.debug(getClass(), "checkStatus: " + checkStatus);
         String[] idss = ids.split(",");
         try {
             for(String id : idss){
