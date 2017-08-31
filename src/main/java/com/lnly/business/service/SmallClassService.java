@@ -25,6 +25,8 @@ public interface SmallClassService {
 	 */
     public Pagination<SmallClass> findAll(SmallClass entity, Integer pageNo, Integer pageSize) throws Exception;
 
+    List<SmallClass> findSmallList(SmallClass entity) throws Exception;
+
 }
 
 

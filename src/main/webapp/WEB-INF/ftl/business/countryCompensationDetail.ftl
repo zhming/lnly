@@ -130,7 +130,7 @@
 
                         </tr>
                         <tr>
-                            <th>
+                            <th>               
                             <#--checkboxk-->
                                 <input type="checkbox" class="checkall" />
                             </th>
@@ -557,11 +557,17 @@
                         var cell = obj.cells[24];//获取某行下面的某个td元素
                         console.log(cell.innerHTML);//cell.innerHTML获取元素里头的值
                         if(cell.innerHTML == "1"){
+                            $(this).parent()[i].title="上报到县";
                             $(this).parent()[i].style.backgroundColor = "blue";
                         } else if(cell.innerHTML == "2"){
+
+                            $(this).parent()[i].title="上报到市";
                             $(this).parent()[i].style.backgroundColor = "orange";
                         }  else if(cell.innerHTML == "3"){
+                            $(this).parent()[i].title = "上报到省";
                             $(this).parent()[i].style.backgroundColor = "green";
+                        } else{
+                            $(this).parent()[i].title = "上报到乡";
                         }
 
 

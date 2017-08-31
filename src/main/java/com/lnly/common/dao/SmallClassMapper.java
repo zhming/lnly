@@ -17,4 +17,6 @@ public interface SmallClassMapper {
 
     int update(SmallClass record);
 
+    List<SmallClass> findSmallList(SmallClass record);
+
 }

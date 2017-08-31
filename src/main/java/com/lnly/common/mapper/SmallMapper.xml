@@ -20,6 +20,9 @@
         <result column="forest_zl" property="forestZl" jdbcType="VARCHAR"/>
         <result column="comment" property="comment" jdbcType="TIMESTAMP"/>
     </resultMap>
+
+
+
     <sql id="Base_Column_List">
          id,
          year,
@@ -78,6 +81,45 @@
         <include refid="where_all"/>
     </select>
 
+    <select id="findSmallList" resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List"/>
+        from tb_small_class
+        <include refid="where_small_list"/>
+    </select>
+
+
+    <sql id="where_small_list">
+        <where>
+            1 = 1
+            <if test="year != null and year !='' ">
+                and year = #{year, jdbcType=VARCHAR}
+            </if>
+            <if test="city != null and city !='' ">
+                and city = #{city,jdbcType=VARCHAR}
+            </if>
+            <if test="county != null and county !='' ">
+                and county = #{county,jdbcType=VARCHAR}
+            </if>
+            <if test="town != null and town !='' ">
+                and town = #{town,jdbcType=VARCHAR}
+            </if>
+            <if test="village != null and village !='' ">
+                and village = #{village,jdbcType=VARCHAR}
+            </if>
+
+            <if test="forestClass != null and forestClass !='' ">
+                and forest_class = #{forestClass,jdbcType=VARCHAR}
+            </if>
+
+            <if test="smallClass != null and smallClass !='' ">
+                and small_class = #{smallClass,jdbcType=VARCHAR}
+            </if>
+
+        </where>
+    </sql>
+
+
     <select id="findById" resultMap="BaseResultMap" parameterType="java.lang.Long">
         select
         <include refid="Base_Column_List"/>
@@ -91,6 +133,7 @@
         from tb_small_class
         where id = #{id,jdbcType=BIGINT}
     </select>
+
     <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
         delete from tb_small_class
         where id = #{id,jdbcType=BIGINT}

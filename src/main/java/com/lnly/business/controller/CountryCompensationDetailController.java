@@ -3,9 +3,11 @@ package com.lnly.business.controller;
 import com.lnly.business.bo.BcbzPageEntity;
 import com.lnly.business.service.AdminDictService;
 import com.lnly.business.service.CountryCompensationDetailService;
+import com.lnly.business.service.SmallClassService;
 import com.lnly.common.controller.BaseController;
 import com.lnly.common.model.AdminDict;
 import com.lnly.common.model.CountryCompensationDetail;
+import com.lnly.common.model.SmallClass;
 import com.lnly.common.model.UUser;
 import com.lnly.common.utils.LoggerUtils;
 import com.lnly.common.utils.OSInfo;
@@ -16,6 +18,7 @@ import com.lnly.common.utils.poi.ExcelWorkSheetHandler;
 import com.lnly.core.mybatis.page.PageEntity;
 import com.lnly.core.mybatis.page.Pagination;
 import com.lnly.user.service.UUserService;
+import com.mchange.v2.log.LogUtils;
 import net.sf.json.JSONObject;
 import org.apache.http.HttpRequest;
 import org.apache.http.HttpResponse;
@@ -75,6 +78,9 @@ public class CountryCompensationDetailController extends BaseController {
     UUserService userService;
     @Autowired
     AdminDictService adminDictService;
+
+    @Autowired
+    SmallClassService smallClassService;
 
     private static int iEcho = 0;
 
@@ -144,6 +150,7 @@ public class CountryCompensationDetailController extends BaseController {
 
         }
 
+        System.out.println("$$$$$$$$$$$$$$$$$$$$$$$$$$$$$: " + map.get("searchContent"));
 
         List<CountryCompensationDetail> countryCompensationStandards = null;
         int total = 0;
@@ -303,6 +310,9 @@ public class CountryCompensationDetailController extends BaseController {
         String fileName = "";
         String email = request.getParameter("email");
         LoggerUtils.debug(getClass(),"############# "+ email);
+        Map<String, String> errorMap = new HashMap<>();
+
+        Map<String, Double> areaMap = new HashMap<>();
         try {
             //获取解析器
             CommonsMultipartResolver resolver = new CommonsMultipartResolver();
@@ -346,6 +356,11 @@ public class CountryCompensationDetailController extends BaseController {
                     AdminDict adminDictH =   adminDictService.findByDictCode(adminDict.getHighDict());
                     //解析数据
                     List<CountryCompensationDetail> list =   processExcel(localFile);
+
+                    List<CountryCompensationDetail> insertList =   new ArrayList<>();
+
+
+
                     if(null != list){
                         for  (CountryCompensationDetail entity : list){
                             if(!entity.getTown().equalsIgnoreCase(dict.getDictName())){
@@ -358,13 +373,68 @@ public class CountryCompensationDetailController extends BaseController {
                             entity.setCheckFlag("0");
                             entity.setCreateUser(user.getEmail());
                             entity.setUpdateUser(user.getEmail());
-                            countryCompensationDetailService.insert(entity);
+                            double bc = Double.parseDouble(entity.getCompensationStandard()) * Double.parseDouble(entity.getArea());
+                            entity.setCompensationAmount(""+bc);
+
+                            //获取小班面积
+                            SmallClass reqSmall =  new SmallClass();
+                            reqSmall.setYear(entity.getYear());
+                            reqSmall.setCounty(entity.getCounty());
+                            reqSmall.setCity(entity.getCity());
+                            reqSmall.setVillage(entity.getVillage());
+                            reqSmall.setTown(entity.getTown());
+                            reqSmall.setForestClass(entity.getForestClass());
+                            reqSmall.setSmallClass(entity.getSmallClass());
+                            SmallClass smallClass = smallClassService.findSmallList(reqSmall).get(0);
+
+                            Double smallClassArea = smallClass.getArea();
+
+                            if(null == smallClassArea){
+                                errorMap.put(buildKey(entity), "small class data not exist");
+                                throw new Exception(buildKey(entity));
+                            }
+
+                            Double areaDb = countryCompensationDetailService.findSmallClassData(entity);
+
+
+                            if(null == areaDb){
+                                areaDb = 0.00;
+                            }
+
+                            LoggerUtils.debug(getClass(), "areaDb: " + areaDb.doubleValue());
+
+                            if(areaMap.containsKey(buildKey(entity))){
+                                Double importArea =  areaMap.get(buildKey(entity));
+                                areaDb = areaDb + importArea;
+
+                                areaMap.put(buildKey(entity), importArea + Double.parseDouble(entity.getArea()));
+                            }else{
+                                areaMap.put(buildKey(entity),Double.parseDouble(entity.getArea()));
+                            }
+
+                            if(areaDb > smallClassArea){
+                                errorMap.put("import data error", buildKey(entity) + " area");
+                            }else{
+                                insertList.add(entity);
+                            }
+
+
                         }
                     }
 
+                    if(errorMap.isEmpty()){
+                        countryCompensationDetailService.insertList(insertList);
+                        resultMap.put("status", 200);
+                        resultMap.put("message", "操作成功!");
+                    }else {
+                        resultMap.put("status", 500);
+                        resultMap.put("message", "操作失败!" + errorMap.toString());
 
-                    resultMap.put("status", 200);
-                    resultMap.put("message", "操作成功!");
+                    }
+
+
+
+
                 }
             }
 
@@ -372,7 +442,7 @@ public class CountryCompensationDetailController extends BaseController {
         } catch (Exception e) {
             resultMap.put("status", 500);
             resultMap.put("message", "操作失败!" + e.getMessage());
-            LoggerUtils.fmtError(getClass(), e, "操作失败。[%s]", fileName);
+            LoggerUtils.fmtError(getClass(), e, "操作失败。[%s]", errorMap.toString());
         }
 
         return resultMap;
@@ -470,6 +540,17 @@ public class CountryCompensationDetailController extends BaseController {
             }
         }
         return null;
+    }
+
+
+    private String buildKey(CountryCompensationDetail entity){
+        StringBuffer buffer = new StringBuffer();
+
+        buffer.append(entity.getTown()).append(entity.getVillage()).append(entity.getForestClass()).append(entity.getSmallClass());
+
+        return  buffer.toString();
+
+
     }
 }
 

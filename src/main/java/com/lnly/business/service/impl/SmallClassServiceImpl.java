@@ -65,5 +65,10 @@ public class SmallClassServiceImpl extends BaseMybatisDao<SmallClassMapper> impl
         return super.findPage("findAll", "findCount", params, pageNo, pageSize);
 	}
 
+    @Override
+    public List<SmallClass> findSmallList(SmallClass entity) throws Exception {
+        return smallClassMapper.findSmallList(entity);
+    }
+
 
 }

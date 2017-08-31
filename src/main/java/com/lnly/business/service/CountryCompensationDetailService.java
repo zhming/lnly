@@ -20,4 +20,8 @@ public interface CountryCompensationDetailService {
 	Pagination<CountryCompensationDetail> findByPage(Map<String, Object> resultMap, Integer pageNo,
                                                        Integer pageSize);
 
+	void insertList(List<CountryCompensationDetail> list)throws Exception;
+
+    Double findSmallClassData(CountryCompensationDetail entity) throws Exception;
+
 }

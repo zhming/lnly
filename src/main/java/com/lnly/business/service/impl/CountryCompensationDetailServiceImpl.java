@@ -10,7 +10,9 @@ import com.lnly.core.shiro.session.CustomSessionManager;
 import org.apache.commons.lang.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
+import java.sql.ResultSet;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -57,9 +59,33 @@ public class CountryCompensationDetailServiceImpl extends BaseMybatisDao<Country
 		return super.findPage("findAll","findCount",resultMap, pageNo, pageSize);
 	}
 
-	
+    @Override
+    @Transactional(rollbackFor = Exception.class)
+    public void insertList(List<CountryCompensationDetail> list) throws Exception {
+           for(CountryCompensationDetail entity : list){
+               countryCompensationStandardMapper.insert(entity);
+           }
+    }
+
+    @Override
+    public Double findSmallClassData(CountryCompensationDetail entity) throws Exception {
+
+        double result = 0.00;
+
+        List<CountryCompensationDetail> list = countryCompensationStandardMapper.findSmallClassData(entity);
+
+        if(null != list){
+            for(CountryCompensationDetail detail : list){
+                result += Double.parseDouble(detail.getArea());
+            }
+
+        }
 
 
+
+
+        return  result;
+    }
 
 
 }

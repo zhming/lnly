@@ -2,6 +2,7 @@ package com.lnly.common.dao;
 
 import com.lnly.common.model.CountryCompensationDetail;
 
+import java.sql.ResultSet;
 import java.util.List;
 
 /**
@@ -29,5 +30,7 @@ public interface CountryCompensationDetailMapper {
     int updateByPrimaryKey(CountryCompensationDetail record);
 
     List<CountryCompensationDetail> findAll();
+    List<CountryCompensationDetail> findSmallClassData(CountryCompensationDetail entity);
+
 
 }
