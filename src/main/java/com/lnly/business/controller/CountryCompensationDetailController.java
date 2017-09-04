@@ -24,6 +24,9 @@ import org.apache.http.HttpRequest;
 import org.apache.http.HttpResponse;
 import org.apache.poi.openxml4j.exceptions.InvalidFormatException;
 import org.apache.poi.openxml4j.opc.OPCPackage;
+import org.apache.poi.ss.usermodel.Sheet;
+import org.apache.poi.ss.usermodel.Workbook;
+import org.apache.poi.ss.usermodel.WorkbookFactory;
 import org.apache.poi.util.IOUtils;
 import org.joda.time.DateTime;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -117,9 +120,13 @@ public class CountryCompensationDetailController extends BaseController {
         iEcho++;
         String dictCode = request.getParameter("dictCode");
         LoggerUtils.debug(getClass(), "###################### " + dictCode);
+        
         Map<String, Object> map = new HashMap<>();
         if (StringUtils.isNotBlank(param.getSearchYear())) {
             map.put("year", param.getSearchYear());
+        }else{
+            DateTime dateTime = new DateTime();
+            map.put("year", dateTime.toString("yyyy"));
         }
 
         if (StringUtils.isNotBlank(param.getSearchContentFromSelect())
@@ -139,7 +146,7 @@ public class CountryCompensationDetailController extends BaseController {
                 if(StringUtils.isBlank(dictCode)){
                     dictCode = user.getDictCode();
                 }
-                if(!"210000".equalsIgnoreCase(user.getDictCode())){
+                if(!"210000".equalsIgnoreCase(dictCode)){
                     AdminDict dict = adminDictService.findByDictCode(dictCode);
                     map.put("searchContent", dict.getDictName());
                 }
@@ -305,12 +312,14 @@ public class CountryCompensationDetailController extends BaseController {
      * @param request
      * @param response
      */
-    @RequestMapping("/upload")
+    @RequestMapping(value ="upload", method = RequestMethod.POST)
+    @ResponseBody
     public Map<String, Object> upload2(HttpServletRequest request, HttpServletResponse response) {
         String fileName = "";
         String email = request.getParameter("email");
+        String year = request.getParameter("yearUpload");
         LoggerUtils.debug(getClass(),"############# "+ email);
-        Map<String, String> errorMap = new HashMap<>();
+        Map<Integer, String> errorMap = new HashMap<>();
 
         Map<String, Double> areaMap = new HashMap<>();
         try {
@@ -351,41 +360,45 @@ public class CountryCompensationDetailController extends BaseController {
                     //上传的文件写入到指定的文件中
                     file.transferTo(newFile);
                     UUser user = userService.findUserByEmail(email);
-                    AdminDict dict =   adminDictService.findByDictCode(user.getDictCode());
-                    AdminDict adminDict =   adminDictService.findByDictCode(user.getHighDictCode());
-                    AdminDict adminDictH =   adminDictService.findByDictCode(adminDict.getHighDict());
+                   
+
+
+
                     //解析数据
                     List<CountryCompensationDetail> list =   processExcel(localFile);
 
                     List<CountryCompensationDetail> insertList =   new ArrayList<>();
 
-
+                    int index = 0;
 
                     if(null != list){
-                        for  (CountryCompensationDetail entity : list){
-                            if(!entity.getTown().equalsIgnoreCase(dict.getDictName())){
-                                throw  new Exception("导入数据错误：乡" + entity.getTown());
+                        for  (int i = 0; i < list.size(); i++){
+                            CountryCompensationDetail entity = list.get(i);
+                            index = i + 1;
+
+                            //获取小班面积
+                            SmallClass reqSmall =  new SmallClass();
+                            reqSmall.setVillage(entity.getVillage());
+                            reqSmall.setTown(entity.getTown());
+                            reqSmall.setForestClass(entity.getForestClass());
+                            reqSmall.setSmallClass(entity.getSmallClass());
+                            SmallClass smallClass = smallClassService.findSmallList(reqSmall).get(0);
+
+                            if(null == smallClass){
+                                errorMap.put(index, entity.getTown());
+                                continue;
                             }
                             LoggerUtils.debug(getClass(), entity.toString());
-                            entity.setYear(new DateTime().toString("yyyy"));
-                            entity.setCity(adminDictH.getDictName());
-                            entity.setCounty(adminDict.getDictName());
+                            entity.setYear(year);
+                            entity.setCity(smallClass.getCity());
+                            entity.setCounty(smallClass.getCounty());
                             entity.setCheckFlag("0");
                             entity.setCreateUser(user.getEmail());
                             entity.setUpdateUser(user.getEmail());
                             double bc = Double.parseDouble(entity.getCompensationStandard()) * Double.parseDouble(entity.getArea());
                             entity.setCompensationAmount(""+bc);
 
-                            //获取小班面积
-                            SmallClass reqSmall =  new SmallClass();
-                            reqSmall.setYear(entity.getYear());
-                            reqSmall.setCounty(entity.getCounty());
-                            reqSmall.setCity(entity.getCity());
-                            reqSmall.setVillage(entity.getVillage());
-                            reqSmall.setTown(entity.getTown());
-                            reqSmall.setForestClass(entity.getForestClass());
-                            reqSmall.setSmallClass(entity.getSmallClass());
-                            SmallClass smallClass = smallClassService.findSmallList(reqSmall).get(0);
+
 
                             entity.setSource(smallClass.getSource());
 
@@ -393,8 +406,8 @@ public class CountryCompensationDetailController extends BaseController {
                             Double smallClassArea = smallClass.getArea();
 
                             if(null == smallClassArea){
-                                errorMap.put(buildKey(entity), "small class data not exist");
-                                throw new Exception(buildKey(entity));
+                                errorMap.put(index, "小班数据不存在");
+                                continue;
                             }
 
                             Double areaDb = countryCompensationDetailService.findSmallClassData(entity);
@@ -418,8 +431,12 @@ public class CountryCompensationDetailController extends BaseController {
 
                             LoggerUtils.debug(getClass(), "areaDb: " + areaDb.doubleValue() + "===" + smallClassArea.doubleValue());
                             if(areaDb.doubleValue() > smallClassArea.doubleValue()){
+                                if(errorMap.containsKey(index)){
+                                    errorMap.put(index, errorMap.get(index) + ", " + "面积错误："+entity.getArea()+" 小班标准面积为：" + smallClassArea + ", 已导入面积：" + (areaDb-Double.parseDouble(entity.getArea())));
+                                }else {
+                                    errorMap.put(index, "面积错误："+entity.getArea()+" 小班标准面积为：" + smallClassArea + ", 已导入面积：" + (areaDb-Double.parseDouble(entity.getArea())));
+                                }
 
-                                errorMap.put("import data error", buildKey(entity) + " area");
                             }else{
                                 insertList.add(entity);
                             }
@@ -435,7 +452,6 @@ public class CountryCompensationDetailController extends BaseController {
                     }else {
                         resultMap.put("status", 500);
                         resultMap.put("message", "操作失败!" + errorMap.toString());
-
                     }
 
 
@@ -451,6 +467,8 @@ public class CountryCompensationDetailController extends BaseController {
             LoggerUtils.fmtError(getClass(), e, "操作失败。[%s]", errorMap.toString());
         }
 
+        LoggerUtils.debug(getClass(), errorMap.toString());
+
         return resultMap;
     }
 
@@ -464,17 +482,19 @@ public class CountryCompensationDetailController extends BaseController {
 
         // Excel Cell Mapping
         Map<String, String> cellMapping = new HashMap<String, String>();
-        cellMapping.put("HEADER", "乡,村,林班,小班,户名,身份证号,汇款账号,面积(亩),补偿标准,是否发放");
-        cellMapping.put("A", "town");
-        cellMapping.put("B", "village");
-        cellMapping.put("C", "forestClass");
-        cellMapping.put("D", "smallClass");
-        cellMapping.put("E", "username");
-        cellMapping.put("F", "identityCard");
-        cellMapping.put("G", "remitNum");
-        cellMapping.put("H", "area");
-        cellMapping.put("I", "compensationStandard");
-        cellMapping.put("J", "sendFlag");
+        cellMapping.put("HEADER", "排列顺序号,乡,村,林班,小班,户名,身份证号码,汇款账号,面积,补偿标准,补偿金额,林木所有权,是否已发放,地类,起源,备注,土地所有权,细班,联户户名,汇款户名,小地名");
+        cellMapping.put("B", "town");
+        cellMapping.put("C", "village");
+        cellMapping.put("D", "forestClass");
+        cellMapping.put("E", "smallClass");
+        cellMapping.put("F", "username");
+        cellMapping.put("G", "identityCard");
+        cellMapping.put("H", "remitNum");
+        cellMapping.put("I", "area");
+        cellMapping.put("J", "compensationStandard");
+        cellMapping.put("K", "compensationAmount");
+        cellMapping.put("L", "forestBelong");
+        cellMapping.put("M", "sendFlag");
 
         // The package open is instantaneous, as it should be.
         OPCPackage pkg = null;

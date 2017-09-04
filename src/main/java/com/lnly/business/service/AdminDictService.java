@@ -15,4 +15,5 @@ public interface AdminDictService {
 
 	AdminDict findByDictCode(String dictCode) throws Exception;
 	AdminDict findById(Long id) throws Exception;
+    public List<Map<String, Object>> getAllDict(String dictCode) throws Exception;
 }

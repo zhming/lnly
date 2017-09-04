@@ -109,6 +109,7 @@
                                         <input type="hidden" id="searchContentFromSelect" name="searchContentFromSelect"
                                                value="${token.dictCode}" class="form-control input-small"
                                                style="width:150px" placeholder=""/>
+                                      
                                         <button id="go_search" class="btn btn-default">查询</button>
                                         <button id="addButton" onclick="viewAddModal();" class="btn btn-default">新增
                                         </button>
@@ -353,7 +354,11 @@
                             <form id="uploadForm" action="${basePath}/countryDetail/upload.shtml" method="post" enctype="multipart/form-data">
                                 <input type="file" id="fileUpload" name="fileUpload" />
                                 <input type="hidden" id="email" name="email" value="${token.email}"/>
+                                <input type="hidden" id="yearUpload" name="yearUpload"  />
+                                <input type="hidden" id="dictUpload" name="dictUpload"  />
+
                                 <input type="submit" value="上传文件" />
+
                             </form>
                         </div>
 
@@ -494,6 +499,8 @@
 
         $("#uploadForm").ajaxForm({
             success: function (result) {
+
+
                 layer.close(load);
                 if (result && result.status == 300) {
                     layer.msg(result.message, function () {
@@ -501,7 +508,15 @@
                     return !1;
                 }
                 if (result && result.status == 500) {
-                    layer.msg("操作失败！", function () {
+                   // layer.msg("操作失败！" + result.message, function () {});
+                    layer.open({
+                        content: "操作失败！" + result.message,
+                        yes: function(index, layero){
+                            //do something
+
+                            layer.close(index); //如果设定了yes回调，需进行手工关闭
+
+                        }
                     });
                     return !1;
                 }
@@ -510,10 +525,11 @@
             beforeSubmit: function () {
 
                 var reg=new RegExp(".xlsx$");
+                var regXls= new RegExp(".xls$");
                 var filePath =$("#fileUpload").val();
                console.log(filePath);
-               if(! reg.test(filePath)){
-                   layer.msg('导入文件必须是xlsx格式！', function () {
+               if(! reg.test(filePath) && !regXls.test(filePath)){
+                   layer.msg('导入文件必须是xlsx或xls格式！', function () {
                    });
                    return !1;
                }
@@ -813,7 +829,7 @@
         var yearSelect = $("#yearSelect").val();
         $("#filter_form [name='searchContentFromSelect']").val(nodeName);
         var type = $('input:radio:checked').val();
-        var tableTitle = nodeName + yearSelect + "年度地方补偿资金发放明细";
+        var tableTitle = nodeName + yearSelect + "年度国家补偿资金发放明细";
         $("#tableTitle").html(tableTitle);
         if (node.state.expanded) {
             //处于展开状态则折叠
@@ -830,6 +846,11 @@
     }
 
     function viewUploadModal() {
+        var yearSelect = $("#yearSelect").val();
+        $("#uploadForm [name='yearUpload']").val(yearSelect);
+
+        var dict =  $("#filter_form [name='searchContentFromSelect']").val();
+        $("#uploadForm [name='dictUpload']").val(dict);
         $('#uploadRecord').modal();
 
     }
@@ -899,6 +920,8 @@
         }
     }
 
+
+    
 
 
 </script>
