@@ -364,7 +364,7 @@ public class CountryCompensationDetailController extends BaseController {
                     if(null != list){
                         for  (CountryCompensationDetail entity : list){
                             if(!entity.getTown().equalsIgnoreCase(dict.getDictName())){
-                                throw  new Exception("导入数据错误：乡");
+                                throw  new Exception("导入数据错误：乡" + entity.getTown());
                             }
                             LoggerUtils.debug(getClass(), entity.toString());
                             entity.setYear(new DateTime().toString("yyyy"));
@@ -386,6 +386,9 @@ public class CountryCompensationDetailController extends BaseController {
                             reqSmall.setForestClass(entity.getForestClass());
                             reqSmall.setSmallClass(entity.getSmallClass());
                             SmallClass smallClass = smallClassService.findSmallList(reqSmall).get(0);
+
+                            entity.setSource(smallClass.getSource());
+
 
                             Double smallClassArea = smallClass.getArea();
 
@@ -409,10 +412,13 @@ public class CountryCompensationDetailController extends BaseController {
 
                                 areaMap.put(buildKey(entity), importArea + Double.parseDouble(entity.getArea()));
                             }else{
+                                areaDb = areaDb + Double.parseDouble(entity.getArea());
                                 areaMap.put(buildKey(entity),Double.parseDouble(entity.getArea()));
                             }
 
-                            if(areaDb > smallClassArea){
+                            LoggerUtils.debug(getClass(), "areaDb: " + areaDb.doubleValue() + "===" + smallClassArea.doubleValue());
+                            if(areaDb.doubleValue() > smallClassArea.doubleValue()){
+
                                 errorMap.put("import data error", buildKey(entity) + " area");
                             }else{
                                 insertList.add(entity);
@@ -458,7 +464,7 @@ public class CountryCompensationDetailController extends BaseController {
 
         // Excel Cell Mapping
         Map<String, String> cellMapping = new HashMap<String, String>();
-        cellMapping.put("HEADER", "乡,村,林班,小班,户名,身份证号码,汇款账号,面积(亩),补偿标准,是否发放");
+        cellMapping.put("HEADER", "乡,村,林班,小班,户名,身份证号,汇款账号,面积(亩),补偿标准,是否发放");
         cellMapping.put("A", "town");
         cellMapping.put("B", "village");
         cellMapping.put("C", "forestClass");

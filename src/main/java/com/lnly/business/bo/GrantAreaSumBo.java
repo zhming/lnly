@@ -19,6 +19,18 @@ import java.io.Serializable;
  */
 public class GrantAreaSumBo implements Serializable {
     private String dict;
+    private String grantArea10;
+    private String grantSum10;
+    private String grantArea11;
+    private String grantSum11;
+    private String grantArea12;
+    private String grantSum12;
+    private String grantArea13;
+    private String grantSum13;
+    private String grantArea14;
+    private String grantSum14;
+    private String grantArea15;
+    private String grantSum15;
     private String grantArea16;
     private String grantSum16;
     private String grantArea17;
@@ -134,5 +146,102 @@ public class GrantAreaSumBo implements Serializable {
 
     public void setGrantSum21(String grantSum21) {
         this.grantSum21 = grantSum21;
+    }
+
+
+    public String getGrantArea10() {
+        return grantArea10;
+    }
+
+    public void setGrantArea10(String grantArea10) {
+        this.grantArea10 = grantArea10;
+    }
+
+    public String getGrantSum10() {
+        return grantSum10;
+    }
+
+    public void setGrantSum10(String grantSum10) {
+        this.grantSum10 = grantSum10;
+    }
+
+    public String getGrantArea11() {
+        return grantArea11;
+    }
+
+    public void setGrantArea11(String grantArea11) {
+        this.grantArea11 = grantArea11;
+    }
+
+    public String getGrantSum11() {
+        return grantSum11;
+    }
+
+    public void setGrantSum11(String grantSum11) {
+        this.grantSum11 = grantSum11;
+    }
+
+    public String getGrantArea12() {
+        return grantArea12;
+    }
+
+    public void setGrantArea12(String grantArea12) {
+        this.grantArea12 = grantArea12;
+    }
+
+    public String getGrantSum12() {
+        return grantSum12;
+    }
+
+    public void setGrantSum12(String grantSum12) {
+        this.grantSum12 = grantSum12;
+    }
+
+    public String getGrantArea13() {
+        return grantArea13;
+    }
+
+    public void setGrantArea13(String grantArea13) {
+        this.grantArea13 = grantArea13;
+    }
+
+    public String getGrantSum13() {
+        return grantSum13;
+    }
+
+    public void setGrantSum13(String grantSum13) {
+        this.grantSum13 = grantSum13;
+    }
+
+    public String getGrantArea14() {
+        return grantArea14;
+    }
+
+    public void setGrantArea14(String grantArea14) {
+        this.grantArea14 = grantArea14;
+    }
+
+    public String getGrantSum14() {
+        return grantSum14;
+    }
+
+    public void setGrantSum14(String grantSum14) {
+        this.grantSum14 = grantSum14;
+    }
+
+    public String getGrantArea15() {
+        return grantArea15;
+    }
+
+    public void setGrantArea15(String grantArea15) {
+        this.grantArea15 = grantArea15;
+    }
+
+    public String getGrantSum15() {
+        return grantSum15;
+    }
+
+    public void setGrantSum15(String grantSum15) {
+        this.grantSum15 = grantSum15;
     }
 }

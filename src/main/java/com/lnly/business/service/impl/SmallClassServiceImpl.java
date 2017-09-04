@@ -6,8 +6,11 @@ import com.lnly.common.dao.AdminDictMapper;
 import com.lnly.common.dao.SmallClassMapper;
 import com.lnly.common.model.AdminDict;
 import com.lnly.common.model.SmallClass;
+import com.lnly.common.utils.LoggerUtils;
+import com.lnly.common.utils.SerializeUtil;
 import com.lnly.core.mybatis.BaseMybatisDao;
 import com.lnly.core.mybatis.page.Pagination;
+import com.lnly.core.shiro.cache.JedisManager;
 import com.lnly.core.shiro.session.CustomSessionManager;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -22,6 +25,15 @@ public class SmallClassServiceImpl extends BaseMybatisDao<SmallClassMapper> impl
    CustomSessionManager customSessionManager;
 	@Autowired
 	SmallClassMapper smallClassMapper;
+
+    public JedisManager jedisManager;
+
+    @Autowired
+    private static final String SMALL_CLASS_PRE = "small_class_pre_";
+
+    private static final int DB_INDEX = 1;
+
+    static final Class<SmallClassServiceImpl> SELF = SmallClassServiceImpl.class;
 
 	public SmallClassServiceImpl() {
 	}
@@ -67,8 +79,23 @@ public class SmallClassServiceImpl extends BaseMybatisDao<SmallClassMapper> impl
 
     @Override
     public List<SmallClass> findSmallList(SmallClass entity) throws Exception {
-        return smallClassMapper.findSmallList(entity);
+        List<SmallClass> result = null;
+        byte[] byteKey = SerializeUtil.serialize(buildCacheKey(entity.getTown() + entity.getVillage() + entity.getForestClass() + entity.getSmallClass()));
+        byte[] byteValue = new byte[0];
+        try {
+            byteValue = jedisManager.getValueByKey(DB_INDEX, byteKey);
+            result = (List<SmallClass>) SerializeUtil.deserialize(byteValue);
+            LoggerUtils.debug(SELF, "This value from cache!" + result.size());
+        } catch (Exception e) {
+             result = smallClassMapper.findSmallList(entity);
+            LoggerUtils.debug(SELF, "This value from DB!" + result.size());
+        }
+        return result;
     }
 
+
+    private String buildCacheKey(String key) {
+        return SMALL_CLASS_PRE + key;
+    }
 
 }

@@ -1,5 +1,6 @@
 package com.lnly.business.controller;
 
+import com.lnly.business.bo.GrantAreaSumBo;
 import com.lnly.business.bo.LocalZbdhJdBo;
 import com.lnly.business.bo.LocalZbdhJdPageEntity;
 import com.lnly.business.bo.SmallClassPageEntity;
@@ -192,6 +193,59 @@ public class ReportController {
         bo.setZbdhZb2("3500000");
         bo.setSjdhJe2("2500000");
         bo.setWcl2("78%");
+        result.add(bo);
+
+        Map<String, Object> resultMap = new HashMap<>();
+        resultMap.put("iEcho", iEcho);
+        resultMap.put("data", result);
+        resultMap.put("iDisplayLength", 10);
+        resultMap.put("iDisplayStart", 0);
+//
+        resultMap.put("recordsTotal", 1);
+        resultMap.put("recordsFiltered", 1);
+        resultMap.put("sColumns", ",,,,");
+        resultMap.put("iColumns", 12);
+        resultMap.put("message", "ok");
+//        resultMap.put("error", "no data");
+        return resultMap;
+
+
+
+    }
+
+
+
+
+    @RequestMapping(value = "findLocalGrantAreaSumReport", method = RequestMethod.POST)
+    @ResponseBody
+    public Map<String,Object> findLocalGrantAreaSumReport(LocalZbdhJdPageEntity param) {
+        iEcho++;
+        Long searchId = param.getSearchId();
+        String dictName = "";
+        String colum = "";
+        String dictCode = "";
+        AdminDict adminDictH = null;
+
+        List<GrantAreaSumBo> result = new ArrayList<>();
+        GrantAreaSumBo bo = new GrantAreaSumBo();
+        bo.setDict("辽宁省");
+        bo.setGrantArea10("356270.29");
+        bo.setGrantSum10("1030554.34");
+        bo.setGrantArea11("4699830.7");
+        bo.setGrantSum11("5319582.49");
+        bo.setGrantArea12("11222734.34");
+        bo.setGrantSum12("20977900.04");
+        bo.setGrantArea13("12989010.74");
+        bo.setGrantSum13("21077682.66");
+        bo.setGrantArea14("16149811.5");
+        bo.setGrantSum14("52041324.77");
+        bo.setGrantArea15("14638117.82");
+        bo.setGrantSum15("47448752.28");
+        bo.setGrantArea16("11446398.63");
+        bo.setGrantSum16("36947087.92");
+        bo.setGrantArea17("432482.54");
+        bo.setGrantSum17("1507355.17");
+
         result.add(bo);
 
         Map<String, Object> resultMap = new HashMap<>();
