@@ -8,9 +8,6 @@
   <component name="ChangeListManager">
     <list default="true" id="e5ab77ab-1618-47c7-82e4-0daea9cd7a57" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/lnly/business/controller/CountryCompensationDetailController.java" afterPath="$PROJECT_DIR$/src/main/java/com/lnly/business/controller/CountryCompensationDetailController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/lnly/business/service/AdminDictService.java" afterPath="$PROJECT_DIR$/src/main/java/com/lnly/business/service/AdminDictService.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/lnly/business/service/impl/AdminDictServiceImpl.java" afterPath="$PROJECT_DIR$/src/main/java/com/lnly/business/service/impl/AdminDictServiceImpl.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/ftl/business/countryCompensationDetail.ftl" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/ftl/business/countryCompensationDetail.ftl" />
     </list>
     <ignored path="$PROJECT_DIR$/target/" />
@@ -29,7 +26,64 @@
     <favorites_list name="shiro.demo" />
   </component>
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300" />
+    <leaf>
+      <file leaf-file-name="CountryCompensationDetailMapper.xml" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/lnly/common/mapper/CountryCompensationDetailMapper.xml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="152">
+              <caret line="52" column="53" lean-forward="true" selection-start-line="52" selection-start-column="53" selection-end-line="52" selection-end-column="53" />
+              <folding>
+                <marker date="1504550920836" expanded="true" signature="4335:4429" ph="select from tb_country_compensation_detail" />
+                <marker date="1504550920836" expanded="true" signature="4580:4632" ph="select count... tb_country_compensation_detail" />
+                <marker date="1504550920836" expanded="true" signature="4758:4852" ph="select from tb_country_compensation_detail" />
+                <marker date="1504550920836" expanded="true" signature="6045:6180" ph="select from tb_country_compensation_detail" />
+                <marker date="1504550920836" expanded="true" signature="6267:6346" ph="delete from " />
+                <marker date="1504550920836" expanded="true" signature="6505:8172" ph="insert into tb_country_compensation_detail... " />
+                <marker date="1504550920836" expanded="true" signature="8296:11316" ph="update tb_co... " />
+                <marker date="1504550920836" expanded="true" signature="11406:12547" ph="select * fro... type1" />
+                <marker date="1504550920836" expanded="true" signature="11420:11616" ph="select '0' a... tb_country_compensation_detail" />
+                <marker date="1504550920836" expanded="true" signature="11646:11853" ph="select '1' a... tb_country_compensation_detail" />
+                <marker date="1504550920836" expanded="true" signature="11883:12084" ph="select '2' a... tb_country_compensation_detail" />
+                <marker date="1504550920836" expanded="true" signature="12114:12311" ph="select '3' a... tb_country_compensation_detail" />
+                <marker date="1504550920836" expanded="true" signature="12340:12543" ph="select '4' a... tb_country_compensation_detail" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="CountryCompensationDetailController.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/lnly/business/controller/CountryCompensationDetailController.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="306">
+              <caret line="131" column="0" lean-forward="false" selection-start-line="131" selection-start-column="0" selection-end-line="131" selection-end-column="0" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="countryCompensationDetail.ftl" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/ftl/business/countryCompensationDetail.ftl">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="211">
+              <caret line="109" column="70" lean-forward="false" selection-start-line="109" selection-start-column="70" selection-end-line="109" selection-end-column="70" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="UUser.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/lnly/common/model/UUser.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="640">
+              <caret line="47" column="57" lean-forward="true" selection-start-line="47" selection-start-column="57" selection-end-line="47" selection-end-column="57" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -161,9 +215,9 @@
         <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/ftl/report/localGrantAreaSumReport.ftl" />
         <option value="$PROJECT_DIR$/src/main/java/com/lnly/business/service/AdminDictService.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/lnly/business/service/impl/AdminDictServiceImpl.java" />
-        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/ftl/business/countryCompensationDetail.ftl" />
         <option value="$PROJECT_DIR$/src/main/java/com/lnly/business/controller/CountryCompensationDetailController.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/lnly/common/mapper/CountryCompensationDetailMapper.xml" />
+        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/ftl/business/countryCompensationDetail.ftl" />
       </list>
     </option>
   </component>
@@ -252,8 +306,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="PackagesPane" />
-      <pane id="AndroidView" />
+      <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -303,6 +356,16 @@
               <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="java" type="462c0819:PsiDirectoryNode" />
               <item name="lnly" type="462c0819:PsiDirectoryNode" />
+              <item name="business" type="462c0819:PsiDirectoryNode" />
+              <item name="controller" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="shiro.demo" type="b2602c69:ProjectViewProjectNode" />
+              <item name="SpringMVC-Mybatis-Shiro-redis-0.2-master" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="lnly" type="462c0819:PsiDirectoryNode" />
               <item name="common" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -313,56 +376,7 @@
               <item name="java" type="462c0819:PsiDirectoryNode" />
               <item name="lnly" type="462c0819:PsiDirectoryNode" />
               <item name="common" type="462c0819:PsiDirectoryNode" />
-              <item name="mapper" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="shiro.demo" type="b2602c69:ProjectViewProjectNode" />
-              <item name="SpringMVC-Mybatis-Shiro-redis-0.2-master" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="lnly" type="462c0819:PsiDirectoryNode" />
-              <item name="core" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="shiro.demo" type="b2602c69:ProjectViewProjectNode" />
-              <item name="SpringMVC-Mybatis-Shiro-redis-0.2-master" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="lnly" type="462c0819:PsiDirectoryNode" />
-              <item name="core" type="462c0819:PsiDirectoryNode" />
-              <item name="shiro" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="shiro.demo" type="b2602c69:ProjectViewProjectNode" />
-              <item name="SpringMVC-Mybatis-Shiro-redis-0.2-master" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="lnly" type="462c0819:PsiDirectoryNode" />
-              <item name="core" type="462c0819:PsiDirectoryNode" />
-              <item name="shiro" type="462c0819:PsiDirectoryNode" />
-              <item name="session" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="shiro.demo" type="b2602c69:ProjectViewProjectNode" />
-              <item name="SpringMVC-Mybatis-Shiro-redis-0.2-master" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="lnly" type="462c0819:PsiDirectoryNode" />
-              <item name="permission" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="shiro.demo" type="b2602c69:ProjectViewProjectNode" />
-              <item name="SpringMVC-Mybatis-Shiro-redis-0.2-master" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="lnly" type="462c0819:PsiDirectoryNode" />
-              <item name="permission" type="462c0819:PsiDirectoryNode" />
-              <item name="controller" type="462c0819:PsiDirectoryNode" />
+              <item name="model" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="shiro.demo" type="b2602c69:ProjectViewProjectNode" />
@@ -372,16 +386,6 @@
               <item name="java" type="462c0819:PsiDirectoryNode" />
               <item name="lnly" type="462c0819:PsiDirectoryNode" />
               <item name="user" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="shiro.demo" type="b2602c69:ProjectViewProjectNode" />
-              <item name="SpringMVC-Mybatis-Shiro-redis-0.2-master" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="lnly" type="462c0819:PsiDirectoryNode" />
-              <item name="user" type="462c0819:PsiDirectoryNode" />
-              <item name="controller" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="shiro.demo" type="b2602c69:ProjectViewProjectNode" />
@@ -417,32 +421,13 @@
               <item name="ftl" type="462c0819:PsiDirectoryNode" />
               <item name="business" type="462c0819:PsiDirectoryNode" />
             </path>
-            <path>
-              <item name="shiro.demo" type="b2602c69:ProjectViewProjectNode" />
-              <item name="SpringMVC-Mybatis-Shiro-redis-0.2-master" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="webapp" type="462c0819:PsiDirectoryNode" />
-              <item name="WEB-INF" type="462c0819:PsiDirectoryNode" />
-              <item name="ftl" type="462c0819:PsiDirectoryNode" />
-              <item name="permission" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="shiro.demo" type="b2602c69:ProjectViewProjectNode" />
-              <item name="SpringMVC-Mybatis-Shiro-redis-0.2-master" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="webapp" type="462c0819:PsiDirectoryNode" />
-              <item name="WEB-INF" type="462c0819:PsiDirectoryNode" />
-              <item name="ftl" type="462c0819:PsiDirectoryNode" />
-              <item name="user" type="462c0819:PsiDirectoryNode" />
-            </path>
           </expand>
           <select />
         </subPane>
       </pane>
-      <pane id="Scratches" />
+      <pane id="PackagesPane" />
       <pane id="Scope" />
+      <pane id="AndroidView" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -1181,7 +1166,8 @@
       <workItem from="1504184158160" duration="13752000" />
       <workItem from="1504363184051" duration="6277000" />
       <workItem from="1504443681460" duration="5686000" />
-      <workItem from="1504480502159" duration="17486000" />
+      <workItem from="1504480502159" duration="18155000" />
+      <workItem from="1504550413537" duration="1458000" />
     </task>
     <task id="LOCAL-00001" summary="countryCompensationStandard">
       <created>1499265174948</created>
@@ -1477,11 +1463,18 @@
       <option name="project" value="LOCAL" />
       <updated>1504532667297</updated>
     </task>
-    <option name="localTasksCounter" value="43" />
+    <task id="LOCAL-00043" summary="import data ok">
+      <created>1504549253433</created>
+      <option name="number" value="00043" />
+      <option name="presentableId" value="LOCAL-00043" />
+      <option name="project" value="LOCAL" />
+      <updated>1504549253433</updated>
+    </task>
+    <option name="localTasksCounter" value="44" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="490319000" />
+    <option name="totallyTimeSpent" value="492446000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
@@ -1489,7 +1482,7 @@
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.57610995" sideWeight="0.2703125" order="8" side_tool="true" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32946146" sideWeight="0.5" order="14" side_tool="false" content_ui="tabs" />
-      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.108333334" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
+      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.108333334" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
@@ -1540,7 +1533,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="backup_db.sql readme" />
     <MESSAGE value="backup_db.sql" />
     <MESSAGE value="datatables search ok" />
     <MESSAGE value="补偿标准维护模块OK" />
@@ -1565,7 +1557,8 @@
     <MESSAGE value="修改上传校验部分" />
     <MESSAGE value="report打他" />
     <MESSAGE value="report data" />
-    <option name="LAST_COMMIT_MESSAGE" value="report data" />
+    <MESSAGE value="import data ok" />
+    <option name="LAST_COMMIT_MESSAGE" value="import data ok" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1581,12 +1574,6 @@
           <line>101</line>
           <properties />
           <option name="timeStamp" value="57" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/com/lnly/business/controller/CountryCompensationDetailController.java</url>
-          <line>131</line>
-          <properties />
-          <option name="timeStamp" value="82" />
         </line-breakpoint>
       </breakpoints>
       <breakpoints-dialog>
@@ -1668,13 +1655,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/lnly/common/model/UUser.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="184">
-          <caret line="41" column="59" lean-forward="true" selection-start-line="41" selection-start-column="59" selection-end-line="41" selection-end-column="59" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/lnly/common/model/SmallClass.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="133">
@@ -1753,10 +1733,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1235">
           <caret line="82" column="0" lean-forward="false" selection-start-line="82" selection-start-column="0" selection-end-line="82" selection-end-column="0" />
-          <folding>
-            <element signature="e#3381#3382#0" expanded="false" />
-            <element signature="e#3425#3426#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1771,7 +1747,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="2581">
           <caret line="315" column="57" lean-forward="true" selection-start-line="315" selection-start-column="57" selection-end-line="315" selection-end-column="57" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1795,7 +1770,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-1938">
           <caret line="44" column="22" lean-forward="false" selection-start-line="44" selection-start-column="22" selection-end-line="44" selection-end-column="22" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1835,7 +1809,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="154">
           <caret line="166" column="3" lean-forward="false" selection-start-line="166" selection-start-column="3" selection-end-line="166" selection-end-column="3" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1939,7 +1912,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="76">
           <caret line="7" column="48" lean-forward="false" selection-start-line="7" selection-start-column="48" selection-end-line="7" selection-end-column="48" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1947,7 +1919,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-28">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1955,7 +1926,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1975,40 +1945,48 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/lnly/common/mapper/CountryCompensationDetailMapper.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="152">
+          <caret line="52" column="53" lean-forward="true" selection-start-line="52" selection-start-column="53" selection-end-line="52" selection-end-column="53" />
+          <folding>
+            <marker date="1504550920836" expanded="true" signature="4335:4429" ph="select from tb_country_compensation_detail" />
+            <marker date="1504550920836" expanded="true" signature="4580:4632" ph="select count... tb_country_compensation_detail" />
+            <marker date="1504550920836" expanded="true" signature="4758:4852" ph="select from tb_country_compensation_detail" />
+            <marker date="1504550920836" expanded="true" signature="6045:6180" ph="select from tb_country_compensation_detail" />
+            <marker date="1504550920836" expanded="true" signature="6267:6346" ph="delete from " />
+            <marker date="1504550920836" expanded="true" signature="6505:8172" ph="insert into tb_country_compensation_detail... " />
+            <marker date="1504550920836" expanded="true" signature="8296:11316" ph="update tb_co... " />
+            <marker date="1504550920836" expanded="true" signature="11406:12547" ph="select * fro... type1" />
+            <marker date="1504550920836" expanded="true" signature="11420:11616" ph="select '0' a... tb_country_compensation_detail" />
+            <marker date="1504550920836" expanded="true" signature="11646:11853" ph="select '1' a... tb_country_compensation_detail" />
+            <marker date="1504550920836" expanded="true" signature="11883:12084" ph="select '2' a... tb_country_compensation_detail" />
+            <marker date="1504550920836" expanded="true" signature="12114:12311" ph="select '3' a... tb_country_compensation_detail" />
+            <marker date="1504550920836" expanded="true" signature="12340:12543" ph="select '4' a... tb_country_compensation_detail" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/ftl/business/countryCompensationDetail.ftl">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="211">
-          <caret line="532" column="76" lean-forward="true" selection-start-line="532" selection-start-column="76" selection-end-line="532" selection-end-column="76" />
+          <caret line="109" column="70" lean-forward="false" selection-start-line="109" selection-start-column="70" selection-end-line="109" selection-end-column="70" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/lnly/common/mapper/CountryCompensationDetailMapper.xml">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/lnly/common/model/UUser.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="133">
-          <caret line="51" column="105" lean-forward="true" selection-start-line="51" selection-start-column="105" selection-end-line="51" selection-end-column="105" />
-          <folding>
-            <marker date="1504549071175" expanded="true" signature="4335:4429" ph="select from tb_country_compensation_detail" />
-            <marker date="1504549071175" expanded="true" signature="4580:4632" ph="select count... tb_country_compensation_detail" />
-            <marker date="1504549071175" expanded="true" signature="4758:4852" ph="select from tb_country_compensation_detail" />
-            <marker date="1504549071175" expanded="true" signature="6045:6180" ph="select from tb_country_compensation_detail" />
-            <marker date="1504549071175" expanded="true" signature="6267:6346" ph="delete from " />
-            <marker date="1504549071175" expanded="true" signature="6505:8172" ph="insert into tb_country_compensation_detail... " />
-            <marker date="1504549071175" expanded="true" signature="8296:11316" ph="update tb_co... " />
-            <marker date="1504549071175" expanded="true" signature="11406:12547" ph="select * fro... type1" />
-            <marker date="1504549071175" expanded="true" signature="11420:11616" ph="select '0' a... tb_country_compensation_detail" />
-            <marker date="1504549071175" expanded="true" signature="11646:11853" ph="select '1' a... tb_country_compensation_detail" />
-            <marker date="1504549071175" expanded="true" signature="11883:12084" ph="select '2' a... tb_country_compensation_detail" />
-            <marker date="1504549071175" expanded="true" signature="12114:12311" ph="select '3' a... tb_country_compensation_detail" />
-            <marker date="1504549071175" expanded="true" signature="12340:12543" ph="select '4' a... tb_country_compensation_detail" />
-          </folding>
+        <state relative-caret-position="640">
+          <caret line="47" column="57" lean-forward="true" selection-start-line="47" selection-start-column="57" selection-end-line="47" selection-end-column="57" />
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/lnly/business/controller/CountryCompensationDetailController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="344">
-          <caret line="139" column="12" lean-forward="true" selection-start-line="139" selection-start-column="12" selection-end-line="139" selection-end-column="12" />
+        <state relative-caret-position="306">
+          <caret line="131" column="0" lean-forward="false" selection-start-line="131" selection-start-column="0" selection-end-line="131" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>

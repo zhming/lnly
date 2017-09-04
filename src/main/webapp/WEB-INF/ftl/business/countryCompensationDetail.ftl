@@ -107,7 +107,7 @@
                                         <input type="hidden" id="searchYear" name="searchYear" value=""
                                                class="form-control input-small" style="width:150px" placeholder=""/>
                                         <input type="hidden" id="searchContentFromSelect" name="searchContentFromSelect"
-                                               value="${token.dictCode}" class="form-control input-small"
+                                               value="${token.nickname}" class="form-control input-small"
                                                style="width:150px" placeholder=""/>
                                       
                                         <button id="go_search" class="btn btn-default">查询</button>
