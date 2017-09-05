@@ -1,9 +1,6 @@
 package com.lnly.business.controller;
 
-import com.lnly.business.bo.GrantAreaSumBo;
-import com.lnly.business.bo.LocalZbdhJdBo;
-import com.lnly.business.bo.LocalZbdhJdPageEntity;
-import com.lnly.business.bo.SmallClassPageEntity;
+import com.lnly.business.bo.*;
 import com.lnly.business.service.AdminDictService;
 import com.lnly.business.service.SmallClassService;
 import com.lnly.common.model.AdminDict;
@@ -119,6 +116,16 @@ public class ReportController {
         return new ModelAndView("report/grantOkAreaSumDetail");
     }
 
+
+    @RequestMapping(value = "localZbdhDataInputReport", method = RequestMethod.GET)
+    public ModelAndView localZbdhDataInputReport(){
+        return new ModelAndView("report/localZbdhDataInputReport");
+    }
+
+    @RequestMapping(value = "countryZbdhDataInputReport", method = RequestMethod.GET)
+    public ModelAndView countryZbdhDataInputReport(){
+        return new ModelAndView("report/countryZbdhDataInputReport");
+    }
 
 
 
@@ -246,6 +253,89 @@ public class ReportController {
         bo.setGrantArea17("432482.54");
         bo.setGrantSum17("1507355.17");
 
+        result.add(bo);
+
+        Map<String, Object> resultMap = new HashMap<>();
+        resultMap.put("iEcho", iEcho);
+        resultMap.put("data", result);
+        resultMap.put("iDisplayLength", 10);
+        resultMap.put("iDisplayStart", 0);
+//
+        resultMap.put("recordsTotal", 1);
+        resultMap.put("recordsFiltered", 1);
+        resultMap.put("sColumns", ",,,,");
+        resultMap.put("iColumns", 12);
+        resultMap.put("message", "ok");
+//        resultMap.put("error", "no data");
+        return resultMap;
+
+
+
+    }
+
+
+    @RequestMapping(value = "findLocalZbdhDataInputReport", method = RequestMethod.POST)
+    @ResponseBody
+    public Map<String,Object> findLocalZbdhDataInputReport(LocalZbdhJdPageEntity param) {
+        iEcho++;
+        Long searchId = param.getSearchId();
+        String dictName = "";
+        String colum = "";
+        String dictCode = "";
+        AdminDict adminDictH = null;
+
+        List<DataInputBo> result = new ArrayList<>();
+        DataInputBo bo = new DataInputBo();
+        bo.setDict("辽宁省");
+        bo.setInput10("5926563.65");
+        bo.setInput11("23227241.21");
+        bo.setInput12("26995151.91");
+        bo.setInput13("27760933.83");
+        bo.setInput14("56419379.95");
+        bo.setInput15("53610884.20");
+        bo.setInput16("49350641.79");
+        bo.setInput17("1656494.20");
+        result.add(bo);
+
+        Map<String, Object> resultMap = new HashMap<>();
+        resultMap.put("iEcho", iEcho);
+        resultMap.put("data", result);
+        resultMap.put("iDisplayLength", 10);
+        resultMap.put("iDisplayStart", 0);
+//
+        resultMap.put("recordsTotal", 1);
+        resultMap.put("recordsFiltered", 1);
+        resultMap.put("sColumns", ",,,,");
+        resultMap.put("iColumns", 12);
+        resultMap.put("message", "ok");
+//        resultMap.put("error", "no data");
+        return resultMap;
+
+
+
+    }
+
+    @RequestMapping(value = "findCountryZbdhDataInputReport", method = RequestMethod.POST)
+    @ResponseBody
+    public Map<String,Object> findCountryZbdhDataInputReport(LocalZbdhJdPageEntity param) {
+        iEcho++;
+        Long searchId = param.getSearchId();
+        String dictName = "";
+        String colum = "";
+        String dictCode = "";
+        AdminDict adminDictH = null;
+
+        List<DataInputBo> result = new ArrayList<>();
+        DataInputBo bo = new DataInputBo();
+        bo.setDict("辽宁省");
+        bo.setInput10("5926563.65");
+        bo.setInput11("23227241.21");
+        bo.setInput12("26995151.91");
+        bo.setInput13("27760933.83");
+        bo.setInput14("56419379.95");
+        bo.setInput15("53610884.20");
+        bo.setInput16("49350641.79");
+        bo.setInput17("1656494.20");
         result.add(bo);
 
         Map<String, Object> resultMap = new HashMap<>();

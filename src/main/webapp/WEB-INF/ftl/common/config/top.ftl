@@ -46,6 +46,10 @@
                           <li><a href="${basePath}/report/countryGrantAreaSumReport.shtml">国家公益林直补到户发放面积与金额汇总报表</a></li>
                           <li><a href="${basePath}/report/grantOkAreaSumDetail.shtml">国家及地方直补到户资金发放明细</a></li>
                           <li><a href="${basePath}/report/grantNoOkAreaSumDetail.shtml">国家及地方直补到户资金未发放明细</a></li>
+                          <li><a href="${basePath}/report/localGrantAreaSumResearchReport.shtml">地方公益林直补到户调查面积与金额汇总报表</a></li>
+                          <li><a href="${basePath}/report/countryGrantAreaSumResearchReport.shtml">国家公益林直补到户调查面积与金额汇总报表</a></li>
+                          <li><a href="${basePath}/report/localZbdhDataInputReport.shtml">地方公益林直补到户相关数据录入率统计表</a></li>
+                          <li><a href="${basePath}/report/countryZbdhDataInputReport.shtml">国家公益林直补到户相关数据录入率统计表</a></li>
                           <li><a href="${basePath}/smallClass/smallClassDataDetail.shtml">国家及地方小班数据明细</a></li>
 
                       </ul>

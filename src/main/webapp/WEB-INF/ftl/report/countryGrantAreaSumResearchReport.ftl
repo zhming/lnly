@@ -123,12 +123,12 @@
                         <tr align="center">
                             <th rowspan="2" align="center">序号</th>
                             <th rowspan="2" align="center">单位</th>
-                            <th colspan="3" align="center">2016年</th>
-                            <th colspan="3" align="center">2017年</th>
-                            <th colspan="3" align="center">2018年</th>
-                            <th colspan="3" align="center">2019年</th>
-                            <th colspan="3" align="center">2020年</th>
-                            <th colspan="3" align="center">2021年</th>
+                            <th colspan="2" align="center">2016年</th>
+                            <th colspan="2" align="center">2017年</th>
+                            <th colspan="2" align="center">2018年</th>
+                            <th colspan="2" align="center">2019年</th>
+                            <th colspan="2" align="center">2020年</th>
+                            <th colspan="2" align="center">2021年</th>
                         </tr>
                         <tr align="center">
                             <th>发放明细面积汇总(亩)</th>

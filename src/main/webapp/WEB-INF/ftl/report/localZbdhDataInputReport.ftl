@@ -2,7 +2,7 @@
 <html lang="zh-cn">
 <head>
     <meta charset="utf-8"/>
-    <title>辽宁省林业厅生态公益林管理系统-地方公益林直补到户调查面积与金额汇总报表</title>
+    <title>辽宁省林业厅生态公益林管理系统-地方公益林直补到户相关数据录入率统计表</title>
     <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport"/>
     <link rel="icon" href="${basePath}/favicon.ico" type="image/x-icon"/>
     <link rel="shortcut icon" href="${basePath}/favicon.ico"/>
@@ -74,7 +74,7 @@
     <div class="row" style="margin-lef: -10px;">
 
         <div class="col-md-12">
-            <h2>地方公益林直补到户调查面积与金额汇总报表</h2>
+            <h2>地方公益林直补到户相关数据录入率统计表</h2>
             <hr>
 
         </div>
@@ -123,26 +123,41 @@
                         <tr align="center">
                             <th rowspan="2" align="center">序号</th>
                             <th rowspan="2" align="center">单位</th>
-                            <th colspan="2" align="center">2016年</th>
-                            <th colspan="2" align="center">2017年</th>
-                            <th colspan="2" align="center">2018年</th>
-                            <th colspan="2" align="center">2019年</th>
-                            <th colspan="2" align="center">2020年</th>
-                            <th colspan="2" align="center">2021年</th>
+                            <th colspan="3" align="center">2010年</th>
+                            <th colspan="3" align="center">2011年</th>
+                            <th colspan="3" align="center">2012年</th>
+                            <th colspan="3" align="center">2013年</th>
+                            <th colspan="3" align="center">2014年</th>
+                            <th colspan="3" align="center">2015年</th>
+                            <th colspan="3" align="center">2016年</th>
+                            <th colspan="3" align="center">2017年</th>
                         </tr>
                         <tr align="center">
-                            <th>发放明细面积汇总(亩)</th>
-                            <th>发放明细金额汇总(元)</th>
-                            <th>发放明细面积汇总(亩)</th>
-                            <th>发放明细金额汇总(元)</th>
-                            <th>发放明细面积汇总(亩)</th>
-                            <th>发放明细金额汇总(元)</th>
-                            <th>发放明细面积汇总(亩)</th>
-                            <th>发放明细金额汇总(元)</th>
-                            <th>发放明细面积汇总(亩)</th>
-                            <th>发放明细金额汇总(元)</th>
-                            <th>发放明细面积汇总(亩)</th>
-                            <th>发放明细金额汇总(元)</th>
+                            <th>调查金额汇总(元)</th>
+                            <th>指标金额汇总(元)</th>
+                            <th>录入率百分率%</th>
+                            <th>调查金额汇总(元)</th>
+                            <th>指标金额汇总(元)</th>
+                            <th>录入率百分率%</th>
+                            <th>调查金额汇总(元)</th>
+                            <th>指标金额汇总(元)</th>
+                            <th>录入率百分率%</th>
+                            <th>调查金额汇总(元)</th>
+                            <th>指标金额汇总(元)</th>
+                            <th>录入率百分率%</th>
+                            <th>调查金额汇总(元)</th>
+                            <th>指标金额汇总(元)</th>
+                            <th>录入率百分率%</th>
+                            <th>调查金额汇总(元)</th>
+                            <th>指标金额汇总(元)</th>
+                            <th>录入率百分率%</th>
+                            <th>调查金额汇总(元)</th>
+                            <th>指标金额汇总(元)</th>
+                            <th>录入率百分率%</th>
+                            <th>调查金额汇总(元)</th>
+                            <th>指标金额汇总(元)</th>
+                            <th>录入率百分率%</th>
+                         
 
                         </tr>
                        
@@ -212,7 +227,7 @@
             autoWidth: false, //启用或者禁止自动列宽的计算
             ajax: {//类似jquery的ajax参数，基本都可以用。
                 type: "post",//后台指定了方式，默认get，外加datatable默认构造的参数很长，有可能超过get的最大长度。
-                url: "${basePath}/report/findContryZbdhJd.shtml",
+                url: "${basePath}/report/findLocalZbdhDataInputReport.shtml",
                 dataSrc: "data",//默认data，也可以写其他的，格式化table的时候取里面的数据
                 data: function (d) {//d 是原始的发送给服务器的数据，默认很长。
                     var param = {};//因为服务端排序，可以新建一个参数对象
@@ -243,52 +258,136 @@
                     data: "dict"
                 },
                 {
-                    data: "grantArea16",
-                    "sTitle": "发放明细面积汇总(亩)"
+                    data: "input10"
+//                    "sTitle": "调查金额汇总(元)"
                 },
                 {
-                    data: "grantSum16",
-                    "sTitle": "发放明细金额汇总(元)"
+                    data: "standard10"
+//                    "sTitle": "指标金额汇总(元))"
                 },
                 {
-                    data: "grantArea17",
-                    "sTitle": "发放明细面积汇总(亩)"
+                    data: "percent10"
+//                    "sTitle": "录入率百分率%"
                 },
                 {
-                    data: "grantSum17",
-                    "sTitle": "发放明细金额汇总(元)"
+                    data: "input11"
+//                    "sTitle": "调查金额汇总(元)"
                 },
                 {
-                    data: "grantArea18",
-                    "sTitle": "发放明细面积汇总(亩)"
+                    data: "standard11"
+//                    "sTitle": "指标金额汇总(元))"
                 },
                 {
-                    data: "grantSum18",
-                    "sTitle": "发放明细金额汇总(元)"
+                    data: "percent11"
+//                    "sTitle": "录入率百分率%"
                 },
                 {
-                    data: "grantArea19",
-                    "sTitle": "发放明细面积汇总(亩)"
+                    data: "input12"
+//                    "sTitle": "调查金额汇总(元)"
                 },
                 {
-                    data: "grantSum19",
-                    "sTitle": "发放明细金额汇总(元)"
+                    data: "standard12"
+//                    "sTitle": "指标金额汇总(元))"
                 },
                 {
-                    data: "grantArea20",
-                    "sTitle": "发放明细面积汇总(亩)"
+                    data: "percent12"
+//                    "sTitle": "录入率百分率%"
                 },
                 {
-                    data: "grantSum20",
-                    "sTitle": "发放明细金额汇总(元)"
+                    data: "input13"
+//                    "sTitle": "调查金额汇总(元)"
                 },
                 {
-                    data: "grantArea21",
-                    "sTitle": "发放明细面积汇总(亩)"
+                    data: "standard13"
+//                    "sTitle": "指标金额汇总(元))"
                 },
                 {
-                    data: "grantSum21",
-                    "sTitle": "发放明细金额汇总(元)"
+                    data: "percent13"
+//                    "sTitle": "录入率百分率%"
+                },
+                {
+                    data: "input14"
+//                    "sTitle": "调查金额汇总(元)"
+                },
+                {
+                    data: "standard14"
+//                    "sTitle": "指标金额汇总(元))"
+                },
+                {
+                    data: "percent14"
+//                    "sTitle": "录入率百分率%"
+                },
+                {
+                    data: "input15"
+//                    "sTitle": "调查金额汇总(元)"
+                },
+                {
+                    data: "standard16"
+//                    "sTitle": "指标金额汇总(元))"
+                },
+                {
+                    data: "percent16"
+//                    "sTitle": "录入率百分率%"
+                },
+                {
+                    data: "input17"
+//                    "sTitle": "调查金额汇总(元)"
+                },
+                {
+                    data: "standard17"
+//                    "sTitle": "指标金额汇总(元))"
+                },
+                {
+                    data: "percent17"
+//                    "sTitle": "录入率百分率%"
+                },
+                {
+                    data: "input18"
+//                    "sTitle": "调查金额汇总(元)"
+                },
+                {
+                    data: "standard18"
+//                    "sTitle": "指标金额汇总(元))"
+                },
+                {
+                    data: "percent18"
+//                    "sTitle": "录入率百分率%"
+                },
+                {
+                    data: "input19"
+//                    "sTitle": "调查金额汇总(元)"
+                },
+                {
+                    data: "standard19"
+//                    "sTitle": "指标金额汇总(元))"
+                },
+                {
+                    data: "percent19"
+//                    "sTitle": "录入率百分率%"
+                },
+                {
+                    data: "input20"
+//                    "sTitle": "调查金额汇总(元)"
+                },
+                {
+                    data: "standard20"
+//                    "sTitle": "指标金额汇总(元))"
+                },
+                {
+                    data: "percent20"
+//                    "sTitle": "录入率百分率%"
+                },
+                {
+                    data: "input21"
+//                    "sTitle": "调查金额汇总(元)"
+                },
+                {
+                    data: "standard21"
+//                    "sTitle": "指标金额汇总(元))"
+                },
+                {
+                    data: "percent21"
+//                    "sTitle": "录入率百分率%"
                 }
                 /*
                 ,
@@ -381,7 +480,7 @@
         $("#filter_form [name='searchYear']").val(yearSelect);
 
         var type = $('input:radio:checked').val();
-        var tableTitle = nodeName + "地方公益林直补到户调查面积与金额汇总报表";
+        var tableTitle = nodeName + "地方公益林直补到户相关数据录入率统计表";
         $("#tableTitle").html(tableTitle);
         if (node.state.expanded) {
             //处于展开状态则折叠
