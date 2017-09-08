@@ -9,7 +9,10 @@ import org.apache.commons.lang3.StringUtils;
 import org.apache.poi.hssf.usermodel.*;
 import org.apache.poi.ss.usermodel.Cell;
 import org.apache.poi.ss.usermodel.Row;
+import org.apache.poi.ss.usermodel.Sheet;
+import org.apache.poi.ss.usermodel.Workbook;
 import org.apache.poi.ss.util.CellReference;
+import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -442,14 +445,20 @@ public class ExcelUtil {
     @SuppressWarnings("unchecked")
     public static <T> Collection<T> importExcel(Class<T> clazz, InputStream inputStream,
                                                 String pattern, ExcelLogs logs, Integer... arrayCount) {
-        HSSFWorkbook workBook = null;
+        Workbook workBook = null;
         try {
             workBook = new HSSFWorkbook(inputStream);
         } catch (IOException e) {
+            try {
+                workBook = new XSSFWorkbook(inputStream);
+            } catch (IOException e1) {
+                LG.error(e.toString(), e);
+            }
             LG.error(e.toString(), e);
+
         }
         List<T> list = new ArrayList<T>();
-        HSSFSheet sheet = workBook.getSheetAt(0);
+        Sheet sheet = workBook.getSheetAt(0);
         Iterator<Row> rowIterator = sheet.rowIterator();
         try {
             List<ExcelLog> logList = new ArrayList<ExcelLog>();
@@ -730,17 +739,99 @@ public class ExcelUtil {
         }
     }
 
-    @SuppressWarnings("rawtypes")
-    public static void main(String[] args) throws FileNotFoundException {
-        File f=new File("d:/temp/bbbb.xls");
-        InputStream inputStream= new FileInputStream(f);
 
-        ExcelLogs logs =new ExcelLogs();
-        Collection<Map> importExcel = ExcelUtil.importExcel(Map.class, inputStream, "yyyy/MM/dd HH:mm:ss", logs , 0);
+    /**
+     * 适用于第一行是标题行的excel，例如
+     * 姓名   年龄  性别  身高
+     * 张三   25  男   175
+     * 李四   22  女   160
+     * 每一行构成一个map，key值是列标题，value是列值。没有值的单元格其value值为null
+     * 返回结果最外层的list对应一个excel文件，第二层的list对应一个sheet页，第三层的map对应sheet页中的一行
+     * @throws Exception
+     */
+    public static List<List<Map<String, String>>> readExcelWithTitle(String filepath) throws Exception{
+        String fileType = filepath.substring(filepath.lastIndexOf(".") + 1, filepath.length());
+        InputStream is = null;
+        Workbook wb = null;
+        try {
+            is = new FileInputStream(filepath);
 
-        for(Map m : importExcel){
-            System.out.println(m);
+            if (fileType.equals("xls")) {
+                wb = new HSSFWorkbook(is);
+            } else if (fileType.equals("xlsx")) {
+                wb = new XSSFWorkbook(is);
+            } else {
+                throw new Exception("读取的不是excel文件");
+            }
+
+            List<List<Map<String, String>>> result = new ArrayList<List<Map<String, String>>>();//对应excel文件
+
+            int sheetSize = wb.getNumberOfSheets();
+            for (int i = 0; i < sheetSize; i++) {//遍历sheet页
+                Sheet sheet = wb.getSheetAt(i);
+                List<Map<String, String>> sheetList = new ArrayList<Map<String, String>>();//对应sheet页
+
+                List<String> titles = new ArrayList<String>();//放置所有的标题
+
+                int rowSize = sheet.getLastRowNum() + 1;
+                for (int j = 0; j < rowSize; j++) {//遍历行
+                    Row row = sheet.getRow(j);
+                    if (row == null) {//略过空行
+                        continue;
+                    }
+                    int cellSize = row.getLastCellNum();//行中有多少个单元格，也就是有多少列
+                    if (j == 0) {//第一行是标题行
+                        for (int k = 0; k < cellSize; k++) {
+                            Cell cell = row.getCell(k);
+                            titles.add(cell.toString());
+                        }
+                    } else {//其他行是数据行
+                        Map<String, String> rowMap = new HashMap<String, String>();//对应一个数据行
+                        for (int k = 0; k < titles.size(); k++) {
+                            Cell cell = row.getCell(k);
+                            String key = titles.get(k);
+                            String value = null;
+                            if (cell != null) {
+                                value = cell.toString();
+                            }
+                            rowMap.put(key, value);
+                        }
+                        sheetList.add(rowMap);
+                    }
+                }
+                result.add(sheetList);
+            }
+
+            return result;
+        } catch (FileNotFoundException e) {
+            throw e;
+        } finally {
+            if (is != null) {
+                is.close();
+            }
         }
+    }
+
+    @SuppressWarnings("rawtypes")
+    public static void main(String[] args) throws Exception {
+        File f=new File("d:/temp/bbbb.xls");
+//        InputStream inputStream= new FileInputStream(f);
+//
+//        ExcelLogs logs =new ExcelLogs();
+//        Collection<Map> importExcel = ExcelUtil.importExcel(Map.class, inputStream, "yyyy/MM/dd HH:mm:ss", logs , 0);
+//
+//        for(Map m : importExcel){
+//            System.out.println(m);
+//        }
+//
+
+        List<List<Map<String, String>>> result = ExcelUtil.readExcelWithTitle("d:/temp/bbbb.xlsx");
+
+        List<Map<String, String>> ret = result.get(0);
+        Map<String, String> map = ret.get(0);
+        System.out.println(map);
+
+
     }
 
 }

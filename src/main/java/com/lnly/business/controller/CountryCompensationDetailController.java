@@ -12,6 +12,7 @@ import com.lnly.common.model.UUser;
 import com.lnly.common.utils.LoggerUtils;
 import com.lnly.common.utils.OSInfo;
 import com.lnly.common.utils.StringUtils;
+import com.lnly.common.utils.excel.ExcelUtil;
 import com.lnly.common.utils.poi.ExcelReader;
 import com.lnly.common.utils.poi.ExcelSheetCallback;
 import com.lnly.common.utils.poi.ExcelWorkSheetHandler;
@@ -365,7 +366,7 @@ public class CountryCompensationDetailController extends BaseController {
 
 
                     //解析数据
-                    List<CountryCompensationDetail> list =   processExcel(localFile);
+                    List<CountryCompensationDetail> list =   processExcelAll(localFile);
 
                     List<CountryCompensationDetail> insertList =   new ArrayList<>();
 
@@ -577,6 +578,72 @@ public class CountryCompensationDetailController extends BaseController {
         return  buffer.toString();
 
 
+    }
+
+    private List<CountryCompensationDetail> processExcelAll(String filePath) throws Exception{
+        List<CountryCompensationDetail> result = new ArrayList<>();
+        List<List<Map<String, String>>> sheets = ExcelUtil.readExcelWithTitle(filePath);
+
+        //获取第一个sheet
+        if(null != sheets){
+            List<Map<String, String>> rows = sheets.get(0);
+            if(null != rows)  {
+                int length = rows.size();
+
+                String headerStr = "乡,村,林班,小班,户名,身份证号码,汇款账号,面积,补偿标准,是否已发放";
+                //校验header
+                Map<String, String> map = rows.get(0);
+                int headerCount = 0;
+                StringBuilder builder = new StringBuilder();
+                for (Map.Entry<String, String> entry : map.entrySet()) {
+                    builder.append(entry.getKey()).append(",");
+
+                    if(headerStr.contains(entry.getKey())){
+                        headerCount += 1;
+                    }
+                }
+                LoggerUtils.debug(getClass(),builder.toString());
+                if(10 != headerCount){
+                    throw new Exception("导入模板头信息错误!");
+                }
+
+
+                for(int i = 0; i <length;i++){
+                    Map<String, String> row = rows.get(i);
+                    if(null == row.get("乡") || "".equals(row.get("乡").trim())){
+                        break;
+                    }
+                    CountryCompensationDetail entity = new CountryCompensationDetail();
+                    entity.setTown(row.get("乡"));
+                    entity.setVillage(row.get("村"));
+                    entity.setForestClass(proStr0(row.get("林班")));
+                    entity.setSmallClass(proStr0(row.get("小班")));
+                    entity.setIdentityCard("身份证号码");
+                    entity.setRemitNum(row.get("汇款账号"));
+                    entity.setArea(row.get("面积"));
+                    entity.setCompensationStandard(row.get("补偿标准"));
+                    entity.setSendFlag(row.get("是否已发放"));
+                    result.add(entity);
+                }
+            }
+        }
+        return result;
+    }
+
+    private String proStr0(String str){
+        if(null == str){
+            return "";
+        }
+
+
+        if(str.endsWith(".0")){
+            return str.substring(0, str.length() -2);
+        }
+
+        if(str.endsWith("0")){
+            return str.substring(0, str.length() -1);
+        }
+        return str;
     }
 }
 
