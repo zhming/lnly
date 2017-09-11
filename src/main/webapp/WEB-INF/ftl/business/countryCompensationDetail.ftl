@@ -59,6 +59,10 @@
         .btn-primary {
             background-color: #006dcc;
         }
+
+        #example{
+            width: 1500px !important;
+        }
     </style>
 
 </head>
@@ -106,8 +110,12 @@
                                         <input type="hidden" id="searchEmail" name="searchEmail" value="${token.email}"/>
                                         <input type="hidden" id="searchYear" name="searchYear" value=""
                                                class="form-control input-small" style="width:150px" placeholder=""/>
-                                        <input type="hidden" id="searchContentFromSelect" name="searchContentFromSelect"
+                                        <input type="hidden" id="searchContentFromLogin" name="searchContentFromLogin"
                                                value="${token.nickname}" class="form-control input-small"
+                                               style="width:150px" placeholder=""/>
+
+                                        <input type="hidden" id="searchContentFromSelect" name="searchContentFromSelect"
+                                               value="" class="form-control input-small"
                                                style="width:150px" placeholder=""/>
                                       
                                         <button id="go_search" class="btn btn-default">查询</button>
@@ -678,6 +686,9 @@
         $(document).on("click", "#go_search", function () {
             var yearSelect = $("#yearSelect").val();
             $("#filter_form [name='searchYear']").val(yearSelect);
+
+            //searchContentFromSelect
+            console.log("from search: " + $("#filter_form [name='searchContentFromSelect']").val());
             $("#example").DataTable().draw(false);//点搜索重新绘制table。
 
 
@@ -749,6 +760,9 @@
             var selectedId = $(searchResults[0]).attr("data-nodeid");
             var node = tree.treeview('getNode', selectedId);
             tree.treeview('selectNode', [node, {silent: true}]);
+
+            var nodeName = node.text;
+            $("#filter_form [name='searchContent']").val(nodeName);
 
         });
 

@@ -20,7 +20,7 @@ import java.io.Serializable;
 public class GrantAreaSumBo1 implements Serializable {
     private String year;
     private String type;
-    private String dict;
+    private String dict;      
     private Double grantArea;
     private Double grantSum;
 

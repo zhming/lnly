@@ -18,6 +18,8 @@
     <link rel="stylesheet" href="${basePath}/css/datagrid/select.bootstrap.min.css"/>
     <!-- datagrid css -->
 
+    <link rel="stylesheet" href="${basePath}/css/bootstrap-select.min.css">
+
     <script src="${basePath}/js/common/jquery/jquery1.8.3.min.js"></script>
     <script src="${basePath}/js/common/layer/layer.js"></script>
     <script src="${basePath}/js/common/bootstrap/3.3.5/js/bootstrap.min.js"></script>
@@ -37,6 +39,8 @@
     <script src="${basePath}/js/datagrid/buttons.html5.min.js"></script>
     <script src="${basePath}/js/common/jquery/jquery.form-2.82.js?${_v}"></script>
     <script src="${basePath}/js/bootstrapValidator.min.js"></script>
+    <script src="${basePath}/js/bootstrap-select.min.js"></script>
+    <script src="${basePath}/js/i18n/defaults-zh_CN.min.js"></script>
 
 
     <!-- datagrid -->
@@ -63,6 +67,10 @@
             height:38px;
 
         }
+
+        #example{
+            width: 1500px !important;
+        }
     </style>
 
 </head>
@@ -85,6 +93,17 @@
                     <span class="input-group-addon"><span class="glyphicon glyphicon-remove"></span></span>
                     <span class="input-group-addon"><span class="glyphicon glyphicon-th"></span></span>
                 </div>
+                <br/>
+                <div class="input-group col-sm-8" >
+                    <span class="input-group-addon">统计级别</span>
+                    <select id="dictType" name="dictType" class="form-control selectpicker">
+                        <option></option>
+                        <option value="1">市</option>
+                        <option value="2">县</option>
+                        <option value="3">乡（林场）</option>
+                        <option value="4">村（工区）</option>
+                    </select>
+                </div
                 <input type="hidden" id="dtp_input1" value=""/><br/>
                 <div  class="row col-sm-8">
                     <input type="text" id="searchTree" name="searchTree" value=""
@@ -105,12 +124,11 @@
                             <div class="col-lg-9">
                                 <div class="hidden" id="hidden_filter">
                                     <div class="row" style="margin-right:0;">
-                                        <input type="hidden" id="searchYear" name="searchYear" value=""
-                                               class="form-control input-small" style="width:150px" placeholder=""/>
-                                        <input type="hidden" id="searchId" name="searchId" value=""
+                                        <input type="hidden" id="searchEmail" name="searchEmail" value="${token.email}"/>
+                                        <input type="hidden" id="searchType" name="searchType" value=""
                                                class="form-control input-small" style="width:150px" placeholder=""/>
                                         <input type="hidden" id="searchContentFromSelect" name="searchContentFromSelect"
-                                               value="${token.dictCode}" class="form-control input-small"
+                                               value="${token.nickname}" class="form-control input-small"
                                                style="width:150px" placeholder=""/>
                                         <button id="go_search" class="btn btn-default">查询</button>
                                     </div>
@@ -157,7 +175,7 @@
                             <th>调查金额汇总(元)</th>
                             <th>指标金额汇总(元)</th>
                             <th>录入率百分率%</th>
-                         
+
 
                         </tr>
                        
@@ -216,18 +234,17 @@
         }, 'json');
 
     </@shiro.hasPermission>
-    
+        var dictCode = "${token.dictCode}";
         var tablePrefix = "#example_";
         $("#example").dataTable({
             serverSide: true,//分页，取数据等等的都放到服务端去
             processing: true,//载入数据的时候是否显示“载入中”
             pageLength: 10,//首次加载的数据条数
             ordering: false,//排序操作在服务端进行，所以可以关了。
-            scrollX: true, //水平滚动条
-            autoWidth: false, //启用或者禁止自动列宽的计算
+            "scrollX": true, //水平滚动条
             ajax: {//类似jquery的ajax参数，基本都可以用。
                 type: "post",//后台指定了方式，默认get，外加datatable默认构造的参数很长，有可能超过get的最大长度。
-                url: "${basePath}/report/findCountryZbdhDataInputReport.shtml",
+                url: "${basePath}/report/findCoutryInputData.shtml?dictCode="+dictCode,
                 dataSrc: "data",//默认data，也可以写其他的，格式化table的时候取里面的数据
                 data: function (d) {//d 是原始的发送给服务器的数据，默认很长。
                     var param = {};//因为服务端排序，可以新建一个参数对象
@@ -322,6 +339,18 @@
 //                    "sTitle": "调查金额汇总(元)"
                 },
                 {
+                    data: "standard15"
+//                    "sTitle": "指标金额汇总(元))"
+                },
+                {
+                    data: "percent15"
+//                    "sTitle": "录入率百分率%"
+                },
+                {
+                    data: "input16"
+//                    "sTitle": "录入率百分率%"
+                },
+                {
                     data: "standard16"
 //                    "sTitle": "指标金额汇总(元))"
                 },
@@ -339,54 +368,6 @@
                 },
                 {
                     data: "percent17"
-//                    "sTitle": "录入率百分率%"
-                },
-                {
-                    data: "input18"
-//                    "sTitle": "调查金额汇总(元)"
-                },
-                {
-                    data: "standard18"
-//                    "sTitle": "指标金额汇总(元))"
-                },
-                {
-                    data: "percent18"
-//                    "sTitle": "录入率百分率%"
-                },
-                {
-                    data: "input19"
-//                    "sTitle": "调查金额汇总(元)"
-                },
-                {
-                    data: "standard19"
-//                    "sTitle": "指标金额汇总(元))"
-                },
-                {
-                    data: "percent19"
-//                    "sTitle": "录入率百分率%"
-                },
-                {
-                    data: "input20"
-//                    "sTitle": "调查金额汇总(元)"
-                },
-                {
-                    data: "standard20"
-//                    "sTitle": "指标金额汇总(元))"
-                },
-                {
-                    data: "percent20"
-//                    "sTitle": "录入率百分率%"
-                },
-                {
-                    data: "input21"
-//                    "sTitle": "调查金额汇总(元)"
-                },
-                {
-                    data: "standard21"
-//                    "sTitle": "指标金额汇总(元))"
-                },
-                {
-                    data: "percent21"
 //                    "sTitle": "录入率百分率%"
                 }
                 /*

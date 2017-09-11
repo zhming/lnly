@@ -1,0 +1,162 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.lnly.common.dao.CountryReportMapper" >
+  <resultMap id="BaseResultMap" type="com.lnly.common.model.CountryReport" >
+    <id column="id" property="id" />
+    <result column="dict_name" property="dictName" />
+    <result column="type" property="type" />
+    <result column="year" property="year" />
+    <result column="send_area" property="sendArea"  />
+    <result column="send_amount" property="sendAmount"  />
+    <result column="no_send_area" property="noSendArea"  />
+    <result column="no_send_amount" property="noSendAmount"  />
+    <result column="area" property="area"  />
+    <result column="amount" property="amount" />
+      <result column="city" property="city" />
+      <result column="county" property="county" />
+      <result column="town" property="town" />
+      <result column="village" property="village" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, dict_name, type, year, send_area, no_send_area, area, send_amount, no_send_amount, amount, standard, city, county, town, village
+  </sql>
+  <sql id="limit_sql">
+  	   <if test="page_sql != null and page_sql != ''">
+      	${page_sql}
+      </if>
+  </sql>
+  
+  <sql id="where_all">
+  	<where>
+  	<if test="findContent != null and findContent !='' " >
+        and (
+        LOWER(dict_name) like  LOWER(CONCAT("%", #{dictName},"%"))
+        )
+      </if>
+      </where>
+  </sql>
+  <select id="findAll" resultMap="BaseResultMap" >
+  	 select 
+    <include refid="Base_Column_List" />
+    from tb_country_report
+    <include refid="where_all"/>
+    <include refid="limit_sql" />
+  </select>
+  <select id="findCount" resultMap="BaseResultMap" >
+ 	 select count(id) from  tb_country_report
+  	<include refid="where_all" />
+  </select>
+
+
+
+
+    <select id="findCityData" resultMap="BaseResultMap" >
+        select
+        <include refid="Base_Column_List" />
+        from tb_country_report
+
+        <where>
+            <if test="city != null and city !='' " >
+                 city = #{city}
+            </if>
+            <if test="type != null and type !='' " >
+                and  type = #{type}
+            </if>
+
+        </where>
+        order by city
+        <include refid="limit_sql" />
+    </select>
+
+
+    <select id="findCityDataCount" resultMap="BaseResultMap" >
+        select
+        count(1)
+        from tb_country_report
+
+        <where>
+            <if test="city != null and city !='' " >
+                city = #{city}
+            </if>
+            <if test="type != null and type !='' " >
+                and  type = #{type}
+            </if>
+        </where>
+    </select>
+
+
+
+    <select id="findCountyData" resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List" />
+        from tb_country_report
+         <where>
+        <if test="county != null and county !='' " >
+            county = #{county}
+        </if>
+             <if test="type != null and type !='' " >
+                 and  type = #{type}
+             </if>
+        </where>
+         order by dict_name;
+        <include refid="limit_sql" />
+    </select>
+
+
+    <select id="findCountyDataCount" resultMap="BaseResultMap">
+        select
+          count(1)
+        from tb_country_report
+        <where>
+            <if test="county != null and county !='' " >
+                county = #{county}
+            </if>
+            <if test="type != null and type !='' " >
+                and  type = #{type}
+            </if>
+
+        </where>
+
+    </select>
+
+
+
+    <select id="findTownData" resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List" />
+        from tb_country_report
+        <where>
+            <if test="town != null and town !='' " >
+                town = #{town}
+            </if>
+            <if test="type != null and type !='' " >
+                and  type = #{type}
+            </if>
+
+        </where>
+        order by dict_name;
+        <include refid="limit_sql" />
+    </select>
+
+
+    <select id="findTownDataCount" resultMap="BaseResultMap">
+        select
+            count(1)
+        from tb_country_report
+        <where>
+            <if test="town != null and town !='' " >
+                town = #{town}
+            </if>
+
+            <if test="type != null and type !='' " >
+                and  type = #{type}
+            </if>
+
+        </where>
+
+        order by dict_name;
+    </select>
+
+  
+
+</mapper>

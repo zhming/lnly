@@ -14,6 +14,7 @@ import org.apache.commons.logging.LogFactory;
 import org.apache.ibatis.mapping.BoundSql;
 import org.apache.ibatis.mapping.ParameterMapping;
 import org.apache.ibatis.session.Configuration;
+import org.joda.time.DateTime;
 import org.mybatis.spring.support.SqlSessionDaoSupport;
 
 import com.lnly.common.utils.LoggerUtils;
@@ -207,9 +208,13 @@ public class BaseMybatisDao<T> extends SqlSessionDaoSupport {
 		}
 		try {
 			Connection conn = this.getSqlSession().getConnection();
+			
 
-			List resultList = this.getSqlSession().selectList(sqlId, params); 
+            DateTime start = new DateTime();
 
+			List resultList = this.getSqlSession().selectList(sqlId, params);
+            DateTime end1 = new DateTime();
+            LoggerUtils.debug(getClass(), "BaseQueryList: "+(end1.getSecondOfDay() - start.getSecondOfDay()));
 			page.setList(resultList);
 			
 			/**

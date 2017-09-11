@@ -19,30 +19,32 @@ import java.io.Serializable;
  */
 public class GrantAreaSumBo implements Serializable {
     private String dict;
-    private String grantArea10;
-    private String grantSum10;
-    private String grantArea11;
-    private String grantSum11;
-    private String grantArea12;
-    private String grantSum12;
-    private String grantArea13;
-    private String grantSum13;
-    private String grantArea14;
-    private String grantSum14;
-    private String grantArea15;
-    private String grantSum15;
-    private String grantArea16;
-    private String grantSum16;
-    private String grantArea17;
-    private String grantSum17;
-    private String grantArea18;
-    private String grantSum18;
-    private String grantArea19;
-    private String grantSum19;
-    private String grantArea20;
-    private String grantSum20;
-    private String grantArea21;
-    private String grantSum21;
+    private String grantArea10 = "0";
+    private String grantSum10= "0";
+    private String grantArea11= "0";
+    private String grantSum11= "0";
+    private String grantArea12= "0";
+    private String grantSum12= "0";
+    private String grantArea13= "0";
+    private String grantSum13= "0";
+    private String grantArea14= "0";
+    private String grantSum14= "0";
+    private String grantArea15= "0";
+    private String grantSum15= "0";
+    private String grantArea16= "0";
+    private String grantSum16= "0";
+    private String grantArea17= "0";
+    private String grantSum17= "0";
+    private String grantArea18= "0";
+    private String grantSum18= "0";
+    private String grantArea19= "0";
+    private String grantSum19= "0";
+    private String grantArea20= "0";
+    private String grantSum20= "0";
+    private String grantArea21= "0";
+    private String grantSum21= "0";
+
+
 
     public String getDict() {
         return dict;

@@ -1,5 +1,6 @@
 package com.lnly.business.service;
 
+import com.lnly.business.bo.GrantAreaSumBo1;
 import com.lnly.common.model.CountryCompensationDetail;
 import com.lnly.core.mybatis.page.Pagination;
 
@@ -17,11 +18,13 @@ public interface CountryCompensationDetailService {
     int updateByPrimaryKey(CountryCompensationDetail record);
     
 
-	Pagination<CountryCompensationDetail> findByPage(Map<String, Object> resultMap, Integer pageNo,
+	Pagination<CountryCompensationDetail> findByPage(Map<String, Object> params, Integer pageNo,
                                                        Integer pageSize);
 
 	void insertList(List<CountryCompensationDetail> list)throws Exception;
 
     Double findSmallClassData(CountryCompensationDetail entity) throws Exception;
 
+    Pagination<GrantAreaSumBo1>   findCountrySendReport(Map<String, Object> params, Integer pageNo,
+                                                  Integer pageSize) throws Exception;
 }

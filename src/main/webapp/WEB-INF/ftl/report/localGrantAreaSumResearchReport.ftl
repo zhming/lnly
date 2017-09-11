@@ -2,21 +2,23 @@
 <html lang="zh-cn">
 <head>
     <meta charset="utf-8"/>
-    <title>辽宁省林业厅生态公益林管理系统-地方公益林直补到户调查面积与金额汇总报表</title>
+    <title>辽宁省林业厅生态公益林管理系统-国家公益林直补到户调查面积与金额汇总报表</title>
     <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport"/>
     <link rel="icon" href="${basePath}/favicon.ico" type="image/x-icon"/>
     <link rel="shortcut icon" href="${basePath}/favicon.ico"/>
     <link href="${basePath}/js/common/bootstrap/3.3.5/css/bootstrap.min.css?${_v}" rel="stylesheet"/>
     <link href="${basePath}/css/common/base.css?${_v}" rel="stylesheet"/>
     <link href="${basePath}/css/bootstrap-datetimepicker.min.css" rel="stylesheet" media="screen">
-    <link rel="stylesheet" href="${basePath}/css/build.css"/>
     <link rel="stylesheet" href="${basePath}/css/font-awesome.min.css"/>
 
     <!-- datagrid css -->
     <link rel="stylesheet" href="${basePath}/css/datagrid/buttons.bootstrap.min.css"/>
     <link rel="stylesheet" href="${basePath}/css/datagrid/dataTables.bootstrap.min.css"/>
     <link rel="stylesheet" href="${basePath}/css/datagrid/select.bootstrap.min.css"/>
+    <link rel="stylesheet" href="${basePath}/css/bootstrap-select.min.css">
     <!-- datagrid css -->
+
+    <link rel="stylesheet" href="${basePath}/css/build.css"/>
 
     <script src="${basePath}/js/common/jquery/jquery1.8.3.min.js"></script>
     <script src="${basePath}/js/common/layer/layer.js"></script>
@@ -37,7 +39,8 @@
     <script src="${basePath}/js/datagrid/buttons.html5.min.js"></script>
     <script src="${basePath}/js/common/jquery/jquery.form-2.82.js?${_v}"></script>
     <script src="${basePath}/js/bootstrapValidator.min.js"></script>
-
+    <script src="${basePath}/js/bootstrap-select.min.js"></script>
+    <script src="${basePath}/js/i18n/defaults-zh_CN.min.js"></script>
 
     <!-- datagrid -->
 
@@ -63,6 +66,10 @@
             height:38px;
 
         }
+
+        #example{
+            width: 1200px !important;
+        }
     </style>
 
 </head>
@@ -74,7 +81,7 @@
     <div class="row" style="margin-lef: -10px;">
 
         <div class="col-md-12">
-            <h2>地方公益林直补到户调查面积与金额汇总报表</h2>
+            <h2>国家公益林直补到户调查面积与金额汇总报表</h2>
             <hr>
 
         </div>
@@ -85,6 +92,17 @@
                     <span class="input-group-addon"><span class="glyphicon glyphicon-remove"></span></span>
                     <span class="input-group-addon"><span class="glyphicon glyphicon-th"></span></span>
                 </div>
+                <br/>
+                <div class="input-group col-sm-8" >
+                    <span class="input-group-addon">统计级别</span>
+                    <select id="dictType" name="dictType" class="form-control selectpicker">
+                        <option></option>
+                        <option value="1">市</option>
+                        <option value="2">县</option>
+                        <option value="3">乡（林场）</option>
+                        <option value="4">村（工区）</option>
+                    </select>
+                </div
                 <input type="hidden" id="dtp_input1" value=""/><br/>
                 <div  class="row col-sm-8">
                     <input type="text" id="searchTree" name="searchTree" value=""
@@ -105,12 +123,11 @@
                             <div class="col-lg-9">
                                 <div class="hidden" id="hidden_filter">
                                     <div class="row" style="margin-right:0;">
-                                        <input type="hidden" id="searchYear" name="searchYear" value=""
-                                               class="form-control input-small" style="width:150px" placeholder=""/>
-                                        <input type="hidden" id="searchId" name="searchId" value=""
+                                        <input type="hidden" id="searchEmail" name="searchEmail" value="${token.email}"/>
+                                        <input type="hidden" id="searchType" name="searchType" value=""
                                                class="form-control input-small" style="width:150px" placeholder=""/>
                                         <input type="hidden" id="searchContentFromSelect" name="searchContentFromSelect"
-                                               value="${token.dictCode}" class="form-control input-small"
+                                               value="${token.nickname}" class="form-control input-small"
                                                style="width:150px" placeholder=""/>
                                         <button id="go_search" class="btn btn-default">查询</button>
                                     </div>
@@ -123,26 +140,41 @@
                         <tr align="center">
                             <th rowspan="2" align="center">序号</th>
                             <th rowspan="2" align="center">单位</th>
+                            <th colspan="2" align="center">2010年</th>
+                            <th colspan="2" align="center">2011年</th>
+                            <th colspan="2" align="center">2012年</th>
+                            <th colspan="2" align="center">2013年</th>
+                            <th colspan="2" align="center">2014年</th>
+                            <th colspan="2" align="center">2015年</th>
                             <th colspan="2" align="center">2016年</th>
                             <th colspan="2" align="center">2017年</th>
-                            <th colspan="2" align="center">2018年</th>
-                            <th colspan="2" align="center">2019年</th>
-                            <th colspan="2" align="center">2020年</th>
-                            <th colspan="2" align="center">2021年</th>
+
                         </tr>
                         <tr align="center">
                             <th>发放明细面积汇总(亩)</th>
                             <th>发放明细金额汇总(元)</th>
+
                             <th>发放明细面积汇总(亩)</th>
                             <th>发放明细金额汇总(元)</th>
+
                             <th>发放明细面积汇总(亩)</th>
                             <th>发放明细金额汇总(元)</th>
+
                             <th>发放明细面积汇总(亩)</th>
                             <th>发放明细金额汇总(元)</th>
+
                             <th>发放明细面积汇总(亩)</th>
                             <th>发放明细金额汇总(元)</th>
+
                             <th>发放明细面积汇总(亩)</th>
                             <th>发放明细金额汇总(元)</th>
+                            
+                            <th>发放明细面积汇总(亩)</th>
+                            <th>发放明细金额汇总(元)</th>
+
+                            <th>发放明细面积汇总(亩)</th>
+                            <th>发放明细金额汇总(元)</th>
+
 
                         </tr>
                        
@@ -201,18 +233,17 @@
         }, 'json');
 
     </@shiro.hasPermission>
-    
+        var dictCode = "${token.dictCode}";
         var tablePrefix = "#example_";
         $("#example").dataTable({
             serverSide: true,//分页，取数据等等的都放到服务端去
             processing: true,//载入数据的时候是否显示“载入中”
             pageLength: 10,//首次加载的数据条数
             ordering: false,//排序操作在服务端进行，所以可以关了。
-            scrollX: true, //水平滚动条
-            autoWidth: false, //启用或者禁止自动列宽的计算
+            "scrollX": true, //水平滚动条
             ajax: {//类似jquery的ajax参数，基本都可以用。
                 type: "post",//后台指定了方式，默认get，外加datatable默认构造的参数很长，有可能超过get的最大长度。
-                url: "${basePath}/report/findContryZbdhJd.shtml",
+                url: "${basePath}/report/findCoutryReSearchData.shtml?dictCode="+dictCode,
                 dataSrc: "data",//默认data，也可以写其他的，格式化table的时候取里面的数据
                 data: function (d) {//d 是原始的发送给服务器的数据，默认很长。
                     var param = {};//因为服务端排序，可以新建一个参数对象
@@ -228,7 +259,12 @@
             "fnDrawCallback": function () {
                 this.api().column(0).nodes().each(function (cell, i) {
                     cell.innerHTML = i + 1;
+
+                    console.log($(this).parent()[i]);
                 });
+
+
+
             },
             columns: [//对应上面thead里面的序列
                 {
@@ -241,6 +277,54 @@
                 },
                 {
                     data: "dict"
+                },
+                {
+                    data: "grantArea10",
+                    "sTitle": "发放明细面积汇总(亩)"
+                },
+                {
+                    data: "grantSum10",
+                    "sTitle": "发放明细金额汇总(元)"
+                },
+                {
+                    data: "grantArea11",
+                    "sTitle": "发放明细面积汇总(亩)"
+                },
+                {
+                    data: "grantSum11",
+                    "sTitle": "发放明细金额汇总(元)"
+                },
+                {
+                    data: "grantArea12",
+                    "sTitle": "发放明细面积汇总(亩)"
+                },
+                {
+                    data: "grantSum12",
+                    "sTitle": "发放明细金额汇总(元)"
+                },
+                {
+                    data: "grantArea13",
+                    "sTitle": "发放明细面积汇总(亩)"
+                },
+                {
+                    data: "grantSum13",
+                    "sTitle": "发放明细金额汇总(元)"
+                },
+                {
+                    data: "grantArea14",
+                    "sTitle": "发放明细面积汇总(亩)"
+                },
+                {
+                    data: "grantSum14",
+                    "sTitle": "发放明细金额汇总(元)"
+                },
+                {
+                    data: "grantArea15",
+                    "sTitle": "发放明细面积汇总(亩)"
+                },
+                {
+                    data: "grantSum15",
+                    "sTitle": "发放明细金额汇总(元)"
                 },
                 {
                     data: "grantArea16",
@@ -256,38 +340,6 @@
                 },
                 {
                     data: "grantSum17",
-                    "sTitle": "发放明细金额汇总(元)"
-                },
-                {
-                    data: "grantArea18",
-                    "sTitle": "发放明细面积汇总(亩)"
-                },
-                {
-                    data: "grantSum18",
-                    "sTitle": "发放明细金额汇总(元)"
-                },
-                {
-                    data: "grantArea19",
-                    "sTitle": "发放明细面积汇总(亩)"
-                },
-                {
-                    data: "grantSum19",
-                    "sTitle": "发放明细金额汇总(元)"
-                },
-                {
-                    data: "grantArea20",
-                    "sTitle": "发放明细面积汇总(亩)"
-                },
-                {
-                    data: "grantSum20",
-                    "sTitle": "发放明细金额汇总(元)"
-                },
-                {
-                    data: "grantArea21",
-                    "sTitle": "发放明细面积汇总(亩)"
-                },
-                {
-                    data: "grantSum21",
                     "sTitle": "发放明细金额汇总(元)"
                 }
                 /*
@@ -318,6 +370,9 @@
         $(document).on("click", "#go_search", function () {
             var yearSelect = $("#yearSelect").val();
             $("#filter_form [name='searchYear']").val(yearSelect);
+            var dictType = $("#dictType").find("option:selected").val();
+            console.log("dictType : " + dictType)
+            $("#filter_form [name='searchType']").val(dictType);
             $("#example").DataTable().draw(false);//点搜索重新绘制table。
 
 
@@ -381,7 +436,7 @@
         $("#filter_form [name='searchYear']").val(yearSelect);
 
         var type = $('input:radio:checked').val();
-        var tableTitle = nodeName + "地方公益林直补到户调查面积与金额汇总报表";
+        var tableTitle = nodeName + "国家公益林直补到户调查面积与金额汇总报表";
         $("#tableTitle").html(tableTitle);
         if (node.state.expanded) {
             //处于展开状态则折叠

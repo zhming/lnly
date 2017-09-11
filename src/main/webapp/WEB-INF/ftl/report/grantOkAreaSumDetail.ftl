@@ -55,6 +55,10 @@
         .btn-primary {
             background-color: #006dcc;
         }
+
+        #example{
+            width: 1200px !important;
+        }
     </style>
 
 </head>

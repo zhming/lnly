@@ -2,27 +2,34 @@ package com.lnly.business.controller;
 
 import com.lnly.business.bo.*;
 import com.lnly.business.service.AdminDictService;
+import com.lnly.business.service.CountryCompensationDetailService;
+import com.lnly.business.service.CountryReportService;
 import com.lnly.business.service.SmallClassService;
-import com.lnly.common.model.AdminDict;
-import com.lnly.common.model.SmallClass;
+import com.lnly.common.controller.BaseController;
+import com.lnly.common.model.*;
 import com.lnly.common.utils.LoggerUtils;
 import com.lnly.common.utils.SerializeUtil;
 import com.lnly.common.utils.StaticValusUtil;
+import com.lnly.common.utils.StringUtils;
 import com.lnly.core.mybatis.page.Pagination;
 import com.lnly.core.shiro.cache.JedisManager;
+import com.lnly.user.service.UUserService;
+import org.joda.time.DateTime;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
+import sun.rmi.runtime.Log;
 
 import javax.annotation.Resource;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import javax.servlet.http.HttpServletRequest;
+import java.lang.reflect.Method;
+import java.text.DecimalFormat;
+import java.util.*;
 
 /**
  * 数据统计
@@ -43,7 +50,7 @@ import java.util.Map;
 @Controller
 @Scope(value="prototype")
 @RequestMapping("report")
-public class ReportController {
+public class ReportController extends BaseController {
     @Resource
     SmallClassService smallClassService;
 
@@ -51,9 +58,18 @@ public class ReportController {
     AdminDictService adminDictService;
 
 
+    @Autowired
+    private CountryCompensationDetailService countryCompensationDetailService;
+
 
     @Autowired
-    public JedisManager jedisManager;
+    private JedisManager jedisManager;
+    
+    @Autowired
+    private UUserService userService;
+
+    @Autowired
+    private CountryReportService countryReportService;
 
 
 
@@ -356,7 +372,503 @@ public class ReportController {
 
     }
 
+
+    /**
+     *   国家补偿明细列表
+     *
+     * @param request
+     * @param param
+     * @return
+     */
+    @RequestMapping(value = "findCountrySendReport", method = RequestMethod.POST)
+    @ResponseBody
+    public Map<String, Object> findCountrySendReport(HttpServletRequest request, BcbzPageEntity param) {
+        iEcho++;
+        String dictCode = request.getParameter("dictCode");
+        LoggerUtils.debug(getClass(), "###################### " + dictCode);
+        DateTime start = new DateTime();
+        Map<String, Object> map = new HashMap<>();
+        if (StringUtils.isNotBlank(param.getSearchYear())) {
+            map.put("year", param.getSearchYear());
+        }else{
+            DateTime dateTime = new DateTime();
+            map.put("year", dateTime.toString("yyyy"));
+        }
+
+        if (StringUtils.isNotBlank(param.getSearchContentFromSelect())
+                && !"210000".equals(param.getSearchContentFromSelect())
+                && !"辽宁省".equals(param.getSearchContentFromSelect())) {
+            map.put("searchContent", param.getSearchContentFromSelect());
+        }
+
+        if (StringUtils.isNotBlank(param.getSearchContent())) {
+            map.put("searchContent", param.getSearchContent());
+        }
+
+        if(!map.containsKey("searchContent")) {
+            String searchEmail = param.getSearchEmail();
+            try {
+                UUser user = userService.findUserByEmail(searchEmail);
+                if(StringUtils.isBlank(dictCode)){
+                    dictCode = user.getDictCode();
+                }
+                if(!"210000".equalsIgnoreCase(dictCode)){
+                    AdminDict dict = adminDictService.findByDictCode(dictCode);
+                    map.put("searchContent", dict.getDictName());
+                }
+
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+
+        }
+        DateTime end1 = new DateTime();
+        LoggerUtils.debug(getClass(), "param: : "+(end1.getSecondOfDay() - start.getSecondOfDay()));
+        List<GrantAreaSumBo1> reportList = null;
+        int total = 0;
+        try {
+            start = new DateTime();
+            Pagination<GrantAreaSumBo1> pagination = countryCompensationDetailService.findCountrySendReport(map, param.getiDisplayStart() / param.getiDisplayLength(), param.getiDisplayLength());
+            end1 = new DateTime();
+            LoggerUtils.debug(getClass(), "queryList: "+(end1.getSecondOfDay() - start.getSecondOfDay()));
+            start = new DateTime();
+            total = pagination.getTotalCount();
+            end1 = new DateTime();
+            LoggerUtils.debug(getClass(), "queryCount: "+(end1.getSecondOfDay() - start.getSecondOfDay()));
+            if (null != pagination) {
+                reportList = pagination.getList();
+            }
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        resultMap.put("iEcho", iEcho);
+        resultMap.put("data", reportList);
+        resultMap.put("iDisplayLength", param.getiDisplayLength());
+        resultMap.put("iDisplayStart", param.getiDisplayStart());
+
+        resultMap.put("recordsTotal", total);
+        resultMap.put("recordsFiltered", total);
+        resultMap.put("sColumns", ",,,,");
+        resultMap.put("iColumns", 10);
+        resultMap.put("message", "ok");
+        return resultMap;
+    }
+
+
+
+    @RequestMapping(value = "findCityData", method = RequestMethod.POST)
+    @ResponseBody
+    public Map<String,Object> findCityData(HttpServletRequest request,BcbzPageEntity param) {
+        String dictCode = request.getParameter("dictCode");
+        LoggerUtils.debug(getClass(), "######################DictCode: " + dictCode);
+
+        iEcho++;
+        Map<String, Object> map = new HashMap<>();
+
+
+
+        String searchEmail = param.getSearchEmail();
+
+
+        LoggerUtils.debug(getClass(), "user_dict_code: " + searchEmail);
+
+
+
+        int searType = 0;
+
+        try {
+            if(!"210000".equals(dictCode)){
+
+                //市级单位
+                if(dictCode.length() == 6 && dictCode.endsWith("00")){
+                    searType = 1;
+                    map.put("city", dictCode);
+                }else if(dictCode.length() == 6 && !dictCode.endsWith("00")){
+                    searType = 2;
+                    map.put("county", dictCode);
+                }else if(dictCode.length() > 6){
+                    searType = 3;
+                    map.put("town", dictCode);
+                }
+
+            }else{
+                searType = 1;
+                map.put("city", null);
+            }
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        if(!StringUtils.isBlank(param.getSearchType())) {
+              map.put("type", param.getSearchType());
+        }
+
+        Pagination<CountryReport> result = null;
+        List<GrantAreaSumBo>  list = new ArrayList<>();
+
+        Map<String, GrantAreaSumBo> mapBo = new TreeMap<>();
+
+        try {
+            if(1 == searType){
+                result = countryReportService.findCityData(map, param.getiDisplayStart() / param.getiDisplayLength(), param.getiDisplayLength());
+            }else if(2 == searType){
+                result = countryReportService.findCountyData(map, param.getiDisplayStart() / param.getiDisplayLength(), param.getiDisplayLength());
+            }else if(3 == searType){
+                result = countryReportService.findTownData(map, param.getiDisplayStart() / param.getiDisplayLength(), param.getiDisplayLength());
+            }
+
+
+            if(null != result && null != result.getList()){
+                for(CountryReport report : result.getList()){
+                    if(mapBo.containsKey(buildMapKey(report))){
+
+                        LoggerUtils.debug(getClass(), "substr Year:   "+ report.getYear().substring(2));
+
+                        GrantAreaSumBo bo = mapBo.get(buildMapKey(report));
+                       Method m1 = bo.getClass().getMethod("setGrantArea"+ report.getYear().substring(2),String.class);
+                        m1.invoke(bo, report.getSendArea());
+                        Method m2 = bo.getClass().getMethod("setGrantSum"+ report.getYear().substring(2),String.class);
+                        m2.invoke(bo, report.getSendAmount());
+                        mapBo.put(buildMapKey(report), bo);
+                    }else{
+                        GrantAreaSumBo bo = new GrantAreaSumBo();
+                        bo.setDict(report.getDictName());
+                        Method m1 = bo.getClass().getMethod("setGrantArea"+ report.getYear().substring(2),String.class);
+                        m1.invoke(bo, report.getSendArea());
+                        Method m2 = bo.getClass().getMethod("setGrantSum"+ report.getYear().substring(2),String.class);
+                        m2.invoke(bo, report.getSendAmount());
+                        mapBo.put(buildMapKey(report), bo);
+                    }
+                }
+            }
+
+
+            for (Map.Entry<String, GrantAreaSumBo> entry : mapBo.entrySet()) {
+                 list.add(entry.getValue());
+            }
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+
+        resultMap.put("iEcho", iEcho);
+        resultMap.put("data", list);
+        resultMap.put("iDisplayLength", param.getiDisplayLength());
+        resultMap.put("iDisplayStart", param.getiDisplayStart());
+
+        resultMap.put("recordsTotal", result.getTotalCount());
+        resultMap.put("recordsFiltered",  result.getTotalCount());
+        resultMap.put("sColumns", ",,,,");
+        resultMap.put("iColumns", 9);
+        resultMap.put("message", "ok");
+        return resultMap;
+
+
+
+    }
+
+    /**
+     * 国家公益林调查面积统计
+     * @param request
+     * @param param
+     * @return
+     */
+    @RequestMapping(value = "findCoutryReSearchData", method = RequestMethod.POST)
+    @ResponseBody
+    public Map<String,Object> findCoutryReSearchData(HttpServletRequest request,BcbzPageEntity param) {
+        String dictCode = request.getParameter("dictCode");
+        LoggerUtils.debug(getClass(), "######################DictCode: " + dictCode);
+
+        iEcho++;
+        Map<String, Object> map = new HashMap<>();
+
+
+
+        String searchEmail = param.getSearchEmail();
+
+
+        LoggerUtils.debug(getClass(), "user_dict_code: " + searchEmail);
+
+
+
+        int searType = 0;
+
+        try {
+            if(!"210000".equals(dictCode)){
+
+                //市级单位
+                if(dictCode.length() == 6 && dictCode.endsWith("00")){
+                    searType = 1;
+                    map.put("city", dictCode);
+                }else if(dictCode.length() == 6 && !dictCode.endsWith("00")){
+                    searType = 2;
+                    map.put("county", dictCode);
+                }else if(dictCode.length() > 6){
+                    searType = 3;
+                    map.put("town", dictCode);
+                }
+
+            }else{
+                searType = 1;
+                map.put("city", null);
+            }
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        if(!StringUtils.isBlank(param.getSearchType())) {
+            map.put("type", param.getSearchType());
+        }
+
+        Pagination<CountryReport> result = null;
+        List<GrantAreaSumBo>  list = new ArrayList<>();
+
+        Map<String, GrantAreaSumBo> mapBo = new TreeMap<>();
+
+        try {
+            if(1 == searType){
+                result = countryReportService.findCityData(map, param.getiDisplayStart() / param.getiDisplayLength(), param.getiDisplayLength());
+            }else if(2 == searType){
+                result = countryReportService.findCountyData(map, param.getiDisplayStart() / param.getiDisplayLength(), param.getiDisplayLength());
+            }else if(3 == searType){
+                result = countryReportService.findTownData(map, param.getiDisplayStart() / param.getiDisplayLength(), param.getiDisplayLength());
+            }
+
+
+            if(null != result && null != result.getList()){
+                for(CountryReport report : result.getList()){
+                    if(mapBo.containsKey(buildMapKey(report))){
+                        LoggerUtils.debug(getClass(), "substr Year:   "+ report.getYear().substring(2));
+                        GrantAreaSumBo bo = mapBo.get(buildMapKey(report));
+                        Method m1 = bo.getClass().getMethod("setGrantArea"+ report.getYear().substring(2),String.class);
+                        m1.invoke(bo, (report.getSendArea() + report.getNoSendArea()));
+                        Method m2 = bo.getClass().getMethod("setGrantSum"+ report.getYear().substring(2),String.class);
+                        m2.invoke(bo, report.getSendAmount() + report.getNoSendAmount());
+                        mapBo.put(buildMapKey(report), bo);
+                    }else{
+                        GrantAreaSumBo bo = new GrantAreaSumBo();
+                        bo.setDict(report.getDictName());
+                        Method m1 = bo.getClass().getMethod("setGrantArea"+ report.getYear().substring(2),String.class);
+                        m1.invoke(bo, report.getSendArea());
+                        Method m2 = bo.getClass().getMethod("setGrantSum"+ report.getYear().substring(2),String.class);
+                        m2.invoke(bo, report.getSendAmount());
+                        mapBo.put(buildMapKey(report), bo);
+                    }
+                }
+            }
+
+
+            for (Map.Entry<String, GrantAreaSumBo> entry : mapBo.entrySet()) {
+                list.add(entry.getValue());
+            }
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+
+        resultMap.put("iEcho", iEcho);
+        resultMap.put("data", list);
+        resultMap.put("iDisplayLength", param.getiDisplayLength());
+        resultMap.put("iDisplayStart", param.getiDisplayStart());
+
+        resultMap.put("recordsTotal", result.getTotalCount());
+        resultMap.put("recordsFiltered",  result.getTotalCount());
+        resultMap.put("sColumns", ",,,,");
+        resultMap.put("iColumns", 9);
+        resultMap.put("message", "ok");
+        return resultMap;
+
+
+
+    }
+
+
+    /**
+     * 国家公益林直补到户相关数据录入率统计表
+     * @param request
+     * @param param
+     * @return
+     */
+    @RequestMapping(value = "findCoutryInputData", method = RequestMethod.POST)
+    @ResponseBody
+    public Map<String,Object> findCoutryInputData(HttpServletRequest request,BcbzPageEntity param) {
+        String dictCode = request.getParameter("dictCode");
+        LoggerUtils.debug(getClass(), "######################DictCode: " + dictCode);
+
+        iEcho++;
+        Map<String, Object> map = new HashMap<>();
+
+
+
+        String searchEmail = param.getSearchEmail();
+
+
+        LoggerUtils.debug(getClass(), "user_dict_code: " + searchEmail);
+
+
+
+        int searType = 0;
+
+        try {
+            if(!"210000".equals(dictCode)){
+
+                //市级单位
+                if(dictCode.length() == 6 && dictCode.endsWith("00")){
+                    searType = 1;
+                    map.put("city", dictCode);
+                }else if(dictCode.length() == 6 && !dictCode.endsWith("00")){
+                    searType = 2;
+                    map.put("county", dictCode);
+                }else if(dictCode.length() > 6){
+                    searType = 3;
+                    map.put("town", dictCode);
+                }
+
+            }else{
+                searType = 1;
+                map.put("city", null);
+            }
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        if(!StringUtils.isBlank(param.getSearchType())) {
+            map.put("type", param.getSearchType());
+        }
+
+        Pagination<CountryReport> result = null;
+        List<DataInputBo>  list = new ArrayList<>();
+
+        Map<String, DataInputBo> mapBo = new TreeMap<>();
+
+        try {
+            if(1 == searType){
+                result = countryReportService.findCityData(map, param.getiDisplayStart() / param.getiDisplayLength(), param.getiDisplayLength());
+            }else if(2 == searType){
+                result = countryReportService.findCountyData(map, param.getiDisplayStart() / param.getiDisplayLength(), param.getiDisplayLength());
+            }else if(3 == searType){
+                result = countryReportService.findTownData(map, param.getiDisplayStart() / param.getiDisplayLength(), param.getiDisplayLength());
+            }
+
+            DecimalFormat df = new DecimalFormat("#.00");
+            if(null != result && null != result.getList()){
+                for(CountryReport report : result.getList()){
+                    if(mapBo.containsKey(buildMapKey(report))){
+                        LoggerUtils.debug(getClass(), "substr Year:   "+ report.getYear().substring(2));
+                        DataInputBo bo = mapBo.get(buildMapKey(report));
+                        bo.setDict(report.getDictName());
+                        Double amount = Double.parseDouble(proStr2D(report.getSendAmount())) + Double.parseDouble(proStr2D(report.getNoSendAmount()));
+                        Double standard =   Double.parseDouble(report.getStandard());
+                        Method m1 = bo.getClass().getMethod("setInput"+ report.getYear().substring(2),String.class);
+                        m1.invoke(bo, df.format(amount));
+                        Method m2 = bo.getClass().getMethod("setStandard"+ report.getYear().substring(2),String.class);
+                        m2.invoke(bo, df.format(standard));
+                        Double ret = 0.00;
+                        if( 0 != amount.intValue() && 0 != standard.intValue()){
+                            ret = amount / standard * 100;
+                        }
+
+                        Method m3 = bo.getClass().getMethod("setPercent"+ report.getYear().substring(2),String.class);
+                        m3.invoke(bo, df.format(ret));
+
+                        mapBo.put(buildMapKey(report), bo);
+                    }else{
+                        DataInputBo bo = new DataInputBo();
+                        bo.setDict(report.getDictName());
+                        Double amount = Double.parseDouble(proStr2D(report.getSendAmount())) + Double.parseDouble(proStr2D(report.getNoSendAmount()));
+                        Double standard =   Double.parseDouble(report.getStandard());
+
+                        if(".00".equals(df.format(standard))){
+                            LoggerUtils.debug(getClass(), ".00  "+standard);
+                            standard = 0.00;
+                        }
+
+                        if(".00".equals(df.format(amount))){
+                            LoggerUtils.debug(getClass(), ".00  "+amount);
+                            amount = 0.00;
+                        }
+                        Method m1 = bo.getClass().getMethod("setInput"+ report.getYear().substring(2),String.class);
+                        m1.invoke(bo, df.format(amount));
+                        Method m2 = bo.getClass().getMethod("setStandard"+ report.getYear().substring(2),String.class);
+                        m2.invoke(bo, df.format(standard));
+
+                        Double ret = 0.00;
+                        if( 0 != amount.intValue() && 0 != standard.intValue()){
+                            ret = amount / standard * 100;
+                        }
+
+                        if(".00".equals(df.format(ret))){
+                            LoggerUtils.debug(getClass(), ".00  "+ret);
+                            ret = 0.00;
+                        }
+
+
+                        
+                        Method m3 = bo.getClass().getMethod("setPercent"+ report.getYear().substring(2),String.class);
+                        m3.invoke(bo, df.format(ret));
+                        mapBo.put(buildMapKey(report), bo);
+                    }
+                }
+            }
+
+
+            for (Map.Entry<String, DataInputBo> entry : mapBo.entrySet()) {
+                list.add(entry.getValue());
+            }
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+
+        resultMap.put("iEcho", iEcho);
+        resultMap.put("data", list);
+        resultMap.put("iDisplayLength", param.getiDisplayLength());
+        resultMap.put("iDisplayStart", param.getiDisplayStart());
+
+        resultMap.put("recordsTotal", result.getTotalCount());
+        resultMap.put("recordsFiltered",  result.getTotalCount());
+        resultMap.put("sColumns", ",,,,");
+        resultMap.put("iColumns", 9);
+        resultMap.put("message", "ok");
+        return resultMap;
+
+
+
+    }
+
+    private String proStr2D(String str){
+        if(StringUtils.isBlank(str)){
+            return "0.00";
+        }
+        return str;
+    }
+
     private String buildCacheKey(String year, String key) {
         return KEY_PRE + year+ "_" + key;
+    }
+
+
+
+    private String buildMapKey(CountryReport report)
+    {
+        return new StringBuilder().append(report.getDictName() + report.getCity() + report.getCounty()).toString();
+    }
+
+    public static void main(String[] args){
+
+                                          LoggerUtils.debug(String.class, "2017".substring(2));
+
+                                          Double d1 = 2096.00;
+                                          Double d2 = 3603.00;
+        DecimalFormat df = new DecimalFormat("#.00");
+        String ret = df.format(d1 / d2 * 100);
+        LoggerUtils.debug(String.class, ret + "%");
     }
 }

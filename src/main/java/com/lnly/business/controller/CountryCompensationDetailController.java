@@ -115,13 +115,20 @@ public class CountryCompensationDetailController extends BaseController {
         return resultMap;
     }
 
+    /**
+     *   国家补偿明细列表
+     *   
+     * @param request
+     * @param param
+     * @return
+     */
     @RequestMapping(value = "findAll", method = RequestMethod.POST)
     @ResponseBody
     public Map<String, Object> getAllPost(HttpServletRequest request,BcbzPageEntity param) {
         iEcho++;
         String dictCode = request.getParameter("dictCode");
         LoggerUtils.debug(getClass(), "###################### " + dictCode);
-        
+        DateTime start = new DateTime();
         Map<String, Object> map = new HashMap<>();
         if (StringUtils.isNotBlank(param.getSearchYear())) {
             map.put("year", param.getSearchYear());
@@ -130,41 +137,41 @@ public class CountryCompensationDetailController extends BaseController {
             map.put("year", dateTime.toString("yyyy"));
         }
 
-        if (StringUtils.isNotBlank(param.getSearchContentFromSelect())
-                && !"210000".equals(param.getSearchContentFromSelect())
-                && !"辽宁省".equals(param.getSearchContentFromSelect())) {
+//        if (StringUtils.isNotBlank(param.getSearchContentFromSelect())
+//                && !"210000".equals(param.getSearchContentFromSelect())
+//                && !"辽宁省".equals(param.getSearchContentFromSelect())) {
+//            map.put("searchContent", param.getSearchContentFromSelect());
+//        }
+
+        if (StringUtils.isNotBlank(param.getSearchContentFromSelect())) {
             map.put("searchContent", param.getSearchContentFromSelect());
-        }
-
-        if (StringUtils.isNotBlank(param.getSearchContent())) {
-            map.put("searchContent", param.getSearchContent());
-        }
-
-        if(!map.containsKey("searchContent")) {
-            String searchEmail = param.getSearchEmail();
-            try {
-                UUser user = userService.findUserByEmail(searchEmail);
-                if(StringUtils.isBlank(dictCode)){
-                    dictCode = user.getDictCode();
-                }
-                if(!"210000".equalsIgnoreCase(dictCode)){
-                    AdminDict dict = adminDictService.findByDictCode(dictCode);
+        }else{
+            if(!"210000".equalsIgnoreCase(dictCode)){
+                AdminDict dict = null;
+                try {
+                    dict = adminDictService.findByDictCode(dictCode);
                     map.put("searchContent", dict.getDictName());
+                } catch (Exception e) {
                 }
 
-            } catch (Exception e) {
-                e.printStackTrace();
+            }else{
+                map.put("searchContent", null);
             }
-
         }
 
-        System.out.println("$$$$$$$$$$$$$$$$$$$$$$$$$$$$$: " + map.get("searchContent"));
-
+        DateTime end1 = new DateTime();
+        LoggerUtils.debug(getClass(), "param: : "+(end1.getSecondOfDay() - start.getSecondOfDay()));
         List<CountryCompensationDetail> countryCompensationStandards = null;
         int total = 0;
         try {
+            start = new DateTime();
             Pagination<CountryCompensationDetail> pagination = countryCompensationDetailService.findByPage(map, param.getiDisplayStart() / param.getiDisplayLength(), param.getiDisplayLength());
+            end1 = new DateTime();
+            LoggerUtils.debug(getClass(), "queryList: "+(end1.getSecondOfDay() - start.getSecondOfDay()));
+            start = new DateTime();
             total = pagination.getTotalCount();
+            end1 = new DateTime();
+            LoggerUtils.debug(getClass(), "queryCount: "+(end1.getSecondOfDay() - start.getSecondOfDay()));
             if (null != pagination) {
                 countryCompensationStandards = pagination.getList();
             }
@@ -184,6 +191,9 @@ public class CountryCompensationDetailController extends BaseController {
         resultMap.put("message", "ok");
         return resultMap;
     }
+
+
+
 
     /**
      * 新增国家补偿标准

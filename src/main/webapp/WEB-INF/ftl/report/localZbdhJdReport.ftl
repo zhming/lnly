@@ -63,6 +63,10 @@
             height: 38px;
 
         }
+
+        #example{
+            width: 1200px !important;
+        }
     </style>
 
 </head>

@@ -22,6 +22,7 @@ public class BcbzPageEntity extends PageEntity {
     private String searchContent;
     private String searchContentFromSelect;
     private String searchEmail;
+    private String searchType;
 
 
     public String getSearchContent() {
@@ -53,7 +54,16 @@ public class BcbzPageEntity extends PageEntity {
         return searchEmail;
     }
 
+
     public void setSearchEmail(String searchEmail) {
         this.searchEmail = searchEmail;
+    }
+
+    public String getSearchType() {
+        return searchType;
+    }
+
+    public void setSearchType(String searchType) {
+        this.searchType = searchType;
     }
 }

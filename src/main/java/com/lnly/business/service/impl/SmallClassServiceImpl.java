@@ -25,7 +25,7 @@ public class SmallClassServiceImpl extends BaseMybatisDao<SmallClassMapper> impl
    CustomSessionManager customSessionManager;
 	@Autowired
 	SmallClassMapper smallClassMapper;
-
+    @Autowired
     public JedisManager jedisManager;
 
     @Autowired
@@ -88,6 +88,7 @@ public class SmallClassServiceImpl extends BaseMybatisDao<SmallClassMapper> impl
             LoggerUtils.debug(SELF, "This value from cache!" + result.size());
         } catch (Exception e) {
              result = smallClassMapper.findSmallList(entity);
+            jedisManager.saveValueByKey(DB_INDEX, byteKey, SerializeUtil.serialize(result), -1);
             LoggerUtils.debug(SELF, "This value from DB!" + result.size());
         }
         return result;

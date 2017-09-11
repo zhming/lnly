@@ -3,7 +3,7 @@ package com.lnly.business.bo;
 import java.io.Serializable;
 
 /**
- * Description
+ * 录入率统计bo
  * <p>
  * <p>
  * <p>
@@ -19,42 +19,42 @@ import java.io.Serializable;
  */
 public class DataInputBo implements Serializable {
     private String dict;
-    private String input10;
-    private String standard10;
-    private String percent10;
-    private String input11;
-    private String standard11;
-    private String percent11;
-    private String input12;
-    private String standard12;
-    private String percent12;
-    private String input13;
-    private String standard13;
-    private String percent13;
-    private String input14;
-    private String standard14;
-    private String percent14;
-    private String input15;
-    private String standard15;
-    private String percent15;
-    private String input16;
-    private String standard16;
-    private String percent16;
-    private String input17;
-    private String standard17;
-    private String percent17;
-    private String input18;
-    private String standard18;
-    private String percent18;
-    private String input19;
-    private String standard19;
-    private String percent19;
-    private String input20;
-    private String standard20;
-    private String percent20;
-    private String input21;
-    private String standard21;
-    private String percent21;
+    private String input10 = "0.00";
+    private String standard10 = "0.00";
+    private String percent10 = "0.00";
+    private String input11 = "0.00";
+    private String standard11 = "0.00";
+    private String percent11 = "0.00";
+    private String input12 = "0.00";
+    private String standard12 = "0.00";
+    private String percent12 = "0.00";
+    private String input13 = "0.00";
+    private String standard13 = "0.00";
+    private String percent13 = "0.00";
+    private String input14 = "0.00";
+    private String standard14 = "0.00";
+    private String percent14 = "0.00";
+    private String input15 = "0.00";
+    private String standard15 = "0.00";
+    private String percent15 = "0.00";
+    private String input16 = "0.00";
+    private String standard16 = "0.00";
+    private String percent16 = "0.00";
+    private String input17 = "0.00";
+    private String standard17 = "0.00";
+    private String percent17 = "0.00";
+    private String input18 = "0.00";
+    private String standard18 = "0.00";
+    private String percent18 = "0.00";
+    private String input19 = "0.00";
+    private String standard19 = "0.00";
+    private String percent19 = "0.00";
+    private String input20 = "0.00";
+    private String standard20 = "0.00";
+    private String percent20 = "0.00";
+    private String input21 = "0.00";
+    private String standard21 = "0.00";
+    private String percent21 = "0.00";
 
 
     public String getDict() {

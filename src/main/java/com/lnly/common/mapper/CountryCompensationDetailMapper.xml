@@ -61,9 +61,9 @@
             1 = 1
             <if test="searchContent != null and searchContent !='' ">
                 and (
-                LOWER(city) like LOWER(CONCAT("%",#{searchContent,jdbcType=VARCHAR},"%")) or
-                LOWER(town) like LOWER(CONCAT("%",#{searchContent,jdbcType=VARCHAR},"%")) or
-                LOWER(county) like LOWER(CONCAT("%",#{searchContent,jdbcType=VARCHAR},"%"))
+                city =#{searchContent} or
+                town =#{searchContent} or
+                county =#{searchContent} 
                 )
             </if>
             <if test="year != null and year !='' ">
@@ -297,25 +297,51 @@
         where id = #{id,jdbcType=BIGINT}
     </update>
 
-
+    <!--地方公益林直补到户发放面积及金额汇总报表-->
     <select id="countrySendReport" resultMap="GrantAreaSumBo1" >
-        select * from(select '0' as type1, t.year, '辽宁省' as dict, round(sum(t.area), 2) as area,  round(sum(t.compensation_amount), 2) amount  from tb_country_compensation_detail t where t.send_flag='是' group by t.year
+        select '0' as type1, t.year, '辽宁省' as dict, sum(t.area) as area,  sum(t.compensation_amount) grantSum  from tb_country_compensation_detail t where t.send_flag='是' group by t.year
 
         union  all
 
-        select '1' as type1, t.year,  t.city as dict, round(sum(t.area), 2) as area,  round(sum(t.compensation_amount), 2) amount  from tb_country_compensation_detail  t where t.send_flag='是' group by t.year, t.city
+        select '1' as type1, t.year,  t.city as dict, sum(t.area) as grantArea,  sum(t.compensation_amount) grantSum  from tb_country_compensation_detail  t where t.send_flag='是' group by t.year, t.city
 
         union  all
 
-        select '2' as type1, t.year, t.county, round(sum(t.area), 2) as area,  round(sum(t.compensation_amount), 2) amount  from tb_country_compensation_detail t where t.send_flag='是' group by t.year, t.county
+        select '2' as type1, t.year, t.county, sum(t.area) as grantArea,  sum(t.compensation_amount) grantSum  from tb_country_compensation_detail t where t.send_flag='是' group by t.year, t.county
 
         union  all
 
-        select '3' as type1, t.year, t.town, round(sum(t.area), 2) as area,  round(sum(t.compensation_amount), 2) amount  from tb_country_compensation_detail t where t.send_flag='是' group by t.year, t.town
+        select '3' as type1, t.year, t.town, sum(t.area) as grantArea,  sum(t.compensation_amount) grantSum  from tb_country_compensation_detail t where t.send_flag='是' group by t.year, t.town
 
         union all
 
-        select '4' as type1, t.year, t.village, round(sum(t.area), 2) as area,  round(sum(t.compensation_amount), 2) amount  from tb_country_compensation_detail t where t.send_flag='是' group by t.year, t.village) t5 ;
+        select '4' as type1, t.year, t.village, sum(t.area) as grantArea,  sum(t.compensation_amount) grantSum  from tb_country_compensation_detail t where t.send_flag='是' group by t.year, t.village ;
 
     </select>
+
+    <select id="countrySendReportCount" resultMap="GrantAreaSumBo1" >
+        select count(1) from(
+        select '0' as type1, t.year, '辽宁省' as dict, sum(t.area) as grantArea,  sum(t.compensation_amount) grantSum  from tb_country_compensation_detail t where t.send_flag='是' group by t.year
+
+        union  all
+
+        select '1' as type1, t.year,  t.city as dict, sum(t.area) as grantArea,  sum(t.compensation_amount) grantSum  from tb_country_compensation_detail  t where t.send_flag='是' group by t.year, t.city
+
+        union  all
+
+        select '2' as type1, t.year, t.county, sum(t.area) as grantArea,  sum(t.compensation_amount) amount  grantSum tb_country_compensation_detail t where t.send_flag='是' group by t.year, t.county
+
+        union  all
+
+        select '3' as type1, t.year, t.town, sum(t.area) as grantArea,  sum(t.compensation_amount) grantSum  from tb_country_compensation_detail t where t.send_flag='是' group by t.year, t.town
+
+        union all
+
+        select '4' as type1, t.year, t.village, sum(t.area) as grantArea,  sum(t.compensation_amount) grantSum  from tb_country_compensation_detail t where t.send_flag='是' group by t.year, t.village ) t5;
+
+    </select>
+
+
+
+
 </mapper>

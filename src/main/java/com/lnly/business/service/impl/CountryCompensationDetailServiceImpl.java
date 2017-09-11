@@ -1,5 +1,6 @@
 package com.lnly.business.service.impl;
 
+import com.lnly.business.bo.GrantAreaSumBo1;
 import com.lnly.business.service.CountryCompensationDetailService;
 import com.lnly.common.dao.CountryCompensationDetailMapper;
 import com.lnly.common.model.CountryCompensationDetail;
@@ -26,14 +27,15 @@ public class CountryCompensationDetailServiceImpl extends BaseMybatisDao<Country
 	CustomSessionManager customSessionManager;
 	@Autowired
 	CountryCompensationDetailMapper countryCompensationStandardMapper;
-	
 
 	@Override
+    @Transactional(rollbackFor = Exception.class)
 	public int deleteByPrimaryKey(Long id) {
 		return countryCompensationStandardMapper.deleteByPrimaryKey(id);
 	}
 
 	@Override
+    @Transactional(rollbackFor = Exception.class)
 	public CountryCompensationDetail insert(CountryCompensationDetail entity) {
 		countryCompensationStandardMapper.insert(entity);    
 		return entity;
@@ -54,9 +56,9 @@ public class CountryCompensationDetailServiceImpl extends BaseMybatisDao<Country
 
 	@SuppressWarnings("unchecked")
 	@Override
-	public Pagination<CountryCompensationDetail> findByPage(Map<String, Object> resultMap,
+	public Pagination<CountryCompensationDetail> findByPage(Map<String, Object> params,
 			Integer pageNo, Integer pageSize) {
-		return super.findPage("findAll","findCount",resultMap, pageNo, pageSize);
+		return super.findPage("findAll","findCount", params, pageNo, pageSize);
 	}
 
     @Override
@@ -85,6 +87,12 @@ public class CountryCompensationDetailServiceImpl extends BaseMybatisDao<Country
 
 
         return  result;
+    }
+
+    @Override
+    public Pagination<GrantAreaSumBo1> findCountrySendReport(Map<String, Object> params, Integer pageNo,
+                                                       Integer pageSize) throws Exception {
+        return super.findPage("countrySendReport","countrySendReportCount", params, pageNo, pageSize);
     }
 
 

@@ -1,5 +1,6 @@
 package com.lnly.common.dao;
 
+import com.lnly.business.bo.GrantAreaSumBo1;
 import com.lnly.common.model.CountryCompensationDetail;
 
 import java.sql.ResultSet;
@@ -32,5 +33,6 @@ public interface CountryCompensationDetailMapper {
     List<CountryCompensationDetail> findAll();
     List<CountryCompensationDetail> findSmallClassData(CountryCompensationDetail entity);
 
+    List<GrantAreaSumBo1> countrySendReport();
 
 }
