@@ -324,8 +324,9 @@
                             <div class="form-group col-sm-4 gj">
                                 <label for="recipient-name" class="control-label">是否发放:</label>
                                 <select id="sendFlag" name="sendFlag" class="form-control">
-                                    <option value="0">否</option>
-                                    <option value="1">是</option>
+                                    <option value="是">是</option>
+                                    <option value="否">否</option>
+
                                 </select>
                             </div>
 

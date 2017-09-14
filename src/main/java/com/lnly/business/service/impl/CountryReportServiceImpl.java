@@ -1,5 +1,6 @@
 package com.lnly.business.service.impl;
 
+import com.lnly.business.bo.DataInputBo;
 import com.lnly.business.service.CountryReportService;
 import com.lnly.common.dao.CountryReportMapper;
 import com.lnly.common.model.CountryReport;
@@ -44,5 +45,20 @@ public class CountryReportServiceImpl extends BaseMybatisDao<CountryReportMapper
     @Override
     public Pagination<CountryReport> findVillageData(Map<String, Object> params, Integer pageNo, Integer pageSize) throws Exception {
         return super.findPage("findVillageData","findVillageDataCount", params, pageNo, pageSize);
+    }
+
+    @Override
+    public Pagination<CountryReport> findCityDataSend(Map<String, Object> params, Integer pageNo, Integer pageSize) throws Exception {
+        return super.findPage("findCityDataSend","findCityDataSendCount", params, pageNo, pageSize);
+    }
+
+    @Override
+    public Pagination<CountryReport> findCityDataSendAll(Map<String, Object> params, Integer pageNo, Integer pageSize) throws Exception {
+        return super.findPage("findCityDataSendAll","findCityDataSendAllCount", params, pageNo, pageSize);
+    }
+
+    @Override
+    public Pagination<DataInputBo> findCityDataAmountAll(Map<String, Object> params, Integer pageNo, Integer pageSize) throws Exception {
+        return super.findPage("findCityDataAmountAll","findCityDataAmountAllCount", params, pageNo, pageSize);
     }
 }
