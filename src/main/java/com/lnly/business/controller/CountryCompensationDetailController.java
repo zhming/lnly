@@ -193,6 +193,166 @@ public class CountryCompensationDetailController extends BaseController {
     }
 
 
+    /**
+     *   国家补偿明细列表已发放
+     *
+     * @param request
+     * @param param
+     * @return
+     */
+    @RequestMapping(value = "findOkAll", method = RequestMethod.POST)
+    @ResponseBody
+    public Map<String, Object> findOkAll(HttpServletRequest request,BcbzPageEntity param) {
+        iEcho++;
+        String dictCode = request.getParameter("dictCode");
+        LoggerUtils.debug(getClass(), "###################### " + dictCode);
+        DateTime start = new DateTime();
+        Map<String, Object> map = new HashMap<>();
+        if (StringUtils.isNotBlank(param.getSearchYear())) {
+            map.put("year", param.getSearchYear());
+        }else{
+            DateTime dateTime = new DateTime();
+            map.put("year", dateTime.toString("yyyy"));
+        }
+
+//        if (StringUtils.isNotBlank(param.getSearchContentFromSelect())
+//                && !"210000".equals(param.getSearchContentFromSelect())
+//                && !"辽宁省".equals(param.getSearchContentFromSelect())) {
+//            map.put("searchContent", param.getSearchContentFromSelect());
+//        }
+
+        if (StringUtils.isNotBlank(param.getSearchContentFromSelect())) {
+            map.put("searchContent", param.getSearchContentFromSelect());
+        }else{
+            if(!"210000".equalsIgnoreCase(dictCode)){
+                AdminDict dict = null;
+                try {
+                    dict = adminDictService.findByDictCode(dictCode);
+                    map.put("searchContent", dict.getDictName());
+                } catch (Exception e) {
+                }
+
+            }else{
+                map.put("searchContent", null);
+            }
+        }
+
+        map.put("sendFlag", "是");
+
+        DateTime end1 = new DateTime();
+        LoggerUtils.debug(getClass(), "param: : "+(end1.getSecondOfDay() - start.getSecondOfDay()));
+        List<CountryCompensationDetail> countryCompensationStandards = null;
+        int total = 0;
+        try {
+            start = new DateTime();
+            Pagination<CountryCompensationDetail> pagination = countryCompensationDetailService.findByPage(map, param.getiDisplayStart() / param.getiDisplayLength(), param.getiDisplayLength());
+            end1 = new DateTime();
+            LoggerUtils.debug(getClass(), "queryList: "+(end1.getSecondOfDay() - start.getSecondOfDay()));
+            start = new DateTime();
+            total = pagination.getTotalCount();
+            end1 = new DateTime();
+            LoggerUtils.debug(getClass(), "queryCount: "+(end1.getSecondOfDay() - start.getSecondOfDay()));
+            if (null != pagination) {
+                countryCompensationStandards = pagination.getList();
+            }
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        resultMap.put("iEcho", iEcho);
+        resultMap.put("data", countryCompensationStandards);
+        resultMap.put("iDisplayLength", param.getiDisplayLength());
+        resultMap.put("iDisplayStart", param.getiDisplayStart());
+
+        resultMap.put("recordsTotal", total);
+        resultMap.put("recordsFiltered", total);
+        resultMap.put("sColumns", ",,,,");
+        resultMap.put("iColumns", 9);
+        resultMap.put("message", "ok");
+        return resultMap;
+    }
+
+
+    /**
+     *   国家补偿明细列表已发放
+     *
+     * @param request
+     * @param param
+     * @return
+     */
+    @RequestMapping(value = "findNoOkAll", method = RequestMethod.POST)
+    @ResponseBody
+    public Map<String, Object> findNoOkAll(HttpServletRequest request,BcbzPageEntity param) {
+        iEcho++;
+        String dictCode = request.getParameter("dictCode");
+        LoggerUtils.debug(getClass(), "###################### " + dictCode);
+        DateTime start = new DateTime();
+        Map<String, Object> map = new HashMap<>();
+        if (StringUtils.isNotBlank(param.getSearchYear())) {
+            map.put("year", param.getSearchYear());
+        }else{
+            DateTime dateTime = new DateTime();
+            map.put("year", dateTime.toString("yyyy"));
+        }
+
+//        if (StringUtils.isNotBlank(param.getSearchContentFromSelect())
+//                && !"210000".equals(param.getSearchContentFromSelect())
+//                && !"辽宁省".equals(param.getSearchContentFromSelect())) {
+//            map.put("searchContent", param.getSearchContentFromSelect());
+//        }
+
+        if (StringUtils.isNotBlank(param.getSearchContentFromSelect())) {
+            map.put("searchContent", param.getSearchContentFromSelect());
+        }else{
+            if(!"210000".equalsIgnoreCase(dictCode)){
+                AdminDict dict = null;
+                try {
+                    dict = adminDictService.findByDictCode(dictCode);
+                    map.put("searchContent", dict.getDictName());
+                } catch (Exception e) {
+                }
+
+            }else{
+                map.put("searchContent", null);
+            }
+        }
+
+        map.put("sendFlag", "否");
+
+        DateTime end1 = new DateTime();
+        LoggerUtils.debug(getClass(), "param: : "+(end1.getSecondOfDay() - start.getSecondOfDay()));
+        List<CountryCompensationDetail> countryCompensationStandards = null;
+        int total = 0;
+        try {
+            start = new DateTime();
+            Pagination<CountryCompensationDetail> pagination = countryCompensationDetailService.findByPage(map, param.getiDisplayStart() / param.getiDisplayLength(), param.getiDisplayLength());
+            end1 = new DateTime();
+            LoggerUtils.debug(getClass(), "queryList: "+(end1.getSecondOfDay() - start.getSecondOfDay()));
+            start = new DateTime();
+            total = pagination.getTotalCount();
+            end1 = new DateTime();
+            LoggerUtils.debug(getClass(), "queryCount: "+(end1.getSecondOfDay() - start.getSecondOfDay()));
+            if (null != pagination) {
+                countryCompensationStandards = pagination.getList();
+            }
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        resultMap.put("iEcho", iEcho);
+        resultMap.put("data", countryCompensationStandards);
+        resultMap.put("iDisplayLength", param.getiDisplayLength());
+        resultMap.put("iDisplayStart", param.getiDisplayStart());
+
+        resultMap.put("recordsTotal", total);
+        resultMap.put("recordsFiltered", total);
+        resultMap.put("sColumns", ",,,,");
+        resultMap.put("iColumns", 9);
+        resultMap.put("message", "ok");
+        return resultMap;
+    }
+
+
 
 
     /**

@@ -2,7 +2,7 @@
 <html lang="zh-cn">
 <head>
     <meta charset="utf-8"/>
-    <title>辽宁省林业厅生态公益林管理系统-地方公益林直补到户相关数据录入率统计表</title>
+    <title>辽宁省林业厅生态公益林管理系统-国家公益林直补到户相关数据录入率统计表</title>
     <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport"/>
     <link rel="icon" href="${basePath}/favicon.ico" type="image/x-icon"/>
     <link rel="shortcut icon" href="${basePath}/favicon.ico"/>
@@ -69,7 +69,7 @@
         }
 
         #example{
-            width: 1500px !important;
+            width: 1800px !important;
         }
     </style>
 
@@ -82,7 +82,7 @@
     <div class="row" style="margin-lef: -10px;">
 
         <div class="col-md-12">
-            <h2>地方公益林直补到户相关数据录入率统计表</h2>
+            <h2>国家公益林直补到户相关数据录入率统计表</h2>
             <hr>
 
         </div>
@@ -244,7 +244,7 @@
             "scrollX": true, //水平滚动条
             ajax: {//类似jquery的ajax参数，基本都可以用。
                 type: "post",//后台指定了方式，默认get，外加datatable默认构造的参数很长，有可能超过get的最大长度。
-                url: "${basePath}/report/findCoutryInputData.shtml?dictCode="+dictCode,
+                url: "${basePath}/report/findLocalCityDataAmountAll.shtml?dictCode="+dictCode,
                 dataSrc: "data",//默认data，也可以写其他的，格式化table的时候取里面的数据
                 data: function (d) {//d 是原始的发送给服务器的数据，默认很长。
                     var param = {};//因为服务端排序，可以新建一个参数对象
@@ -398,6 +398,9 @@
         $(document).on("click", "#go_search", function () {
             var yearSelect = $("#yearSelect").val();
             $("#filter_form [name='searchYear']").val(yearSelect);
+            var dictType = $("#dictType").find("option:selected").val();
+            console.log("dictType : " + dictType)
+            $("#filter_form [name='searchType']").val(dictType);
             $("#example").DataTable().draw(false);//点搜索重新绘制table。
 
 
@@ -461,7 +464,7 @@
         $("#filter_form [name='searchYear']").val(yearSelect);
 
         var type = $('input:radio:checked').val();
-        var tableTitle = nodeName + "地方公益林直补到户相关数据录入率统计表";
+        var tableTitle = nodeName + "国家公益林直补到户相关数据录入率统计表";
         $("#tableTitle").html(tableTitle);
         if (node.state.expanded) {
             //处于展开状态则折叠

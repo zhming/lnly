@@ -1,0 +1,430 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.lnly.common.dao.LocalReportMapper" >
+  <resultMap id="BaseResultMap" type="com.lnly.common.model.LocalReport" >
+    <id column="id" property="id" />
+    <result column="dict_name" property="dictName" />
+    <result column="type" property="type" />
+    <result column="year" property="year" />
+    <result column="send_area" property="sendArea"  />
+    <result column="send_amount" property="sendAmount"  />
+    <result column="no_send_area" property="noSendArea"  />
+    <result column="no_send_amount" property="noSendAmount"  />
+    <result column="area" property="area"  />
+    <result column="amount" property="amount" />
+      <result column="city" property="city" />
+      <result column="county" property="county" />
+      <result column="town" property="town" />
+      <result column="village" property="village" />
+  </resultMap>
+
+    <resultMap id="ReportResultMap" type="com.lnly.business.bo.GrantAreaSumBo" >
+        <result column="dict_name" property="dict" />
+        <result column="2010_amount" property="grantSum10" />
+        <result column="2011_amount" property="grantSum11" />
+        <result column="2012_amount" property="grantSum12" />
+        <result column="2013_amount" property="grantSum13" />
+        <result column="2014_amount" property="grantSum14" />
+        <result column="2015_amount" property="grantSum15" />
+        <result column="2016_amount" property="grantSum16" />
+        <result column="2017_amount" property="grantSum17" />
+        <result column="2018_amount" property="grantSum18" />
+        <result column="2019_amount" property="grantSum19" />
+        <result column="2020_amount" property="grantSum20" />
+        <result column="2021_amount" property="grantSum21" />
+        <result column="2010_area" property="grantArea10" />
+        <result column="2011_area" property="grantArea11" />
+        <result column="2012_area" property="grantArea12" />
+        <result column="2013_area" property="grantArea13" />
+        <result column="2014_area" property="grantArea14" />
+        <result column="2015_area" property="grantArea15" />
+        <result column="2016_area" property="grantArea16" />
+        <result column="2017_area" property="grantArea17" />
+        <result column="2018_area" property="grantArea18" />
+        <result column="2019_area" property="grantArea19" />
+        <result column="2020_area" property="grantArea20" />
+        <result column="2021_area" property="grantArea21" />
+    </resultMap>
+
+    <resultMap id="InputDataResultMap" type="com.lnly.business.bo.DataInputBo" >
+        <result column="dict_name" property="dict" />
+        <result column="2010_amount" property="input10" />
+        <result column="2011_amount" property="input11" />
+        <result column="2012_amount" property="input12" />
+        <result column="2013_amount" property="input13" />
+        <result column="2014_amount" property="input14" />
+        <result column="2015_amount" property="input15" />
+        <result column="2016_amount" property="input16" />
+        <result column="2017_amount" property="input17" />
+        <result column="2018_amount" property="input18" />
+        <result column="2019_amount" property="input19" />
+        <result column="2020_amount" property="input20" />
+        <result column="2021_amount" property="input21" />
+        <result column="2010_area" property="standard10" />
+        <result column="2011_area" property="standard11" />
+        <result column="2012_area" property="standard12" />
+        <result column="2013_area" property="standard13" />
+        <result column="2014_area" property="standard14" />
+        <result column="2015_area" property="standard15" />
+        <result column="2016_area" property="standard16" />
+        <result column="2017_area" property="standard17" />
+        <result column="2018_area" property="standard18" />
+        <result column="2019_area" property="standard19" />
+        <result column="2020_area" property="standard20" />
+        <result column="2021_area" property="standard21" />
+    </resultMap>
+  <sql id="Base_Column_List" >
+    id, dict_name, type, year, send_area, no_send_area, area, send_amount, no_send_amount, amount, standard, city, county, town, village
+  </sql>
+  <sql id="limit_sql">
+  	   <if test="page_sql != null and page_sql != ''">
+      	${page_sql}
+      </if>
+  </sql>
+  
+  <sql id="where_all">
+  	<where>
+  	<if test="findContent != null and findContent !='' " >
+        and (
+        LOWER(dict_name) like  LOWER(CONCAT("%", #{dictName},"%"))
+        )
+      </if>
+      </where>
+  </sql>
+  <select id="findAll" resultMap="BaseResultMap" >
+  	 select 
+    <include refid="Base_Column_List" />
+    from tb_local_report
+    <include refid="where_all"/>
+    <include refid="limit_sql" />
+  </select>
+  <select id="findCount" resultMap="BaseResultMap" >
+ 	 select count(id) from  tb_local_report
+  	<include refid="where_all" />
+  </select>
+
+
+
+
+    <select id="findCityData" resultMap="BaseResultMap" >
+        select
+        <include refid="Base_Column_List" />
+        from tb_local_report
+
+        <where>
+            <if test="city != null and city !='' " >
+                 city = #{city}
+            </if>
+            <if test="type != null and type !='' " >
+                and  type = #{type}
+            </if>
+
+        </where>
+        order by area desc
+        <include refid="limit_sql" />
+    </select>
+
+      <!--已发统计-->
+    <select id="findCityDataSend" resultMap="ReportResultMap" >
+        select dict_name,
+            max(case year when '2010' then send_amount else 0 end) as '2010_amount',
+            max(case year when '2010' then send_area else 0 end) as '2010_area',
+            max(case year when '2011' then send_amount else 0 end) as '2011_amount',
+            max(case year when '2011' then send_area else 0 end) as '2011_area',
+            max(case year when '2012' then send_amount else 0 end) as '2012_amount',
+            max(case year when '2012' then send_area else 0 end) as '2012_area',
+            max(case year when '2013' then send_amount else 0 end) as '2013_amount',
+            max(case year when '2013' then send_area else 0 end) as '2013_area',
+            max(case year when '2014' then send_amount else 0 end) as '2014_amount',
+            max(case year when '2014' then send_area else 0 end) as '2014_area',
+            max(case year when '2015' then send_amount else 0 end) as '2015_amount',
+            max(case year when '2015' then send_area else 0 end) as '2015_area',
+            max(case year when '2016' then send_amount else 0 end) as '2016_amount',
+            max(case year when '2016' then send_area else 0 end) as '2016_area',
+            max(case year when '2017' then send_amount else 0 end) as '2017_amount',
+            max(case year when '2017' then send_area else 0 end) as '2017_area',
+            max(case year when '2018' then send_amount else 0 end) as '2018_amount',
+            max(case year when '2018' then send_area else 0 end) as '2018_area',
+            max(case year when '2019' then send_amount else 0 end) as '2019_amount',
+            max(case year when '2019' then send_area else 0 end) as '2019_area',
+            max(case year when '2020' then send_amount else 0 end) as '2020_amount',
+            max(case year when '2020' then send_area else 0 end) as '2020_area',
+            max(case year when '2021' then send_amount else 0 end) as '2021_amount',
+            max(case year when '2021' then send_area else 0 end) as '2021_area'
+	  from tb_local_report
+        <where>
+            city is not null
+            <if test="city != null and city !='' " >
+               and  city = #{city}
+            </if>
+            <if test="county != null and county !='' " >
+                and  county = #{county}
+            </if>
+            <if test="town != null and town !='' " >
+                and  town = #{town}
+            </if>
+            <if test="type != null and type !='' " >
+                and  type = #{type}
+            </if>
+        </where>
+            group by dict_name
+            order by  city , county, town
+        <include refid="limit_sql" />
+
+    </select>
+
+
+
+    <select id="findCityDataSendCount" resultMap="ReportResultMap" >
+      select count(1) from(  select count(1)
+        from tb_local_report
+        <where>
+            city is not null
+            <if test="city != null and city !='' " >
+                and  city = #{city}
+            </if>
+            <if test="county != null and county !='' " >
+                and  county = #{county}
+            </if>
+            <if test="town != null and town !='' " >
+                and  town = #{town}
+            </if>
+            <if test="type != null and type !='' " >
+                and  type = #{type}
+            </if>
+        </where>
+        group by dict_name ) t;
+
+    </select>
+
+     <!-- 调查面积 -->
+    <select id="findCityDataSendAll" resultMap="ReportResultMap" >
+        select dict_name,
+        max(case year when '2010' then amount  else 0 end) as '2010_amount',
+        max(case year when '2010' then area else 0 end) as '2010_area',
+        max(case year when '2011' then amount else 0 end) as '2011_amount',
+        max(case year when '2011' then area else 0 end) as '2011_area',
+        max(case year when '2012' then amount else 0 end) as '2012_amount',
+        max(case year when '2012' then area else 0 end) as '2012_area',
+        max(case year when '2013' then amount else 0 end) as '2013_amount',
+        max(case year when '2013' then area else 0 end) as '2013_area',
+        max(case year when '2014' then amount else 0 end) as '2014_amount',
+        max(case year when '2014' then area else 0 end) as '2014_area',
+        max(case year when '2015' then amount else 0 end) as '2015_amount',
+        max(case year when '2015' then area else 0 end) as '2015_area',
+        max(case year when '2016' then amount else 0 end) as '2016_amount',
+        max(case year when '2016' then area else 0 end) as '2016_area',
+        max(case year when '2017' then amount else 0 end) as '2017_amount',
+        max(case year when '2017' then area else 0 end) as '2017_area',
+        max(case year when '2018' then amount else 0 end) as '2018_amount',
+        max(case year when '2018' then area else 0 end) as '2018_area',
+        max(case year when '2019' then amount else 0 end) as '2019_amount',
+        max(case year when '2019' then area else 0 end) as '2019_area',
+        max(case year when '2020' then amount else 0 end) as '2020_amount',
+        max(case year when '2020' then area else 0 end) as '2020_area',
+        max(case year when '2021' then amount else 0 end) as '2021_amount',
+        max(case year when '2021' then area else 0 end) as '2021_area'
+        from tb_local_report
+        <where>
+            city is not null
+            <if test="city != null and city !='' " >
+                and  city = #{city}
+            </if>
+            <if test="county != null and county !='' " >
+                and  county = #{county}
+            </if>
+            <if test="town != null and town !='' " >
+                and  town = #{town}
+            </if>
+            <if test="type != null and type !='' " >
+                and  type = #{type}
+            </if>
+        </where>
+        group by dict_name
+        order by  city , county, town
+        <include refid="limit_sql" />
+
+    </select>
+
+    <select id="findCityDataSendAllCount" resultMap="ReportResultMap" >
+      select count(1) from ( select count(1)
+        from tb_local_report
+        <where>
+            city is not null
+            <if test="city != null and city !='' " >
+                and  city = #{city}
+            </if>
+            <if test="county != null and county !='' " >
+                and  county = #{county}
+            </if>
+            <if test="town != null and town !='' " >
+                and  town = #{town}
+            </if>
+            <if test="type != null and type !='' " >
+                and  type = #{type}
+            </if>
+        </where>
+        group by dict_name ) t;
+
+    </select>
+
+
+    <!-- 国家录入率统计 -->
+    <select id="findCityDataAmountAll" resultMap="InputDataResultMap" >
+        select dict_name,
+        max(case year when '2010' then amount else 0 end) as '2010_amount',
+        max(case year when '2010' then standard else 0 end) as '2010_area',
+        max(case year when '2011' then amount else 0 end) as '2011_amount',
+        max(case year when '2011' then standard else 0 end) as '2011_area',
+        max(case year when '2012' then amount else 0 end) as '2012_amount',
+        max(case year when '2012' then standard else 0 end) as '2012_area',
+        max(case year when '2013' then amount else 0 end) as '2013_amount',
+        max(case year when '2013' then standard else 0 end) as '2013_area',
+        max(case year when '2014' then amount else 0 end) as '2014_amount',
+        max(case year when '2014' then standard else 0 end) as '2014_area',
+        max(case year when '2015' then amount else 0 end) as '2015_amount',
+        max(case year when '2015' then standard else 0 end) as '2015_area',
+        max(case year when '2016' then amount else 0 end) as '2016_amount',
+        max(case year when '2016' then standard else 0 end) as '2016_area',
+        max(case year when '2017' then amount else 0 end) as '2017_amount',
+        max(case year when '2017' then standard else 0 end) as '2017_area',
+        max(case year when '2018' then amount else 0 end) as '2018_amount',
+        max(case year when '2018' then standard else 0 end) as '2018_area',
+        max(case year when '2019' then amount else 0 end) as '2019_amount',
+        max(case year when '2019' then standard else 0 end) as '2019_area',
+        max(case year when '2020' then amount else 0 end) as '2020_amount',
+        max(case year when '2020' then standard else 0 end) as '2020_area',
+        max(case year when '2021' then amount else 0 end) as '2021_amount',
+        max(case year when '2021' then standard else 0 end) as '2021_area'
+        from tb_local_report
+        <where>
+            city is not null and town = '0'
+            <if test="city != null and city !='' " >
+                and  city = #{city}
+            </if>
+            <if test="county != null and county !='' " >
+                and  county = #{county}
+            </if>
+            <if test="type != null and type !='' " >
+                and  type = #{type}
+            </if>
+        </where>
+        group by dict_name
+        order by  city , county, town
+        <include refid="limit_sql" />
+
+    </select>
+
+
+    <select id="findCityDataAmountAllCount" resultMap="ReportResultMap" >
+       select count(1) from ( select count(1)
+        from tb_local_report
+        <where>
+            city is not null and town = '0'
+            <if test="city != null and city !='' " >
+                and  city = #{city}
+            </if>
+            <if test="county != null and county !='' " >
+                and  county = #{county}
+            </if>
+            <if test="type != null and type !='' " >
+                and  type = #{type}
+            </if>
+        </where>
+        group by dict_name   ) t;
+    </select>
+
+
+
+    <select id="findCityDataCount" resultMap="BaseResultMap" >
+        select
+        count(1)
+        from tb_local_report
+
+        <where>
+            <if test="city != null and city !='' " >
+                city = #{city}
+            </if>
+            <if test="type != null and type !='' " >
+                and  type = #{type}
+            </if>
+        </where>
+
+    </select>
+
+
+
+    <select id="findCountyData" resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List" />
+        from tb_local_report
+         <where>
+        <if test="county != null and county !='' " >
+            county = #{county}
+        </if>
+             <if test="type != null and type !='' " >
+                 and  type = #{type}
+             </if>
+        </where>
+        order by area desc
+        <include refid="limit_sql" />
+    </select>
+
+
+    <select id="findCountyDataCount" resultMap="BaseResultMap">
+        select
+          count(1)
+        from tb_local_report
+        <where>
+            <if test="county != null and county !='' " >
+                county = #{county}
+            </if>
+            <if test="type != null and type !='' " >
+                and  type = #{type}
+            </if>
+
+        </where>
+
+    </select>
+
+
+
+    <select id="findTownData" resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List" />
+        from tb_local_report
+        <where>
+            <if test="town != null and town !='' " >
+                town = #{town}
+            </if>
+            <if test="type != null and type !='' " >
+                and  type = #{type}
+            </if>
+
+        </where>
+        order by area desc
+        <include refid="limit_sql" />
+    </select>
+
+
+    <select id="findTownDataCount" resultMap="BaseResultMap">
+        select
+            count(1)
+        from tb_local_report
+        <where>
+            <if test="town != null and town !='' " >
+                town = #{town}
+            </if>
+
+            <if test="type != null and type !='' " >
+                and  type = #{type}
+            </if>
+
+        </where>
+
+        order by dict_name;
+    </select>
+
+  
+
+</mapper>

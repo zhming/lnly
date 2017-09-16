@@ -198,7 +198,7 @@
             autoWidth: false, //启用或者禁止自动列宽的计算
             ajax: {//类似jquery的ajax参数，基本都可以用。
                 type: "post",//后台指定了方式，默认get，外加datatable默认构造的参数很长，有可能超过get的最大长度。
-                url: "${basePath}/report/findLocalZbdhJd.shtml",
+                url: "${basePath}/report/findSmallClassDiff.shtml",
                 dataSrc: "data",//默认data，也可以写其他的，格式化table的时候取里面的数据
                 data: function (d) {//d 是原始的发送给服务器的数据，默认很长。
                     var param = {};//因为服务端排序，可以新建一个参数对象
@@ -250,15 +250,15 @@
                     "sTitle": "小班"
                 },
                 {
-                    data: "smallArea",
+                    data: "area",
                     "sTitle": "小班面积(亩)"
                 },
                 {
-                    data: "grantArea",
+                    data: "localDistributed",
                     "sTitle": "发放明细面积汇总(亩)"
                 },
                 {
-                    data: "balance",
+                    data: "localDiff",
                     "sTitle": "差额面积(亩)"
                 }
 

@@ -5,6 +5,7 @@ import com.lnly.common.model.SmallClass;
 import com.lnly.core.mybatis.page.Pagination;
 
 import java.util.List;
+import java.util.Map;
 
 public interface SmallClassService {
 
@@ -26,6 +27,8 @@ public interface SmallClassService {
     public Pagination<SmallClass> findAll(SmallClass entity, Integer pageNo, Integer pageSize) throws Exception;
 
     List<SmallClass> findSmallList(SmallClass entity) throws Exception;
+
+    public Pagination<SmallClass> findListDiff(Map<String, Object> map, Integer pageNo, Integer pageSize) throws Exception ;
 
 }
 

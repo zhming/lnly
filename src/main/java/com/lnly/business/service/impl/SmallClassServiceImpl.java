@@ -23,7 +23,7 @@ import java.util.Map;
 public class SmallClassServiceImpl extends BaseMybatisDao<SmallClassMapper> implements SmallClassService {
    @Autowired
    CustomSessionManager customSessionManager;
-	@Autowired
+	@Autowired                                   
 	SmallClassMapper smallClassMapper;
     @Autowired
     public JedisManager jedisManager;
@@ -92,6 +92,11 @@ public class SmallClassServiceImpl extends BaseMybatisDao<SmallClassMapper> impl
             LoggerUtils.debug(SELF, "This value from DB!" + result.size());
         }
         return result;
+    }
+
+    @Override
+    public Pagination<SmallClass> findListDiff(Map<String, Object> map, Integer pageNo, Integer pageSize) throws Exception {
+         return super.findPage("findSmallList", "findSmallListCount", map, pageNo, pageSize);
     }
 
 

@@ -19,6 +19,10 @@
         <result column="source" property="source" jdbcType="VARCHAR"/>
         <result column="forest_zl" property="forestZl" jdbcType="VARCHAR"/>
         <result column="comment" property="comment" jdbcType="TIMESTAMP"/>
+        <result column="country_distributed" property="countryDistributed" />
+        <result column="local_distributed" property="localDistributed" />
+        <result column="country_diff" property="countryDiff" />
+        <result column="local_diff" property="localDiff" />
     </resultMap>
 
 
@@ -40,6 +44,10 @@
       land_zl,
       source,
       forest_zl,
+      country_distributed,
+      local_distributed,
+      country_diff,
+      local_diff,
       comment
   </sql>
     <sql id="limit_sql">
@@ -86,6 +94,14 @@
         <include refid="Base_Column_List"/>
         from tb_small_class
         <include refid="where_small_list"/>
+        <include refid="limit_sql"/>
+    </select>
+
+    <select id="findSmallListCount" resultMap="BaseResultMap">
+        select
+       count(1)
+        from tb_small_class
+        <include refid="where_small_list"/>
     </select>
 
 
@@ -114,6 +130,16 @@
 
             <if test="smallClass != null and smallClass !='' ">
                 and small_class = #{smallClass,jdbcType=VARCHAR}
+            </if>
+
+
+            <if test="countryDiff != null and countryDiff > 0 ">
+                and country_diff > 0
+            </if>
+
+
+            <if test="localDiff != null and localDiff > 0 ">
+                and localDiff > 0
             </if>
 
         </where>

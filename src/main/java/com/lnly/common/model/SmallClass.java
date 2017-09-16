@@ -24,6 +24,10 @@ public class SmallClass implements Serializable {
     private String source;
     private String forestZl;
     private String comment;
+    private Double countryDistributed;
+    private Double localDistributed;
+    private Double countryDiff;
+    private Double localDiff;
 
 
     public SmallClass() {
@@ -182,5 +186,37 @@ public class SmallClass implements Serializable {
 
     public void setYear(String year) {
         this.year = year;
+    }
+
+    public Double getCountryDistributed() {
+        return countryDistributed;
+    }
+
+    public void setCountryDistributed(Double countryDistributed) {
+        this.countryDistributed = countryDistributed;
+    }
+
+    public Double getLocalDistributed() {
+        return localDistributed;
+    }
+
+    public void setLocalDistributed(Double localDistributed) {
+        this.localDistributed = localDistributed;
+    }
+
+    public Double getCountryDiff() {
+        return countryDiff;
+    }
+
+    public void setCountryDiff(Double countryDiff) {
+        this.countryDiff = countryDiff;
+    }
+
+    public Double getLocalDiff() {
+        return localDiff;
+    }
+
+    public void setLocalDiff(Double localDiff) {
+        this.localDiff = localDiff;
     }
 }
