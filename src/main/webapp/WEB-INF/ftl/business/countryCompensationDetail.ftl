@@ -124,7 +124,7 @@
                                         <button id="updateButton" onclick="viewUpdateModal();" class="btn btn-default">
                                             修改
                                         </button>
-                                        <button id="deleteButton" onclick="deleteById();" class="btn btn-default">删除
+                                        <button id="deleteButton" onclick="deleteList();" class="btn btn-default">删除
                                         </button>
                                         <button id="importButton" onclick="viewUploadModal();" class="btn btn-default">批量导入
                                         </button>
@@ -917,6 +917,41 @@
             layer.close(index);
         });
     }
+
+    function deleteList(){
+        var checkStatus = "0";
+        var dictCode = "${token.dictCode}";
+
+        var ids = "";
+        $('input[name="checkchild"]:checked').each(function(){
+            console.log($(this).val());
+            ids +=  $(this).val() + ",";
+        });
+
+        if(ids.length == 0){
+            layer.msg("请选取要删除的数据");
+        }
+
+        var deleteUrl = "${basePath}/countryDetail/deleteList.shtml";
+
+        var index = layer.confirm("批量删除数据", function () {
+            var load = layer.load();
+            $.post(deleteUrl, {ids: ids, checkStatus:checkStatus}, function (result) {
+                layer.close(load);
+                if (result && result.status != 200) {
+                    return layer.msg(result.message, so.default), !0;
+                } else {
+                    layer.msg(result.message);
+                    $('.selected').remove();
+                    $("#example").DataTable().draw(false);//点搜索重新绘制table。
+                }
+            }, 'json');
+            layer.close(index);
+        });
+
+    }
+
+
     </@shiro.hasPermission>
     function pageAjaxDone(json) {
         YUNM.debug(json);

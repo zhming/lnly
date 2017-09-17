@@ -433,6 +433,39 @@ public class CountryCompensationDetailController extends BaseController {
         return resultMap;
     }
 
+
+
+    /**
+     * 修改
+     *
+     * @return
+     */
+    @RequestMapping(value = "deleteList", method = RequestMethod.POST)
+    @ResponseBody
+    public Map<String, Object> deleteList(String ids, String checkStatus) {
+        LoggerUtils.debug(getClass(), "checkStatus: " + checkStatus);
+        String[] idss = ids.split(",");
+        try {
+            for(String id : idss){
+                if(StringUtils.isNotBlank(id)){
+                    CountryCompensationDetail entity  = countryCompensationDetailService.selectByPrimaryKey(Long.parseLong(id));
+                    if(entity != null ){
+                        countryCompensationDetailService.deleteByPrimaryKey(entity.getId());
+                    }
+                }
+
+
+            }
+            resultMap.put("status", 200);
+            resultMap.put("message", "删除成功!");
+        } catch (Exception e) {
+            resultMap.put("status", 500);
+            resultMap.put("message", "删除失败!");
+            LoggerUtils.fmtError(getClass(), e, "删除失败。[%s]",ids );
+        }
+        return resultMap;
+    }
+
     /**
      * 删除
      *

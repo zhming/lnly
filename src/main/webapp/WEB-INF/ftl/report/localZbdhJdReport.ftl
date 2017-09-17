@@ -60,7 +60,7 @@
 
             text-align: center;
 
-            height: 38px;
+            height:38px;
 
         }
 
@@ -90,7 +90,7 @@
                     <span class="input-group-addon"><span class="glyphicon glyphicon-th"></span></span>
                 </div>
                 <input type="hidden" id="dtp_input1" value=""/><br/>
-                <div class="row col-sm-8">
+                <div  class="row col-sm-8">
                     <input type="text" id="searchTree" name="searchTree" value=""
                            class="form-control input-small" style="width:225px"
                            placeholder="请输入乡镇、区县、市名称"/>
@@ -127,15 +127,18 @@
                         <tr align="center">
                             <th rowspan="2" align="center">序号</th>
                             <th rowspan="2" align="center">单位</th>
-                            <th rowspan="2" align="center">2016-2017完成百分率(%)</th>
-                            <th colspan="4" align="center">2016-2017年</th>
+                            <th colspan="3" align="center">2010年</th>
+                            <th colspan="3" align="center">2011年</th>
+                            <th colspan="3" align="center">2012年</th>
+                            <th colspan="3" align="center">2013年</th>
+                            <th colspan="3" align="center">2014年</th>
+                            <th colspan="3" align="center">2015年</th>
                             <th colspan="3" align="center">2016年</th>
                             <th colspan="3" align="center">2017年</th>
                         </tr>
                         <tr align="center">
                             <th>直补到户指标金额</th>
                             <th>已到户金额</th>
-                            <th>未到户金额</th>
                             <th>完成百分率</th>
                             <th>直补到户指标金额</th>
                             <th>已到户金额</th>
@@ -143,8 +146,25 @@
                             <th>直补到户指标金额</th>
                             <th>已到户金额</th>
                             <th>完成百分率</th>
-                        </tr>
+                            <th>直补到户指标金额</th>
+                            <th>已到户金额</th>
+                            <th>完成百分率</th>
+                            <th>直补到户指标金额</th>
+                            <th>已到户金额</th>
+                            <th>完成百分率</th>
+                            <th>直补到户指标金额</th>
+                            <th>已到户金额</th>
+                            <th>完成百分率</th>
+                            <th>直补到户指标金额</th>
+                            <th>已到户金额</th>
+                            <th>完成百分率</th>
+                            <th>直补到户指标金额</th>
+                            <th>已到户金额</th>
+                            <th>完成百分率</th>
 
+
+                        </tr>
+                       
 
                         </thead>
                     </table>
@@ -200,7 +220,7 @@
         }, 'json');
 
     </@shiro.hasPermission>
-
+        var dictCode = "${token.dictCode}";
         var tablePrefix = "#example_";
         $("#example").dataTable({
             serverSide: true,//分页，取数据等等的都放到服务端去
@@ -211,7 +231,7 @@
             autoWidth: false, //启用或者禁止自动列宽的计算
             ajax: {//类似jquery的ajax参数，基本都可以用。
                 type: "post",//后台指定了方式，默认get，外加datatable默认构造的参数很长，有可能超过get的最大长度。
-                url: "${basePath}/report/findLocalZbdhJd.shtml",
+                url: "${basePath}/report/findCityDataAmountAll.shtml?dictCode="+dictCode,
                 dataSrc: "data",//默认data，也可以写其他的，格式化table的时候取里面的数据
                 data: function (d) {//d 是原始的发送给服务器的数据，默认很长。
                     var param = {};//因为服务端排序，可以新建一个参数对象
@@ -241,50 +261,103 @@
                 {
                     data: "dict"
                 },
-                {
-                    data: "wclC",
-                    "sTitle": "2016-2017完成率"
-                },
-                {
-                    data: "zbdhZbJe",
-                    "sTitle": "直补到户资金指标金额"
-                },
-                {
-                    data: "sjdhJe",
-                    "sTitle": "实际到户金额"
-                },
-                {
-                    data: "wdhJe",
-                    "sTitle": "未到户金额"
-                },
-                {
-                    data: "wcl",
-                    "sTitle": "完成百分率"
-                },
-                {
-                    data: "zbdhZb1",
-                    "sTitle": "直补到户资金指标金额"
-                },
-                {
-                    data: "sjdhJe1",
-                    "sTitle": "实际到户金额"
-                },
-                {
-                    data: "wcl1",
-                    "sTitle": "完成百分率"
-                },
-                {
-                    data: "zbdhZb2",
-                    "sTitle": "直补到户资金指标金额"
-                },
-                {
-                    data: "sjdhJe2",
-                    "sTitle": "实际到户金额"
-                },
-                {
-                    data: "wcl2",
-                    "sTitle": "完成百分率"
-                }
+                
+            {
+                data: "input10"
+//
+            },
+            {
+                data: "standard10"
+//                   
+            },
+            {
+                data: "percent10"
+//                    "sTitle": "录入率百分率%"
+            },
+            {
+                data: "input11"
+//                    "sTitle": "调查金额汇总(元)"
+            },
+            {
+                data: "standard11"
+//                    "sTitle": "指标金额汇总(元))"
+            },
+            {
+                data: "percent11"
+//                    "sTitle": "录入率百分率%"
+            },
+            {
+                data: "input12"
+//                    "sTitle": "调查金额汇总(元)"
+            },
+            {
+                data: "standard12"
+//                    "sTitle": "指标金额汇总(元))"
+            },
+            {
+                data: "percent12"
+//                    "sTitle": "录入率百分率%"
+            },
+            {
+                data: "input13"
+//                    "sTitle": "调查金额汇总(元)"
+            },
+            {
+                data: "standard13"
+//                    "sTitle": "指标金额汇总(元))"
+            },
+            {
+                data: "percent13"
+//                    "sTitle": "录入率百分率%"
+            },
+            {
+                data: "input14"
+//                    "sTitle": "调查金额汇总(元)"
+            },
+            {
+                data: "standard14"
+//                    "sTitle": "指标金额汇总(元))"
+            },
+            {
+                data: "percent14"
+//                    "sTitle": "录入率百分率%"
+            },
+            {
+                data: "input15"
+//                    "sTitle": "调查金额汇总(元)"
+            },
+            {
+                data: "standard15"
+//                    "sTitle": "指标金额汇总(元))"
+            },
+            {
+                data: "percent15"
+//                    "sTitle": "录入率百分率%"
+            },
+            {
+                data: "input16"
+//                    "sTitle": "录入率百分率%"
+            },
+            {
+                data: "standard16"
+//                    "sTitle": "指标金额汇总(元))"
+            },
+            {
+                data: "percent16"
+//                    "sTitle": "录入率百分率%"
+            },
+            {
+                data: "input17"
+//                    "sTitle": "调查金额汇总(元)"
+            },
+            {
+                data: "standard17"
+//                    "sTitle": "指标金额汇总(元))"
+            },
+            {
+                data: "percent17"
+//                    "sTitle": "录入率百分率%"
+            }
 
                 /*
                 ,
@@ -331,7 +404,7 @@
                 table.$('tr.selected').removeClass('selected');
                 $(this).addClass('selected');
             }
-
+           
         });
 
         $("#searchTree").change(function () {
@@ -356,6 +429,7 @@
             tree.treeview('selectNode', [node, {silent: true}]);
 
         });
+
 
     });
 
@@ -386,6 +460,7 @@
             tree.treeview('expandNode', node.nodeId);
         }
     }
+
 
 
 </script>
