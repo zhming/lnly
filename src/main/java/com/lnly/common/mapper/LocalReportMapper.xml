@@ -300,10 +300,11 @@
         <where>
             city is not null and town = '0'
             <if test="city != null and city !='' " >
-                and  city = #{city}
+                and  city like  CONCAT("%",#{city},"%")
             </if>
             <if test="county != null and county !='' " >
-                and  county = #{county}
+                and
+                county like  CONCAT("%",#{county},"%")
             </if>
             <if test="type != null and type !='' " >
                 and  type = #{type}
@@ -322,10 +323,11 @@
         <where>
             city is not null and town = '0'
             <if test="city != null and city !='' " >
-                and  city = #{city}
+                and  city like  CONCAT("%",#{city},"%")
             </if>
             <if test="county != null and county !='' " >
-                and  county = #{county}
+                and
+                county like  CONCAT("%",#{county},"%")
             </if>
             <if test="type != null and type !='' " >
                 and  type = #{type}
@@ -343,7 +345,11 @@
 
         <where>
             <if test="city != null and city !='' " >
-                city = #{city}
+                and  city like  CONCAT("%",#{city},"%")
+            </if>
+            <if test="county != null and county !='' " >
+                and
+                county like  CONCAT("%",#{county},"%")
             </if>
             <if test="type != null and type !='' " >
                 and  type = #{type}

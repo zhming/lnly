@@ -68,7 +68,7 @@
 </head>
 <body data-target="#one" data-spy="scroll">
 
-<@_top.top 1/>
+<@_top.top 5/>
 <div class="container" style="padding-bottom: 15px;min-height: 300px; margin-top: 40px;">
 <#--row-->
     <div class="row" style="margin-lef: -10px;">
@@ -762,8 +762,8 @@
             var node = tree.treeview('getNode', selectedId);
             tree.treeview('selectNode', [node, {silent: true}]);
 
-            var nodeName = node.text;
-            $("#filter_form [name='searchContent']").val(nodeName);
+            var nodeName = $("#searchTree").val();
+            $("#filter_form [name='searchContentFromSelect']").val(nodeName);
 
         });
 

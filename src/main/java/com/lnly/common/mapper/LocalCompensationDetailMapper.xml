@@ -51,10 +51,11 @@
         <where>
             1 = 1
             <if test="searchContent != null and searchContent !='' ">
-                and (
-                LOWER(city) like LOWER(CONCAT("%",#{searchContent,jdbcType=VARCHAR},"%")) or
-                LOWER(county) like LOWER(CONCAT("%",#{searchContent,jdbcType=VARCHAR},"%"))
-                )
+                city like  CONCAT("%",#{searchContent},"%")
+                or
+                county like  CONCAT("%",#{searchContent},"%")
+                or
+                town like  CONCAT("%",#{searchContent},"%")
             </if>
             <if test="year != null and year !='' ">
                 and

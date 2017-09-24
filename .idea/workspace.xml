@@ -6,23 +6,32 @@
     </artifacts-to-build>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e5ab77ab-1618-47c7-82e4-0daea9cd7a57" name="Default" comment="report jd not ok">
+    <list default="true" id="e5ab77ab-1618-47c7-82e4-0daea9cd7a57" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/lnly/business/controller/CountryCompensationDetailController.java" afterPath="$PROJECT_DIR$/src/main/java/com/lnly/business/controller/CountryCompensationDetailController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/lnly/business/controller/LocalCompensationDetailController.java" afterPath="$PROJECT_DIR$/src/main/java/com/lnly/business/controller/LocalCompensationDetailController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/lnly/business/controller/ReportController.java" afterPath="$PROJECT_DIR$/src/main/java/com/lnly/business/controller/ReportController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/lnly/business/service/LocalCompensationDetailService.java" afterPath="$PROJECT_DIR$/src/main/java/com/lnly/business/service/LocalCompensationDetailService.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/lnly/business/service/SmallClassService.java" afterPath="$PROJECT_DIR$/src/main/java/com/lnly/business/service/SmallClassService.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/lnly/business/service/impl/LocalCompensationDetailServiceImpl.java" afterPath="$PROJECT_DIR$/src/main/java/com/lnly/business/service/impl/LocalCompensationDetailServiceImpl.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/lnly/business/service/impl/SmallClassServiceImpl.java" afterPath="$PROJECT_DIR$/src/main/java/com/lnly/business/service/impl/SmallClassServiceImpl.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/lnly/common/dao/LocalCompensationDetailMapper.java" afterPath="$PROJECT_DIR$/src/main/java/com/lnly/common/dao/LocalCompensationDetailMapper.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/lnly/common/mapper/CountryCompensationDetailMapper.xml" afterPath="$PROJECT_DIR$/src/main/java/com/lnly/common/mapper/CountryCompensationDetailMapper.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/lnly/common/mapper/CountryCompensationStandardMapper.xml" afterPath="$PROJECT_DIR$/src/main/java/com/lnly/common/mapper/CountryCompensationStandardMapper.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/lnly/common/mapper/CountryReportMapper.xml" afterPath="$PROJECT_DIR$/src/main/java/com/lnly/common/mapper/CountryReportMapper.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/lnly/common/mapper/LocalCompensationDetailMapper.xml" afterPath="$PROJECT_DIR$/src/main/java/com/lnly/common/mapper/LocalCompensationDetailMapper.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/lnly/common/mapper/LocalReportMapper.xml" afterPath="$PROJECT_DIR$/src/main/java/com/lnly/common/mapper/LocalReportMapper.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/lnly/common/mapper/SmallMapper.xml" afterPath="$PROJECT_DIR$/src/main/java/com/lnly/common/mapper/SmallMapper.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/lnly/common/model/LocalCompensationDetail.java" afterPath="$PROJECT_DIR$/src/main/java/com/lnly/common/model/LocalCompensationDetail.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/ftl/business/compensationStandard.ftl" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/ftl/business/compensationStandard.ftl" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/ftl/business/countryCompensationDetail.ftl" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/ftl/business/countryCompensationDetail.ftl" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/ftl/business/localCompensationDetail.ftl" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/ftl/business/localCompensationDetail.ftl" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/ftl/business/localCompensationStandard.ftl" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/ftl/business/localCompensationStandard.ftl" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/ftl/business/smallClassDataDetail.ftl" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/ftl/business/smallClassDataDetail.ftl" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/ftl/common/config/top.ftl" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/ftl/common/config/top.ftl" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/ftl/report/contryZbdhJdReport.ftl" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/ftl/report/contryZbdhJdReport.ftl" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/ftl/report/countryGrantAreaSumReport.ftl" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/ftl/report/countryGrantAreaSumReport.ftl" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/ftl/report/countryGrantAreaSumResearchReport.ftl" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/ftl/report/countryGrantAreaSumResearchReport.ftl" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/ftl/report/countrySmallClassGrantReport.ftl" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/ftl/report/countrySmallClassGrantReport.ftl" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/ftl/report/countryZbdhDataInputReport.ftl" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/ftl/report/countryZbdhDataInputReport.ftl" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/ftl/report/grantNoOkAreaSumDetail.ftl" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/ftl/report/grantNoOkAreaSumDetail.ftl" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/ftl/report/grantOkAreaSumDetail.ftl" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/ftl/report/grantOkAreaSumDetail.ftl" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/ftl/report/localGrantAreaSumReport.ftl" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/ftl/report/localGrantAreaSumReport.ftl" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/ftl/report/localGrantAreaSumResearchReport.ftl" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/ftl/report/localGrantAreaSumResearchReport.ftl" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/ftl/report/localSmallClassGrantReport.ftl" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/ftl/report/localSmallClassGrantReport.ftl" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/ftl/report/localZbdhDataInputReport.ftl" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/ftl/report/localZbdhDataInputReport.ftl" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/ftl/report/localZbdhJdReport.ftl" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/ftl/report/localZbdhJdReport.ftl" />
     </list>
     <ignored path="$PROJECT_DIR$/target/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -51,7 +60,7 @@
     <favorites_list name="shiro.demo" />
   </component>
   <component name="FileEditorManager">
-    <leaf />
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300" />
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -65,11 +74,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>grantArea</find>
-      <find>dictType</find>
-      <find>10</find>
-      <find>findSmallList</find>
-      <find>findList</find>
       <find>local</find>
       <find>dictCode</find>
       <find>findLocalCityDataAmountAll</find>
@@ -95,6 +99,11 @@
       <find>InputDataResultMap</find>
       <find>findCityDataAmountAll</find>
       <find>order by  city , county, town</find>
+      <find>change</find>
+      <find>$(&quot;#filter_form [name='searchContentFromSelect']&quot;).val(nodeName);</find>
+      <find>&lt;#</find>
+      <find>cyy</find>
+      <find>index</find>
     </findStrings>
     <replaceStrings>
       <replace>\t</replace>
@@ -144,10 +153,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/main/java/com/lnly/common/dao/CountryCompensationDetailMapper.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/lnly/business/service/impl/CountryCompensationDetailServiceImpl.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/lnly/business/bo/GrantAreaSumBo1.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/lnly/common/model/CountryReport.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/lnly/common/dao/ContryReportMapper.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/lnly/business/service/CountryCompensationDetailService.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/lnly/business/service/impl/CountryReportServcieImpl.java" />
@@ -159,42 +164,46 @@
         <option value="$PROJECT_DIR$/src/main/java/com/lnly/business/bo/DataInputBo.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/lnly/business/service/CountryReportService.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/lnly/business/service/impl/CountryReportServiceImpl.java" />
-        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/ftl/report/countryZbdhDataInputReport.ftl" />
-        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/ftl/report/countryGrantAreaSumResearchReport.ftl" />
-        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/ftl/report/countryGrantAreaSumReport.ftl" />
         <option value="$PROJECT_DIR$/src/main/java/com/lnly/common/model/SmallClass.java" />
-        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/ftl/report/localSmallClassGrantReport.ftl" />
-        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/ftl/report/countrySmallClassGrantReport.ftl" />
         <option value="$PROJECT_DIR$/src/main/java/com/lnly/common/model/LocalReport.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/lnly/common/dao/LocalReportMapper.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/lnly/business/service/impl/LocalReportService.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/lnly/business/service/LocalReportService.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/lnly/business/service/impl/LocalReportServiceImpl.java" />
-        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/ftl/report/localGrantAreaSumReport.ftl" />
-        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/ftl/report/localGrantAreaSumResearchReport.ftl" />
-        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/ftl/report/localZbdhDataInputReport.ftl" />
-        <option value="$PROJECT_DIR$/src/main/java/com/lnly/common/mapper/CountryCompensationDetailMapper.xml" />
-        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/ftl/report/grantOkAreaSumDetail.ftl" />
-        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/ftl/report/grantNoOkAreaSumDetail.ftl" />
         <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/ftl/business/countryCompensationDetail.ftl" />
-        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/ftl/report/localZbdhJdReport.ftl" />
-        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/ftl/business/compensationStandard.ftl" />
         <option value="$PROJECT_DIR$/src/main/java/com/lnly/business/service/impl/SmallClassServiceImpl.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/lnly/business/service/SmallClassService.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/lnly/business/controller/CountryCompensationDetailController.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/lnly/core/mybatis/BaseMybatisDao.java" />
-        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/ftl/business/localCompensationDetail.ftl" />
         <option value="$PROJECT_DIR$/src/main/java/com/lnly/business/controller/LocalCompensationDetailController.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/lnly/common/model/LocalCompensationDetail.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/lnly/common/dao/LocalCompensationDetailMapper.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/lnly/common/mapper/LocalCompensationDetailMapper.xml" />
         <option value="$PROJECT_DIR$/src/main/java/com/lnly/business/service/LocalCompensationDetailService.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/lnly/business/service/impl/LocalCompensationDetailServiceImpl.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/lnly/business/controller/ReportController.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/lnly/common/mapper/SmallMapper.xml" />
-        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/ftl/report/contryZbdhJdReport.ftl" />
+        <option value="$PROJECT_DIR$/src/main/java/com/lnly/common/mapper/UUserMapper.xml" />
+        <option value="$PROJECT_DIR$/src/main/java/com/lnly/common/mapper/LocalCompensationDetailMapper.xml" />
         <option value="$PROJECT_DIR$/src/main/java/com/lnly/common/mapper/CountryReportMapper.xml" />
+        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/ftl/business/localCompensationStandard.ftl" />
+        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/ftl/business/localCompensationDetail.ftl" />
+        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/ftl/business/smallClassDataDetail.ftl" />
+        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/ftl/business/compensationStandard.ftl" />
+        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/ftl/report/contryZbdhJdReport.ftl" />
+        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/ftl/report/countryGrantAreaSumReport.ftl" />
+        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/ftl/report/countryGrantAreaSumResearchReport.ftl" />
+        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/ftl/report/countrySmallClassGrantReport.ftl" />
+        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/ftl/report/countryZbdhDataInputReport.ftl" />
+        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/ftl/report/grantNoOkAreaSumDetail.ftl" />
+        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/ftl/report/grantOkAreaSumDetail.ftl" />
+        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/ftl/report/localGrantAreaSumReport.ftl" />
+        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/ftl/report/localGrantAreaSumResearchReport.ftl" />
+        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/ftl/report/localSmallClassGrantReport.ftl" />
+        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/ftl/report/localZbdhDataInputReport.ftl" />
+        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/ftl/report/localZbdhJdReport.ftl" />
+        <option value="$PROJECT_DIR$/src/main/java/com/lnly/common/mapper/CountryCompensationStandardMapper.xml" />
         <option value="$PROJECT_DIR$/src/main/java/com/lnly/common/mapper/LocalReportMapper.xml" />
+        <option value="$PROJECT_DIR$/src/main/java/com/lnly/common/mapper/SmallMapper.xml" />
+        <option value="$PROJECT_DIR$/src/main/java/com/lnly/common/mapper/CountryCompensationDetailMapper.xml" />
       </list>
     </option>
   </component>
@@ -283,6 +292,9 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="PackagesPane" />
+      <pane id="Scratches" />
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -295,19 +307,10 @@
               <item name="SpringMVC-Mybatis-Shiro-redis-0.2-master" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
             </path>
-            <path>
-              <item name="shiro.demo" type="b2602c69:ProjectViewProjectNode" />
-              <item name="SpringMVC-Mybatis-Shiro-redis-0.2-master" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-            </path>
           </expand>
           <select />
         </subPane>
       </pane>
-      <pane id="Scratches" />
-      <pane id="PackagesPane" />
-      <pane id="Scope" />
       <pane id="AndroidView" />
     </panes>
   </component>
@@ -330,12 +333,10 @@
     <property name="add_unversioned_files" value="$PROJECT_DIR$/target/2017-08-13.sql" />
   </component>
   <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="D:\workspace\java\SpringMVC-Mybatis-Shiro-redis-0.2-master\src\main\webapp\WEB-INF\ftl\business" />
-      <recent name="D:\workspace\java\SpringMVC-Mybatis-Shiro-redis-0.2-master\src\main\webapp\WEB-INF\ftl\report" />
-      <recent name="D:\workspace\java\SpringMVC-Mybatis-Shiro-redis-0.2-master\src\main\java\com\lnly\common\mapper" />
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\workspace\java\SpringMVC-Mybatis-Shiro-redis-0.2-master\src\main\webapp\js\common" />
       <recent name="D:\workspace\java\SpringMVC-Mybatis-Shiro-redis-0.2-master\src\main\webapp\js" />
-      <recent name="D:\workspace\java\SpringMVC-Mybatis-Shiro-redis-0.2-master\src\main\webapp\css" />
+      <recent name="D:\workspace\java\SpringMVC-Mybatis-Shiro-redis-0.2-master\src\main\webapp\css\common" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
       <recent name="com.lnly.business.controller" />
@@ -344,10 +345,12 @@
       <recent name="com.lnly.common.model" />
       <recent name="com.lnly.business.bo" />
     </key>
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="D:\workspace\java\SpringMVC-Mybatis-Shiro-redis-0.2-master\src\main\webapp\js\common" />
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\workspace\java\SpringMVC-Mybatis-Shiro-redis-0.2-master\src\main\webapp\WEB-INF\ftl\business" />
+      <recent name="D:\workspace\java\SpringMVC-Mybatis-Shiro-redis-0.2-master\src\main\webapp\WEB-INF\ftl\common\config" />
+      <recent name="D:\workspace\java\SpringMVC-Mybatis-Shiro-redis-0.2-master\src\main\webapp\WEB-INF\ftl\report" />
+      <recent name="D:\workspace\java\SpringMVC-Mybatis-Shiro-redis-0.2-master\src\main\java\com\lnly\common\mapper" />
       <recent name="D:\workspace\java\SpringMVC-Mybatis-Shiro-redis-0.2-master\src\main\webapp\js" />
-      <recent name="D:\workspace\java\SpringMVC-Mybatis-Shiro-redis-0.2-master\src\main\webapp\css\common" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -1066,14 +1069,8 @@
       <workItem from="1506014120257" duration="1512000" />
       <workItem from="1506155265988" duration="3587000" />
       <workItem from="1506219547036" duration="3401000" />
-      <workItem from="1506223600115" duration="13207000" />
-    </task>
-    <task id="LOCAL-00003" summary="countryCompensationStandard">
-      <created>1499701231474</created>
-      <option name="number" value="00003" />
-      <option name="presentableId" value="LOCAL-00003" />
-      <option name="project" value="LOCAL" />
-      <updated>1499701231474</updated>
+      <workItem from="1506223600115" duration="15321000" />
+      <workItem from="1506258318465" duration="3923000" />
     </task>
     <task id="LOCAL-00004" summary="countryCompensationStandard">
       <created>1500046204593</created>
@@ -1411,14 +1408,21 @@
       <option name="project" value="LOCAL" />
       <updated>1506222717652</updated>
     </task>
-    <option name="localTasksCounter" value="52" />
+    <task id="LOCAL-00052" summary="report">
+      <created>1506243667563</created>
+      <option name="number" value="00052" />
+      <option name="presentableId" value="LOCAL-00052" />
+      <option name="project" value="LOCAL" />
+      <updated>1506243667563</updated>
+    </task>
+    <option name="localTasksCounter" value="53" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="615338000" />
+    <option name="totallyTimeSpent" value="621375000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
+    <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.57610995" sideWeight="0.2703125" order="8" side_tool="true" content_ui="tabs" />
@@ -1439,12 +1443,11 @@
       <window_info id="Java Enterprise" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25264272" sideWeight="0.4975" order="11" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.42902207" sideWeight="0.7296875" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.4281184" sideWeight="0.7296875" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Spring" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="13" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.29868227" sideWeight="0.4934334" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.240625" sideWeight="0.4934334" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Web" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="true" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32875264" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.2609375" sideWeight="0.5065666" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
@@ -1455,6 +1458,7 @@
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="REST Client" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32980973" sideWeight="0.49791667" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32875264" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -1494,12 +1498,12 @@
     <MESSAGE value="修改初始化查询参数-dict" />
     <MESSAGE value="添加调查及录入率报表" />
     <MESSAGE value="import excel(xls\xlsx) ok!" />
-    <MESSAGE value="report" />
     <MESSAGE value="report 3 哦看" />
     <MESSAGE value="report 3 ok" />
     <MESSAGE value="report 5 ok" />
     <MESSAGE value="report jd not ok" />
-    <option name="LAST_COMMIT_MESSAGE" value="report jd not ok" />
+    <MESSAGE value="report" />
+    <option name="LAST_COMMIT_MESSAGE" value="report" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1529,77 +1533,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/spring-webmvc/4.2.5.RELEASE/spring-webmvc-4.2.5.RELEASE.jar!/org/springframework/web/servlet/mvc/method/annotation/RequestMappingHandlerAdapter.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="182">
-          <caret line="456" column="0" lean-forward="false" selection-start-line="456" selection-start-column="0" selection-end-line="456" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/spring-webmvc/4.2.5.RELEASE/spring-webmvc-4.2.5.RELEASE.jar!/org/springframework/web/servlet/mvc/method/annotation/ServletInvocableHandlerMethod.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="200">
-          <caret line="57" column="0" lean-forward="false" selection-start-line="57" selection-start-column="0" selection-end-line="57" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/spring-web/4.2.5.RELEASE/spring-web-4.2.5.RELEASE.jar!/org/springframework/web/method/support/InvocableHandlerMethod.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="182">
-          <caret line="58" column="0" lean-forward="false" selection-start-line="58" selection-start-column="0" selection-end-line="58" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/lnly/business/bo/GrantAreaSumBo.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="174">
-          <caret line="24" column="29" lean-forward="false" selection-start-line="24" selection-start-column="19" selection-end-line="24" selection-end-column="29" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/lnly/business/bo/DataInputBo.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="418">
-          <caret line="22" column="39" lean-forward="false" selection-start-line="22" selection-start-column="39" selection-end-line="22" selection-end-column="39" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/ftl/report/countryGrantAreaSumResearchReport.ftl">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1292">
-          <caret line="68" column="0" lean-forward="false" selection-start-line="68" selection-start-column="0" selection-end-line="68" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/lnly/business/controller/SmallClassController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="871">
-          <caret line="104" column="50" lean-forward="false" selection-start-line="104" selection-start-column="37" selection-end-line="104" selection-end-column="50" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/lnly/business/service/impl/CountryReportServiceImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-535">
-          <caret line="21" column="25" lean-forward="true" selection-start-line="21" selection-start-column="25" selection-end-line="21" selection-end-column="25" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/ftl/report/countrySmallClassGrantReport.ftl">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="304">
-          <caret line="217" column="54" lean-forward="true" selection-start-line="217" selection-start-column="54" selection-end-line="217" selection-end-column="54" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/ftl/report/countryGrantAreaSumReport.ftl">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="421">
-          <caret line="245" column="72" lean-forward="false" selection-start-line="245" selection-start-column="64" selection-end-line="245" selection-end-column="72" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/lnly/common/model/LocalReport.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="228">
@@ -1628,74 +1561,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/ftl/report/localGrantAreaSumReport.ftl">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="4655">
-          <caret line="245" column="50" lean-forward="false" selection-start-line="245" selection-start-column="50" selection-end-line="245" selection-end-column="50" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/ftl/report/localGrantAreaSumResearchReport.ftl">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="4655">
-          <caret line="245" column="50" lean-forward="false" selection-start-line="245" selection-start-column="50" selection-end-line="245" selection-end-column="50" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/ftl/report/localZbdhDataInputReport.ftl">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="4674">
-          <caret line="246" column="67" lean-forward="false" selection-start-line="246" selection-start-column="41" selection-end-line="246" selection-end-column="67" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/ftl/report/grantOkAreaSumDetail.ftl">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="76">
-          <caret line="4" column="42" lean-forward="false" selection-start-line="4" selection-start-column="27" selection-end-line="4" selection-end-column="42" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/ftl/report/grantNoOkAreaSumDetail.ftl">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="19">
-          <caret line="258" column="31" lean-forward="false" selection-start-line="258" selection-start-column="31" selection-end-line="258" selection-end-column="31" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/ftl/business/countryCompensationDetail.ftl">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="391">
-          <caret line="919" column="36" lean-forward="true" selection-start-line="919" selection-start-column="36" selection-end-line="919" selection-end-column="36" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/ftl/report/countryZbdhDataInputReport.ftl">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="215">
-          <caret line="371" column="34" lean-forward="true" selection-start-line="264" selection-start-column="11" selection-end-line="371" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/ftl/report/localZbdhJdReport.ftl">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="209">
-          <caret line="11" column="38" lean-forward="false" selection-start-line="11" selection-start-column="38" selection-end-line="11" selection-end-column="38" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/lnly/business/service/CountryReportService.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1216">
           <caret line="70" column="28" lean-forward="false" selection-start-line="70" selection-start-column="28" selection-end-line="70" selection-end-column="28" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/ftl/business/compensationStandard.ftl">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="95">
-          <caret line="53" column="9" lean-forward="false" selection-start-line="53" selection-start-column="9" selection-end-line="53" selection-end-column="9" />
           <folding />
         </state>
       </provider>
@@ -1720,7 +1589,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="76">
           <caret line="9" column="17" lean-forward="false" selection-start-line="9" selection-start-column="17" selection-end-line="9" selection-end-column="17" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1728,7 +1596,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="76">
           <caret line="9" column="17" lean-forward="false" selection-start-line="9" selection-start-column="17" selection-end-line="9" selection-end-column="17" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1736,7 +1603,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="95">
           <caret line="22" column="99" lean-forward="false" selection-start-line="22" selection-start-column="99" selection-end-line="22" selection-end-column="99" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1748,29 +1614,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/ftl/business/localCompensationDetail.ftl">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="477">
-          <caret line="719" column="45" lean-forward="false" selection-start-line="719" selection-start-column="45" selection-end-line="719" selection-end-column="45" />
-          <folding>
-            <element signature="n#style#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#input#0;n#div#1;n#div#0;n#div#1;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#tr#0;n#thead#0;n#table#0;n#div#0;n#div#0;n#div#2;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#input#1;n#div#0;n#div#0;n#div#0;n#tr#0;n#thead#0;n#table#0;n#div#0;n#div#0;n#div#2;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#input#2;n#div#0;n#div#0;n#div#0;n#tr#0;n#thead#0;n#table#0;n#div#0;n#div#0;n#div#2;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#input#3;n#div#0;n#div#0;n#div#0;n#tr#0;n#thead#0;n#table#0;n#div#0;n#div#0;n#div#2;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="e#9006#9013#1#HTML" expanded="true" />
-            <element signature="e#19071#19078#1#HTML" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/lnly/core/mybatis/BaseMybatisDao.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="125">
           <caret line="183" column="9" lean-forward="true" selection-start-line="183" selection-start-column="9" selection-end-line="183" selection-end-column="9" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1805,33 +1652,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="391">
           <caret line="33" column="54" lean-forward="false" selection-start-line="33" selection-start-column="36" selection-end-line="33" selection-end-column="54" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/lnly/common/mapper/CountryCompensationDetailMapper.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="163">
-          <caret line="117" column="28" lean-forward="false" selection-start-line="95" selection-start-column="4" selection-end-line="132" selection-end-column="0" />
-          <folding>
-            <marker date="1505576137326" expanded="true" signature="4322:4416" ph="select from tb_country_compensation_detail" />
-            <marker date="1505576137326" expanded="true" signature="4567:4619" ph="select count... tb_country_compensation_detail" />
-            <marker date="1505576137326" expanded="true" signature="4745:4839" ph="select from tb_country_compensation_detail" />
-            <marker date="1505576137326" expanded="true" signature="6032:6167" ph="select from tb_country_compensation_detail" />
-            <marker date="1505576137326" expanded="true" signature="6254:6333" ph="delete from " />
-            <marker date="1505576137326" expanded="true" signature="6492:8159" ph="insert into tb_country_compensation_detail... " />
-            <marker date="1505576137326" expanded="true" signature="8283:11303" ph="update tb_co... " />
-            <marker date="1505576137326" expanded="true" signature="11424:11602" ph="select '0' a... tb_country_compensation_detail" />
-            <marker date="1505576137326" expanded="true" signature="11424:12477" ph="select '0' a... " />
-            <marker date="1505576137326" expanded="true" signature="11632:11826" ph="select '1' a... tb_country_compensation_detail" />
-            <marker date="1505576137326" expanded="true" signature="11856:12044" ph="select '2' a... tb_country_compensation_detail" />
-            <marker date="1505576137326" expanded="true" signature="12074:12258" ph="select '3' a... tb_country_compensation_detail" />
-            <marker date="1505576137326" expanded="true" signature="12287:12477" ph="select '4' a... tb_country_compensation_detail" />
-            <marker date="1505576137326" expanded="true" signature="12574:13669" ph="select count... type1" />
-            <marker date="1505576137326" expanded="true" signature="12604:12787" ph="select '0' a... tb_country_compensation_detail" />
-            <marker date="1505576137326" expanded="true" signature="12817:13011" ph="select '1' a... tb_country_compensation_detail" />
-            <marker date="1505576137326" expanded="true" signature="13041:13183" ph="select '2' a... " />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1839,7 +1659,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="168">
           <caret line="16" column="16" lean-forward="true" selection-start-line="16" selection-start-column="16" selection-end-line="16" selection-end-column="16" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1871,7 +1690,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="38">
           <caret line="23" column="46" lean-forward="true" selection-start-line="23" selection-start-column="46" selection-end-line="23" selection-end-column="46" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1879,7 +1697,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="260">
           <caret line="69" column="12" lean-forward="true" selection-start-line="63" selection-start-column="4" selection-end-line="69" selection-end-column="5" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1887,15 +1704,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="163">
           <caret line="63" column="81" lean-forward="true" selection-start-line="63" selection-start-column="59" selection-end-line="64" selection-end-column="67" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/ftl/report/localSmallClassGrantReport.ftl">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="225">
-          <caret line="200" column="59" lean-forward="false" selection-start-line="200" selection-start-column="41" selection-end-line="200" selection-end-column="59" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1907,40 +1715,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/lnly/common/mapper/SmallMapper.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="904">
-          <caret line="134" column="35" lean-forward="true" selection-start-line="134" selection-start-column="35" selection-end-line="134" selection-end-column="35" />
-          <folding>
-            <marker date="1506235785729" expanded="true" signature="3095:3173" ph="select from tb_small_class" />
-            <marker date="1506235785729" expanded="true" signature="3324:3360" ph="select count... tb_small_class" />
-            <marker date="1506235785729" expanded="true" signature="3479:3557" ph="select from tb_small_class" />
-            <marker date="1506235785729" expanded="true" signature="3725:3775" ph="select count... tb_small_class" />
-            <marker date="1506235785729" expanded="true" signature="5194:5313" ph="select from tb_small_class" />
-            <marker date="1506235785729" expanded="true" signature="5431:5550" ph="select from tb_small_class" />
-            <marker date="1506235785729" expanded="true" signature="5642:5709" ph="delete from " />
-            <marker date="1506235785729" expanded="true" signature="5876:7117" ph="insert into tb_small_class... " />
-            <marker date="1506235785729" expanded="true" signature="7215:9543" ph="update tb_sm... " />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/lnly/common/mapper/LocalCompensationDetailMapper.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="155">
-          <caret line="264" column="16" lean-forward="true" selection-start-line="264" selection-start-column="16" selection-end-line="264" selection-end-column="16" />
-          <folding>
-            <marker date="1506235019723" expanded="true" signature="3801:3893" ph="select from tb_local_compensation_detail" />
-            <marker date="1506235019723" expanded="true" signature="4044:4094" ph="select count... tb_local_compensation_detail" />
-            <marker date="1506235019723" expanded="true" signature="4250:4383" ph="select from tb_local_compensation_detail" />
-            <marker date="1506235019723" expanded="true" signature="4470:4547" ph="delete from " />
-            <marker date="1506235019723" expanded="true" signature="4704:6369" ph="insert into tb_local_compensation_detail... " />
-            <marker date="1506235019723" expanded="true" signature="6491:9509" ph="update tb_lo... " />
-            <marker date="1506235019723" expanded="true" signature="9598:9690" ph="select from tb_local_compensation_detail" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/lnly/business/controller/ReportController.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-914">
@@ -1949,45 +1723,331 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/ftl/report/contryZbdhJdReport.ftl">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/lnly/common/mapper/UUserMapper.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="114">
-          <caret line="352" column="64" lean-forward="true" selection-start-line="352" selection-start-column="64" selection-end-line="352" selection-end-column="64" />
+        <state relative-caret-position="513">
+          <caret line="27" column="84" lean-forward="false" selection-start-line="27" selection-start-column="84" selection-end-line="27" selection-end-column="84" />
+          <folding>
+            <marker date="1501667874791" expanded="true" signature="1562:1626" ph="select from u_user" />
+            <marker date="1501667874791" expanded="true" signature="1763:1792" ph="select count... u_user" />
+            <marker date="1501667874791" expanded="true" signature="1908:1979" ph="select from u_user" />
+            <marker date="1501667874791" expanded="true" signature="2434:2477" ph="select count... u_user" />
+            <marker date="1501667874791" expanded="true" signature="2655:3194" ph="select u.id,... u_user" />
+            <marker date="1501667874791" expanded="true" signature="3294:3526" ph="select ur.id... u_role" />
+            <marker date="1501667874791" expanded="true" signature="3433:3486" ph="select id fr... u_user" />
+            <marker date="1501667874791" expanded="true" signature="3863:4008" ph="select from u_user" />
+            <marker date="1501667874791" expanded="true" signature="4106:4214" ph="select from u_user" />
+            <marker date="1501667874791" expanded="true" signature="4328:4429" ph="select from u_user" />
+            <marker date="1501667874791" expanded="true" signature="4513:4568" ph="delete from " />
+            <marker date="1501667874791" expanded="true" signature="4694:5109" ph="insert into u_user... " />
+            <marker date="1501667874791" expanded="true" signature="6866:7728" ph="update u_use... " />
+            <marker date="1501667874791" expanded="true" signature="7825:8265" ph="update u_use... " />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/ftl/business/countryCompensationDetail.ftl">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="516">
+          <caret line="765" column="81" lean-forward="true" selection-start-line="764" selection-start-column="12" selection-end-line="765" selection-end-column="77" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/ftl/business/localCompensationStandard.ftl">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="440">
+          <caret line="514" column="77" lean-forward="false" selection-start-line="514" selection-start-column="77" selection-end-line="514" selection-end-column="77" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/ftl/business/localCompensationDetail.ftl">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="240">
+          <caret line="765" column="77" lean-forward="false" selection-start-line="765" selection-start-column="77" selection-end-line="765" selection-end-column="77" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/ftl/business/smallClassDataDetail.ftl">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="544">
+          <caret line="657" column="54" lean-forward="false" selection-start-line="657" selection-start-column="31" selection-end-line="657" selection-end-column="54" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/ftl/report/countryGrantAreaSumReport.ftl">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="266">
+          <caret line="416" column="77" lean-forward="false" selection-start-line="416" selection-start-column="77" selection-end-line="416" selection-end-column="77" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/ftl/report/countryGrantAreaSumResearchReport.ftl">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="285">
+          <caret line="417" column="77" lean-forward="false" selection-start-line="417" selection-start-column="77" selection-end-line="417" selection-end-column="77" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/ftl/report/countrySmallClassGrantReport.ftl">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="323">
+          <caret line="335" column="77" lean-forward="false" selection-start-line="335" selection-start-column="77" selection-end-line="335" selection-end-column="77" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/ftl/report/countryZbdhDataInputReport.ftl">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="285">
+          <caret line="445" column="77" lean-forward="false" selection-start-line="445" selection-start-column="77" selection-end-line="445" selection-end-column="77" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/ftl/report/grantNoOkAreaSumDetail.ftl">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="250">
+          <caret line="437" column="77" lean-forward="false" selection-start-line="437" selection-start-column="77" selection-end-line="437" selection-end-column="77" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/ftl/report/grantOkAreaSumDetail.ftl">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="250">
+          <caret line="437" column="77" lean-forward="false" selection-start-line="437" selection-start-column="77" selection-end-line="437" selection-end-column="77" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/ftl/report/localGrantAreaSumReport.ftl">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="266">
+          <caret line="416" column="77" lean-forward="false" selection-start-line="416" selection-start-column="77" selection-end-line="416" selection-end-column="77" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/ftl/report/localGrantAreaSumResearchReport.ftl">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="323">
+          <caret line="416" column="77" lean-forward="false" selection-start-line="416" selection-start-column="77" selection-end-line="416" selection-end-column="77" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/ftl/report/localSmallClassGrantReport.ftl">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="48">
+          <caret line="334" column="77" lean-forward="false" selection-start-line="334" selection-start-column="77" selection-end-line="334" selection-end-column="77" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/ftl/report/localZbdhDataInputReport.ftl">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="181">
+          <caret line="444" column="77" lean-forward="false" selection-start-line="444" selection-start-column="77" selection-end-line="444" selection-end-column="77" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/ftl/report/localZbdhJdReport.ftl">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="266">
+          <caret line="430" column="77" lean-forward="false" selection-start-line="430" selection-start-column="77" selection-end-line="430" selection-end-column="77" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/lnly/common/mapper/CountryReportMapper.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2214">
-          <caret line="168" column="45" lean-forward="true" selection-start-line="168" selection-start-column="45" selection-end-line="168" selection-end-column="45" />
+        <state relative-caret-position="252">
+          <caret line="88" column="24" lean-forward="false" selection-start-line="88" selection-start-column="24" selection-end-line="88" selection-end-column="24" />
           <folding>
-            <marker date="1506243134312" expanded="true" signature="4844:4919" ph="select from tb_country_report" />
-            <marker date="1506243134312" expanded="true" signature="5055:5095" ph="select count... tb_country_report" />
-            <marker date="1506243134312" expanded="true" signature="5211:5565" ph="select from tb_country_report" />
-            <marker date="1506243134312" expanded="true" signature="5709:8313" ph="select dict_... tb_country_report" />
-            <marker date="1506243134312" expanded="true" signature="8445:9043" ph="select count... count" />
-            <marker date="1506243134312" expanded="true" signature="8468:9039" ph="select count... tb_country_report" />
-            <marker date="1506243134312" expanded="true" signature="9155:11546" ph="select dict_... tb_country_report" />
-            <marker date="1506243134312" expanded="true" signature="11679:12277" ph="select count... count" />
-            <marker date="1506243134312" expanded="true" signature="11702:12273" ph="select count... tb_country_report" />
-            <marker date="1506243134312" expanded="true" signature="12397:14791" ph="select dict_... tb_country_report" />
-            <marker date="1506243134312" expanded="true" signature="14928:15436" ph="select count... count" />
-            <marker date="1506243134312" expanded="true" signature="14951:15430" ph="select count... tb_country_report" />
-            <marker date="1506243134312" expanded="true" signature="15909:16260" ph="select from tb_country_report" />
-            <marker date="1506243134312" expanded="true" signature="16778:17130" ph="select from tb_country_report" />
-            <marker date="1506243134312" expanded="true" signature="17255:17585" ph="select count... tb_country_report" />
+            <marker date="1506244967925" expanded="true" signature="4837:4912" ph="select from tb_country_report" />
+            <marker date="1506244967925" expanded="true" signature="5048:5088" ph="select count... tb_country_report" />
+            <marker date="1506244967925" expanded="true" signature="5204:5558" ph="select from tb_country_report" />
+            <marker date="1506244967925" expanded="true" signature="5702:8306" ph="select dict_... tb_country_report" />
+            <marker date="1506244967925" expanded="true" signature="8438:9036" ph="select count... count" />
+            <marker date="1506244967925" expanded="true" signature="8461:9032" ph="select count... tb_country_report" />
+            <marker date="1506244967925" expanded="true" signature="9148:11539" ph="select dict_... tb_country_report" />
+            <marker date="1506244967925" expanded="true" signature="11672:12270" ph="select count... count" />
+            <marker date="1506244967925" expanded="true" signature="11695:12266" ph="select count... tb_country_report" />
+            <marker date="1506244967925" expanded="true" signature="12390:14784" ph="select dict_... tb_country_report" />
+            <marker date="1506244967925" expanded="true" signature="14921:15429" ph="select count... count" />
+            <marker date="1506244967925" expanded="true" signature="14944:15423" ph="select count... tb_country_report" />
+            <marker date="1506244967925" expanded="true" signature="15902:16253" ph="select from tb_country_report" />
+            <marker date="1506244967925" expanded="true" signature="16771:17123" ph="select from tb_country_report" />
+            <marker date="1506244967925" expanded="true" signature="17248:17578" ph="select count... tb_country_report" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/lnly/common/mapper/LocalCompensationDetailMapper.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="304">
+          <caret line="64" column="25" lean-forward="true" selection-start-line="64" selection-start-column="25" selection-end-line="64" selection-end-column="25" />
+          <folding>
+            <marker date="1506244961549" expanded="true" signature="3796:3888" ph="select from tb_local_compensation_detail" />
+            <marker date="1506244961549" expanded="true" signature="4039:4089" ph="select count... tb_local_compensation_detail" />
+            <marker date="1506244961549" expanded="true" signature="4245:4378" ph="select from tb_local_compensation_detail" />
+            <marker date="1506244961549" expanded="true" signature="4465:4542" ph="delete from " />
+            <marker date="1506244961549" expanded="true" signature="4699:6364" ph="insert into tb_local_compensation_detail... " />
+            <marker date="1506244961549" expanded="true" signature="6486:9504" ph="update tb_lo... " />
+            <marker date="1506244961549" expanded="true" signature="9593:9685" ph="select from tb_local_compensation_detail" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/lnly/common/mapper/CountryCompensationStandardMapper.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="513">
+          <caret line="33" column="7" lean-forward="false" selection-start-line="33" selection-start-column="7" selection-end-line="33" selection-end-column="51" />
+          <folding>
+            <marker date="1506280676269" expanded="true" signature="2120:2210" ph="select from tb_country_compensation_standard" />
+            <marker date="1506280676269" expanded="true" signature="2346:2401" ph="select count... tb_country_compensation_standard" />
+            <marker date="1506280676269" expanded="true" signature="2551:2678" ph="select from tb_country_compensation_standard" />
+            <marker date="1506280676269" expanded="true" signature="2762:2843" ph="delete from " />
+            <marker date="1506280676269" expanded="true" signature="2991:3573" ph="insert into tb_country_compensation_standard... " />
+            <marker date="1506280676269" expanded="true" signature="5978:7010" ph="update tb_co... " />
+            <marker date="1506280676269" expanded="true" signature="7129:7616" ph="update tb_co... " />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/lnly/common/mapper/UPermissionMapper.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <marker date="1501863038529" expanded="true" signature="1009:1078" ph="select from u_permission" />
+            <marker date="1501863038529" expanded="true" signature="1215:1250" ph="select count... u_permission" />
+            <marker date="1501863038529" expanded="true" signature="2024:2274" ph="select up.id... u_permission" />
+            <marker date="1501863038529" expanded="true" signature="2178:2232" ph="select id fr... u_role" />
+            <marker date="1501863038529" expanded="true" signature="2389:2535" ph="select p.url... u_permission" />
+            <marker date="1501863038529" expanded="true" signature="2647:2753" ph="select from u_permission" />
+            <marker date="1501863038529" expanded="true" signature="2837:2898" ph="delete from " />
+            <marker date="1501863038529" expanded="true" signature="3030:3156" ph="insert into u_permission... " />
+            <marker date="1501863038529" expanded="true" signature="3967:4212" ph="update u_per... " />
+            <marker date="1501863038529" expanded="true" signature="4315:4446" ph="update u_per... " />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/lnly/common/mapper/LocalReportMapper.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="190">
-          <caret line="240" column="46" lean-forward="true" selection-start-line="240" selection-start-column="46" selection-end-line="240" selection-end-column="46" />
+        <state relative-caret-position="841">
+          <caret line="368" column="24" lean-forward="false" selection-start-line="368" selection-start-column="24" selection-end-line="368" selection-end-column="24" />
           <folding>
-            <marker date="1506243171838" expanded="true" signature="9093:11482" ph="select dict_... tb_local_report" />
+            <marker date="1506280872683" expanded="true" signature="4792:4865" ph="select from tb_local_report" />
+            <marker date="1506280872683" expanded="true" signature="5001:5039" ph="select count... tb_local_report" />
+            <marker date="1506280872683" expanded="true" signature="5155:5507" ph="select from tb_local_report" />
+            <marker date="1506280872683" expanded="true" signature="5651:8253" ph="select dict_... tb_local_report" />
+            <marker date="1506280872683" expanded="true" signature="8385:8981" ph="select count... count" />
+            <marker date="1506280872683" expanded="true" signature="8408:8977" ph="select count... tb_local_report" />
+            <marker date="1506280872683" expanded="true" signature="9093:11482" ph="select dict_... tb_local_report" />
+            <marker date="1506280872683" expanded="true" signature="11615:12211" ph="select count... count" />
+            <marker date="1506280872683" expanded="true" signature="11638:12207" ph="select count... tb_local_report" />
+            <marker date="1506280872683" expanded="true" signature="12331:14726" ph="select dict_... tb_local_report" />
+            <marker date="1506280872683" expanded="true" signature="14863:15424" ph="select count... count" />
+            <marker date="1506280872683" expanded="true" signature="14886:15418" ph="select count... tb_local_report" />
+            <marker date="1506280872683" expanded="true" signature="16070:16419" ph="select from tb_local_report" />
+            <marker date="1506280872683" expanded="true" signature="16935:17285" ph="select from tb_local_report" />
+            <marker date="1506280872683" expanded="true" signature="17410:17738" ph="select count... tb_local_report" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/lnly/common/mapper/LocalCompensationStandardMapper.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1824">
+          <caret line="21" column="21" lean-forward="true" selection-start-line="21" selection-start-column="21" selection-end-line="21" selection-end-column="21" />
+          <folding>
+            <marker date="1502811149167" expanded="true" signature="1914:2001" ph="select from tb_local_compensation_standard" />
+            <marker date="1502811149167" expanded="true" signature="2139:2192" ph="select count... tb_local_compensation_standard" />
+            <marker date="1502811149167" expanded="true" signature="2339:2463" ph="select from tb_local_compensation_standard" />
+            <marker date="1502811149167" expanded="true" signature="2547:2626" ph="delete from " />
+            <marker date="1502811149167" expanded="true" signature="2772:3250" ph="insert into tb_local_compensation_standard... " />
+            <marker date="1502811149167" expanded="true" signature="5316:6128" ph="update tb_lo... " />
+            <marker date="1502811149167" expanded="true" signature="6245:6601" ph="update tb_lo... " />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/lnly/common/mapper/SmallMapper.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="480">
+          <caret line="65" column="59" lean-forward="true" selection-start-line="65" selection-start-column="12" selection-end-line="65" selection-end-column="53" />
+          <folding>
+            <marker date="1506281027859" expanded="true" signature="3112:3190" ph="select from tb_small_class" />
+            <marker date="1506281027859" expanded="true" signature="3341:3377" ph="select count... tb_small_class" />
+            <marker date="1506281027859" expanded="true" signature="3496:3574" ph="select from tb_small_class" />
+            <marker date="1506281027859" expanded="true" signature="3742:3792" ph="select count... tb_small_class" />
+            <marker date="1506281027859" expanded="true" signature="5211:5330" ph="select from tb_small_class" />
+            <marker date="1506281027859" expanded="true" signature="5448:5567" ph="select from tb_small_class" />
+            <marker date="1506281027859" expanded="true" signature="5659:5726" ph="delete from " />
+            <marker date="1506281027859" expanded="true" signature="5893:7134" ph="insert into tb_small_class... " />
+            <marker date="1506281027859" expanded="true" signature="7232:9560" ph="update tb_sm... " />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/lnly/common/mapper/CountryCompensationDetailMapper.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="456">
+          <caret line="114" column="36" lean-forward="false" selection-start-line="114" selection-start-column="36" selection-end-line="114" selection-end-column="36" />
+          <folding>
+            <marker date="1506281135608" expanded="true" signature="4419:4513" ph="select from tb_country_compensation_detail" />
+            <marker date="1506281135608" expanded="true" signature="4664:4716" ph="select count... tb_country_compensation_detail" />
+            <marker date="1506281135608" expanded="true" signature="4842:4936" ph="select from tb_country_compensation_detail" />
+            <marker date="1506281135608" expanded="true" signature="6149:6284" ph="select from tb_country_compensation_detail" />
+            <marker date="1506281135608" expanded="true" signature="6371:6450" ph="delete from " />
+            <marker date="1506281135608" expanded="true" signature="6609:8276" ph="insert into tb_country_compensation_detail... " />
+            <marker date="1506281135608" expanded="true" signature="8400:11420" ph="update tb_co... " />
+            <marker date="1506281135608" expanded="true" signature="11541:11719" ph="select '0' a... tb_country_compensation_detail" />
+            <marker date="1506281135608" expanded="true" signature="11541:12594" ph="select '0' a... " />
+            <marker date="1506281135608" expanded="true" signature="11749:11943" ph="select '1' a... tb_country_compensation_detail" />
+            <marker date="1506281135608" expanded="true" signature="11973:12161" ph="select '2' a... tb_country_compensation_detail" />
+            <marker date="1506281135608" expanded="true" signature="12191:12375" ph="select '3' a... tb_country_compensation_detail" />
+            <marker date="1506281135608" expanded="true" signature="12404:12594" ph="select '4' a... tb_country_compensation_detail" />
+            <marker date="1506281135608" expanded="true" signature="12691:13786" ph="select count... type1" />
+            <marker date="1506281135608" expanded="true" signature="12721:12904" ph="select '0' a... tb_country_compensation_detail" />
+            <marker date="1506281135608" expanded="true" signature="12934:13128" ph="select '1' a... tb_country_compensation_detail" />
+            <marker date="1506281135608" expanded="true" signature="13158:13300" ph="select '2' a... " />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/ftl/report/contryZbdhJdReport.ftl">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="24" lean-forward="true" selection-start-line="0" selection-start-column="24" selection-end-line="0" selection-end-column="24" />
+          <folding>
+            <element signature="n#style#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/ftl/common/config/top.ftl">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="294">
+          <caret line="37" column="37" lean-forward="false" selection-start-line="37" selection-start-column="29" selection-end-line="37" selection-end-column="37" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/ftl/business/compensationStandard.ftl">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="181">
+          <caret line="146" column="59" lean-forward="false" selection-start-line="146" selection-start-column="54" selection-end-line="146" selection-end-column="59" />
+          <folding />
         </state>
       </provider>
     </entry>

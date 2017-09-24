@@ -84,9 +84,9 @@
   
   <sql id="where_all">
   	<where>
-  	<if test="findContent != null and findContent !='' " >
+  	<if test="dictName != null and dictName !='' " >
         and (
-        LOWER(dict_name) like  LOWER(CONCAT("%", #{dictName},"%"))
+        LOWER(dict_name) like  LOWER(CONCAT("%", #{dictName},"%")
         )
       </if>
       </where>

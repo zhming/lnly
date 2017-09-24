@@ -60,17 +60,26 @@
 </head>
 <body data-target="#one" data-spy="scroll">
 
-<@_top.top 1/>
+<@_top.top 4/>
+<#-- cyy modify -->
+<#-- 
 <div class="container" style="padding-bottom: 15px;min-height: 300px; margin-top: 40px;">
+ -->
 <#--row-->
     <div class="row">
-
-        <div class="col-md-12">
-            <h2>地方资金补偿标准维护</h2>
-            <hr>
-
+        <div class="col-sm-12">
+        	<div class="col-sm-6">
+            	<h2>地方资金补偿标准维护</h2>
+            </div>
         </div>
-        <div class="col-md-4">
+    </div>
+    <div class="row">
+        <div class="col-sm-12">
+        	<hr>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-2">
 
 
             <div class="form-group col-sm-12">
@@ -90,7 +99,7 @@
             </div>
         </div>
 
-        <div class="col-md-8">
+        <div class="col-sm-10">
             <div class="col-sm-12">
                 <div class="table">
                     <table id="example" class="table table-striped table-bordered" cellspacing="0" width="100%">
@@ -216,8 +225,9 @@
         </div>
     </div>
 <#--/row-->
+<#-- 
 </div>
-
+ -->
 
 <script type="text/javascript">
 
@@ -500,6 +510,9 @@
             var selectedId = $(searchResults[0]).attr("data-nodeid");
             var node = tree.treeview('getNode', selectedId);
             tree.treeview('selectNode', [node, {silent: true}]);
+
+            var nodeName = $("#searchTree").val();
+            $("#filter_form [name='searchContentFromSelect']").val(nodeName);
 
         });
 

@@ -63,16 +63,16 @@
                 and year = #{year, jdbcType=VARCHAR}
             </if>
             <if test="city != null and city !='' ">
-                and city = #{city,jdbcType=VARCHAR}
+             and   city like  CONCAT("%",#{city},"%")
             </if>
             <if test="county != null and county !='' ">
-                and county = #{county,jdbcType=VARCHAR}
+                and   county like  CONCAT("%",#{county},"%")
             </if>
             <if test="town != null and town !='' ">
-                and town = #{town,jdbcType=VARCHAR}
+                and   town like  CONCAT("%",#{town},"%")
             </if>
             <if test="village != null and village !='' ">
-                and village = #{village,jdbcType=VARCHAR}
+                and   village like  CONCAT("%",#{village},"%")
             </if>
 
         </where>

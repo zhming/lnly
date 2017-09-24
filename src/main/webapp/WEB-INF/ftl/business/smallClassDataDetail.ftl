@@ -637,6 +637,9 @@
             var node = tree.treeview('getNode', selectedId);
             tree.treeview('selectNode', [node, {silent: true}]);
 
+            var nodeName = $("#searchTree").val();
+            $("#filter_form [name='searchContentFromSelect']").val(nodeName);
+
         });
     });
 

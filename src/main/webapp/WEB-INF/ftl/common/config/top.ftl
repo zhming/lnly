@@ -1,8 +1,8 @@
 <#macro top index>
 <script baseUrl="${basePath}" src="${basePath}/js/user.login.js"></script>
 <div class="navbar navbar-inverse navbar-fixed-top animated fadeInDown" style="z-index: 101;height: 41px;">
-	  
-      <div class="container" style="padding-left: 0px; padding-right: 0px;">
+	  <#-- cyy modify -->
+      <#-- <div class="container" style="padding-left: 0px; padding-right: 0px;">  -->
         <div class="navbar-header">
           <button data-target=".navbar-collapse" data-toggle="collapse" type="button" class="navbar-toggle collapsed">
             <span class="sr-only">导航</span>
@@ -14,17 +14,19 @@
 	     <div role="navigation" class="navbar-collapse collapse">
 	     		<a id="_logo"  href="${basePath}" style="color:#fff; font-size: 24px;" class="navbar-brand hidden-sm">辽宁省林业厅生态公益林管理系统</a>
 	          <ul class="nav navbar-nav" id="topMenu">
-                  <li class="dropdown ">
+                  <li class="dropdown ${(index==4)?string('active','')}">
                       <a aria-expanded="false" aria-haspopup="true" role="button" data-toggle="dropdown" class="dropdown-toggle" href="#">
                           年度资金补偿标准<span class="caret"></span>
                       </a>
+                      <#-- index 4   -->
                       <ul class="dropdown-menu">
                           <li><a href="${basePath}/countryStandard/compensationStandard.shtml" >国家年度补偿标准维护</a></li>
                           <li><a href="${basePath}/localStandard/localCompensationStandard.shtml">地方年度补偿标准维护</a></li>
                           <li><a href="${basePath}/localStandard/localCompensationStandard.shtml">年度补偿标准设置</a></li>
                       </ul>                                            
                   </li>
-                  <li class="dropdown ">
+                  <#-- index 5 -->
+                  <li class="dropdown ${(index==5)?string('active','')}">
                       <a aria-expanded="false" aria-haspopup="true" role="button" data-toggle="dropdown" class="dropdown-toggle" href="<%=basePath%>/user/index.shtml">
                           资金数据管理<span class="caret"></span>
                       </a>
@@ -33,7 +35,7 @@
                           <li><a href="${basePath}/localDetail/localCompensationDetail.shtml" >地方补偿资金发放明细</a></li>
                       </ul>
                   </li>
-                  <li class="dropdown ">
+                  <li class="dropdown ${(index==6)?string('active','')}">
                       <a aria-expanded="false" aria-haspopup="true" role="button" data-toggle="dropdown" class="dropdown-toggle" href="<%=basePath%>/user/index.shtml">
                           数据统计<span class="caret"></span>
                       </a>
@@ -124,6 +126,7 @@
 	          </ul>
 	          <style>#topMenu>li>a{padding:10px 13px}</style>
 	    </div>
-  	</div>
+  	<#-- </div>  -->
+  	<#-- cyy modify -->
 </div>
 </#macro>
