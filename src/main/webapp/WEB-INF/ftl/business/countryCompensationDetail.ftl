@@ -78,6 +78,8 @@
             <hr>
 
         </div>
+    </div>
+    <div class="row">
         <div class="col-md-4">
             <div class="form-group col-sm-12">
                 <div class="input-group date form_datetime col-sm-8">
@@ -742,6 +744,7 @@
         $("#yearSelect").val(1900 + nowYear);
 
         $("#searchTree").change(function () {
+            $("#filter_form [name='searchContentFromSelect']").val("");
             var tree = $('#getDictTree');
             var node = tree.treeview('getNode', 0);
             if (node.state.expanded) {

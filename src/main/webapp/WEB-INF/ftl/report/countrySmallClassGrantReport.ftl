@@ -312,6 +312,7 @@
         });
 
         $("#searchTree").change(function () {
+            $("#filter_form [name='searchContentFromSelect']").val("");
             var tree = $('#getDictTree');
             var node = tree.treeview('getNode', 0);
             if (node.state.expanded) {

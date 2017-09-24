@@ -34,9 +34,6 @@
         city like  CONCAT("%",#{searchContent},"%")
         or
         county like  CONCAT("%",#{searchContent},"%")
-        or
-        town like  CONCAT("%",#{searchContent},"%")
-
         )
       </if>
       <if test="year != null and year !='' " >
