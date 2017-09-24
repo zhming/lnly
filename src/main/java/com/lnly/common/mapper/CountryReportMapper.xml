@@ -273,7 +273,7 @@
     <select id="findCityDataAmountAll" resultMap="InputDataResultMap" >
         select dict_name,
         max(case year when '2010' then amount else 0 end) as '2010_amount',
-        max(case year when '2010' then standard else 0 end) as '2010_area',
+        max(case year when '2010' then s else 0 end) as '2010_area',
         max(case year when '2011' then amount else 0 end) as '2011_amount',
         max(case year when '2011' then standard else 0 end) as '2011_area',
         max(case year when '2012' then amount else 0 end) as '2012_amount',
