@@ -11,6 +11,9 @@
     <link href="${basePath}/css/bootstrap-datetimepicker.min.css" rel="stylesheet" media="screen">
     <link rel="stylesheet" href="${basePath}/css/build.css"/>
     <link rel="stylesheet" href="${basePath}/css/font-awesome.min.css"/>
+    <link rel="stylesheet" href="${basePath}/css/fileinput.min.css"/>
+    <link rel="stylesheet" href="${basePath}/css/fileinput-rtl.min.css"/>
+
 
     <!-- datagrid css -->
     <link rel="stylesheet" href="${basePath}/css/datagrid/buttons.bootstrap.min.css"/>
@@ -37,6 +40,7 @@
     <script src="${basePath}/js/datagrid/buttons.html5.min.js"></script>
     <script src="${basePath}/js/common/jquery/jquery.form-2.82.js?${_v}"></script>
     <script src="${basePath}/js/bootstrapValidator.min.js"></script>
+    <script src="${basePath}/js/fileinput.min.js"></script>
 
 
     <!-- datagrid -->
@@ -54,6 +58,10 @@
         /* 个性化 */
         .btn-primary {
             background-color: #006dcc;
+        }
+
+        #example{
+            width: 1500px !important;
         }
     </style>
 
@@ -94,17 +102,35 @@
                     <table id="example" class="table table-striped table-bordered" cellspacing="0" width="100%">
                         <thead>
                         <tr>
-                            <div class="col-lg-9">
+                            <div class="col-sm-10">
                                 <strong id="tableTitle">2017年度地方补偿资金发放明细</strong>
-                                
+
                                 <div class="hidden" id="hidden_filter">
                                     <div class="row" style="margin-right:0;">
-                                        <input type="hidden" id="searchYear" name="searchYear" value="" class="form-control input-small" style = "width:150px" placeholder = "" />
-                                        <input type="hidden" id="searchContentFromSelect" name="searchContentFromSelect" value="${token.dictCode}" class="form-control input-small" style = "width:150px" placeholder = "" />
+                                        <input type="hidden" id="searchEmail" name="searchEmail" value="${token.email}"/>
+                                        <input type="hidden" id="searchYear" name="searchYear" value=""
+                                               class="form-control input-small" style="width:150px" placeholder=""/>
+                                        <input type="hidden" id="searchContentFromLogin" name="searchContentFromLogin"
+                                               value="${token.nickname}" class="form-control input-small"
+                                               style="width:150px" placeholder=""/>
+
+                                        <input type="hidden" id="searchContentFromSelect" name="searchContentFromSelect"
+                                               value="" class="form-control input-small"
+                                               style="width:150px" placeholder=""/>
+                                      
                                         <button id="go_search" class="btn btn-default">查询</button>
-                                        <button id="addButton" onclick="viewAddModal();" class="btn btn-default">新增</button>
-                                        <button id="updateButton" onclick="viewUpdateModal();" class="btn btn-default">修改</button>
-                                        <button id="deleteButton" onclick="deleteById();" class="btn btn-default">删除</button>
+                                        <button id="addButton" onclick="viewAddModal();" class="btn btn-default">新增
+                                        </button>
+                                        <button id="updateButton" onclick="viewUpdateModal();" class="btn btn-default">
+                                            修改
+                                        </button>
+                                        <button id="deleteButton" onclick="deleteList();" class="btn btn-default">删除
+                                        </button>
+                                        <button id="importButton" onclick="viewUploadModal();" class="btn btn-default">批量导入
+                                        </button>
+                                        <button id="checkButton" onclick="check();"  class="btn btn-default">批量审批
+                                        </button>
+                                       
                                     </div>
 
                                 </div>
@@ -112,39 +138,41 @@
                             </div>
 
                         </tr>
+                        <tr>
+                            <th>               
+                            <#--checkboxk-->
+                                <input type="checkbox" class="checkall" />
+                            </th>
+                            <th>序号</th>
+                            <th>年度</th>
+                            <th>市</th>
+                            <th>县</th>
+                            <th>乡</th>
+                            <th>村</th>
+                            <th>林班</th>
+                            <th>小班</th>
+                            <th>地类</th>
+                            <th>细班</th>
+                            <th>林地所有权</th>
+                            <th>土地所有权</th>
+                            <th>起源</th>
+                            <th>权属证明</th>
+                            <th>身份证号</th>
+                            <th>户名</th>
+                            <th>联户户名</th>
+                            <th>面积(亩)</th>
+                            <th>补偿标准</th>
+                            <th>补偿金额</th>
+                            <th>汇款帐号</th>
+                            <th>汇款姓名</th>
+                            <th>是否发放</th>
+                            <th>审批状态</th>
+                            <th>备注</th>
+                            <th>创建时间</th>
 
-                        <tr >
-                            <div id="tr_h" >
-                                <th>序号</th>
-                                <th class="hidden">ID</th>
-                                <th>年度</th>
-                                <th>城市</th>
-                                <th>区县</th>
-                                <th>乡镇</th>
-                                <th>村</th>
-                                <th>林班</th>
-                                <th>小班</th>
-                                <th>细班</th>
-                                <th>地类</th>
-                                <th>林地所有权</th>
-                                <th>土地所有权</th>
-                                <th>起源</th>
-                                <th>权属证明</th>
-                                <th>身份证号码</th>
-                                <th>户名</th>
-                                <th>联户户名</th>
-                                <th>面积</th>
-                                <th>补偿标准</th>
-                                <th>补偿金额</th>
-                                <th>汇款帐号</th>
-                                <th>汇款户名</th>
-                                <th>是否发放</th>
-                                <th>审批状态</th>
-                                <th>备注</th>
-                                <th>创建时间</th>
-                            </div>
 
                         </tr>
+
                         </thead>
                     </table>
                 </div>
@@ -152,6 +180,7 @@
             <div class="hidden">
                 <input type="hidden" id="selectedDictCode" value=""/>
             </div>
+
 
 
         <@shiro.hasPermission name="/localStandard/add.shtml">
@@ -197,12 +226,14 @@
 
                             <div class="form-group col-sm-4">
                                 <label for="recipient-name" class="control-label">林班:</label>
-                                <input type="text" class="form-control" id="forestClass" name="forestClass" placeholder="">
+                                <input type="text" class="form-control" id="forestClass" name="forestClass"
+                                       placeholder="">
                             </div>
 
                             <div class="form-group col-sm-4">
                                 <label for="recipient-name" class="control-label">小班:</label>
-                                <input type="text" class="form-control" id="smallClass" name="smallClass" placeholder="">
+                                <input type="text" class="form-control" id="smallClass" name="smallClass"
+                                       placeholder="">
                             </div>
 
                             <div class="form-group col-sm-4">
@@ -212,17 +243,20 @@
 
                             <div class="form-group col-sm-4">
                                 <label for="recipient-name" class="control-label">细班:</label>
-                                <input type="text" class="form-control" id="littleClass" name="littleClass" placeholder="">
+                                <input type="text" class="form-control" id="littleClass" name="littleClass"
+                                       placeholder="">
                             </div>
 
                             <div class="form-group col-sm-4">
                                 <label for="recipient-name" class="control-label">林地所有权:</label>
-                                <input type="text" class="form-control" id="forestBelong" name="forestBelong" placeholder="">
+                                <input type="text" class="form-control" id="forestBelong" name="forestBelong"
+                                       placeholder="">
                             </div>
-                                                      
+
                             <div class="form-group col-sm-4">
                                 <label for="recipient-name" class="control-label">土地所有权:</label>
-                                <input type="text" class="form-control" id="landBelong" name="landBelong" placeholder="">
+                                <input type="text" class="form-control" id="landBelong" name="landBelong"
+                                       placeholder="">
                             </div>
 
                             <div class="form-group col-sm-4">
@@ -233,13 +267,15 @@
 
                             <div class="form-group col-sm-4">
                                 <label for="recipient-name" class="control-label">权属证明:</label>
-                                <input type="text" class="form-control" id="belongProve" name="belongProve" placeholder="">
+                                <input type="text" class="form-control" id="belongProve" name="belongProve"
+                                       placeholder="">
                             </div>
 
 
                             <div class="form-group col-sm-4">
                                 <label for="recipient-name" class="control-label">身份证号码:</label>
-                                <input type="text" class="form-control" id="identityCard" name="identityCard" placeholder="">
+                                <input type="text" class="form-control" id="identityCard" name="identityCard"
+                                       placeholder="">
                             </div>
 
 
@@ -251,7 +287,8 @@
 
                             <div class="form-group col-sm-4">
                                 <label for="recipient-name" class="control-label">联户户名:</label>
-                                <input type="text" class="form-control" id="uniteUsername" name="uniteUsername" placeholder="">
+                                <input type="text" class="form-control" id="uniteUsername" name="uniteUsername"
+                                       placeholder="">
                             </div>
 
                             <div class="form-group col-sm-4">
@@ -262,12 +299,14 @@
 
                             <div class="form-group col-sm-4">
                                 <label for="recipient-name" class="control-label">地方补偿标准:</label>
-                                <input type="text" class="form-control" id="compensationStandard" name="compensationStandard" value="11" placeholder="" readonly>
+                                <input type="text" class="form-control" id="compensationStandard"
+                                       name="compensationStandard" value="11" placeholder="" readonly>
                             </div>
 
                             <div class="form-group col-sm-4">
                                 <label for="recipient-name" class="control-label">补偿金额:</label>
-                                <input type="text" class="form-control" id="compensationAmount" name="compensationAmount" placeholder="">
+                                <input type="text" class="form-control" id="compensationAmount"
+                                       name="compensationAmount" placeholder="">
                             </div>
 
                             <div class="form-group col-sm-4">
@@ -277,15 +316,17 @@
 
                             <div class="form-group col-sm-4">
                                 <label for="recipient-name" class="control-label">汇款户名:</label>
-                                <input type="text" class="form-control" id="remitUserName" name="remitUserName" placeholder="">
+                                <input type="text" class="form-control" id="remitUserName" name="remitUserName"
+                                       placeholder="">
                             </div>
-                            
+
 
                             <div class="form-group col-sm-4 gj">
                                 <label for="recipient-name" class="control-label">是否发放:</label>
                                 <select id="sendFlag" name="sendFlag" class="form-control">
-                                    <option value="0">否</option>
-                                    <option value="1">是</option>
+                                    <option value="是">是</option>
+                                    <option value="否">否</option>
+
                                 </select>
                             </div>
 
@@ -310,6 +351,29 @@
                 </div>
             </div>
 
+            <div class="modal fade" id="uploadRecord" tabindex="-1" role="dialog" aria-labelledby="uploadRecordLabel">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                                    aria-hidden="true">&times;</span></button>
+                            <h4 class="modal-title" id="addBcbzLabel">批量导入</h4>
+                        </div>
+                        <div class="form-group">
+                            <form id="uploadForm" action="${basePath}/localDetail/upload.shtml" method="post" enctype="multipart/form-data">
+                                <input type="file" id="fileUpload" name="fileUpload" />
+                                <input type="hidden" id="email" name="email" value="${token.email}"/>
+                                <input type="hidden" id="yearUpload" name="yearUpload"  />
+                                <input type="hidden" id="dictUpload" name="dictUpload"  />
+
+                                <input type="submit" value="上传文件" />
+
+                            </form>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
 
         <#--/添加弹框-->
         </@shiro.hasPermission>
@@ -335,12 +399,14 @@
     });
 
     $(function () {
+
+
         var dictCode = "${token.dictCode}";
-        
+
 
         var load = layer.load();
     <@shiro.hasPermission name="/adminDict/findDictTree.shtml">
-        $.post("${basePath}/adminDict/findDictTree.shtml", {dictCode:dictCode}, function (data) {
+        $.post("${basePath}/adminDict/findDictTree.shtml", {dictCode: dictCode}, function (data) {
             layer.close(load);
             if (data && !data.length) {
                 return $("#getDictTree").html('<code>您没有权限。</code>'), !1;
@@ -355,7 +421,7 @@
         }, 'json');
 
     </@shiro.hasPermission>
-       var load;
+        var load;
         $("#addGjbcBzForm").ajaxForm({
             success: function (result) {
                 layer.close(load);
@@ -433,8 +499,49 @@
                 }
 
 
+                load = layer.load();
+            },
+            dataType: "json",
+            clearForm: false
+        });
 
 
+        $("#uploadForm").ajaxForm({
+            success: function (result) {
+
+
+                layer.close(load);
+                if (result && result.status == 300) {
+                    layer.msg(result.message, function () {
+                    });
+                    return !1;
+                }
+                if (result && result.status == 500) {
+                   // layer.msg("操作失败！" + result.message, function () {});
+                    layer.open({
+                        content: "操作失败！" + result.message,
+                        yes: function(index, layero){
+                            //do something
+
+                            layer.close(index); //如果设定了yes回调，需进行手工关闭
+
+                        }
+                    });
+                    return !1;
+                }
+                layer.msg('操作成功！');
+            },
+            beforeSubmit: function () {
+
+                var reg=new RegExp(".xlsx$");
+                var regXls= new RegExp(".xls$");
+                var filePath =$("#fileUpload").val();
+               console.log(filePath);
+               if(! reg.test(filePath) && !regXls.test(filePath)){
+                   layer.msg('导入文件必须是xlsx或xls格式！', function () {
+                   });
+                   return !1;
+               }
 
                 load = layer.load();
             },
@@ -443,16 +550,16 @@
         });
 
         var tablePrefix = "#example_";
+        var dictCode = "${token.dictCode}";
         $("#example").dataTable({
             serverSide: true,//分页，取数据等等的都放到服务端去
             processing: true,//载入数据的时候是否显示“载入中”
             pageLength: 10,//首次加载的数据条数
             ordering: false,//排序操作在服务端进行，所以可以关了。
-            scrollX: true, //水平滚动条
-            autoWidth: false, //启用或者禁止自动列宽的计算
+            "scrollX": true, //水平滚动条
             ajax: {//类似jquery的ajax参数，基本都可以用。
                 type: "post",//后台指定了方式，默认get，外加datatable默认构造的参数很长，有可能超过get的最大长度。
-                url: "${basePath}/localDetail/findAll.shtml",
+                url: "${basePath}/localDetail/findAll.shtml?dictCode=" + dictCode,
                 dataSrc: "data",//默认data，也可以写其他的，格式化table的时候取里面的数据
                 data: function (d) {//d 是原始的发送给服务器的数据，默认很长。
                     var param = {};//因为服务端排序，可以新建一个参数对象
@@ -465,59 +572,88 @@
                     return param;//自定义需要传递的参数。
                 },
             },
-            "fnDrawCallback"    : function(){
-                this.api().column(0).nodes().each(function(cell, i) {
-                    cell.innerHTML =  i + 1;
+            "fnDrawCallback": function () {
+                this.api().column(1).nodes().each(function (cell, i) {
+                    cell.innerHTML = i + 1;
+
+                    console.log($(this).parent()[i]);
+                    //$(this).parent()[i].style.backgroundColor = "red";
+                    var obj = $(this).parent()[i];
+                        var cell = obj.cells[24];//获取某行下面的某个td元素
+                        console.log(cell.innerHTML);//cell.innerHTML获取元素里头的值
+                        if(cell.innerHTML == "1"){
+                            $(this).parent()[i].title="上报到县";
+                            $(this).parent()[i].style.backgroundColor = "blue";
+                        } else if(cell.innerHTML == "2"){
+
+                            $(this).parent()[i].title="上报到市";
+                            $(this).parent()[i].style.backgroundColor = "orange";
+                        }  else if(cell.innerHTML == "3"){
+                            $(this).parent()[i].title = "上报到省";
+                            $(this).parent()[i].style.backgroundColor = "green";
+                        } else{
+                            $(this).parent()[i].title = "上报到乡";
+                        }
+
+
                 });
+
+
+
             },
             columns: [//对应上面thead里面的序列
+
                 {
-                    "sTitle"     : "序号",
-                    "sClass"     : "dt-center",
-                    "bSortable"  : false,
-                    "sWidth"     : "8%",
-                    "data"       : null,
-                    "targets"    : 0
+                    //Student 没有hireDate
+                    data: function (e) {
+                        if (e.id) {//默认是/Date(794851200000)/格式，需要显示成年月日方式
+                            return '<input type="checkbox" name="checkchild" class="checkchild"  value="' + e.id + '" />';
+                        }
+                        return "";
+                    }
+
                 },
                 {
-                    "sTitle"     : "ID",
-                    "sClass" : "hidden",
-                    "data": "id",
-
-                },//字段名字和返回的json序列的key对应
+                    "sTitle": "序号",
+                    "sClass": "dt-center",
+                    "bSortable": false,
+                    "data": null,
+                    "targets": 1
+                },
                 {
                     data: "year",
                     "sTitle": "年度",
                 },
-                {data: "city", "sTitle": "市",},
-                {data: "county", "sTitle": "县",},
-                {data: "town", "sTitle": "乡",},
-                {data: "village", "sTitle": "村",},
-                {data: "forestClass", "sTitle": "林班",},
-                {data: "smallClass", "sTitle": "小班",},
-                {data: "landTypes", "sTitle": "地类",},
-                {data: "littleClass", "sTitle": "细班",},
-                {data: "forestBelong", "sTitle": "林地所有权",},
-                {data: "landBelong", "sTitle": "土地所有权",},
-                {data: "source", "sTitle": "起源",},
-                {data: "belongProve", "sTitle": "权属证明",},
-                {data: "identityCard", "sTitle": "身份证号",},
-                {data: "username", "sTitle": "户名",},
-                {data: "uniteUsername", "sTitle": "联户户名",},
-                {data: "area", "sTitle": "面积(亩)",},
-                {data: "compensationStandard", "sTitle": "补偿标准",},
-                {data: "compensationAmount", "sTitle": "补偿金额",},
-                {data: "remitNum", "sTitle": "汇款帐号",},
-                {data: "remitUserName", "sTitle": "汇款姓名",},
-                {data: "sendFlag", "sTitle": "是否发放",},
-                {data: "checkFlag", "sTitle": "审批状态",},
-                {data: "comment", "sTitle": "备注",},
+                {data: "city", },
+                {data: "county", },
+                {data: "town", },
+                {data: "village",},
+                {data: "forestClass", },
+                {data: "smallClass", },
+                {data: "landTypes", },
+                {data: "littleClass",},
+                {data: "forestBelong", },
+                {data: "landBelong",},
+                {data: "source", },
+                {data: "belongProve",},
+                {data: "identityCard",},
+                {data: "username",},
+                {data: "uniteUsername",},
+                {data: "area",},
+                {data: "compensationStandard",},
+                {data: "compensationAmount", },
+                {data: "remitNum", },
+                {data: "remitUserName", },
+                {data: "sendFlag", },
+                {data: "checkFlag", },
+                {data: "comment", },
                 {
                     //Student 没有hireDate
                     data: function (e) {
                         if (e.createTime) {//默认是/Date(794851200000)/格式，需要显示成年月日方式
                             return new Date(Number(("" + e.createTime).replace(/\D/g, ''))).toLocaleDateString();
                         }
+
                         return "空";
                     },
                     "sTitle": "创建时间"
@@ -540,7 +676,7 @@
 
             },
             language: {
-                url:"${basePath}/js/datagrid/Chinese.json"
+                url: "${basePath}/js/datagrid/Chinese.json"
             }
         });
         //$("#table_server_filter input[type=search]").css({ width: "auto" });//右上角的默认搜索文本框，不写这个就超出去了。
@@ -551,6 +687,9 @@
         $(document).on("click", "#go_search", function () {
             var yearSelect = $("#yearSelect").val();
             $("#filter_form [name='searchYear']").val(yearSelect);
+
+            //searchContentFromSelect
+            console.log("from search: " + $("#filter_form [name='searchContentFromSelect']").val());
             $("#example").DataTable().draw(false);//点搜索重新绘制table。
 
 
@@ -560,7 +699,7 @@
         });
 
         $('#example tbody').on('click', 'tr', function () {
-            var table =  $("#example").dataTable();
+            var table = $("#example").dataTable();
             if ($(this).hasClass('selected')) {
                 $(this).removeClass('selected');
             }
@@ -602,7 +741,6 @@
         var nowYear = new Date().getYear();
         $("#yearSelect").val(1900 + nowYear);
 
-
         $("#searchTree").change(function () {
             var tree = $('#getDictTree');
             var node = tree.treeview('getNode', 0);
@@ -624,13 +762,76 @@
             var node = tree.treeview('getNode', selectedId);
             tree.treeview('selectNode', [node, {silent: true}]);
 
+            var nodeName = node.text;
+            $("#filter_form [name='searchContent']").val(nodeName);
+
         });
+
+
+        $(".checkall").click(function () {
+            var check = $(this).prop("checked");
+            $(".checkchild").prop("checked", check);
+        });
+
+
 
     });
 
 
 
+    function check(){
+        var checkStatus = "0";
+        var dictCode = "${token.dictCode}";
+       
+        console.log("dictCode: " + dictCode);
+        console.log("dictCode46: " + dictCode.substr(4, 6));
+        if(dictCode.length <= 6 ){
+            if(dictCode.substr(4, 6) != "00"){
+                //区县审批
+                checkStatus = "1";
+            }else if(dictCode.substr(4, 6) == "00" && dictCode != "210000"){
+                //市级审批
+                checkStatus = "2";
+            }else if(dictCode == "210000"){
+                //省级审批
+                checkStatus = "3";
+            }
+        }
 
+
+        if(checkStatus == "0"){
+            layer.msg("无权审批");
+            return;
+        }
+        console.log("check");
+        var ids = "";
+        $('input[name="checkchild"]:checked').each(function(){
+            console.log($(this).val());
+            ids +=  $(this).val() + ",";
+        });
+
+        if(ids.length == 0){
+            layer.msg("请选取要审批的数据");
+        }
+
+        var deleteUrl = "${basePath}/localDetail/check.shtml";
+
+        var index = layer.confirm("批量审批数据", function () {
+            var load = layer.load();
+            $.post(deleteUrl, {ids: ids, checkStatus:checkStatus}, function (result) {
+                layer.close(load);
+                if (result && result.status != 200) {
+                    return layer.msg(result.message, so.default), !0;
+                } else {
+                    layer.msg(result.message);
+                    $('.selected').remove();
+                    $("#example").DataTable().draw(false);//点搜索重新绘制table。
+                }
+            }, 'json');
+            layer.close(index);
+        });
+
+    }
 
     function itemOnclick(target) {
         //找到当前节点id
@@ -659,6 +860,16 @@
         $('#addRecord').modal();
     }
 
+    function viewUploadModal() {
+        var yearSelect = $("#yearSelect").val();
+        $("#uploadForm [name='yearUpload']").val(yearSelect);
+
+        var dict =  $("#filter_form [name='searchContentFromSelect']").val();
+        $("#uploadForm [name='dictUpload']").val(dict);
+        $('#uploadRecord').modal();
+
+    }
+
 
     function viewUpdateModal() {
         var type = "地方";
@@ -669,8 +880,6 @@
         $('#addRecord').modal();
     }
 
-
-   
 
     function checkIsDouble(value) {
         var reg = /^[-\+]?\d+(\.\d+)?$/;
@@ -686,32 +895,84 @@
 
     <@shiro.hasPermission name="/localDetail/delete.shtml">
     <#--根据ID删除数据-->
-    function deleteById(){
+    function deleteById() {
         var id = $("#id").val();
-        if(null == id || "" == id){
+        if (null == id || "" == id) {
             return;
         }
         var deleteUrl = "${basePath}/localDetail/delete.shtml";
 
-        var index = layer.confirm("确定删除这条数据？",function(){
+        var index = layer.confirm("确定删除这条数据？", function () {
             var load = layer.load();
-            $.post(deleteUrl,{id:id},function(result){
+            $.post(deleteUrl, {id: id}, function (result) {
                 layer.close(load);
-                if(result && result.status != 200){
-                    return layer.msg(result.message,so.default),!0;
-                }else{
+                if (result && result.status != 200) {
+                    return layer.msg(result.message, so.default), !0;
+                } else {
                     layer.msg(result.message);
                     $('.selected').remove();
                     $("#example").DataTable().draw(false);//点搜索重新绘制table。
                 }
-            },'json');
+            }, 'json');
             layer.close(index);
         });
     }
+
+    function deleteList(){
+        var checkStatus = "0";
+        var dictCode = "${token.dictCode}";
+
+        var ids = "";
+        $('input[name="checkchild"]:checked').each(function(){
+            console.log($(this).val());
+            ids +=  $(this).val() + ",";
+        });
+
+        if(ids.length == 0){
+            layer.msg("请选取要删除的数据");
+        }
+
+        var deleteUrl = "${basePath}/localDetail/deleteList.shtml";
+
+        var index = layer.confirm("批量删除数据", function () {
+            var load = layer.load();
+            $.post(deleteUrl, {ids: ids, checkStatus:checkStatus}, function (result) {
+                layer.close(load);
+                if (result && result.status != 200) {
+                    return layer.msg(result.message, so.default), !0;
+                } else {
+                    layer.msg(result.message);
+                    $('.selected').remove();
+                    $("#example").DataTable().draw(false);//点搜索重新绘制table。
+                }
+            }, 'json');
+            layer.close(index);
+        });
+
+    }
+
+
     </@shiro.hasPermission>
+    function pageAjaxDone(json) {
+        YUNM.debug(json);
+        YUNM.ajaxDone(json);
+
+        if (json[YUNM.keys.statusCode] == YUNM.statusCode.ok) {
+            var msg = json[YUNM.keys.message];
+            // 弹出消息提示
+            YUNM.debug(msg);
+
+            if (YUNM.callbackType.confirmTimeoutForward == json.callbackType) {
+                $.showSuccessTimeout(msg, function() {
+                    window.location = json.forwardUrl;
+                });
+            }
+        }
+    }
 
 
     
+
 
 </script>
 

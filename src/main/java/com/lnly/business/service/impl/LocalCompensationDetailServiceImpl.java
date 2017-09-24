@@ -2,13 +2,16 @@ package com.lnly.business.service.impl;
 
 import com.lnly.business.service.LocalCompensationDetailService;
 import com.lnly.common.dao.LocalCompensationDetailMapper;
+import com.lnly.common.model.CountryCompensationDetail;
 import com.lnly.common.model.LocalCompensationDetail;
 import com.lnly.core.mybatis.BaseMybatisDao;
 import com.lnly.core.mybatis.page.Pagination;
 import com.lnly.core.shiro.session.CustomSessionManager;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
+import java.util.List;
 import java.util.Map;
 
 @Service
@@ -51,9 +54,31 @@ public class LocalCompensationDetailServiceImpl extends BaseMybatisDao<LocalComp
 		return super.findPage("findAll","findCount",resultMap, pageNo, pageSize);
 	}
 
-	
+    @Override
+    public Double findSmallClassData(LocalCompensationDetail entity) throws Exception {
+            double result = 0.00;
+
+            List<LocalCompensationDetail> list = localCompensationDetailMapper.findSmallClassData(entity);
+
+            if(null != list){
+                for(LocalCompensationDetail detail : list){
+                    result += Double.parseDouble(detail.getArea());
+                }
+
+            }
 
 
 
+
+            return  result;
+        }
+
+    @Override
+    @Transactional(rollbackFor = Exception.class)
+    public void insertList(List<LocalCompensationDetail> list) throws Exception {
+        for(LocalCompensationDetail entity : list){
+            localCompensationDetailMapper.insert(entity);
+        }
+    }
 
 }

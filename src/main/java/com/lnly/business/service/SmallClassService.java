@@ -26,7 +26,7 @@ public interface SmallClassService {
 	 */
     public Pagination<SmallClass> findAll(SmallClass entity, Integer pageNo, Integer pageSize) throws Exception;
 
-    List<SmallClass> findSmallList(SmallClass entity) throws Exception;
+    List<SmallClass> findSmallList(SmallClass entity,  Integer pageNo, Integer pageSize) throws Exception;
 
     public Pagination<SmallClass> findListDiff(Map<String, Object> map, Integer pageNo, Integer pageSize) throws Exception ;
 

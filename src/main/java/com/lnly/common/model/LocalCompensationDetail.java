@@ -25,19 +25,23 @@ public class LocalCompensationDetail implements Serializable {
     private String username;
     private String uniteUsername;
     private String year;
-    private Double area;
-    private Double compensationStandard;
-    private Double compensationAmount;
+    private String area;
+    private String compensationStandard;
+    private String compensationAmount;
     private String remitNum;
     private String remitUserName;
-    private char sendFlag;
-    private char checkFlag;
+    private String sendFlag;
+    private String checkFlag;
     private String comment;
     private String createUser;
     private String updateUser;
     private Date createTime;
     private Date updateTime;
-    private char deleteFlag;
+    private String deleteFlag;
+
+    public static long getSerialVersionUID() {
+        return serialVersionUID;
+    }
 
     public Long getId() {
         return id;
@@ -175,27 +179,27 @@ public class LocalCompensationDetail implements Serializable {
         this.year = year;
     }
 
-    public Double getArea() {
+    public String getArea() {
         return area;
     }
 
-    public void setArea(Double area) {
+    public void setArea(String area) {
         this.area = area;
     }
 
-    public Double getCompensationStandard() {
+    public String getCompensationStandard() {
         return compensationStandard;
     }
 
-    public void setCompensationStandard(Double compensationStandard) {
+    public void setCompensationStandard(String compensationStandard) {
         this.compensationStandard = compensationStandard;
     }
 
-    public Double getCompensationAmount() {
+    public String getCompensationAmount() {
         return compensationAmount;
     }
 
-    public void setCompensationAmount(Double compensationAmount) {
+    public void setCompensationAmount(String compensationAmount) {
         this.compensationAmount = compensationAmount;
     }
 
@@ -215,12 +219,20 @@ public class LocalCompensationDetail implements Serializable {
         this.remitUserName = remitUserName;
     }
 
-    public char getSendFlag() {
+    public String getSendFlag() {
         return sendFlag;
     }
 
-    public void setSendFlag(char sendFlag) {
+    public void setSendFlag(String sendFlag) {
         this.sendFlag = sendFlag;
+    }
+
+    public String getCheckFlag() {
+        return checkFlag;
+    }
+
+    public void setCheckFlag(String checkFlag) {
+        this.checkFlag = checkFlag;
     }
 
     public String getComment() {
@@ -263,19 +275,11 @@ public class LocalCompensationDetail implements Serializable {
         this.updateTime = updateTime;
     }
 
-    public char getDeleteFlag() {
+    public String getDeleteFlag() {
         return deleteFlag;
     }
 
-    public void setDeleteFlag(char deleteFlag) {
+    public void setDeleteFlag(String deleteFlag) {
         this.deleteFlag = deleteFlag;
-    }
-
-    public char getCheckFlag() {
-        return checkFlag;
-    }
-
-    public void setCheckFlag(char checkFlag) {
-        this.checkFlag = checkFlag;
     }
 }

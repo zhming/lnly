@@ -3,6 +3,7 @@ package com.lnly.business.service;
 import com.lnly.common.model.LocalCompensationDetail;
 import com.lnly.core.mybatis.page.Pagination;
 
+import java.util.List;
 import java.util.Map;
 
 public interface LocalCompensationDetailService {
@@ -18,5 +19,8 @@ public interface LocalCompensationDetailService {
 
 	Pagination<LocalCompensationDetail> findByPage(Map<String, Object> resultMap, Integer pageNo,
                                                      Integer pageSize);
+
+    Double findSmallClassData(LocalCompensationDetail entity) throws Exception;
+    public void insertList(List<LocalCompensationDetail> list) throws Exception;
 
 }

@@ -139,7 +139,7 @@
 
 
             <if test="localDiff != null and localDiff > 0 ">
-                and localDiff > 0
+                and local_diff > 0
             </if>
 
         </where>

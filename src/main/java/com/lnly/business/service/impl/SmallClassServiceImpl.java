@@ -78,7 +78,18 @@ public class SmallClassServiceImpl extends BaseMybatisDao<SmallClassMapper> impl
 	}
 
     @Override
-    public List<SmallClass> findSmallList(SmallClass entity) throws Exception {
+    public List<SmallClass> findSmallList(SmallClass entity,  Integer pageNo, Integer pageSize) throws Exception {
+
+	    Map<String, Object> map = new HashMap<>();
+
+	    map.put("year", entity.getYear());
+	    map.put("city", entity.getCity());
+	    map.put("county", entity.getCounty());
+	    map.put("town", entity.getTown())  ;
+	    map.put("village", entity.getVillage());
+	    map.put("forest_class", entity.getForestClass());
+	    map.put("small_class", entity.getSmallClass()) ;
+
         List<SmallClass> result = null;
         byte[] byteKey = SerializeUtil.serialize(buildCacheKey(entity.getTown() + entity.getVillage() + entity.getForestClass() + entity.getSmallClass()));
         byte[] byteValue = new byte[0];
@@ -87,7 +98,8 @@ public class SmallClassServiceImpl extends BaseMybatisDao<SmallClassMapper> impl
             result = (List<SmallClass>) SerializeUtil.deserialize(byteValue);
             LoggerUtils.debug(SELF, "This value from cache!" + result.size());
         } catch (Exception e) {
-             result = smallClassMapper.findSmallList(entity);
+            Pagination<SmallClass> pageination = super.findPage(map, pageNo, pageSize);
+             result = pageination.getList();
             jedisManager.saveValueByKey(DB_INDEX, byteKey, SerializeUtil.serialize(result), -1);
             LoggerUtils.debug(SELF, "This value from DB!" + result.size());
         }

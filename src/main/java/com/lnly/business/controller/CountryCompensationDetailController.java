@@ -586,7 +586,7 @@ public class CountryCompensationDetailController extends BaseController {
                             reqSmall.setTown(entity.getTown());
                             reqSmall.setForestClass(entity.getForestClass());
                             reqSmall.setSmallClass(entity.getSmallClass());
-                            SmallClass smallClass = smallClassService.findSmallList(reqSmall).get(0);
+                            SmallClass smallClass = smallClassService.findSmallList(reqSmall, 0,1).get(0);
 
                             if(null == smallClass){
                                 errorMap.put(index, entity.getTown());

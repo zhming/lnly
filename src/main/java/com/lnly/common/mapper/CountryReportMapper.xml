@@ -60,18 +60,18 @@
         <result column="2019_amount" property="input19" />
         <result column="2020_amount" property="input20" />
         <result column="2021_amount" property="input21" />
-        <result column="2010_area" property="standard10" />
-        <result column="2011_area" property="standard11" />
-        <result column="2012_area" property="standard12" />
-        <result column="2013_area" property="standard13" />
-        <result column="2014_area" property="standard14" />
-        <result column="2015_area" property="standard15" />
-        <result column="2016_area" property="standard16" />
-        <result column="2017_area" property="standard17" />
-        <result column="2018_area" property="standard18" />
-        <result column="2019_area" property="standard19" />
-        <result column="2020_area" property="standard20" />
-        <result column="2021_area" property="standard21" />
+        <result column="2010_standard" property="standard10" />
+        <result column="2011_standard" property="standard11" />
+        <result column="2012_standard" property="standard12" />
+        <result column="2013_standard" property="standard13" />
+        <result column="2014_standard" property="standard14" />
+        <result column="2015_standard" property="standard15" />
+        <result column="2016_standard" property="standard16" />
+        <result column="2017_standard" property="standard17" />
+        <result column="2018_standard" property="standard18" />
+        <result column="2019_standard" property="standard19" />
+        <result column="2020_standard" property="standard20" />
+        <result column="2021_standard" property="standard21" />
     </resultMap>
   <sql id="Base_Column_List" >
     id, dict_name, type, year, send_area, no_send_area, area, send_amount, no_send_amount, amount, standard, city, county, town, village
@@ -168,7 +168,7 @@
             </if>
         </where>
             group by dict_name
-            order by  city , county, town
+        order by  id, city , county, town
         <include refid="limit_sql" />
 
     </select>
@@ -241,7 +241,7 @@
             </if>
         </where>
         group by dict_name
-        order by  city , county, town
+        order by  id, city , county, town
         <include refid="limit_sql" />
 
     </select>
@@ -273,29 +273,29 @@
     <select id="findCityDataAmountAll" resultMap="InputDataResultMap" >
         select dict_name,
         max(case year when '2010' then amount else 0 end) as '2010_amount',
-        max(case year when '2010' then s else 0 end) as '2010_area',
+        max(case year when '2010' then standard else 0 end) as '2010_standard',
         max(case year when '2011' then amount else 0 end) as '2011_amount',
-        max(case year when '2011' then standard else 0 end) as '2011_area',
+        max(case year when '2011' then standard else 0 end) as '2011_standard',
         max(case year when '2012' then amount else 0 end) as '2012_amount',
-        max(case year when '2012' then standard else 0 end) as '2012_area',
+        max(case year when '2012' then standard else 0 end) as '2012_standard',
         max(case year when '2013' then amount else 0 end) as '2013_amount',
-        max(case year when '2013' then standard else 0 end) as '2013_area',
+        max(case year when '2013' then standard else 0 end) as '2013_standard',
         max(case year when '2014' then amount else 0 end) as '2014_amount',
-        max(case year when '2014' then standard else 0 end) as '2014_area',
+        max(case year when '2014' then standard else 0 end) as '2014_standard',
         max(case year when '2015' then amount else 0 end) as '2015_amount',
-        max(case year when '2015' then standard else 0 end) as '2015_area',
+        max(case year when '2015' then standard else 0 end) as '2015_standard',
         max(case year when '2016' then amount else 0 end) as '2016_amount',
-        max(case year when '2016' then standard else 0 end) as '2016_area',
+        max(case year when '2016' then standard else 0 end) as '2016_standard',
         max(case year when '2017' then amount else 0 end) as '2017_amount',
-        max(case year when '2017' then standard else 0 end) as '2017_area',
+        max(case year when '2017' then standard else 0 end) as '2017_standard',
         max(case year when '2018' then amount else 0 end) as '2018_amount',
-        max(case year when '2018' then standard else 0 end) as '2018_area',
+        max(case year when '2018' then standard else 0 end) as '2018_standard',
         max(case year when '2019' then amount else 0 end) as '2019_amount',
-        max(case year when '2019' then standard else 0 end) as '2019_area',
+        max(case year when '2019' then standard else 0 end) as '2019_standard',
         max(case year when '2020' then amount else 0 end) as '2020_amount',
-        max(case year when '2020' then standard else 0 end) as '2020_area',
+        max(case year when '2020' then standard else 0 end) as '2020_standard',
         max(case year when '2021' then amount else 0 end) as '2021_amount',
-        max(case year when '2021' then standard else 0 end) as '2021_area'
+        max(case year when '2021' then standard else 0 end) as '2021_standard'
         from tb_country_report
         <where>
             city is not null and town = '0'
@@ -310,7 +310,7 @@
             </if>
         </where>
         group by dict_name
-        order by  city , county, town
+        order by  id, city , county, town
         <include refid="limit_sql" />
 
     </select>

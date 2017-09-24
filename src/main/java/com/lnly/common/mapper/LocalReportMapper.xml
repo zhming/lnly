@@ -241,7 +241,7 @@
             </if>
         </where>
         group by dict_name
-        order by  city , county, town
+        order by  id, city , county, town
         <include refid="limit_sql" />
 
     </select>

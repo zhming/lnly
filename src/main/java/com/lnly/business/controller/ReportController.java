@@ -1173,7 +1173,7 @@ public class ReportController extends BaseController {
 
        
 
-        map.put("countryDiff", 10);
+        map.put("localDiff", 10);
 
         DateTime end1 = new DateTime();
         LoggerUtils.debug(getClass(), "param: : "+(end1.getSecondOfDay() - start.getSecondOfDay()));

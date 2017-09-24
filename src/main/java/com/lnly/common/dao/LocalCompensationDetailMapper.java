@@ -29,5 +29,6 @@ public interface LocalCompensationDetailMapper {
     int updateByPrimaryKey(LocalCompensationDetail record);
 
     List<LocalCompensationDetail> findAll();
+    List<LocalCompensationDetail> findSmallClassData(LocalCompensationDetail entity);
 
 }
