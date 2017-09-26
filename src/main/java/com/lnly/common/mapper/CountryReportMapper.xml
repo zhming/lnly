@@ -86,7 +86,7 @@
   	<where>
   	<if test="dictName != null and dictName !='' " >
         and (
-        LOWER(dict_name) like  LOWER(CONCAT("%", #{dictName},"%")
+        LOWER(dict_name) like  LOWER(CONCAT("%", #{dictName},"%"))
         )
       </if>
       </where>
@@ -168,7 +168,7 @@
             </if>
 
             <if test="searchContent != null and searchContent !='' ">
-                  and LOWER(dict_name) like  LOWER(CONCAT("%", #{searchContent},"%")
+                  and LOWER(dict_name) like  LOWER(CONCAT("%", #{searchContent},"%"))
             </if>
         </where>
             group by dict_name
@@ -194,7 +194,7 @@
                 and  town = #{town}
             </if>
             <if test="searchContent != null and searchContent !='' ">
-                and LOWER(dict_name) like  LOWER(CONCAT("%", #{searchContent},"%")
+                and LOWER(dict_name) like  LOWER(CONCAT("%", #{searchContent},"%"))
             </if>
             <if test="type != null and type !='' " >
                 and  type = #{type}
@@ -244,7 +244,7 @@
                 and  town = #{town}
             </if>
             <if test="searchContent != null and searchContent !='' ">
-                and LOWER(dict_name) like  LOWER(CONCAT("%", #{searchContent},"%")
+                and LOWER(dict_name) like  LOWER(CONCAT("%", #{searchContent},"%"))
             </if>
             <if test="type != null and type !='' " >
                 and  type = #{type}
@@ -271,7 +271,7 @@
                 and  town = #{town}
             </if>
             <if test="searchContent != null and searchContent !='' ">
-                and LOWER(dict_name) like  LOWER(CONCAT("%", #{searchContent},"%")
+                and LOWER(dict_name) like  LOWER(CONCAT("%", #{searchContent},"%"))
             </if>
             <if test="type != null and type !='' " >
                 and  type = #{type}
@@ -319,7 +319,7 @@
                 and  county = #{county}
             </if>
             <if test="searchContent != null and searchContent !='' ">
-                and LOWER(dict_name) like  LOWER(CONCAT("%", #{searchContent},"%")
+                and LOWER(dict_name) like  LOWER(CONCAT("%", #{searchContent},"%"))
             </if>
             <if test="type != null and type !='' " >
                 and  type = #{type}
@@ -344,7 +344,7 @@
                 and  county = #{county}
             </if>
             <if test="searchContent != null and searchContent !='' ">
-                and LOWER(dict_name) like  LOWER(CONCAT("%", #{searchContent},"%")
+                and LOWER(dict_name) like  LOWER(CONCAT("%", #{searchContent},"%"))
             </if>
             <if test="type != null and type !='' " >
                 and  type = #{type}
@@ -365,7 +365,7 @@
                 city = #{city}
             </if>
             <if test="searchContent != null and searchContent !='' ">
-                and LOWER(dict_name) like  LOWER(CONCAT("%", #{searchContent},"%")
+                and LOWER(dict_name) like  LOWER(CONCAT("%", #{searchContent},"%"))
             </if>
             <if test="type != null and type !='' " >
                 and  type = #{type}
@@ -385,7 +385,7 @@
             county = #{county}
         </if>
              <if test="searchContent != null and searchContent !='' ">
-                 and LOWER(dict_name) like  LOWER(CONCAT("%", #{searchContent},"%")
+                 and LOWER(dict_name) like  LOWER(CONCAT("%", #{searchContent},"%"))
              </if>
              <if test="type != null and type !='' " >
                  and  type = #{type}

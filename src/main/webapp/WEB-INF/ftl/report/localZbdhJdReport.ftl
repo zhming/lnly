@@ -231,7 +231,7 @@
             autoWidth: false, //启用或者禁止自动列宽的计算
             ajax: {//类似jquery的ajax参数，基本都可以用。
                 type: "post",//后台指定了方式，默认get，外加datatable默认构造的参数很长，有可能超过get的最大长度。
-                url: "${basePath}/report/findCityDataAmountAll.shtml?dictCode="+dictCode,
+                url: "${basePath}/report/findLocalCityDataAmountAll.shtml?dictCode="+dictCode,
                 dataSrc: "data",//默认data，也可以写其他的，格式化table的时候取里面的数据
                 data: function (d) {//d 是原始的发送给服务器的数据，默认很长。
                     var param = {};//因为服务端排序，可以新建一个参数对象
@@ -261,98 +261,98 @@
                 {
                     data: "dict"
                 },
+                {
+                    data: "standard10"
+//
+                },
                 
             {
                 data: "input10"
 //
             },
             {
-                data: "standard10"
-//                   
-            },
-            {
                 data: "percent10"
 //                    "sTitle": "录入率百分率%"
             },
+                {
+                    data: "standard11"
+//                    "sTitle": "指标金额汇总(元))"
+                },
             {
                 data: "input11"
 //                    "sTitle": "调查金额汇总(元)"
             },
             {
-                data: "standard11"
-//                    "sTitle": "指标金额汇总(元))"
-            },
-            {
                 data: "percent11"
 //                    "sTitle": "录入率百分率%"
             },
+                {
+                    data: "standard12"
+//                    "sTitle": "指标金额汇总(元))"
+                },
             {
                 data: "input12"
 //                    "sTitle": "调查金额汇总(元)"
             },
             {
-                data: "standard12"
-//                    "sTitle": "指标金额汇总(元))"
-            },
-            {
                 data: "percent12"
 //                    "sTitle": "录入率百分率%"
             },
+                {
+                    data: "standard13"
+//                    "sTitle": "指标金额汇总(元))"
+                },
             {
                 data: "input13"
 //                    "sTitle": "调查金额汇总(元)"
             },
             {
-                data: "standard13"
-//                    "sTitle": "指标金额汇总(元))"
-            },
-            {
                 data: "percent13"
 //                    "sTitle": "录入率百分率%"
             },
+                {
+                    data: "standard14"
+//                    "sTitle": "指标金额汇总(元))"
+                },
             {
                 data: "input14"
 //                    "sTitle": "调查金额汇总(元)"
             },
             {
-                data: "standard14"
-//                    "sTitle": "指标金额汇总(元))"
-            },
-            {
                 data: "percent14"
 //                    "sTitle": "录入率百分率%"
             },
+                {
+                    data: "standard15"
+//                    "sTitle": "指标金额汇总(元))"
+                },
             {
                 data: "input15"
 //                    "sTitle": "调查金额汇总(元)"
             },
             {
-                data: "standard15"
-//                    "sTitle": "指标金额汇总(元))"
-            },
-            {
                 data: "percent15"
 //                    "sTitle": "录入率百分率%"
             },
+                {
+                    data: "standard16"
+//                    "sTitle": "指标金额汇总(元))"
+                },
             {
                 data: "input16"
 //                    "sTitle": "录入率百分率%"
             },
             {
-                data: "standard16"
-//                    "sTitle": "指标金额汇总(元))"
-            },
-            {
                 data: "percent16"
 //                    "sTitle": "录入率百分率%"
             },
+                {
+                    data: "standard17"
+//                    "sTitle": "指标金额汇总(元))"
+                },
             {
                 data: "input17"
 //                    "sTitle": "调查金额汇总(元)"
-            },
-            {
-                data: "standard17"
-//                    "sTitle": "指标金额汇总(元))"
             },
             {
                 data: "percent17"
@@ -428,7 +428,8 @@
             var selectedId = $(searchResults[0]).attr("data-nodeid");
             var node = tree.treeview('getNode', selectedId);
             tree.treeview('selectNode', [node, {silent: true}]);
-            var nodeName = $("#searchTree").val();
+            var nodeName = node.text;
+            console.log("@@@@@@@@@@@@"+nodeName);
             $("#filter_form [name='searchContentFromSelect']").val(nodeName);
         });
 

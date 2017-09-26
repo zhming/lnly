@@ -71,6 +71,8 @@ public class ReportController extends BaseController {
     @Autowired
     private LocalReportService localReportService;
 
+    
+
 
     private static final String KEY_PRE = "report_zbdh_jd_data_pre_";
 
@@ -165,6 +167,21 @@ public class ReportController extends BaseController {
             map.put("year", dateTime.toString("yyyy"));
         }
 
+
+        String dictName = param.getSearchContentFromSelect();
+
+        if(!StringUtils.isBlank(dictName)){
+            try {
+                AdminDict dict = adminDictService.findByDictName(dictName);
+                if(null != dict){
+                    dictCode = dict.getDictCode();
+                }
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
+
+
         if (StringUtils.isNotBlank(param.getSearchContentFromSelect())
                 && !"210000".equals(param.getSearchContentFromSelect())
                 && !"辽宁省".equals(param.getSearchContentFromSelect())) {
@@ -246,6 +263,19 @@ public class ReportController extends BaseController {
 
         LoggerUtils.debug(getClass(), "user_dict_code: " + searchEmail);
 
+
+        String dictName = param.getSearchContentFromSelect();
+
+        if(!StringUtils.isBlank(dictName)){
+            try {
+                AdminDict dict = adminDictService.findByDictName(dictName);
+                if(null != dict){
+                    dictCode = dict.getDictCode();
+                }
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
 
         int searType = 0;
 
@@ -329,6 +359,20 @@ public class ReportController extends BaseController {
         LoggerUtils.debug(getClass(), "user_dict_code: " + searchEmail);
 
 
+        String dictName = param.getSearchContentFromSelect();
+
+        if(!StringUtils.isBlank(dictName)){
+            try {
+                AdminDict dict = adminDictService.findByDictName(dictName);
+                if(null != dict){
+                    dictCode = dict.getDictCode();
+                }
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
+
+
         int searType = 0;
 
         try {
@@ -410,6 +454,20 @@ public class ReportController extends BaseController {
 
 
         LoggerUtils.debug(getClass(), "user_dict_code: " + searchEmail);
+
+
+        String dictName = param.getSearchContentFromSelect();
+
+        if(!StringUtils.isBlank(dictName)){
+            try {
+                AdminDict dict = adminDictService.findByDictName(dictName);
+                if(null != dict){
+                    dictCode = dict.getDictCode();
+                }
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
 
 
         int searType = 0;
@@ -497,6 +555,20 @@ public class ReportController extends BaseController {
         LoggerUtils.debug(getClass(), "user_dict_code: " + searchEmail);
 
 
+        String dictName = param.getSearchContentFromSelect();
+
+        if(!StringUtils.isBlank(dictName)){
+            try {
+                AdminDict dict = adminDictService.findByDictName(dictName);
+                if(null != dict){
+                    dictCode = dict.getDictCode();
+                }
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
+
+
         int searType = 0;
 
         try {
@@ -575,6 +647,20 @@ public class ReportController extends BaseController {
 
         iEcho++;
         Map<String, Object> map = new HashMap<>();
+
+        String dictName = param.getSearchContentFromSelect();
+
+        if(!StringUtils.isBlank(dictName)){
+            try {
+                AdminDict dict = adminDictService.findByDictName(dictName);
+                if(null != dict){
+                    dictCode = dict.getDictCode();
+                }
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
+
 
 
         String searchEmail = param.getSearchEmail();
@@ -756,6 +842,20 @@ public class ReportController extends BaseController {
 
         LoggerUtils.debug(getClass(), "user_dict_code: " + searchEmail);
 
+        String dictName = param.getSearchContentFromSelect();
+
+        if(!StringUtils.isBlank(dictName)){
+            try {
+                AdminDict dict = adminDictService.findByDictName(dictName);
+                if(null != dict){
+                    dictCode = dict.getDictCode();
+                }
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
+
+
 
         int searType = 0;
 
@@ -931,6 +1031,20 @@ public class ReportController extends BaseController {
             map.put("year", dateTime.toString("yyyy"));
         }
 
+        String dictName = param.getSearchContentFromSelect();
+
+        if(!StringUtils.isBlank(dictName)){
+            try {
+                AdminDict dict = adminDictService.findByDictName(dictName);
+                if(null != dict){
+                    dictCode = dict.getDictCode();
+                }
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
+
+
         try {
             if (!"210000".equals(dictCode)) {
 
@@ -1011,21 +1125,19 @@ public class ReportController extends BaseController {
         }
 
 
-        if (StringUtils.isNotBlank(param.getSearchContentFromSelect())) {
-            map.put("searchContent", param.getSearchContentFromSelect());
-        }else{
-            if(!"210000".equalsIgnoreCase(dictCode)){
-                AdminDict dict = null;
-                try {
-                    dict = adminDictService.findByDictCode(dictCode);
-                    map.put("searchContent", dict.getDictName());
-                } catch (Exception e) {
-                }
+        String dictName = param.getSearchContentFromSelect();
 
-            }else{
-                map.put("searchContent", null);
+        if(!StringUtils.isBlank(dictName)){
+            try {
+                AdminDict dict = adminDictService.findByDictName(dictName);
+                if(null != dict){
+                    dictCode = dict.getDictCode();
+                }
+            } catch (Exception e) {
+                e.printStackTrace();
             }
         }
+
 
         map.put("localDiff", 10);
 

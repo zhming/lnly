@@ -164,7 +164,27 @@ public class AdminDictServiceImpl extends BaseMybatisDao<AdminDictMapper> implem
         return result;
     }
 
-   
+    @Override
+    public AdminDict findByDictName(String dictName) throws Exception {
+        AdminDict result = null;
+        byte[] byteKey = SerializeUtil.serialize(buildCacheKey(dictName));
+        byte[] byteValue = new byte[0];
+        try {
+            byteValue = jedisManager.getValueByKey(DB_INDEX, byteKey);
+            result = (AdminDict) SerializeUtil.deserialize(byteValue);
+            LoggerUtils.debug(SELF, "This value from cache!" + result.getDictCode());
+        } catch (Exception e) {
+            LoggerUtils.error(SELF, "AdminDict get value by cache throw exception", e);
+            result = adminDictMapper.findByDictName(dictName);
+            if(null != result){
+                jedisManager.saveValueByKey(DB_INDEX, byteKey,SerializeUtil.serialize(result), 50000 );
+                LoggerUtils.debug(SELF, "This value from DB!" + result.getDictCode());
+            }
+        }
+
+
+        return result;
+    }
 
 
     /**

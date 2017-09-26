@@ -512,7 +512,8 @@
             var node = tree.treeview('getNode', selectedId);
             tree.treeview('selectNode', [node, {silent: true}]);
 
-            var nodeName = $("#searchTree").val();
+            var nodeName = node.text;
+            console.log("@@@@@@@@@@@@"+nodeName);
             $("#filter_form [name='searchContentFromSelect']").val(nodeName);
 
         });
