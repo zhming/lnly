@@ -72,17 +72,22 @@
 </head>
 <body data-target="#one" data-spy="scroll">
 
-<@_top.top 1/>
-<div class="container" style="padding-bottom: 15px;min-height: 300px; margin-top: 40px;">
+<@_top.top 6/>
 <#--row-->
-    <div class="row" style="margin-lef: -10px;">
+    <div class="row">
 
-        <div class="col-md-12">
+        <div class="col-sm-12">
             <h2>国家公益林直补到户工作进度报表</h2>
-            <hr>
-
         </div>
-        <div class="col-md-4">
+        </div>
+        <div class="row">
+            <div class="col-sm-12">
+                <hr>
+            </div>
+        </div>
+
+        <div class="row">
+        <div class="col-sm-2">
             <div class="form-group col-sm-12">
                 <div class="input-group date form_datetime col-sm-8">
                     <input id="yearSelect" class="form-control" size="16" type="text" value="" readonly>
@@ -100,7 +105,7 @@
             </div>
         </div>
 
-        <div class="col-md-8">
+        <div class="col-sm-10">
             <div class="col-sm-12">
                 <div class="table">
                     <table id="example" class="table table-striped table-bordered" cellspacing="0" width="100%">
@@ -177,7 +182,6 @@
         </div>
     </div>
 <#--/row-->
-</div>
 
 
 <script type="text/javascript">
