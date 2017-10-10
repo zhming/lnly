@@ -72,22 +72,19 @@
 
 <#--row-->
     <div class="row" >
-
         <div class="col-sm-12">
+
+            <div class="col-sm-6">
             <h2>国家补偿资金发放明细</h2>
-
-
+                </div>
         </div>
     </div>
 
     <div class="row" >
-
         <div class="col-sm-12">
             <hr>
         </div>
     </div>
-
-
     <div class="row">
         <div class="col-sm-2">
             <div class="form-group col-sm-12">
@@ -113,7 +110,7 @@
                     <table id="example" class="table table-striped table-bordered" cellspacing="0" width="100%">
                         <thead>
                         <tr>
-                            <div class="col-sm-10">
+                            <div class="col-lg-9">
                                 <strong id="tableTitle">2017年度国家补偿资金发放明细</strong>
 
                                 <div class="hidden" id="hidden_filter">

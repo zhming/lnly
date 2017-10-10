@@ -16,7 +16,7 @@
 	          <ul class="nav navbar-nav" id="topMenu">
                   <li class="dropdown ${(index==4)?string('active','')}">
                       <a aria-expanded="false" aria-haspopup="true" role="button" data-toggle="dropdown" class="dropdown-toggle" href="#">
-                          年度资金补偿标准<span class="caret"></span>
+                          年度补偿标准维护<span class="caret"></span>
                       </a>
                       <#-- index 4   -->
                       <ul class="dropdown-menu">
