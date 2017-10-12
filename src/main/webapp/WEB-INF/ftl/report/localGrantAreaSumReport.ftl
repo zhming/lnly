@@ -2,7 +2,7 @@
 <html lang="zh-cn">
 <head>
     <meta charset="utf-8"/>
-    <title>辽宁省林业厅生态公益林管理系统-国家公益林直补到户发放面积与金额汇总报表</title>
+    <title>辽宁省林业厅生态公益林管理系统-地方公益林直补到户发放面积与金额汇总报表</title>
     <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport"/>
     <link rel="icon" href="${basePath}/favicon.ico" type="image/x-icon"/>
     <link rel="shortcut icon" href="${basePath}/favicon.ico"/>
@@ -80,7 +80,7 @@
     <div class="row" >
 
         <div class="col-sm-12">
-            <h2>国家公益林直补到户发放面积与金额汇总报表</h2>
+            <h2>地方公益林直补到户发放面积与金额汇总报表</h2>
         </div>
     </div>
 
@@ -120,7 +120,7 @@
             </div>
         </div>
 
-        <div class="col-sm-push-10">
+        <div class="col-sm-10">
             <div class="col-sm-12">
                 <div class="table">
                     <table id="example" class="table table-striped table-bordered" cellspacing="0" width="100%">
@@ -444,7 +444,7 @@
         $("#filter_form [name='searchYear']").val(yearSelect);
 
         var type = $('input:radio:checked').val();
-        var tableTitle = nodeName + "国家公益林直补到户发放面积与金额汇总报表";
+        var tableTitle = nodeName + "地方公益林直补到户发放面积与金额汇总报表";
         $("#tableTitle").html(tableTitle);
         if (node.state.expanded) {
             //处于展开状态则折叠

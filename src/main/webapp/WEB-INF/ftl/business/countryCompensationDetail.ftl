@@ -86,7 +86,7 @@
         </div>
     </div>
     <div class="row">
-        <div class="col-sm-2">
+        <div class="col-sm-3">
             <div class="form-group col-sm-12">
                 <div class="input-group date form_datetime col-sm-8">
                     <input id="yearSelect" class="form-control" size="16" type="text" value="" readonly>
@@ -104,7 +104,7 @@
             </div>
         </div>
 
-        <div class="col-sm-10">
+        <div class="col-sm-9">
             <div class="col-sm-12">
                 <div class="table">
                     <table id="example" class="table table-striped table-bordered" cellspacing="0" width="100%">
