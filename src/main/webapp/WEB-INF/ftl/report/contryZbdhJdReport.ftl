@@ -94,6 +94,17 @@
                     <span class="input-group-addon"><span class="glyphicon glyphicon-remove"></span></span>
                     <span class="input-group-addon"><span class="glyphicon glyphicon-th"></span></span>
                 </div>
+                <br/>
+                <div class="input-group col-sm-8" >
+                    <span class="input-group-addon">统计级别</span>
+                    <select id="dictType" name="dictType" class="form-control selectpicker">
+                        <option></option>
+                        <option value="1">市</option>
+                        <option value="2">县</option>
+                        <option value="3">乡（林场）</option>
+                        <option value="4">村（工区）</option>
+                    </select>
+                </div
                 <input type="hidden" id="dtp_input1" value=""/><br/>
                 <div  class="row col-sm-8">
                     <input type="text" id="searchTree" name="searchTree" value=""
