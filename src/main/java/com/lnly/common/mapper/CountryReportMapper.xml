@@ -126,7 +126,7 @@
 
       <!--已发统计-->
     <select id="findCityDataSend" resultMap="ReportResultMap" >
-        select dict_name,
+        select dict_name,city, county,
             max(case year when '2010' then send_amount else 0 end) as '2010_amount',
             max(case year when '2010' then send_area else 0 end) as '2010_area',
             max(case year when '2011' then send_amount else 0 end) as '2011_amount',
@@ -171,8 +171,8 @@
                   and LOWER(dict_name) like  LOWER(CONCAT("%", #{searchContent},"%"))
             </if>
         </where>
-            group by dict_name
-        order by  id, city , county, town
+            group by dict_name,city, county
+        order by  dict_name,city, county
         <include refid="limit_sql" />
 
     </select>
@@ -206,7 +206,7 @@
 
      <!-- 调查面积 -->
     <select id="findCityDataSendAll" resultMap="ReportResultMap" >
-        select dict_name,
+        select dict_name,city, county,
         max(case year when '2010' then amount  else 0 end) as '2010_amount',
         max(case year when '2010' then area else 0 end) as '2010_area',
         max(case year when '2011' then amount else 0 end) as '2011_amount',
@@ -250,8 +250,8 @@
                 and  type = #{type}
             </if>
         </where>
-        group by dict_name
-        order by  id, city , county, town
+        group by dict_name,city, county
+        order by  dict_name,city, county
         <include refid="limit_sql" />
 
     </select>
@@ -284,7 +284,7 @@
 
     <!-- 国家录入率统计 -->
     <select id="findCityDataAmountAll" resultMap="InputDataResultMap" >
-        select dict_name,
+        select dict_name,city, county,
         max(case year when '2010' then amount else 0 end) as '2010_amount',
         max(case year when '2010' then standard else 0 end) as '2010_standard',
         max(case year when '2011' then amount else 0 end) as '2011_amount',
@@ -325,8 +325,8 @@
                 and  type = #{type}
             </if>
         </where>
-        group by dict_name
-        order by  id, city , county, town
+        group by dict_name,city, county
+        order by  dict_name,city, county
         <include refid="limit_sql" />
 
     </select>
