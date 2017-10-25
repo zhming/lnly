@@ -69,7 +69,7 @@
         }
 
         #example{
-            width: 1800px !important;
+            width: 1900px !important;
         }
     </style>
 
@@ -77,23 +77,19 @@
 <body data-target="#one" data-spy="scroll">
 
 <@_top.top 6/>
-<div class="container" style="padding-bottom: 15px;min-height: 300px; margin-top: 40px;">
 <#--row-->
-    <div class="row" style="margin-lef: -10px;">
-
-        <div class="col-md-12">
+    <div class="row">
+        <div class="col-sm-12">
             <h2>国家公益林直补到户相关数据录入率统计表</h2>
-            <hr>
+        </div></div>
 
-        </div>
-        <div class="col-md-4">
+<div class="row">
+    <div class="col-sm-12">
+        <hr>
+    </div></div>
+<div class="row">
+    <div class="col-sm-2">
             <div class="form-group col-sm-12">
-                <div class="input-group date form_datetime col-sm-8">
-                    <input id="yearSelect" class="form-control" size="16" type="text" value="" readonly>
-                    <span class="input-group-addon"><span class="glyphicon glyphicon-remove"></span></span>
-                    <span class="input-group-addon"><span class="glyphicon glyphicon-th"></span></span>
-                </div>
-                <br/>
                 <div class="input-group col-sm-8" >
                     <span class="input-group-addon">统计级别</span>
                     <select id="dictType" name="dictType" class="form-control selectpicker">
@@ -115,7 +111,7 @@
             </div>
         </div>
 
-        <div class="col-md-8">
+        <div class="col-sm-10">
             <div class="col-sm-12">
                 <div class="table">
                     <table id="example" class="table table-striped table-bordered" cellspacing="0" width="100%">
@@ -191,7 +187,6 @@
         </div>
     </div>
 <#--/row-->
-</div>
 
 
 <script type="text/javascript">
@@ -199,9 +194,9 @@
     var table_flag = false;
     var table;
 
-    //初始化年份
-    var nowYear = 1900 + new Date().getYear();
-    $("#yearSelect").val(nowYear);
+
+
+
 
 
     $('.form_datetime').datetimepicker({
@@ -396,8 +391,6 @@
             return false;
         });
         $(document).on("click", "#go_search", function () {
-            var yearSelect = $("#yearSelect").val();
-            $("#filter_form [name='searchYear']").val(yearSelect);
             var dictType = $("#dictType").find("option:selected").val();
             console.log("dictType : " + dictType)
             $("#filter_form [name='searchType']").val(dictType);
@@ -463,10 +456,7 @@
         console.log(tags[0]);
         $("#filter_form [name='searchId']").val(tags[0]);
         var nodeName = node.text;
-        var yearSelect = $("#yearSelect").val();
         $("#filter_form [name='searchContentFromSelect']").val(nodeName);
-
-        $("#filter_form [name='searchYear']").val(yearSelect);
 
         var type = $('input:radio:checked').val();
         var tableTitle = nodeName + "国家公益林直补到户相关数据录入率统计表";

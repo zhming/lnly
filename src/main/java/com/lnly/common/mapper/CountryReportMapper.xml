@@ -172,7 +172,7 @@
             </if>
         </where>
             group by dict_name,city, county
-        order by  dict_name,city, county
+        order by  city, county
         <include refid="limit_sql" />
 
     </select>
@@ -251,7 +251,7 @@
             </if>
         </where>
         group by dict_name,city, county
-        order by  dict_name,city, county
+        order by  city, county
         <include refid="limit_sql" />
 
     </select>
@@ -326,7 +326,7 @@
             </if>
         </where>
         group by dict_name,city, county
-        order by  dict_name,city, county
+        order by  city, county
         <include refid="limit_sql" />
 
     </select>

@@ -80,7 +80,7 @@
 <#--row-->
     <div class="row">
         <div class="col-sm-12">
-            <h2>国家公益林直补到户相关数据录入率统计表</h2>
+            <h2>地方公益林直补到户相关数据录入率统计表</h2>
         </div></div>
 
 <div class="row">
@@ -90,11 +90,7 @@
 <div class="row">
         <div class="col-sm-2">
             <div class="form-group col-sm-12">
-                <div class="input-group date form_datetime col-sm-8">
-                    <input id="yearSelect" class="form-control" size="16" type="text" value="" readonly>
-                    <span class="input-group-addon"><span class="glyphicon glyphicon-remove"></span></span>
-                    <span class="input-group-addon"><span class="glyphicon glyphicon-th"></span></span>
-                </div>
+                
                 <br/>
                 <div class="input-group col-sm-8" >
                     <span class="input-group-addon">统计级别</span>
@@ -199,10 +195,6 @@
 
     var table_flag = false;
     var table;
-
-    //初始化年份
-    var nowYear = 1900 + new Date().getYear();
-    $("#yearSelect").val(nowYear);
 
 
     $('.form_datetime').datetimepicker({
@@ -397,8 +389,6 @@
             return false;
         });
         $(document).on("click", "#go_search", function () {
-            var yearSelect = $("#yearSelect").val();
-            $("#filter_form [name='searchYear']").val(yearSelect);
             var dictType = $("#dictType").find("option:selected").val();
             console.log("dictType : " + dictType)
             $("#filter_form [name='searchType']").val(dictType);
@@ -463,10 +453,8 @@
         console.log(tags[0]);
         $("#filter_form [name='searchId']").val(tags[0]);
         var nodeName = node.text;
-        var yearSelect = $("#yearSelect").val();
         $("#filter_form [name='searchContentFromSelect']").val(nodeName);
 
-        $("#filter_form [name='searchYear']").val(yearSelect);
 
         var type = $('input:radio:checked').val();
         var tableTitle = nodeName + "国家公益林直补到户相关数据录入率统计表";
