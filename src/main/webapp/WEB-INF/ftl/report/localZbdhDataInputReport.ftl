@@ -235,6 +235,10 @@
             pageLength: 10,//首次加载的数据条数
             ordering: false,//排序操作在服务端进行，所以可以关了。
             "scrollX": true, //水平滚动条
+            dom: 'Bfrtip',
+            buttons: [
+                'excelHtml5' //导出文件格式为excel
+            ],
             ajax: {//类似jquery的ajax参数，基本都可以用。
                 type: "post",//后台指定了方式，默认get，外加datatable默认构造的参数很长，有可能超过get的最大长度。
                 url: "${basePath}/report/findLocalCityDataAmountAll.shtml?dictCode="+dictCode,
