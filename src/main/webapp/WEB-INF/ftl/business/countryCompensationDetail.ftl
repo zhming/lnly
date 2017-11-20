@@ -18,10 +18,13 @@
     <!-- datagrid css -->
     <link rel="stylesheet" href="${basePath}/css/datagrid/buttons.bootstrap.min.css"/>
     <link rel="stylesheet" href="${basePath}/css/datagrid/dataTables.bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.10.16/css/jquery.dataTables.min.css" />
+    <link rel="stylesheet" href="https://cdn.datatables.net/fixedcolumns/3.2.3/css/fixedColumns.dataTables.min.css" />
     <link rel="stylesheet" href="${basePath}/css/datagrid/select.bootstrap.min.css"/>
     <!-- datagrid css -->
 
-    <script src="${basePath}/js/common/jquery/jquery1.8.3.min.js"></script>
+    <#--<script src="${basePath}/js/common/jquery/jquery1.8.3.min.js"></script>-->
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
     <script src="${basePath}/js/common/layer/layer.js"></script>
     <script src="${basePath}/js/common/bootstrap/3.3.5/js/bootstrap.min.js"></script>
     <script src="${basePath}/js/common/bootstrap/bootstrap-treeview.js"></script>
@@ -30,11 +33,14 @@
     <script src="${basePath}/js/shiro.demo.js"></script>
 
     <!-- datagrid -->
-    <script src="${basePath}/js/datagrid/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js"></script>
+    <#--<script src="${basePath}/js/datagrid/jquery.dataTables.min.js"></script>-->
     <script src="${basePath}/js/datagrid/dataTables.bootstrap.min.js"></script>
     <script src="${basePath}/js/datagrid/dataTables.buttons.min.js"></script>
     <script src="${basePath}/js/datagrid/buttons.bootstrap.min.js"></script>
     <script src="${basePath}/js/datagrid/dataTables.select.min.js"></script>
+
+    <script src="https://cdn.datatables.net/fixedcolumns/3.2.3/js/dataTables.fixedColumns.min.js"></script>
 
     <script src="${basePath}/js/datagrid/jszip.min.js"></script>
     <script src="${basePath}/js/datagrid/buttons.html5.min.js"></script>
@@ -125,7 +131,7 @@
                                         <input type="hidden" id="searchContentFromSelect" name="searchContentFromSelect"
                                                value="" class="form-control input-small"
                                                style="width:150px" placeholder=""/>
-                                      
+
                                         <button id="go_search" class="btn btn-default">查询</button>
                                         <button id="addButton" onclick="viewAddModal();" class="btn btn-default">新增
                                         </button>
@@ -138,7 +144,7 @@
                                         </button>
                                         <button id="checkButton" onclick="check();"  class="btn btn-default">批量审批
                                         </button>
-                                       
+
                                     </div>
 
                                 </div>
@@ -560,15 +566,19 @@
         var tablePrefix = "#example_";
         var dictCode = "${token.dictCode}";
         $("#example").dataTable({
-            serverSide: true,//分页，取数据等等的都放到服务端去
+            serverSide: true,
+            dom: 'Bfrtip',
+            fixedColumns:   {
+                leftColumns: 2
+            },
+            buttons: [
+            'excelHtml5' //导出文件格式为excel
+        ],//分页，取数据等等的都放到服务端去
             processing: true,//载入数据的时候是否显示“载入中”
             pageLength: 10,//首次加载的数据条数
             ordering: false,//排序操作在服务端进行，所以可以关了。
             "scrollX": true, //水平滚动条
-            dom: 'Bfrtip',
-            buttons: [
-                'excelHtml5' //导出文件格式为excel
-            ],
+            
             ajax: {//类似jquery的ajax参数，基本都可以用。
                 type: "post",//后台指定了方式，默认get，外加datatable默认构造的参数很长，有可能超过get的最大长度。
                 url: "${basePath}/countryDetail/findAll.shtml?dictCode=" + dictCode,
