@@ -10,17 +10,18 @@
     <link href="${basePath}/css/common/base.css?${_v}" rel="stylesheet"/>
     <link href="${basePath}/css/bootstrap-datetimepicker.min.css" rel="stylesheet" media="screen">
     <link rel="stylesheet" href="${basePath}/css/font-awesome.min.css"/>
-
-    <!-- datagrid css -->
-    <link rel="stylesheet" href="${basePath}/css/datagrid/buttons.bootstrap.min.css"/>
-    <link rel="stylesheet" href="${basePath}/css/datagrid/dataTables.bootstrap.min.css"/>
-    <link rel="stylesheet" href="${basePath}/css/datagrid/select.bootstrap.min.css"/>
-    <link rel="stylesheet" href="${basePath}/css/bootstrap-select.min.css">
-    <!-- datagrid css -->
-
     <link rel="stylesheet" href="${basePath}/css/build.css"/>
+    
+    <!-- datagrid css -->
 
-    <script src="${basePath}/js/common/jquery/jquery1.8.3.min.js"></script>
+    <#--<link rel="stylesheet" href="${basePath}/css/datagrid/dataTables.bootstrap.min.css"/>-->
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.10.16/css/jquery.dataTables.min.css" />
+    <link rel="stylesheet" href="${basePath}/css/datagrid/buttons.bootstrap.min.css"/>
+    <link rel="stylesheet" href="${basePath}/css/datagrid/select.bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://cdn.datatables.net/fixedcolumns/3.2.3/css/fixedColumns.dataTables.min.css" />
+    <!-- datagrid css -->
+
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
     <script src="${basePath}/js/common/layer/layer.js"></script>
     <script src="${basePath}/js/common/bootstrap/3.3.5/js/bootstrap.min.js"></script>
     <script src="${basePath}/js/common/bootstrap/bootstrap-treeview.js"></script>
@@ -29,11 +30,12 @@
     <script src="${basePath}/js/shiro.demo.js"></script>
 
     <!-- datagrid -->
-    <script src="${basePath}/js/datagrid/jquery.dataTables.min.js"></script>
     <script src="${basePath}/js/datagrid/dataTables.bootstrap.min.js"></script>
+    <script src="https://cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js"></script>
     <script src="${basePath}/js/datagrid/dataTables.buttons.min.js"></script>
     <script src="${basePath}/js/datagrid/buttons.bootstrap.min.js"></script>
     <script src="${basePath}/js/datagrid/dataTables.select.min.js"></script>
+    <script src="https://cdn.datatables.net/fixedcolumns/3.2.3/js/dataTables.fixedColumns.min.js"></script>
 
     <script src="${basePath}/js/datagrid/jszip.min.js"></script>
     <script src="${basePath}/js/datagrid/buttons.html5.min.js"></script>
@@ -118,29 +120,27 @@
             </div>
         </div>
 
+        <div class="col-lg-9">
+            <div class="hidden" id="hidden_filter">
+                <div class="row" style="margin-right:0;">
+                    <input type="hidden" id="searchEmail" name="searchEmail" value="${token.email}"/>
+                    <input type="hidden" id="searchType" name="searchType" value=""
+                           class="form-control input-small" style="width:150px" placeholder=""/>
+                    <input type="hidden" id="searchContentFromSelect" name="searchContentFromSelect"
+                           value="${token.nickname}" class="form-control input-small"
+                           style="width:150px" placeholder=""/>
+                    <button id="go_search" class="btn btn-default">查询</button>
+                </div>
+
+            </div>
+
+        </div>
+
         <div class="col-sm-10">
             <div class="col-sm-12">
                 <div class="table">
                     <table id="example" class="table table-striped table-bordered" cellspacing="0" width="100%">
                         <thead>
-                        <tr>
-                            <div class="col-lg-9">
-                                <div class="hidden" id="hidden_filter">
-                                    <div class="row" style="margin-right:0;">
-                                        <input type="hidden" id="searchEmail" name="searchEmail" value="${token.email}"/>
-                                        <input type="hidden" id="searchType" name="searchType" value=""
-                                               class="form-control input-small" style="width:150px" placeholder=""/>
-                                        <input type="hidden" id="searchContentFromSelect" name="searchContentFromSelect"
-                                               value="${token.nickname}" class="form-control input-small"
-                                               style="width:150px" placeholder=""/>
-                                        <button id="go_search" class="btn btn-default">查询</button>
-                                    </div>
-
-                                </div>
-
-                            </div>
-
-                        </tr>
                         <tr align="center">
                             <th rowspan="2" align="center">序号</th>
                             <th rowspan="2" align="center">单位</th>
@@ -245,6 +245,10 @@
             ordering: false,//排序操作在服务端进行，所以可以关了。
             "scrollX": true, //水平滚动条
             dom: 'Bfrtip',
+            select:true,
+            fixedColumns:   {
+                leftColumns: 2
+            },
             buttons: [
                 'excelHtml5' //导出文件格式为excel
             ],

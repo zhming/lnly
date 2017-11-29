@@ -109,47 +109,45 @@
                 </div>
             </div>
         </div>
+        <div class="hidden" id="hidden_filter">
+            <div class="row" style="margin-right:0;">
+                <input type="hidden" id="searchEmail" name="searchEmail" value="${token.email}"/>
+                <input type="hidden" id="searchYear" name="searchYear" value=""
+                       class="form-control input-small" style="width:150px" placeholder=""/>
+                <input type="hidden" id="searchContentFromLogin" name="searchContentFromLogin"
+                       value="${token.nickname}" class="form-control input-small"
+                       style="width:150px" placeholder=""/>
 
+                <input type="hidden" id="searchContentFromSelect" name="searchContentFromSelect"
+                       value="" class="form-control input-small"
+                       style="width:150px" placeholder=""/>
+
+                <button id="go_search" class="btn btn-default">查询</button>
+                <button id="addButton" onclick="viewAddModal();" class="btn btn-default">新增
+                </button>
+                <button id="updateButton" onclick="viewUpdateModal();" class="btn btn-default">
+                    修改
+                </button>
+                <button id="deleteButton" onclick="deleteList();" class="btn btn-default">删除
+                </button>
+                <button id="importButton" onclick="viewUploadModal();" class="btn btn-default">批量导入
+                </button>
+                <button id="checkButton" onclick="check();"  class="btn btn-default">批量审批
+                </button>
+
+            </div>
+
+        </div>
         <div class="col-sm-9">
             <div class="col-sm-12">
                 <div class="table">
+                    <div class="col-lg-9">
+                        <strong id="tableTitle">2017年度国家补偿资金发放明细</strong>
+                    </div>
                     <table id="example" class="table table-striped table-bordered" cellspacing="0" width="100%">
                         <thead>
                         <tr>
-                            <div class="col-lg-9">
-                                <strong id="tableTitle">2017年度国家补偿资金发放明细</strong>
 
-                                <div class="hidden" id="hidden_filter">
-                                    <div class="row" style="margin-right:0;">
-                                        <input type="hidden" id="searchEmail" name="searchEmail" value="${token.email}"/>
-                                        <input type="hidden" id="searchYear" name="searchYear" value=""
-                                               class="form-control input-small" style="width:150px" placeholder=""/>
-                                        <input type="hidden" id="searchContentFromLogin" name="searchContentFromLogin"
-                                               value="${token.nickname}" class="form-control input-small"
-                                               style="width:150px" placeholder=""/>
-
-                                        <input type="hidden" id="searchContentFromSelect" name="searchContentFromSelect"
-                                               value="" class="form-control input-small"
-                                               style="width:150px" placeholder=""/>
-
-                                        <button id="go_search" class="btn btn-default">查询</button>
-                                        <button id="addButton" onclick="viewAddModal();" class="btn btn-default">新增
-                                        </button>
-                                        <button id="updateButton" onclick="viewUpdateModal();" class="btn btn-default">
-                                            修改
-                                        </button>
-                                        <button id="deleteButton" onclick="deleteList();" class="btn btn-default">删除
-                                        </button>
-                                        <button id="importButton" onclick="viewUploadModal();" class="btn btn-default">批量导入
-                                        </button>
-                                        <button id="checkButton" onclick="check();"  class="btn btn-default">批量审批
-                                        </button>
-
-                                    </div>
-
-                                </div>
-
-                            </div>
 
                         </tr>
                         <tr>
